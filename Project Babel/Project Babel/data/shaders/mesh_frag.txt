@@ -1,0 +1,194 @@
+#version 330 core
+#extension GL_EXT_gpu_shader4:enable
+
+
+
+
+const int MAX_POINT_LIGHTS = 2;    
+
+
+
+
+in vec2 UV;
+in vec3 normals;
+in vec3 worlds;
+in vec4 eyePos;
+out vec3 color;
+
+
+
+
+struct BaseLight                                                                    
+{   
+
+
+                                                                                
+    vec3 color;                                                                     
+    float ambient_intensity;                                                         
+    float diffuse_intensity;                                                         
+
+
+};                                                                                  
+
+
+
+                                                                                    
+struct DirectionalLight                                                             
+{   
+
+                                                                                
+    BaseLight Base;                                                                 
+    vec3 direction;              
+	
+	                                                   
+};  
+
+
+
+
+struct Attenuation                                                                  
+{                                                                                   
+    float Constant;                                                                 
+    float Linear;                                                                   
+    float Exp;                                                                      
+};                                                                                  
+
+
+
+                                                                                    
+struct PointLight                                                                           
+{                                                                                           
+    BaseLight Base;                                                                         
+    vec3 position;                                                                          
+    Attenuation Atten;                                                                      
+}; 
+
+
+
+struct FogAttributes
+{
+
+
+vec3 color;
+
+float density;
+
+
+};
+
+
+uniform DirectionalLight InternalDirectionalLight;
+uniform PointLight InternalPointLights[MAX_POINT_LIGHTS];
+uniform sampler2D myTextureSampler;   
+uniform sampler2DArray myTextureSampler2;
+uniform FogAttributes fog;   
+
+
+
+
+vec3 CalcInternalLight(BaseLight Light,vec3 light_direction,vec3 Normal)
+{
+
+
+    vec3 AmbientLight = Light.color * Light.ambient_intensity;
+
+
+	float DiffuseFactor = max(0,dot(Normal,-light_direction));                               
+	
+	 
+    vec3 DiffuseLight = Light.color * Light.diffuse_intensity * DiffuseFactor;  
+	
+
+
+	return DiffuseLight + AmbientLight;
+
+}
+
+
+
+
+
+vec3 CalcDirectionalLight(vec3 Normal)                                                      
+{
+
+                                                                                           
+    return CalcInternalLight(InternalDirectionalLight.Base, InternalDirectionalLight.direction, Normal);
+	
+	
+	 
+}  
+
+
+
+
+vec3 CalcPointLight(int Index, vec3 Normal)                                                 
+{
+
+
+                                                                                           
+    vec3 LightDirection = worlds - InternalPointLights[Index].position;                         
+    float Distance = length(LightDirection);                                                
+    LightDirection = normalize(LightDirection);                                             
+                                                                                            
+    vec3 Color = CalcInternalLight(InternalPointLights[Index].Base, LightDirection, Normal);       
+    float Attenuation =  InternalPointLights[Index].Atten.Constant +                               
+                         InternalPointLights[Index].Atten.Linear * Distance +                      
+                         InternalPointLights[Index].Atten.Exp * Distance * Distance;               
+                                                                                           
+    return Color / Attenuation;                                     
+	
+	
+	 
+} 
+
+
+
+
+float getFogFactor(float density)
+{
+
+
+
+float fogCoord = abs(eyePos.z/eyePos.w);
+return exp(-pow((density * fogCoord), 2.0));
+
+
+
+}
+
+
+
+
+void main(){
+
+    vec3 Normal = normalize(normals);                                                       
+    vec3 TotalLight = CalcDirectionalLight(Normal);                                         
+								                                                            
+    for (int i = 0 ; i < 0 ; i++) {                                           
+        TotalLight += CalcPointLight(i, Normal);                                            
+    } 
+
+
+
+	vec4 textureFetch = texture2D(myTextureSampler,UV);
+
+
+
+	if (textureFetch.a == 0.0f)
+	discard;
+
+
+
+	color = textureFetch.rgb *  TotalLight;
+
+
+
+
+
+   color = mix(fog.color,color,getFogFactor(fog.density)) ;
+
+
+
+}
+
+

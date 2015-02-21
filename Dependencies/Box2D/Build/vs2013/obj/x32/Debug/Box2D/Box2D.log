@@ -1,9 +1,0 @@
-﻿Build started 2/1/2015 2:03:31 AM.
-     1>Project "D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\Box2D.vcxproj" on node 2 (Build target(s)).
-     1>Lib:
-         Box2D.vcxproj -> D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\bin\x32\Debug\Box2D.lib
-     1>Done Building Project "D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\Box2D.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.03

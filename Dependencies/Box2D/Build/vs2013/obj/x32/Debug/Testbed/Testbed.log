@@ -1,9 +1,0 @@
-﻿Build started 2/18/2015 6:03:46 PM.
-     1>Project "D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\Testbed.vcxproj" on node 2 (Build target(s)).
-     1>Link:
-         Testbed.vcxproj -> D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\bin\x32\Debug\Testbed.exe
-     1>Done Building Project "D:\GitHub\NewPJA\Dependencies\Box2D\Build\vs2013\Testbed.vcxproj" (Build target(s)).
-
-Build succeeded.
-
-Time Elapsed 00:00:00.36

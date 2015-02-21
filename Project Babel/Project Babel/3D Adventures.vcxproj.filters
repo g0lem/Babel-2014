@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{91f285f4-c56d-4c90-bccc-93f4539bff26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{34764151-873f-4d00-bc6f-3510277d6ec1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\application.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\controls.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text_render.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text2D.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\shaders\text_frag.txt">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="data\shaders\text_vert.txt">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_frag.txt">
+      <Filter>shaders</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_vert.txt">
+      <Filter>shaders</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\2d.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\application.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\controls.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text_render.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text2D.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\texture.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
