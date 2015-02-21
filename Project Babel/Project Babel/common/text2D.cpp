@@ -63,7 +63,7 @@ void _Text::initText2D(char * texturePath){
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, 16 * g_width, 16 * g_height, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RED, 16* g_width, 16 *g_height, 0, GL_RED, GL_UNSIGNED_BYTE, 0);
 
 
 	for (GLuint j = 0; j < 16; j++)
