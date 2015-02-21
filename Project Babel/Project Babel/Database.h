@@ -76,15 +76,97 @@ public:
 		
 		while (sqlite3_step(res) == SQLITE_ROW)
 		{
-			std::cout << sqlite3_column_int(res, 1) << " " << sqlite3_column_int(res, 2) << std::endl;
-			Engine::createBox(Window, *world, (float)(sqlite3_column_int(res, 1)), (float)(sqlite3_column_int(res, 2)), 40, 40, 1);					
+			std::cout <<"Building Enitity: "<< sqlite3_column_int(res, 1) << " " << sqlite3_column_int(res, 2) << std::endl;
+			Engine::createBox(Window, *world, (float)(sqlite3_column_int(res, 1)), (float)(sqlite3_column_int(res, 2)), sqlite3_column_int(res, 3), sqlite3_column_int(res, 4), 1);
 		}	
 
 		sqlite3_finalize(res);
 
 		sqlite3_close(db);
 	}
+	static void Delete_Object(sf::RenderWindow &Window, b2World *&world)
+	{
+		sqlite3 *db;
+		sqlite3_stmt *res, *statement;
+		const char *tail;
+		int count = 0;
 
+		if (sqlite3_open("Insight.db", &db))
+		{
+			sqlite3_close(db);
+			printf("Can't open database: %s\n", sqlite3_errmsg(db));
+
+		}
+
+		printf("Database connection okay!\n");
+
+		if (sqlite3_prepare_v2(db, "SELECT * FROM StaticObjects", 128, &res, &tail) != SQLITE_OK)
+		{
+			sqlite3_close(db);
+			printf("Can't retrieve data: %s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Reading data...\n");
+		while (sqlite3_step(res) == SQLITE_ROW)
+		{
+			std::cout << "Mouse: " << sf::Mouse::getPosition(Window).x << " " << sf::Mouse::getPosition(Window).y << std::endl;
+			std::cout << "SQL: " << sqlite3_column_int(res, 1) << " " << sqlite3_column_int(res, 2) << " " << sqlite3_column_int(res, 3) << " " << sqlite3_column_int(res, 4) << std::endl;
+			if (sqlite3_column_int(res, 1) <= sf::Mouse::getPosition(Window).x < sqlite3_column_int(res, 1) + sqlite3_column_int(res, 3) && sqlite3_column_int(res, 2) <= sf::Mouse::getPosition(Window).y < sqlite3_column_int(res, 2) + sqlite3_column_int(res, 4))
+			{
+				Engine::Delete_Body(world, sqlite3_column_int(res, 1), sqlite3_column_int(res, 2), sqlite3_column_int(res, 3), sqlite3_column_int(res, 4));
+				sqlite3_prepare_v2(db, "DELETE FROM StaticObjects WHERE x=? AND y=?", 128, &statement, &tail);
+				sqlite3_bind_int(statement, 1, sqlite3_column_int(res, 1));
+				sqlite3_bind_int(statement, 2, sqlite3_column_int(res, 2));
+				sqlite3_step(statement);
+				sqlite3_finalize(statement);
+			}
+			
+		}
+		sqlite3_finalize(res);
+
+		sqlite3_close(db);
+	}
+	static void Update_Object(sf::RenderWindow &Window, b2World *&world)
+	{
+		sqlite3 *db;
+		sqlite3_stmt *res, *statement;
+		const char *tail;
+		int count = 0;
+
+		if (sqlite3_open("Insight.db", &db))
+		{
+			sqlite3_close(db);
+			printf("Can't open database: %s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Database connection okay!\n");
+
+		if (sqlite3_prepare_v2(db, "SELECT * FROM StaticObjects", 128, &res, &tail) != SQLITE_OK)
+		{
+			sqlite3_close(db);
+			printf("Can't retrieve data: %s\n", sqlite3_errmsg(db));
+		}
+
+		printf("Reading data...\n");
+		
+				
+		sqlite3_prepare_v2(db, "UPDATE StaticObjects SET x = ?, y= ? WHERE x = ? AND y = ? ", 128, &statement, &tail);
+				
+				sqlite3_bind_int(statement, 1, sf::Mouse::getPosition(Window).x);
+				sqlite3_bind_int(statement, 2, sf::Mouse::getPosition(Window).y);
+				sqlite3_bind_int(statement, 3, sqlite3_column_int(res, 1));
+				sqlite3_bind_int(statement, 4, sqlite3_column_int(res, 2));
+								
+				sqlite3_step(statement);
+				sqlite3_finalize(statement);
+			
+
+		       
+		
+		sqlite3_finalize(res);
+
+		sqlite3_close(db);
+	}
 
 	static void AddStaticBox(int id, int x, int y, int width, int height)
 	{
