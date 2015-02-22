@@ -1,0 +1,52 @@
+﻿Build started 11/10/2014 9:27:49 AM.
+     1>Project "C:\Users\Aaether\Desktop\3D Adventrues\3D Adventures\3D Adventures\3D Adventures.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\aaether_loader.cpp common\animated_mesh.cpp common\application.cpp common\assimp_loader.cpp common\controller_math.cpp common\controls.cpp common\granny_loader.cpp common\granny_loader_helper.cpp common\light.cpp common\math_3d.cpp common\mesh_drawer.cpp common\pipeline.cpp common\shader.cpp common\skybox.cpp common\sky_render.cpp common\terrain.cpp common\text2D.cpp common\texture.cpp common\text_render.cpp common\view.cpp main.cpp
+         aaether_loader.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\math_3d.h(30): fatal error C1083: Cannot open include file: 'assimp/vector3.h': No such file or directory
+         animated_mesh.cpp
+     1>common\animated_mesh.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         application.cpp
+     1>common\application.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         assimp_loader.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\assimp_loader.hpp(25): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         controller_math.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\controller_math.hpp(4): fatal error C1083: Cannot open include file: 'glfw3.h': No such file or directory
+         controls.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\controls.hpp(4): fatal error C1083: Cannot open include file: 'glfw3.h': No such file or directory
+         granny_loader.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\granny_loader.h(3): fatal error C1083: Cannot open include file: 'granny.h': No such file or directory
+         granny_loader_helper.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\granny_loader.h(3): fatal error C1083: Cannot open include file: 'granny.h': No such file or directory
+         light.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\light.hpp(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         math_3d.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\ogldev_util.h(23): fatal error C1083: Cannot open include file: 'unistd.h': No such file or directory
+         mesh_drawer.cpp
+     1>common\mesh_drawer.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         pipeline.cpp
+     1>common\pipeline.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         shader.cpp
+     1>common\shader.cpp(12): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         skybox.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\skybox.hpp(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         sky_render.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\sky_render.hpp(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         terrain.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\terrain.hpp(4): fatal error C1083: Cannot open include file: 'gl/glew.h': No such file or directory
+         text2D.cpp
+     1>common\text2D.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         texture.cpp
+     1>common\texture.cpp(4): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         text_render.cpp
+     1>common\text_render.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+         view.cpp
+     1>c:\users\aaether\desktop\3d adventrues\3d adventures\3d adventures\common\view.hpp(4): fatal error C1083: Cannot open include file: 'glfw3.h': No such file or directory
+         Compiling...
+         main.cpp
+     1>main.cpp(1): fatal error C1083: Cannot open include file: 'GL/glew.h': No such file or directory
+     1>Done Building Project "C:\Users\Aaether\Desktop\3D Adventrues\3D Adventures\3D Adventures\3D Adventures.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.41
