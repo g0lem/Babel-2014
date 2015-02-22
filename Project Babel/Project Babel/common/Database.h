@@ -1,5 +1,5 @@
-#ifndef DATABASE_MANAGER_H
-#define DATABASE_MANAGER_H
+#ifndef _DATABASE_H
+#define _DATABASE_H
 
 #include "sqlite3.h"
 #include <stdio.h>
