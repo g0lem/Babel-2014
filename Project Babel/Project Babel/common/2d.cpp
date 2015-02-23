@@ -3,8 +3,6 @@
 
 
 
-
-
 void Aaether2D::Init()
 
 {
@@ -119,7 +117,7 @@ void Aaether2D::Render(Controller * ctrl)
 
 	this->m_sprite->Render(0);
 
-
+	this->m_map->Render();
 	
 
 

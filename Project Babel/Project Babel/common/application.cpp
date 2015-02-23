@@ -82,6 +82,7 @@ void Application::Load()
 
 	tr = new TextRender(ctrl);
 
+	map = new Map();
 
 	aa_render = new Aaether2D();
 
@@ -107,6 +108,8 @@ void Application::Render()
 
 		tr->Render(ctrl);
 
+
+		map->Render();
 
 
 		glfwSwapBuffers(window);

@@ -9,6 +9,7 @@
 #include "controls.hpp"
 #include "text_render.hpp"
 #include "2d.hpp"
+#include "map.hpp"
 
 
 class Application
@@ -20,7 +21,7 @@ class Application
 
 	Controller * ctrl;
 
-
+	Map*map;
 
 	TextRender *tr;
 

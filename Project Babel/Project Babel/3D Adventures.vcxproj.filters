@@ -54,6 +54,9 @@
     <ClCompile Include="common\uniform_2d.cpp">
       <Filter>common</Filter>
     </ClCompile>
+    <ClCompile Include="common\map.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_frag.txt">
@@ -98,6 +101,9 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="common\uniform_2d.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\map.hpp">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>

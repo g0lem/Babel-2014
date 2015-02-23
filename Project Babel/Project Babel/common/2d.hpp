@@ -8,7 +8,7 @@
 #include "uniform_2d.hpp"
 #include "2d_math.hpp"
 #include "controls.hpp"
-
+#include "map.hpp"
 
 
 class Aaether2D
@@ -19,6 +19,7 @@ class Aaether2D
 
 	Sprite * m_sprite;
 
+	Map* m_map;
 
 	GLuint texID;
 

@@ -51,7 +51,6 @@ void Sprite::Load(GLuint num_textures, char ** textures_str)
 		this->textures[i] = load_texture(textures_str[i],GL_LINEAR);
 
 
-
 }
 
 
