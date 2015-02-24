@@ -1,0 +1,11 @@
+Framework -- 90% { Remaining:: Sound Streams and Sound }
+Movement -- 40%
+Tilemap -- 10%
+Cutscene player -- 0%
+Combat -- 0%
+Save/Load -- 0%
+Menus -- 0%
+AI -- 0%
+State Manager -- 0%
+Quests and Narrative -- 0%
+Triggers -- 0%
