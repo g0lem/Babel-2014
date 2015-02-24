@@ -108,8 +108,6 @@ void Application::Render()
 		tr->Render(ctrl);
 
 
-		//map->map->Render(0);
-
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();

@@ -1,4 +1,4 @@
-﻿Build started 2/23/2015 8:01:48 PM.
+﻿Build started 2/23/2015 10:35:35 PM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\3D Adventures.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (3D Adventures.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>Link:
@@ -44,4 +44,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.22
+Time Elapsed 00:00:00.21

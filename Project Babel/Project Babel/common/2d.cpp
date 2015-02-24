@@ -30,9 +30,9 @@ void Aaether2D::Init()
 
 	this->m_sprite->Load(1, tex_str);
 
-	//this->m_map = new Map();
+	this->m_map = new Map();
 
-	//this->m_map->map->Load(1, tex_str);
+	this->m_map->Load(1, tex_str2);
 
 
 	this->program = LoadShaders("data/shaders/2d_vert.txt", "data/shaders/2d_frag.txt");
@@ -119,17 +119,20 @@ void Aaether2D::Render(Controller * ctrl)
 	glm::vec2 pos = glm::vec2(400.0f, 300.0f);
 	glm::vec2 scale = glm::vec2(200.0f, 200.0f);
 	
+	
+	this->m_map->Render();
+
 
 	this->u_data->ApplyMatrix(Shaorma(position, scale, alpha));
 
 
-	alpha += 0.3f;
+	//alpha += 0.3f;
 
 
 
 	this->m_move->move(ctrl, position.x, position.y);
 
-
+	
 	
 	this->m_sprite->Render(0);
 
