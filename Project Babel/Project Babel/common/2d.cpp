@@ -1,5 +1,4 @@
 #include "2d.hpp"
-#include "application.hpp"
 
 GLfloat alpha = 0.0f;
 glm::vec2 position(300.f, 300.f);
@@ -118,9 +117,9 @@ void Aaether2D::Render(Controller * ctrl)
 	this->u_data->ApplyMatrix(Shaorma(position, scale, alpha));
 
 	alpha += 0.3f;
-	position.y += 2;
-	position.x -= 2;
 
+	this->m_move->move(ctrl, position.x, position.y);
+	
 	this->m_sprite->Render(0);
 
 	//this->m_map->map->Render(0);

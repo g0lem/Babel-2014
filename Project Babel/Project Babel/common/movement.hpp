@@ -1,14 +1,16 @@
 #ifndef MOVEMENT_HPP
 #define MOVEMENT_HPP
 
-#include "application.hpp"
+#include <glfw3.h>
+#include "controls.hpp"
+
+
 
 class Move
 {
 public:
-	void move(GLuint x, GLuint y);
+	void move(Controller* ctrl, GLfloat &x, GLfloat &y);
 
-	GLFWwindow* window;
 };
 
 #endif

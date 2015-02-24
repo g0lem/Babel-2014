@@ -9,15 +9,17 @@
 #include "2d_math.hpp"
 #include "controls.hpp"
 #include "map.hpp"
+#include "movement.hpp"
 
 
-class Aaether2D
+class Aaether2D 
 {
 
 	ScreenUniformData * u_data;
 
-
 	Sprite * m_sprite;
+
+	Move* m_move;
 
 	Map* m_map;
 

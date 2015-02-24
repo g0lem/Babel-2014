@@ -82,7 +82,6 @@ void Application::Load()
 
 	tr = new TextRender(ctrl);
 
-	map = new Map();
 
 	aa_render = new Aaether2D();
 
@@ -123,12 +122,6 @@ void Application::Render()
 
 }
 
-int Application::GetKey(GLuint key)
-{
-	if (GLFW_PRESS == glfwGetKey(window, key))
-		return true;
-	return false;
-}
 
 void Application::Terminate()
 {
@@ -138,7 +131,6 @@ void Application::Terminate()
 	delete ctrl;
 	delete aa_render;
 	delete tr;
-	delete map;
 
 	glfwDestroyWindow(this->window);
 	glfwTerminate();

@@ -9,18 +9,14 @@
 #include "controls.hpp"
 #include "text_render.hpp"
 #include "2d.hpp"
-#include "map.hpp"
-#include "movement.hpp"
 
 class Application
 {
 
 	Controller * ctrl;
 
-	Map*map;
 
 	TextRender *tr;
-
 
 
 	Aaether2D * aa_render;
@@ -37,7 +33,7 @@ public:
 
 	int Init();
 
-	int GetKey(GLuint key);
+
 
 	void SetFlags();
 
