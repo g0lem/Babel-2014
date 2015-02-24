@@ -1,6 +1,8 @@
 #include "2d.hpp"
+#include "application.hpp"
 
-
+GLfloat alpha = 0.0f;
+glm::vec2 position(300.f, 300.f);
 
 
 void Aaether2D::Init()
@@ -16,13 +18,16 @@ void Aaether2D::Init()
 
 	char ** tex_str = new char*[1];
 	tex_str[0] = "desertfest.png";
-
+	char ** tex_str2 = new char*[2];
+	tex_str2[0] = "image.png";
 
 	this->m_sprite = new Sprite();
 
 	this->m_sprite->Load(1, tex_str);
 
+	//this->m_map = new Map();
 
+	//this->m_map->map->Load(1, tex_str);
 
 
 	this->program = LoadShaders("data/shaders/2d_vert.txt", "data/shaders/2d_frag.txt");
@@ -108,16 +113,17 @@ void Aaether2D::Render(Controller * ctrl)
 
 	glm::vec2 pos = glm::vec2(400.0f, 300.0f);
 	glm::vec2 scale = glm::vec2(200.0f, 200.0f);
-	GLfloat alpha = 0.0f;
+	
 
+	this->u_data->ApplyMatrix(Shaorma(position, scale, alpha));
 
-
-	this->u_data->ApplyMatrix(Shaorma(pos, scale, alpha));
-
+	alpha += 0.3f;
+	position.y += 2;
+	position.x -= 2;
 
 	this->m_sprite->Render(0);
 
-	this->m_map->Render();
+	//this->m_map->map->Render(0);
 	
 
 

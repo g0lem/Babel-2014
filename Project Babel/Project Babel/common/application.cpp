@@ -109,7 +109,7 @@ void Application::Render()
 		tr->Render(ctrl);
 
 
-		map->Render();
+		//map->map->Render(0);
 
 
 		glfwSwapBuffers(window);
@@ -123,6 +123,13 @@ void Application::Render()
 
 }
 
+int Application::GetKey(GLuint key)
+{
+	if (GLFW_PRESS == glfwGetKey(window, key))
+		return true;
+	return false;
+}
+
 void Application::Terminate()
 {
 
@@ -131,7 +138,7 @@ void Application::Terminate()
 	delete ctrl;
 	delete aa_render;
 	delete tr;
-
+	delete map;
 
 	glfwDestroyWindow(this->window);
 	glfwTerminate();

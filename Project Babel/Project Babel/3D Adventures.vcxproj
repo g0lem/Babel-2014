@@ -77,6 +77,7 @@
     <ClCompile Include="common\application.cpp" />
     <ClCompile Include="common\controls.cpp" />
     <ClCompile Include="common\map.cpp" />
+    <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\shader.cpp" />
     <ClCompile Include="common\sprite.cpp" />
     <ClCompile Include="common\text2D.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="common\application.hpp" />
     <ClInclude Include="common\controls.hpp" />
     <ClInclude Include="common\map.hpp" />
+    <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\shader.hpp" />
     <ClInclude Include="common\sprite.hpp" />
     <ClInclude Include="common\text2D.hpp" />

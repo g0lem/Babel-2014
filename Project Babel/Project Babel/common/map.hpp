@@ -13,17 +13,20 @@ class Map
 {
 public:
 
-	Sprite *sprite;
+	Sprite *map;
 
-	void Load();
+	void Load(GLuint num_textures, char ** textures_str);
 
 	void GetNext();
 
 	void Render();
 
 private:
-	GLuint *texture;
+
+	GLuint *textures;
+
 	GLuint num_textures;
+
 
 	GLuint m_VBO;
 };

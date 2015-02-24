@@ -10,20 +10,17 @@
 #include "text_render.hpp"
 #include "2d.hpp"
 #include "map.hpp"
-
+#include "movement.hpp"
 
 class Application
 {
-
-
-	GLFWwindow* window;
-
 
 	Controller * ctrl;
 
 	Map*map;
 
 	TextRender *tr;
+
 
 
 	Aaether2D * aa_render;
@@ -33,13 +30,14 @@ class Application
 public:
 
 	inline Application() { this->Init(); }
-
+	GLFWwindow* window;
 
 	inline ~Application() { this->Terminate(); }
 
 
 	int Init();
 
+	int GetKey(GLuint key);
 
 	void SetFlags();
 
