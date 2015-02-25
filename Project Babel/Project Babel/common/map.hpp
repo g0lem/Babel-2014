@@ -13,9 +13,6 @@ class Map
 {
 public:
 
-	Sprite *map;
-
-	void Load(GLuint num_textures, char ** textures_str);
 
 	void GetNext();
 

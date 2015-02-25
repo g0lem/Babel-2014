@@ -23,7 +23,7 @@ class Aaether2D
 	Move* m_move;
 
 
-	Map* m_map;
+	Sprite* m_map;
 
 
 	GLuint texID;
