@@ -9,9 +9,16 @@
 #include "controls.hpp"
 #include "text_render.hpp"
 #include "2d.hpp"
+#include <time.h>
+
+
+
+
 
 class Application
 {
+
+
 
 	Controller * ctrl;
 
@@ -23,10 +30,18 @@ class Application
 
 
 
+	GLFWwindow* window;
+
+
+
 public:
 
+
+
+
 	inline Application() { this->Init(); }
-	GLFWwindow* window;
+
+
 
 	inline ~Application() { this->Terminate(); }
 

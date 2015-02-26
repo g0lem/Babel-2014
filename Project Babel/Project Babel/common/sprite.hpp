@@ -23,7 +23,7 @@ class Sprite
 public:
 
 
-	void Load(GLuint num_textures, char **textures_str);
+	void Load(GLuint num_textures, char * dir, char **textures_str);
 
 	
 

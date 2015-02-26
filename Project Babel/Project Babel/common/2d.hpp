@@ -4,27 +4,26 @@
 
 #include <GL/glew.h>
 #include "shader.hpp"
-#include "sprite.hpp"
-#include "uniform_2d.hpp"
-#include "2d_math.hpp"
-#include "controls.hpp"
 #include "map.hpp"
-#include "movement.hpp"
+#include "player.hpp"
 
 
 class Aaether2D 
 {
 
+
+	//mess it up!
+
+
+	Map * m_map;
+
+
+	Player * m_player;
+
+
+	//things not to mess up with
+
 	ScreenUniformData * u_data;
-
-	Sprite * m_sprite;
-
-
-	Move* m_move;
-
-
-	Sprite* m_map;
-
 
 	GLuint texID;
 
@@ -56,6 +55,9 @@ public:
 
 	void Init();
 
+
+
+	void Load();
 
 
 

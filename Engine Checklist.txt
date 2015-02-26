@@ -1,6 +1,6 @@
 Framework -- 90% { Remaining:: Sound Streams and Sound }
-Movement -- 40%
-Tilemap -- 10%
+Movement -- 80%
+Tilemap -- 50% {Room generator 0/1, Doors generator}
 Cutscene player -- 0%
 Combat -- 0%
 Save/Load -- 0%

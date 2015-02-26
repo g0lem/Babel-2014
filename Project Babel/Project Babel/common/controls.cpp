@@ -91,7 +91,7 @@ void FPS::FirstPass()
 
 	GLdouble currentTime = glfwGetTime();
 
-	deltaTime = GLfloat(currentTime - lastTime2);
+	deltaTime = returnable_deltaTime = GLfloat(currentTime - lastTime2);
 
 	lastTime2 = glfwGetTime();
 

@@ -57,12 +57,12 @@ void TextRender::Render(Controller *ctrl)
 	glUniform2f(this->half_screen_uniform, ctrl->GetWindowWidth() / 2, ctrl->GetWindowHeight() / 2);
 
 
-	glUniform4f(this->font_color_uniform, 0.5f, 0.5f, 0.5f, 1.0f);
+	glUniform4f(this->font_color_uniform, 1.0f, 1.0f, 1.0f, 1.0f);
 	
 
 
 	sprintf(text, "FPS:%.2f", ctrl->returnFps());
-	this->_text->printText2D(text, 0, 580, 20);
+	this->_text->printText2D(text, 0, 600, 40);
 
 
 

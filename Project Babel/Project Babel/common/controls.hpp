@@ -41,7 +41,7 @@ class FPS
 	GLdouble lastTime2;
 
 
-	GLdouble deltaTime;
+	GLdouble deltaTime, returnable_deltaTime;
 
 
 
@@ -53,7 +53,8 @@ public:
 
 	inline GLfloat Get() { return fps; }
 
-	inline GLdouble Delta() { return deltaTime; }
+	inline GLdouble Delta() { return this->returnable_deltaTime; }
+
 
 	void FirstPass();
 
@@ -86,6 +87,8 @@ class Controller
 public:
 
 
+
+	inline FPS*GetFpsPointer(){ return this->fps; }
 
 
 

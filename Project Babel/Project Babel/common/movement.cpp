@@ -1,14 +1,17 @@
 #include "movement.hpp"
 
 
+GLfloat speed = 200.0f;
+
+
 void Move::move(Controller* ctrl, GLfloat &x, GLfloat &y)
 {
 	if (GLFW_PRESS == glfwGetKey(ctrl->GetWindow(), GLFW_KEY_W))
-		y += 4;
+		y += speed*ctrl->GetFpsPointer()->Delta();
 	if (GLFW_PRESS == glfwGetKey(ctrl->GetWindow(), GLFW_KEY_S))
-		y -= 4;
+		y -= speed*ctrl->GetFpsPointer()->Delta();
 	if (GLFW_PRESS == glfwGetKey(ctrl->GetWindow(), GLFW_KEY_A))
-		x -= 4;
+		x -= speed * ctrl->GetFpsPointer()->Delta();
 	if (GLFW_PRESS == glfwGetKey(ctrl->GetWindow(), GLFW_KEY_D))
-		x += 4;
+		x += speed * ctrl->GetFpsPointer()->Delta();
 }

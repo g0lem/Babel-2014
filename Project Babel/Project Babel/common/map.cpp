@@ -1,18 +1,92 @@
 #include "map.hpp"
 
 
-char Tmap[4][4] = {
-		{ 1, 1, 1, 1},
-		{ 1, 0, 0, 0},
-		{ 1, 0, 0, 0},
-		{ 1, 0, 0, 0},
-
-};
 
 
-void Map::Render()
+void Map::Init()
+{
+
+
+	//Sprite stuff
+
+
+
+	this->m_sprite = new Sprite();
+
+
+	char ** tex_str = new char*[4];
+	tex_str[0] = "tile1.jpg";
+	tex_str[1] = "tile2.jpg";
+	tex_str[2] = "tile3.jpg";
+	tex_str[3] = "tile4.jpg";
+
+
+	this->m_sprite->Load(4,"data/tiles/", tex_str);
+
+
+	
+
+	//Tile map stuff
+
+
+	this->tile_scale = glm::vec2(64.0f, 64.0f);
+
+
+	this->size = glm::ivec2(15, 10);
+
+
+
+
+	this->tile_map = new GLint*[this->size.x];
+	for (GLuint i = 0; i < this->size.x; i++)
+		this->tile_map[i] = new GLint[this->size.y];
+
+
+
+	for (GLuint j = 0; j < this->size.y; j++)
+	{
+
+
+		for (GLuint i = 0; i < this->size.x; i++)
+
+
+		{
+
+
+			this->tile_map[i][j] = Rand(4);
+
+
+		}
+
+
+
+	}
+
+
+
+}
+
+
+
+void Map::Render(Controller * ctrl , ScreenUniformData * u_data)
 {
 	
+
+
+	for (int j = 0; j < this->size.y; j++)
+	{
+		for (int i = 0; i < this->size.x; i++)
+		{
+
+
+			u_data->ApplyMatrix(Translation(glm::vec2(i, this->size.y-j-1)*tile_scale)*Scale(tile_scale));
+			this->m_sprite->Render(this->tile_map[i][j]);
+
+
+		}
+	}
+
+
 
 }
 

@@ -5,6 +5,8 @@
 #include <glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <time.h>
+
 
 
 #ifndef M_PI
@@ -33,13 +35,26 @@ inline glm::mat3 Scale(GLfloat scale){return Scale(scale, scale); }
 inline glm::mat3 Scale(glm::vec2 scale){ return Scale(scale.x, scale.y); }
 
 
+
+
+
 glm::mat3 Rotation(GLfloat alpha);
+
 
 
 inline glm::mat3 Shaorma(glm::vec2 pos, glm::vec2 scale, GLfloat alpha)
 {
 	return Translation(pos)*Rotation(TO_RADIANS(alpha))*Translation(-scale / 2.0f)*Scale(scale); 
 }
+
+
+inline GLuint Rand(GLuint n){ return rand() % n; }
+
+
+inline GLuint Rand(GLuint a, GLuint b){ return rand() % (b - a + 1) + a; }
+
+
+inline glm::vec2 GridPosition(glm::vec2 pos, glm::vec2 scale) { return glm::vec2(glm::ivec2(pos / scale))*scale; }
 
 
 #endif

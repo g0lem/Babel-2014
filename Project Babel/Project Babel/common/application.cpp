@@ -7,13 +7,18 @@
 
 
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 600
+#define WINDOW_WIDTH 960
+#define WINDOW_HEIGHT 640
 
 
 
 int Application::Init()
 {
+
+
+
+	srand(time(NULL));
+
 
 
 
