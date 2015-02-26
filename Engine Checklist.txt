@@ -9,3 +9,6 @@ AI -- 0%
 State Manager -- 0%
 Quests and Narrative -- 0%
 Triggers -- 0%
+Light engine -- 0%
+Distance function -- 100%
+Entity class -- 0%
