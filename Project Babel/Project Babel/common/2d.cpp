@@ -6,12 +6,18 @@ GLuint v_map[3][3] = {
 	1, 0, 0
 };
 
+int v_map2[4][6] = {
+	1, 1, 1, 1, 2, 3,
+	0, 2, 0, 0, 2, 2,
+	0, 2, 0, 0, 2, 1,
+	0, 0, 1, 0, 2, 0
+};
 
 
 GLfloat alpha = 0.0f;
 
 
-glm::vec2 position(300.f, 300.f);
+glm::vec2 position(64.f, 64.f);
 
 
 void Aaether2D::Init()
@@ -27,9 +33,13 @@ void Aaether2D::Init()
 
 	char ** tex_str = new char*[1];
 	tex_str[0] = "desertfest.png";
-	char ** tex_str2 = new char*[2];
-	tex_str2[0] = "image.png";
-	tex_str2[1] = "obama.png";
+	char ** tex_str2 = new char*[4];
+	tex_str2[0] = "dirt.jpg";
+	tex_str2[1] = "glassish.jpg";
+	tex_str2[2] = "stone.jpg";
+	tex_str2[3] = "stonex.jpg";
+
+
 
 	this->m_sprite = new Sprite();
 
@@ -37,7 +47,8 @@ void Aaether2D::Init()
 
 	this->m_map = new Sprite();
 
-	this->m_map->Load(2, tex_str2);
+	this->m_map->Load(4, tex_str2);
+
 
 
 	this->program = LoadShaders("data/shaders/2d_vert.txt", "data/shaders/2d_frag.txt");
@@ -122,28 +133,31 @@ void Aaether2D::Render(Controller * ctrl)
 
 
 	glm::vec2 pos = glm::vec2(400.0f, 300.0f);
-	glm::vec2 scale = glm::vec2(200.0f, 200.0f);
+	glm::vec2 scale = glm::vec2(64.0f, 64.0f);
 	
+
+
+	
+
+
+	for (int i = 0; i < 4;i++)
+	{
+		for (int j = 0; j < 6;j++)
+		{
+			glPushMatrix();
+
+			this->u_data->ApplyMatrix(Shaorma(glm::vec2(j * 64 + 32, i * 64 + 32), scale, 0));
+			this->m_map->Render(v_map2[i][j]);
+
+			glPopMatrix();
+		}
+	}
 
 
 	this->u_data->ApplyMatrix(Shaorma(position, scale, alpha));
-
-
-	//alpha += 0.3f;
-
-	
-
 	this->m_move->move(ctrl, position.x, position.y);
-
-	for (GLuint i = 0; i < 3; i++)
-		for (GLuint j = 0; j < 3; j++)
-			if (v_map[i][j] == 1)
-				this->m_map->Render(1);
-			else
-				this->m_map->Render(0);
-
-
 	this->m_sprite->Render(0);
+	
 
 
 	this->LastPass();
