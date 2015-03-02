@@ -204,5 +204,30 @@ public:
 		sqlite3_close(db);
 	}
 
+	static int GetProperty(int EntityID, int Property)
+	{
+		sqlite3 *db;
+		sqlite3_stmt *res;
+		const char *tail;
+		int answer;
+
+		if (sqlite3_open("Insight.db", &db))
+			sqlite3_close(db);
+
+		if (sqlite3_prepare_v2(db, "SELECT * FROM Blocks", 128, &res, &tail) != SQLITE_OK)
+			sqlite3_close(db);
+
+
+		while (sqlite3_step(res) == SQLITE_ROW)
+		{
+			if (sqlite3_column_int(res, 1) == EntityID)
+				answer = sqlite3_column_int(res, Property);
+		}
+		sqlite3_finalize(res);
+
+		sqlite3_close(db);
+		return answer;
+	}
+
 };
 #endif
