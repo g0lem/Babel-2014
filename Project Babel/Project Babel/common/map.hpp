@@ -2,12 +2,11 @@
 #define MAP_HPP
 
 
-#include "sprite.hpp"
-#include <GL\glew.h>
-#include <glfw3.h>
-#include "controls.hpp"
 #include "uniform_2d.hpp"
+#include "controls.hpp"
 #include "2d_math.hpp"
+#include "room.hpp"
+#include "tile_map.hpp"
 
 
 #define MAP_SIZE_X 30
@@ -33,17 +32,23 @@ public:
 private:
 
 
-	glm::vec2 tile_scale;
 
-	glm::ivec2 size;
-
-
-	GLint **tile_map;
-
+	Tilemap *tilemap;
 
 	Sprite * m_sprite;
 
-	int DistanceMap[MAP_SIZE_Y][MAP_SIZE_X];
+
+	GLuint expected_rooms;
+
+	std::vector<Room*>rooms;
+
+
+
+
+
+	GLint DistanceMap[MAP_SIZE_Y][MAP_SIZE_X];
+
+
 
 };
 

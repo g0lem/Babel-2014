@@ -6,17 +6,15 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-#include "controls.hpp"
-#include "text2D.hpp"
 #include "shader.hpp"
-#include <stdio.h>
+
+
+
 
 class TextRender
 {
-	char text[256];
 
 
-	_Text *_text;
 
 	GLuint m_VAO;
 
@@ -35,15 +33,33 @@ class TextRender
 
 public:
 
-	inline TextRender(Controller * ctrl) { this->Init(ctrl); }
+
+
+	inline TextRender() { }
 
 
 	inline ~TextRender() { this->Clean(); }
 
-	void Init(Controller * ctrl);
 
 
-	void Render(Controller *ctrl);
+	void SetColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a);
+
+
+
+	void SetColor(GLfloat r, GLfloat g, GLfloat b);
+
+
+
+	void BindCreate(char * vertex_shader, char * fragment_shader);
+
+
+	void UnbindCreate();
+
+
+	void BindRun(GLuint window_width, GLuint window_height);
+
+
+	void UnbindRun();
 
 
 	void Clean();

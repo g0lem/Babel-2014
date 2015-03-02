@@ -4,24 +4,13 @@
 
 #include <GL/glew.h>
 #include "shader.hpp"
-#include "map.hpp"
-#include "player.hpp"
+#include "uniform_2d.hpp"
 
 
 class Aaether2D 
 {
 
 
-	//mess it up!
-
-
-	Map * m_map;
-
-
-	Player * m_player;
-
-
-	//things not to mess up with
 
 	ScreenUniformData * u_data;
 
@@ -40,28 +29,38 @@ class Aaether2D
 	void Ortho(GLuint window_width, GLuint window_height);
 
 
-	void FirstPass(Controller * ctrl);
-
-
-	void LastPass();
 
 	
 public:
 
 
 
-	inline Aaether2D(){this->Init(); }
+	inline Aaether2D(){}
 
 
-	void Init();
-
-
-
-	void Load();
+	inline ~Aaether2D(){ this->Clean(); }
 
 
 
-	void Render(Controller*ctrl);
+	void Clean();
+
+
+
+	void BindCreate(char * vertex_shader, char * fragment_shader);
+
+
+	void UnbindCreate();
+
+
+
+	void BindRun(GLuint window_width, GLuint window_height);
+
+
+	void UnbindRun();
+	
+
+
+	inline ScreenUniformData * GetScreenPointer(){ return this->u_data; }
 
 
 };

@@ -1,16 +1,29 @@
 //Checked 2014
 
+
+
 #ifndef TEXT2D_HPP
 #define TEXT2D_HPP
+
+
+
 
 #include <vector>
 #include <cstring>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <ft2build.h>
+
+
+typedef char GLchar;
+
+
 #include FT_FREETYPE_H
 
-class _Text
+
+
+
+class Font
 {
 
 
@@ -18,7 +31,17 @@ class _Text
 	GLuint Text2DVertexBufferID;
 	GLuint Text2DUVBufferID;
 
-	inline GLint next_p2(int a)
+
+
+	GLuint glyph_offset[256];
+
+
+	GLuint glyph_width;
+
+
+
+
+	inline GLint next_p2(GLint a)
 	{
 		GLint rval = 1;
 
@@ -30,9 +53,9 @@ class _Text
 public:
 
 
-	void initText2D(char * texturePath);
-	void printText2D(const char * text, int x, int y, int size);
-	void cleanupText2D();
+	GLvoid Create(char * texturePath, GLuint size);
+	GLvoid Print(const GLchar * text, GLint x, GLint y, GLint size);
+	GLvoid Clean();
 
 
 

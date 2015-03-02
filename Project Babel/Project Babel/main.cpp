@@ -13,13 +13,8 @@ int main(int argc, char *argv[])
 	Application*app = new Application();
 
 
-	app->SetFlags();
 
-
-	app->Load();
-
-
-	app->Render();
+	app->Run();
 
 
 	delete app;

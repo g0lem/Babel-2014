@@ -12,115 +12,61 @@
 
 
 
-int Application::Init()
+void Application::Init()
 {
 
 
 
-	srand(time(NULL));
+
+    this->CreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT,
+		false,
+		"Project Babel 0.0.5a",
+		4, 0);
 
 
 
-
-	if (!glfwInit())
-	{
-		fprintf(stderr, "Failed to initialize GLFW\n");
-		return -1;
-	}
+	f_manager = new FontManager();
 
 
-
-	glfwWindowHint(GLFW_SAMPLES, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-
-
-
-	window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, 
-		"Project Babel 0.01a", NULL, NULL);
-
-
-
-
-	if (window == NULL){
-		fprintf(stderr, "Failed to open GLFW window!\n");
-		glfwTerminate();
-		return -1;
-	}
-
-
-	glfwMakeContextCurrent(window);
-	glfwSwapInterval(1);
-
-
-	glewExperimental = true;
-
-
-
-	if (glewInit() != GLEW_OK) {
-		fprintf(stderr, "Failed to initialize GLEW\n");
-		return -1;
-	}
-
-
-
-}
-
-void Application::SetFlags()
-{
+	s_manager = new SpriteManager();
 
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 
-
 }
 
-void Application::Load()
+
+
+void Application::Run()
 {
 
-	ctrl = new Controller(window, WINDOW_WIDTH, WINDOW_HEIGHT);
 
-
-
-	tr = new TextRender(ctrl);
-
-
-	aa_render = new Aaether2D();
-
-	
-
-}
-
-void Application::Render()
-{
 	do{
 
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-		ctrl->Enable();
+		this->Enable();
 
 
 
-		aa_render->Render(ctrl);
+		s_manager->Render(this);
 
 
 
-		tr->Render(ctrl);
+		f_manager->Render(this);
 
 
 
-		glfwSwapBuffers(window);
+		glfwSwapBuffers(this->GetWindow());
 		glfwPollEvents();
 
 
 
-	} while (glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
-		glfwWindowShouldClose(window) == 0);
+	} while (!this->GetKey(GLFW_KEY_ESCAPE) &&
+		glfwWindowShouldClose(this->GetWindow()) == 0);
 
 
 }
@@ -131,13 +77,8 @@ void Application::Terminate()
 
 
 
-	delete ctrl;
-	delete aa_render;
-	delete tr;
-
-	glfwDestroyWindow(this->window);
-	glfwTerminate();
-
+	delete s_manager;
+	delete f_manager;
 
 
 }

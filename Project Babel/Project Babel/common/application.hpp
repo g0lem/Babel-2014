@@ -5,32 +5,23 @@
 
 
 #include <GL/glew.h>
-#include <glfw3.h>
 #include "controls.hpp"
-#include "text_render.hpp"
-#include "2d.hpp"
-#include <time.h>
+#include "font_manager.hpp"
+#include "sprite_manager.hpp"
 
 
 
 
 
-class Application
+class Application : private Controller
 {
 
 
 
-	Controller * ctrl;
+	FontManager*f_manager;
 
 
-	TextRender *tr;
-
-
-	Aaether2D * aa_render;
-
-
-
-	GLFWwindow* window;
+	SpriteManager * s_manager;
 
 
 
@@ -46,17 +37,11 @@ public:
 	inline ~Application() { this->Terminate(); }
 
 
-	int Init();
+	void Init();
 
 
 
-	void SetFlags();
-
-
-	void Load();
-
-
-	void Render();
+	void Run();
 
 
 	void Terminate();

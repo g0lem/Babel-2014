@@ -1,17 +1,15 @@
-//Checked 2014
-
-
-
-
 #ifndef CONTROLS_HPP
 #define CONTROLS_HPP
+
 
 
 
 #include <glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
+#include <time.h>
+#include <stdio.h>
+#include <cstring>
 
 
 
@@ -22,6 +20,8 @@
 #endif
 
 
+
+typedef char GLchar;
 
 
 
@@ -42,6 +42,8 @@ class FPS
 
 
 	GLdouble deltaTime, returnable_deltaTime;
+
+
 
 
 
@@ -70,16 +72,29 @@ class Controller
 {
 
 
-	GLFWwindow* window;
+	static GLFWwindow* window;
 
 
-	GLint width, height;
+	//Window info
+
+	static GLint window_width, window_height;
+	static GLboolean fullscreen;
+	static GLchar * title;
+	static GLuint opengl_major_version;
+	static GLuint opengl_minor_version;
 
 
-
+	//---
 
 
 	FPS * fps;
+
+
+	static GLvoid key_callback(GLFWwindow* window, GLint key, GLint scancode, GLint action, GLint mods);
+	static GLboolean keys[512];
+	static GLuint fullscreen_key;
+
+	static void InitCallbacks();
 
 
 
@@ -88,36 +103,51 @@ public:
 
 
 
+	inline GLboolean GetKey(GLuint code){ return Controller::keys[code]; }
+
+
+
 	inline FPS*GetFpsPointer(){ return this->fps; }
 
 
 
-	inline GLint GetWindowWidth(){ return this->width; }
+	inline GLint GetWindowWidth(){ return this->window_width; }
 
 
 	
-	inline GLint GetWindowHeight(){ return this->height; }
+	inline GLint GetWindowHeight(){ return this->window_height; }
+
+
+
+	inline void SetFullscreenKey(GLuint key){ this->Controller::fullscreen_key = key; }
 
 
 
 	inline GLFWwindow * GetWindow(){ return this->window; }
 
 
-	inline Controller() {};
 
+	inline Controller() { this->Init(); }
 
-	inline Controller(GLFWwindow*wnd, GLint width, GLint height) { this->Init(wnd, width, height); }
 
 
 	inline GLfloat returnFps(){ return this->fps->Get(); }
 
 
-	void Init(GLFWwindow*wnd, GLint width, GLint height);
+
+	static GLboolean CreateWindow(GLuint window_width, GLuint window_height,
+		GLboolean fullscreen,
+		char * title,
+		GLuint opengl_major_version,
+		GLuint opengl_minor_version);
 
 
 
 
-	void ProcessInput(GLfloat deltaTime);
+	void Init();
+
+
+
 
 
 	void Enable();

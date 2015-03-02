@@ -4,7 +4,7 @@
 
 
 
-void Aaether2D::Init()
+void Aaether2D::BindCreate(char * vertex_shader,char * fragment_shader)
 
 {
 
@@ -14,12 +14,7 @@ void Aaether2D::Init()
 	glBindVertexArray(m_VAO);
 
 
-
-	this->Load();
-
-
-
-	this->program = LoadShaders("data/shaders/2d_vert.txt", "data/shaders/2d_frag.txt");
+	this->program = LoadShaders(vertex_shader, fragment_shader);
 
 
 	this->texID = glGetUniformLocation(this->program, "texture");
@@ -31,35 +26,19 @@ void Aaether2D::Init()
 	this->u_data = new ScreenUniformData(this->program);
 
 
+}
+
+void Aaether2D::UnbindCreate()
+{
 
 	glBindVertexArray(0);
 
-}
-
-
-
-
-void Aaether2D::Load()
-{
-
-
-
-
-
-	this->m_map = new Map();
-
-	this->m_map->Init();
-
-
-
-	this->m_player = new Player();
-
-
-	this->m_player->Load();
-
-
 
 }
+
+
+
+
 
 
 
@@ -75,7 +54,7 @@ void Aaether2D::Ortho(GLuint window_width, GLuint window_height)
 
 
 
-void Aaether2D::FirstPass(Controller * ctrl)
+void Aaether2D::BindRun(GLuint window_width,GLuint window_height)
 {
 
 	glBindVertexArray(this->m_VAO);
@@ -87,7 +66,7 @@ void Aaether2D::FirstPass(Controller * ctrl)
 	glUniform1i(this->texID, 0);
 
 
-	this->Ortho(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
+	this->Ortho(window_width, window_height);
 
 
 	glEnable(GL_BLEND);
@@ -100,7 +79,7 @@ void Aaether2D::FirstPass(Controller * ctrl)
 
 
 
-void Aaether2D::LastPass()
+void Aaether2D::UnbindRun()
 {
 
 
@@ -119,31 +98,20 @@ void Aaether2D::LastPass()
 }
 
 
-void Aaether2D::Render(Controller * ctrl)
+
+
+void Aaether2D::Clean()
 {
 
 
-	this->FirstPass(ctrl);
+		glDeleteProgram(this->program);
 
 
+		glDeleteVertexArrays(1, &m_VAO);
 
-	this->m_map->Render(ctrl, this->u_data);
-
-
-	
-	this->m_player->Render(ctrl, this->u_data);
-	
-
-
-
-
-	this->LastPass();
-
-
+		
 
 }
-
-
 
 
 

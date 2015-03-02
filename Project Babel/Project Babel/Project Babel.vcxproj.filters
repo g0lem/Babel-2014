@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="common\application.cpp" />
+    <ClCompile Include="common\map.cpp" />
+    <ClCompile Include="common\movement.cpp" />
+    <ClCompile Include="common\player.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="common\text2D.cpp">
+      <Filter>font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text_render.cpp">
+      <Filter>font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\shader.cpp">
+      <Filter>shader</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d_math.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="common\texture.cpp">
+      <Filter>texture</Filter>
+    </ClCompile>
+    <ClCompile Include="common\controls.cpp">
+      <Filter>controller</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite_manager.cpp" />
+    <ClCompile Include="common\uniform_2d.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\room.cpp" />
+    <ClCompile Include="common\tile_map.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\application.hpp" />
+    <ClInclude Include="common\map.hpp" />
+    <ClInclude Include="common\movement.hpp" />
+    <ClInclude Include="common\player.hpp" />
+    <ClInclude Include="common\text2D.hpp">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text_render.hpp">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\shader.hpp">
+      <Filter>shader</Filter>
+    </ClInclude>
+    <ClInclude Include="common\2d_math.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="common\texture.hpp">
+      <Filter>texture</Filter>
+    </ClInclude>
+    <ClInclude Include="common\controls.hpp">
+      <Filter>controller</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite_manager.hpp" />
+    <ClInclude Include="common\uniform_2d.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\2d.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\room.hpp" />
+    <ClInclude Include="common\block.hpp" />
+    <ClInclude Include="common\tile_map.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\shaders\text_vert.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="data\shaders\text_frag.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_vert.txt">
+      <Filter>sprite</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_frag.txt">
+      <Filter>sprite</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="font">
+      <UniqueIdentifier>{a383b487-803f-494e-82d7-f2c4431567e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{5c824f75-962b-4c21-ba35-b0d193a0e5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{1527ba7f-0198-4c9a-94d7-1683f8d70122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="texture">
+      <UniqueIdentifier>{65569f0f-1c12-4815-a480-259647b2a87d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controller">
+      <UniqueIdentifier>{8041995b-f4cf-4683-9a2d-45fae4b86b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sprite">
+      <UniqueIdentifier>{87591a97-dc60-47a3-bdac-b513f426d3f1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

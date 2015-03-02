@@ -3,6 +3,8 @@
 
 
 
+
+
 void Map::Init()
 {
 
@@ -14,14 +16,13 @@ void Map::Init()
 	this->m_sprite = new Sprite();
 
 
-	char ** tex_str = new char*[4];
-	tex_str[0] = "tile1.jpg";
-	tex_str[1] = "tile2.jpg";
-	tex_str[2] = "tile3.jpg";
-	tex_str[3] = "tile4.jpg";
+	char ** tex_str = new char*[3];
+	tex_str[0] = "floor.png";
+	tex_str[1] = "wall1.png";
+	tex_str[2] = "wall2.png";
 
 
-	this->m_sprite->Load(4,"data/tiles/", tex_str);
+	this->m_sprite->Load(3,"data/tiles/", tex_str);
 
 
 	
@@ -29,39 +30,72 @@ void Map::Init()
 	//Tile map stuff
 
 
-	this->tile_scale = glm::vec2(64.0f, 64.0f);
 
+	this->tilemap = new Tilemap();
 
-	this->size = glm::ivec2(15, 10);
-
-
-
-
-	this->tile_map = new GLint*[this->size.x];
-	for (GLuint i = 0; i < this->size.x; i++)
-		this->tile_map[i] = new GLint[this->size.y];
+	this->tilemap->Init();
 
 
 
-	for (GLuint j = 0; j < this->size.y; j++)
+	this->expected_rooms = 4;
+
+
+	while (this->rooms.size() < this->expected_rooms)
 	{
 
+		Room * temp = new Room();
 
-		for (GLuint i = 0; i < this->size.x; i++)
 
 
+		temp->Create(glm::vec2(Rand(this->tilemap->GetSize().x - 1 - MIN_ROOM_WIDTH), Rand(this->tilemap->GetSize().y - 1 - MIN_ROOM_HEIGHT)),
+			Rand(MIN_ROOM_WIDTH, MAX_ROOM_WIDTH),
+			Rand(MIN_ROOM_HEIGHT, MAX_ROOM_HEIGHT));
+
+
+		if (temp->InsideMap(this->tilemap->GetSize().x, this->tilemap->GetSize().y))
 		{
 
+			GLboolean result = true;
 
-			this->tile_map[i][j] = Rand(4);
+			for (GLuint i = 0; i < this->rooms.size();i++)
+				if (temp->Intersects(this->rooms[i]))
+				{
+				result = false;
+				break;
+				}
+
+			if (result)
+
+			{
+
+				temp->Transform(EMPTY_ROOM);
+
+
+				for (int j = 0; j < temp->GetHeight(); j++)
+				{
+					for (int i = 0; i < temp->GetWidth(); i++)
+					{
+
+
+						this->tilemap->GetTiles()[i+temp->GetOffset().x][j+temp->GetOffset().y] = temp->GetTileMapPointer()[i][j];
+						
+
+
+					}
+				}
+
+
+				temp->d_Print();
+
+
+				this->rooms.push_back(temp);
+
+			}
 
 
 		}
 
-
-
 	}
-
 
 
 }
@@ -73,18 +107,7 @@ void Map::Render(Controller * ctrl , ScreenUniformData * u_data)
 	
 
 
-	for (int j = 0; j < this->size.y; j++)
-	{
-		for (int i = 0; i < this->size.x; i++)
-		{
-
-
-			u_data->ApplyMatrix(Translation(glm::vec2(i, this->size.y-j-1)*tile_scale)*Scale(tile_scale));
-			this->m_sprite->Render(this->tile_map[i][j]);
-
-
-		}
-	}
+	this->tilemap->Render(ctrl, u_data, this->m_sprite);
 
 
 

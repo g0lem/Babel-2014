@@ -57,4 +57,21 @@ inline GLuint Rand(GLuint a, GLuint b){ return rand() % (b - a + 1) + a; }
 inline glm::vec2 GridPosition(glm::vec2 pos, glm::vec2 scale) { return glm::vec2(glm::ivec2(pos / scale))*scale; }
 
 
+
+inline glm::vec2 GetCenter(glm::vec2 point_a, glm::vec2 point_b){ return (point_a + point_b) / 2.0f; }
+
+
+inline glm::vec2 GetCenter(glm::vec2 points[2]){ return GetCenter(points[0], points[1]); }
+
+
+inline glm::ivec2 GetCenter(glm::ivec2 point_a, glm::ivec2 point_b){ return (point_a + point_b) / 2; }
+
+
+inline glm::ivec2 GetCenter(glm::ivec2 points[2]){ return GetCenter(points[0], points[1]); }
+
+
+
 #endif
+
+
+

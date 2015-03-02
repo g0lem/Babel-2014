@@ -1,9 +1,13 @@
 //Checked 2014
 
+
 #include <GL/glew.h>
 #include "text_render.hpp"
 
-void TextRender::Init(Controller *ctrl)
+
+
+
+void TextRender::BindCreate(char * vertex_shader, char * fragment_shader)
 {
 
 
@@ -13,13 +17,8 @@ void TextRender::Init(Controller *ctrl)
 	glBindVertexArray(m_VAO);
 
 
-	this->_text = new _Text();
 
-
-	this->_text->initText2D("data/fonts/choco.ttf");
-
-
-	this->program = LoadShaders("data/shaders/text_vert.txt", "data/shaders/text_frag.txt");
+	this->program = LoadShaders(vertex_shader, fragment_shader);
 
 
 	this->font_texture_uniform = glGetUniformLocation(this->program, "myTextureSampler");
@@ -30,19 +29,23 @@ void TextRender::Init(Controller *ctrl)
 
 	this->font_color_uniform = glGetUniformLocation(this->program, "fontColor");
 
+}
+
+
+
+void TextRender::UnbindCreate()
+{
 
 	glBindVertexArray(0);
-
-
 
 }
 
 
 
 
-void TextRender::Render(Controller *ctrl)
-{
 
+void TextRender::BindRun(GLuint window_width, GLuint window_height)
+{
 
 
 	glBindVertexArray(m_VAO);
@@ -54,18 +57,16 @@ void TextRender::Render(Controller *ctrl)
 	glUniform1i(this->font_texture_uniform, 0);
 
 
-	glUniform2f(this->half_screen_uniform, ctrl->GetWindowWidth() / 2, ctrl->GetWindowHeight() / 2);
+	glUniform2f(this->half_screen_uniform, window_width / 2, window_height / 2);
 
 
-	glUniform4f(this->font_color_uniform, 1.0f, 1.0f, 1.0f, 1.0f);
+}
 	
 
 
-	sprintf(text, "FPS:%.2f", ctrl->returnFps());
-	this->_text->printText2D(text, 0, 600, 40);
 
-
-
+void TextRender::UnbindRun()
+{
 
 
 	glUseProgram(0);
@@ -76,11 +77,11 @@ void TextRender::Render(Controller *ctrl)
 
 }
 
+
+
 void TextRender::Clean()
 {
 
-
-	this->_text->cleanupText2D();
 
 
 	glDeleteProgram(this->program);
@@ -95,6 +96,24 @@ void TextRender::Clean()
 
 
 
+
+void TextRender::SetColor(GLfloat r, GLfloat g, GLfloat b, GLfloat a)
+{
+
+
+	glUniform4f(this->font_color_uniform, r, g, b, a); 
+
+
+}
+
+
+
+void TextRender::SetColor(GLfloat r, GLfloat g, GLfloat b)
+{ 
+
+	glUniform4f(this->font_color_uniform, r, g, b, 1.0f); 
+
+}
 
 
 
