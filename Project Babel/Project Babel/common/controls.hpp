@@ -91,8 +91,18 @@ class Controller
 
 
 	static GLvoid key_callback(GLFWwindow* window, GLint key, GLint scancode, GLint action, GLint mods);
-	static GLboolean keys[512];
+	static GLuint keys[512];
 	static GLuint fullscreen_key;
+
+
+
+	static void mouse_callback(GLFWwindow* window, GLint button, GLint action, GLint mods);
+	static glm::vec2 mouse_position;
+	static GLuint mouse_buttons[8];
+
+
+	static void cursor_callback(GLFWwindow* window, GLdouble x, GLdouble y);
+
 
 	static void InitCallbacks();
 
@@ -102,8 +112,24 @@ class Controller
 public:
 
 
+	
+	inline GLuint GetKey(GLuint code){ return Controller::keys[code]; }
 
-	inline GLboolean GetKey(GLuint code){ return Controller::keys[code]; }
+
+
+	inline GLuint GetKeyOnce(GLuint code){ GLuint result = (Controller::keys[code] == 1); Controller::keys[code]++; return result; }
+
+
+
+	inline glm::vec2 GetMousePosition(){ return Controller::mouse_position; }
+
+
+
+	inline GLuint GetMouseButton(GLuint code){ return Controller::mouse_buttons[code]; }
+
+
+
+	inline GLuint GetMouseButtonOnce(GLuint code){ GLuint result = (Controller::mouse_buttons[code] == 1); Controller::mouse_buttons[code]++; return result; }
 
 
 

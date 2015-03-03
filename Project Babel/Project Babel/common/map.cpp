@@ -37,13 +37,28 @@ void Map::Init()
 
 
 
-	this->expected_rooms = 4;
+	this->expected_rooms = 500;
+
+
+	GLuint tries = 0;
+
 
 
 	while (this->rooms.size() < this->expected_rooms)
 	{
 
 		Room * temp = new Room();
+
+
+		if (tries > 9)
+		{
+			this->expected_rooms--;
+			tries = 0;
+		}
+
+
+
+		tries++;
 
 
 
@@ -68,24 +83,9 @@ void Map::Init()
 
 			{
 
-				temp->Transform(EMPTY_ROOM);
 
 
-				for (int j = 0; j < temp->GetHeight(); j++)
-				{
-					for (int i = 0; i < temp->GetWidth(); i++)
-					{
-
-
-						this->tilemap->GetTiles()[i+temp->GetOffset().x][j+temp->GetOffset().y] = temp->GetTileMapPointer()[i][j];
-						
-
-
-					}
-				}
-
-
-				temp->d_Print();
+				this->TransformAndApplyRoomToTileMap(temp, this->tilemap, EMPTY_ROOM);
 
 
 				this->rooms.push_back(temp);
@@ -112,6 +112,43 @@ void Map::Render(Controller * ctrl , ScreenUniformData * u_data)
 
 
 }
+
+
+void Map::TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag)
+{
+
+
+
+	room->Transform(transform_flag);
+
+
+	for (int j = 0; j < room->GetHeight(); j++)
+	{
+		for (int i = 0; i < room->GetWidth(); i++)
+		{
+
+
+			this->tilemap->GetTiles()[i + room->GetOffset().x][j + room->GetOffset().y] = room->GetTileMapPointer()[i][j];
+
+
+
+		}
+	}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+//////
 
 void Map::GetDistance(int i, int j)
 {

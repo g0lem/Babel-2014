@@ -20,7 +20,7 @@ void Application::Init()
 
     this->CreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT,
 		false,
-		"Project Babel 0.0.5a",
+		"Project Babel 0.0.6a",
 		4, 0);
 
 

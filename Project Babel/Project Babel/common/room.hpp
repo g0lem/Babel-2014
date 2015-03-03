@@ -10,10 +10,10 @@
 #define EMPTY_ROOM 0
 
 
-#define MIN_ROOM_WIDTH 3
-#define MIN_ROOM_HEIGHT 3
-#define MAX_ROOM_WIDTH 6
-#define MAX_ROOM_HEIGHT 6
+#define MIN_ROOM_WIDTH 5
+#define MIN_ROOM_HEIGHT 5
+#define MAX_ROOM_WIDTH 10
+#define MAX_ROOM_HEIGHT 10
 
 
 

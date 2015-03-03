@@ -49,7 +49,7 @@ void Tilemap::Init()
 	this->tile_scale = glm::vec2(64.0f, 64.0f);
 
 
-	this->size = glm::ivec2(15, 10);
+	this->size = glm::ivec2(64, 64);
 
 
 

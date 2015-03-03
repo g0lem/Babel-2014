@@ -29,6 +29,11 @@ public:
 
 	void Init();
 
+
+	void TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag);
+
+
+
 private:
 
 
@@ -44,6 +49,9 @@ private:
 
 
 
+
+
+	//////
 
 
 	GLint DistanceMap[MAP_SIZE_Y][MAP_SIZE_X];
