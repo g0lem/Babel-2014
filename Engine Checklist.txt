@@ -1,14 +1,25 @@
-Framework -- 90% { Remaining:: Sound Streams and Sound }
-Movement -- 80%
-Tilemap -- 50% {Room generator 0/1, Doors generator}
-Cutscene player -- 0%
-Combat -- 0%
-Save/Load -- 0%
-Menus -- 0%
-AI -- 0%
-State Manager -- 0%
-Quests and Narrative -- 0%
-Triggers -- 0%
-Light engine -- 0%
-Distance function -- 100%
-Entity class -- 0%
+0.Framework -- 90% { Sound -- 0%, Sound Streams -- 0% }
+1.Map -- 60% { Room -- 100%, Rand -- 100%, RandObjs -- 0%, Hallways -- 0% }
+2.Movement -- 70%
+3.Objects
+4.Rooms
+5.Dungeon
+6.Field of view
+7.Combat
+8.User Interface
+9.Items
+10.Inventory
+10.5.Triggers
+11.Spells
+12.Ranged Combat
+13.Artificial Intelligence
+14.Items Progression
+15.Main Menu
+16.Saving
+17.Dungeon levels
+18.Character Progression
+
+19.Better Graphics
+20.Real-time Combat
+21.More Levels
+22.Creating the binaries
