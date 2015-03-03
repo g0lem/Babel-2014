@@ -106,6 +106,7 @@
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\controls.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
+    <ClInclude Include="common\input_manager.hpp" />
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\player.hpp" />
