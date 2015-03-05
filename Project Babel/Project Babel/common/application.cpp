@@ -1,5 +1,4 @@
 //Checked 2014
-// Need to improve view distance
 
 
 #include "application.hpp"
@@ -31,6 +30,9 @@ void Application::Init()
 	s_manager = new SpriteManager();
 
 
+	g_object = new GameObject();
+
+
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 
@@ -52,7 +54,7 @@ void Application::Run()
 
 
 
-		s_manager->Render(this);
+		s_manager->Render(this, this->g_object);
 
 
 
@@ -79,7 +81,7 @@ void Application::Terminate()
 
 	delete s_manager;
 	delete f_manager;
-
+	delete g_object;
 
 }
 

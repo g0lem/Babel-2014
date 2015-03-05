@@ -7,6 +7,9 @@
 #include "2d_math.hpp"
 #include "uniform_2d.hpp"
 #include "movement.hpp"
+#include "game_object.hpp"
+
+
 
 class Player
 {
@@ -35,7 +38,7 @@ public:
 	void Load();
 
 
-	void Render(Controller * ctrl, ScreenUniformData *u_data);
+	void Render(Controller * ctrl, ScreenUniformData *u_data, GameObject * g_obj);
 
 
 

@@ -28,8 +28,6 @@ GLboolean Controller::CreateWindow(GLuint window_width, GLuint window_height,
 
 
 
-	if (Controller::window)
-		glfwDestroyWindow(Controller::window);
 
 
 

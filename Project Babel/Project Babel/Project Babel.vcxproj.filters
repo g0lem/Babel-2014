@@ -37,6 +37,8 @@
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\tile_map.cpp" />
     <ClCompile Include="common\font_manager.cpp" />
+    <ClCompile Include="common\game_object.cpp" />
+    <ClCompile Include="common\scroller.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -76,6 +78,8 @@
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
     <ClInclude Include="common\input_manager.hpp" />
+    <ClInclude Include="common\game_object.hpp" />
+    <ClInclude Include="common\scroller.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_vert.txt">

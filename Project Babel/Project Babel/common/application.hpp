@@ -8,7 +8,7 @@
 #include "controls.hpp"
 #include "font_manager.hpp"
 #include "sprite_manager.hpp"
-
+#include "game_object.hpp"
 
 
 
@@ -22,6 +22,10 @@ class Application : private Controller
 
 
 	SpriteManager * s_manager;
+
+
+
+	GameObject * g_object;
 
 
 

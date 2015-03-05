@@ -38,14 +38,14 @@ void Player::Load()
 
 
 
-void Player::Render(Controller * ctrl, ScreenUniformData * u_data)
+void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 
 
 
 
-	u_data->ApplyMatrix(Translation(GridPosition(position, scale))*Scale(scale));
-	this->m_move->move(ctrl, position.x, position.y);
+	u_data->ApplyMatrix(Translation(GridPosition(position + g_obj->GetScroller()->GetOffset(), scale))*Scale(scale));
+	this->m_move->TileMove(ctrl, position, scale, g_obj);
 	this->m_sprite->Render(0);
 
 

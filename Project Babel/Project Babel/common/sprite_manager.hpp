@@ -6,7 +6,7 @@
 #include "controls.hpp"
 #include "player.hpp"
 #include "map.hpp"
-
+#include "game_object.hpp"
 
 
 class SpriteManager : private Aaether2D
@@ -35,7 +35,7 @@ public:
 	void Clean();
 
 
-	void Render(Controller * ctrl);
+	void Render(Controller * ctrl, GameObject * g_obj);
 
 
 };

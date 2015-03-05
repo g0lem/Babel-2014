@@ -79,10 +79,12 @@
     <ClCompile Include="common\application.cpp" />
     <ClCompile Include="common\controls.cpp" />
     <ClCompile Include="common\font_manager.cpp" />
+    <ClCompile Include="common\game_object.cpp" />
     <ClCompile Include="common\map.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\player.cpp" />
     <ClCompile Include="common\room.cpp" />
+    <ClCompile Include="common\scroller.cpp" />
     <ClCompile Include="common\shader.cpp" />
     <ClCompile Include="common\sprite.cpp" />
     <ClCompile Include="common\sprite_manager.cpp" />
@@ -106,11 +108,13 @@
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\controls.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
+    <ClInclude Include="common\game_object.hpp" />
     <ClInclude Include="common\input_manager.hpp" />
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\player.hpp" />
     <ClInclude Include="common\room.hpp" />
+    <ClInclude Include="common\scroller.hpp" />
     <ClInclude Include="common\shader.hpp" />
     <ClInclude Include="common\sprite.hpp" />
     <ClInclude Include="common\sprite_manager.hpp" />

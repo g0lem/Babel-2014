@@ -7,7 +7,7 @@
 #include "controls.hpp"
 #include "sprite.hpp"
 #include "2d_math.hpp"
-
+#include "game_object.hpp"
 
 
 class Tilemap
@@ -34,7 +34,7 @@ public:
 	void Init();
 
 
-	void Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite);
+	void Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, GameObject * g_obj);
 
 
 	inline glm::ivec2 GetSize(){ return this->size; }

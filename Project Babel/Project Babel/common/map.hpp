@@ -7,6 +7,7 @@
 #include "2d_math.hpp"
 #include "room.hpp"
 #include "tile_map.hpp"
+#include "game_object.hpp"
 
 
 #define MAP_SIZE_X 30
@@ -17,11 +18,16 @@
 
 class Map
 {
+
+
+
+
+
 public:
 
 
 
-	void Render(Controller*ctrl, ScreenUniformData * u_data);
+	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
 	void GetDistance(int i, int j);
 
@@ -38,6 +44,8 @@ private:
 
 
 
+
+
 	Tilemap *tilemap;
 
 	Sprite * m_sprite;
@@ -47,6 +55,12 @@ private:
 
 	std::vector<Room*>rooms;
 
+
+	void LoadSprites();
+
+
+
+	void GenerateContent();
 
 
 

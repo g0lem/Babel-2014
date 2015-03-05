@@ -25,6 +25,7 @@ FIBITMAP *get_dib(char* file)
 		dib = FreeImage_Load(fif, file);
 	if (!dib)
 		return NULL;
+	FreeImage_FlipVertical(dib);
 	return dib;
 }
 

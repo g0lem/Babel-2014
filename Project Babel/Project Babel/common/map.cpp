@@ -3,13 +3,9 @@
 
 
 
-
-
-void Map::Init()
+void Map::LoadSprites()
 {
 
-
-	//Sprite stuff
 
 
 
@@ -22,13 +18,21 @@ void Map::Init()
 	tex_str[2] = "wall2.png";
 
 
-	this->m_sprite->Load(3,"data/tiles/", tex_str);
+	this->m_sprite->Load(3, "data/tiles/", tex_str);
 
 
-	
 
-	//Tile map stuff
 
+
+
+}
+
+
+
+
+
+void Map::GenerateContent()
+{
 
 
 	this->tilemap = new Tilemap();
@@ -72,7 +76,7 @@ void Map::Init()
 
 			GLboolean result = true;
 
-			for (GLuint i = 0; i < this->rooms.size();i++)
+			for (GLuint i = 0; i < this->rooms.size(); i++)
 				if (temp->Intersects(this->rooms[i]))
 				{
 				result = false;
@@ -98,16 +102,38 @@ void Map::Init()
 	}
 
 
+
+
+
+
+
+
 }
 
 
 
-void Map::Render(Controller * ctrl , ScreenUniformData * u_data)
+void Map::Init()
+{
+
+
+	this->LoadSprites();
+
+	
+
+	this->GenerateContent();
+
+
+
+}
+
+
+
+void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 	
 
 
-	this->tilemap->Render(ctrl, u_data, this->m_sprite);
+	this->tilemap->Render(ctrl, u_data, this->m_sprite,g_obj);
 
 
 

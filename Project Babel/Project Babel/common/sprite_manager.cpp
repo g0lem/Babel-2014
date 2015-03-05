@@ -46,17 +46,17 @@ void SpriteManager::Clean()
 
 
 
-void SpriteManager::Render(Controller * ctrl)
+void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 {
 
 
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
-	this->map->Render(ctrl, this->GetScreenPointer());
+	this->map->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 
-	this->player->Render(ctrl, this->GetScreenPointer());
+	this->player->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 
 	this->UnbindRun();

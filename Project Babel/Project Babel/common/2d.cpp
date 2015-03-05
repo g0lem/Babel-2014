@@ -47,7 +47,7 @@ void Aaether2D::Ortho(GLuint window_width, GLuint window_height)
 {
 
 
-	glUniformMatrix4fv(this->ortho, 1, GL_FALSE, &(glm::ortho<GLfloat>(0, window_width, 0, window_height)[0][0]));
+	glUniformMatrix4fv(this->ortho, 1, GL_FALSE, &(glm::ortho<GLfloat>(0, window_width, window_height, 0)[0][0]));
 
 
 }
