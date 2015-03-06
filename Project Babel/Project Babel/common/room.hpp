@@ -5,7 +5,7 @@
 #include "2d_math.hpp"
 #include "block.hpp"
 #include <stdio.h>
-
+#include "dice.hpp"
 
 #define EMPTY_ROOM 0
 
@@ -62,6 +62,11 @@ public:
 
 
 	inline GLuint GetHeight(){ return this->height; }
+
+
+
+	inline glm::ivec2 GetInternalCenter(){ return this->center; }
+
 
 
 	void d_Print();
