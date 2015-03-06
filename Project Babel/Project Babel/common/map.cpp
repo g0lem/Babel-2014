@@ -187,10 +187,10 @@ void Map::GetDistance(int i, int j)
 	{
 		in = i + di[k];
 		jn = j + dj[k];
-		if (in >= 0 && jn >= 0 && in < size.y && jn < size.y && DB::GetProperty(this->tilemap->GetTiles[in][jn],3) == 0)
-			if (DistanceMap->GetTiles[in][jn] == 0 || DistanceMap->GetTiles[i][j] + 1 < DistanceMap->GetTiles[in][jn])
+		if (in >= 0 && jn >= 0 && in < size.y && jn < size.y && DB::GetProperty(this->tilemap->GetTiles()[in][jn],3) == 0)
+			if (DistanceMap->GetTiles()[in][jn] == 0 || DistanceMap->GetTiles()[in][jn] + 1 < DistanceMap->GetTiles()[in][jn])
 			{
-			DistanceMap->GetTiles[in][jn] = DistanceMap->GetTiles[i][j] + 1;
+			DistanceMap->GetTiles()[in][jn] = DistanceMap->GetTiles()[in][jn] + 1;
 			Map::GetDistance(in, jn);
 			}
 	}
@@ -202,6 +202,6 @@ void Map::ClearDistanceMap()
 	size = this->tilemap->GetSize();
 	for (int i = 0; i < size.y; i++)
 		for (int j = 0; j < size.x; j++)
-			DistanceMap->GetTiles[i][j] = 0;
+			DistanceMap->GetTiles()[i][j] = 0;
 
 }

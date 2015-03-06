@@ -3,7 +3,7 @@
 
 #include "common/Database.h"
 #include "common/map.hpp"
-#include "tile_map.hpp"
+#include "common/tile_map.hpp"
 
 class Combat
 {
