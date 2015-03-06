@@ -46,7 +46,7 @@ private:
 
 
 
-	Tilemap *tilemap, *DistanceMap;
+	Tilemap *tilemap;
 
 	Sprite * m_sprite;
 
@@ -68,7 +68,7 @@ private:
 	//////
 
 
-	
+	GLint DistanceMap[MAP_SIZE_Y][MAP_SIZE_X];
 
 
 
