@@ -10,10 +10,6 @@
 #include "game_object.hpp"
 
 
-#define MAP_SIZE_X 30
-#define MAP_SIZE_Y 20
-
-
 
 
 class Map
@@ -37,6 +33,10 @@ public:
 
 
 	void TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag);
+
+
+
+	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
 
 
@@ -64,11 +64,6 @@ private:
 
 
 
-
-	//////
-
-
-	GLint DistanceMap[MAP_SIZE_Y][MAP_SIZE_X];
 
 
 

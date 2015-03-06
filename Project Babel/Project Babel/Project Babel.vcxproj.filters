@@ -39,6 +39,9 @@
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
     <ClCompile Include="common\scroller.cpp" />
+    <ClCompile Include="common\dice.cpp">
+      <Filter>dice</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -77,9 +80,11 @@
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
-    <ClInclude Include="common\input_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
     <ClInclude Include="common\scroller.hpp" />
+    <ClInclude Include="common\dice.hpp">
+      <Filter>dice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_vert.txt">
@@ -113,6 +118,9 @@
     </Filter>
     <Filter Include="sprite">
       <UniqueIdentifier>{87591a97-dc60-47a3-bdac-b513f426d3f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dice">
+      <UniqueIdentifier>{329cb30f-049c-463e-bac2-9d0c8ea0d857}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

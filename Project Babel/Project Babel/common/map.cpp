@@ -12,13 +12,14 @@ void Map::LoadSprites()
 	this->m_sprite = new Sprite();
 
 
-	char ** tex_str = new char*[3];
+	char ** tex_str = new char*[4];
 	tex_str[0] = "floor.png";
 	tex_str[1] = "wall1.png";
 	tex_str[2] = "wall2.png";
+	tex_str[3] = "cobweb.png";
 
 
-	this->m_sprite->Load(3, "data/tiles/", tex_str);
+	this->m_sprite->Load(4, "data/tiles/", tex_str);
 
 
 
@@ -41,7 +42,7 @@ void Map::GenerateContent()
 
 
 
-	this->expected_rooms = 500;
+	this->expected_rooms = 10;
 
 
 	GLuint tries = 0;
@@ -94,6 +95,9 @@ void Map::GenerateContent()
 
 				this->rooms.push_back(temp);
 
+		
+
+
 			}
 
 
@@ -104,6 +108,8 @@ void Map::GenerateContent()
 
 
 
+	for (GLuint i = 1; i < rooms.size(); i++)
+		AddTunnel(rooms[i]->GetInternalCenter(), rooms[i - 1]->GetInternalCenter());
 
 
 
@@ -135,7 +141,7 @@ void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_o
 
 	this->tilemap->Render(ctrl, u_data, this->m_sprite,g_obj);
 
-
+ 
 
 }
 
@@ -168,36 +174,88 @@ void Map::TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint 
 
 
 
-
-
-
-
-
-
-//////
-
-void Map::GetDistance(int i, int j)
+void Map::AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b)
 {
-	int in, jn, k;
-	int di[] = {0,0,-1,1};
-	int dj[] = {-1,1,0,0};
-	for (k = 0; k < 4; k++)
+
+
+	glm::ivec2 begin_limit = glm::min(point_a, point_b);
+
+	
+	glm::ivec2 end_limit = glm::max(point_a, point_b);
+
+
+
+
+	for (GLuint j = begin_limit.y; j <= end_limit.y; j++)
 	{
-		in = i + di[k];
-		jn = j + dj[k];
-		if (in>=0 && jn>=0 && in < MAP_SIZE_Y && jn < MAP_SIZE_X)
-			if (DistanceMap[in][jn] == 0 || DistanceMap[i][j] + 1 < DistanceMap[in][jn])
-			{
-			DistanceMap[in][jn] = DistanceMap[i][j] + 1;
-			Map::GetDistance(in, jn);
-			}
+
+
+		if (this->tilemap->GetTiles()[point_a.x - 1][j] == NO_BLOCK)
+		this->tilemap->GetTiles()[point_a.x - 1][j] = STONE_BLOCK;
+
+
+		this->tilemap->GetTiles()[point_a.x][j] = FLOOR_BLOCK;
+
+
+		if (this->tilemap->GetTiles()[point_a.x + 1][j] == NO_BLOCK)
+		this->tilemap->GetTiles()[point_a.x + 1][j] = STONE_BLOCK;
+
+
+
+
 	}
+
+
+
+	for (GLuint i = begin_limit.x; i <= end_limit.x; i++)
+	{
+
+
+		if (this->tilemap->GetTiles()[i][point_b.y - 1] == NO_BLOCK)
+			this->tilemap->GetTiles()[i][point_b.y - 1] = STONE_BLOCK;
+
+
+		this->tilemap->GetTiles()[i][point_b.y] = FLOOR_BLOCK;
+
+
+		if (this->tilemap->GetTiles()[i][point_b.y + 1] == NO_BLOCK)
+			this->tilemap->GetTiles()[i][point_b.y + 1] = STONE_BLOCK;
+
+
+
+
+	}
+
+
+
+	glm::ivec2 intersection_point;
+
+
+	if (glm::ivec2(point_a.x, begin_limit.y) == point_a)
+		intersection_point = glm::ivec2(point_a.x, end_limit.y);
+	else
+		intersection_point = glm::ivec2(point_a.x, begin_limit.y);
+
+
+	if (this->tilemap->GetTiles()[intersection_point.x - 1][intersection_point.y - 1] == NO_BLOCK)
+		this->tilemap->GetTiles()[intersection_point.x - 1][intersection_point.y - 1] = STONE_BLOCK;
+
+	if (this->tilemap->GetTiles()[intersection_point.x + 1][intersection_point.y - 1] == NO_BLOCK)
+		this->tilemap->GetTiles()[intersection_point.x + 1][intersection_point.y - 1] = STONE_BLOCK;
+
+	if (this->tilemap->GetTiles()[intersection_point.x - 1][intersection_point.y + 1] == NO_BLOCK)
+		this->tilemap->GetTiles()[intersection_point.x - 1][intersection_point.y + 1] = STONE_BLOCK;
+
+	if (this->tilemap->GetTiles()[intersection_point.x + 1][intersection_point.y + 1] == NO_BLOCK)
+		this->tilemap->GetTiles()[intersection_point.x + 1][intersection_point.y + 1] = STONE_BLOCK;
+
+
+
+
 }
 
-void Map::ClearDistanceMap()
-{
-	for (int i = 0; i < MAP_SIZE_Y; i++)
-		for (int j = 0; j < MAP_SIZE_X; j++)
-			DistanceMap[i][j] = 0;
 
-}
+
+
+
+
