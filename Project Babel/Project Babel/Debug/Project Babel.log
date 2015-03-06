@@ -1,12 +1,32 @@
-﻿Build started 3/6/2015 9:29:25 PM.
-     1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+﻿Build started 3/6/2015 8:28:07 AM.
+     1>Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
-     1>Link:
-         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Wonderful App\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\Dependencies\SQLite\lib /LIBPATH:..\Dependencies\lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib SQLite.lib opengl32.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Wonderful App\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Wonderful App\Project Babel.lib" /MACHINE:X86 Debug\Combat.obj
-         Debug\2d.obj
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\3D Adventures\\" /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D TIXML_USE_STL /D FREEGLUT_STATIC /D WIN32 /D _LIB /D FREEGLUT_LIB_PRAGMAS=0 /D DEBUG /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\map.cpp common\room.cpp
+         room.cpp
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(47): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.hpp(52): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.cpp(8): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.cpp(10): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.cpp(43): warning C4244: '=' : conversion from 'GLfloat' to 'GLuint', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.cpp(45): warning C4244: '=' : conversion from 'GLfloat' to 'GLuint', possible loss of data
+         map.cpp
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(17): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(47): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.hpp(52): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\map.cpp(72): warning C4244: 'argument' : conversion from 'GLuint' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\map.cpp(157): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\map.cpp(159): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\map.cpp(189): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\map.cpp(210): warning C4018: '<=' : signed/unsigned mismatch
+         Generating Code...
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Wonderful App\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Wonderful App\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Wonderful App\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
          Debug\2d_math.obj
          Debug\application.obj
          Debug\controls.obj
+         Debug\dice.obj
          Debug\font_manager.obj
          Debug\game_object.obj
          Debug\map.obj
@@ -23,9 +43,9 @@
          Debug\tile_map.obj
          Debug\uniform_2d.obj
          Debug\main.obj
-     1>LINK : fatal error LNK1104: cannot open file 'FreeImaged.lib'
-     1>Done Building Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)) -- FAILED.
+         Project Babel.vcxproj -> C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\..\Wonderful App\Project Babel.exe
+     1>Done Building Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:00.22
+Time Elapsed 00:00:01.98
