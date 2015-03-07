@@ -1,5 +1,4 @@
-//Checked 2014
-
+//Checked 1
 
 
 #ifndef TEXT2D_HPP
