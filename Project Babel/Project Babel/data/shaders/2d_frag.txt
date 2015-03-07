@@ -8,7 +8,8 @@ uniform sampler2D texture;
 
 in vec2 UV;
 
-void main(){
+void main()
+{
 
 
 	color = texture2D(texture, UV);

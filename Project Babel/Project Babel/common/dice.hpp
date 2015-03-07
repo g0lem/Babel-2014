@@ -1,3 +1,7 @@
+//Checked 1
+
+
+
 #ifndef DICE_HPP
 #define DICE_HPP
 
