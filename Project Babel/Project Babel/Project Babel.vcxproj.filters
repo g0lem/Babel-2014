@@ -39,10 +39,10 @@
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
     <ClCompile Include="common\scroller.cpp" />
-    <ClCompile Include="Combat.cpp">
+    <ClCompile Include="common\dice.cpp" />
+    <ClCompile Include="common\Combat.cpp">
       <Filter>combat</Filter>
     </ClCompile>
-    <ClCompile Include="common\dice.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -84,13 +84,13 @@
     <ClInclude Include="common\input_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
     <ClInclude Include="common\scroller.hpp" />
-    <ClInclude Include="Combat.hpp">
-      <Filter>combat</Filter>
-    </ClInclude>
     <ClInclude Include="common\Database.h">
       <Filter>database</Filter>
     </ClInclude>
     <ClInclude Include="common\dice.hpp" />
+    <ClInclude Include="common\Combat.hpp">
+      <Filter>combat</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_vert.txt">
