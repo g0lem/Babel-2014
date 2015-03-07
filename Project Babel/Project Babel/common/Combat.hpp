@@ -4,15 +4,22 @@
 #include "Database.h"
 #include "map.hpp"
 #include "tile_map.hpp"
+#include "2d_math.hpp"
+#include "player.hpp"
+#include <stdio.h>
 
 class Combat
 {
 public:
-	void Hit();
+	void Init();
+	void Test();
+	void Hit(Controller *ctrl, Map *map, Player *player);
 	
 
 private:
-	Tilemap *CombatMap;
+	std::vector <int> Entities;
+	
+
 
 };
 

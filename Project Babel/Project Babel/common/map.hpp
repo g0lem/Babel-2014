@@ -37,6 +37,16 @@ public:
 
 	void TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag);
 
+	
+	void GetDistance(int i, int j);
+
+
+
+	void ClearDistanceMap();
+
+
+	inline Tilemap *GetDistanceMap(){ return this->DistanceMap; }
+
 
 
 
@@ -54,7 +64,7 @@ private:
 
 
 
-	Tilemap *tilemap;
+	Tilemap *tilemap, *DistanceMap;
 
 	Sprite * m_sprite;
 

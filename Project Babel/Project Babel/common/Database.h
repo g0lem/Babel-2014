@@ -215,7 +215,7 @@ public:
 		if (sqlite3_open("Insight.db", &db))
 			sqlite3_close(db);
 
-		if (sqlite3_prepare_v2(db, "SELECT * FROM Blocks", 128, &res, &tail) != SQLITE_OK)
+		if (sqlite3_prepare_v2(db, "SELECT * FROM StaticObjects", 128, &res, &tail) != SQLITE_OK)
 			sqlite3_close(db);
 
 

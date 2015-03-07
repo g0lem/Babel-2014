@@ -1,14 +1,26 @@
-﻿Build started 3/7/2015 9:01:31 PM.
+﻿Build started 3/8/2015 12:49:46 AM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(364,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
      1>ClCompile:
-         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\3D Adventures\\" /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D TIXML_USE_STL /D FREEGLUT_STATIC /D WIN32 /D _LIB /D FREEGLUT_LIB_PRAGMAS=0 /D DEBUG /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\Combat.cpp
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\3D Adventures\\" /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D _CRT_SECURE_NO_DEPRECATE /D _SCL_SECURE_NO_WARNINGS /D TIXML_USE_STL /D FREEGLUT_STATIC /D WIN32 /D _LIB /D FREEGLUT_LIB_PRAGMAS=0 /D DEBUG /D _DEBUG /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\Combat.cpp common\application.cpp common\map.cpp common\movement.cpp common\player.cpp common\sprite_manager.cpp common\tile_map.cpp main.cpp
          Combat.cpp
      1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
      1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(57): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
      1>d:\github\projectbabel\project babel\project babel\common\room.hpp(58): warning C4018: '<=' : signed/unsigned mismatch
+     1>d:\github\projectbabel\project babel\project babel\common\combat.cpp(18): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\combat.cpp(24): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\combat.cpp(25): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         main.cpp
+         tile_map.cpp
+         sprite_manager.cpp
+         player.cpp
+         movement.cpp
+         map.cpp
+         application.cpp
        Link:
-         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Wonderful App\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Wonderful App\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Wonderful App\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\Wonderful App\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib SQLite.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Wonderful App\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"..\Wonderful App\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
          Debug\2d_math.obj
          Debug\application.obj
          Debug\Combat.obj
@@ -30,34 +42,9 @@
          Debug\tile_map.obj
          Debug\uniform_2d.obj
          Debug\main.obj
-         LINK : ..\Wonderful App\Project Babel.exe not found or not built by the last incremental link; performing full link
-     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>freetype.lib(autofit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(autofit.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(bdf.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(bdf.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(cff.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(cff.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftbase.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftbase.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftdebug.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftdebug.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftgzip.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftgzip.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftinit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftinit.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftlzw.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftlzw.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftsystem.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftsystem.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(smooth.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(smooth.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pcf.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pcf.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pfr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pfr.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(psaux.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(psaux.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pshinter.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pshinter.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(psmodule.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(psmodule.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(raster.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(raster.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(sfnt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(sfnt.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(truetype.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(truetype.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type1.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type1.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type1cid.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type1cid.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type42.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type42.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(winfnt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(winfnt.obj)' or at 'D:\GitHub\projectBabel\Project Babel\Wonderful App\vc120.pdb'; linking object as if no debug info
          Project Babel.vcxproj -> D:\GitHub\projectBabel\Project Babel\Project Babel\..\Wonderful App\Project Babel.exe
      1>Done Building Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.68
+Time Elapsed 00:00:03.43

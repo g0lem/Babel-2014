@@ -56,6 +56,8 @@ public:
 
 	void Load(Map * current_tilemap);
 
+	glm::vec2 GetPlayerPosition(){ return this->position; }
+
 
 	void Render(Controller * ctrl, ScreenUniformData *u_data, GameObject * g_obj, Map * current_map);
 

@@ -54,7 +54,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SQLite.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -110,6 +110,7 @@
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\controls.hpp" />
+    <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\dice.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
