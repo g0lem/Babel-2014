@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="common\application.cpp" />
     <ClCompile Include="common\map.cpp" />
-    <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="common\text2D.cpp">
@@ -42,6 +41,7 @@
     <ClCompile Include="common\dice.cpp">
       <Filter>dice</Filter>
     </ClCompile>
+    <ClCompile Include="common\movement.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />

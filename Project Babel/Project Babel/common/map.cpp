@@ -1,3 +1,7 @@
+//Checked 1
+
+
+
 #include "map.hpp"
 
 
@@ -10,6 +14,9 @@ void Map::LoadSprites()
 
 
 	this->m_sprite = new Sprite();
+
+
+
 
 
 	char ** tex_str = new char*[4];
@@ -48,8 +55,10 @@ void Map::GenerateContent()
 	GLuint tries = 0;
 
 
+	this->rooms = new 	std::vector < Room* > ;
 
-	while (this->rooms.size() < this->expected_rooms)
+
+	while (this->rooms->size() < this->expected_rooms)
 	{
 
 		Room * temp = new Room();
@@ -77,8 +86,8 @@ void Map::GenerateContent()
 
 			GLboolean result = true;
 
-			for (GLuint i = 0; i < this->rooms.size(); i++)
-				if (temp->Intersects(this->rooms[i]))
+			for (GLuint i = 0; i < this->rooms->size(); i++)
+				if (temp->Intersects(this->rooms[0][i]))
 				{
 				result = false;
 				break;
@@ -93,7 +102,7 @@ void Map::GenerateContent()
 				this->TransformAndApplyRoomToTileMap(temp, this->tilemap, EMPTY_ROOM);
 
 
-				this->rooms.push_back(temp);
+				this->rooms->push_back(temp);
 
 		
 
@@ -108,8 +117,8 @@ void Map::GenerateContent()
 
 
 
-	for (GLuint i = 1; i < rooms.size(); i++)
-		AddTunnel(rooms[i]->GetInternalCenter(), rooms[i - 1]->GetInternalCenter());
+	for (GLuint i = 1; i < rooms->size(); i++)
+		AddTunnel(rooms[0][i]->GetInternalCenter(), rooms[0][i - 1]->GetInternalCenter());
 
 
 

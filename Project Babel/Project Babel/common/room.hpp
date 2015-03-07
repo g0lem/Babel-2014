@@ -1,3 +1,7 @@
+//Checked 1
+
+
+
 #ifndef ROOM_HPP
 #define ROOM_HPP
 
@@ -6,6 +10,8 @@
 #include "block.hpp"
 #include <stdio.h>
 #include "dice.hpp"
+
+
 
 #define EMPTY_ROOM 0
 

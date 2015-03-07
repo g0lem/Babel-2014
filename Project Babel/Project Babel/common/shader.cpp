@@ -1,5 +1,8 @@
-//Checked 2014
-//Need rework!
+//Checked 1
+
+
+
+
 
 #include <stdio.h>
 #include <string>

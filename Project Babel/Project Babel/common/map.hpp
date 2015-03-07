@@ -1,3 +1,8 @@
+//Checked 1
+
+
+
+
 #ifndef MAP_HPP
 #define MAP_HPP
 
@@ -25,9 +30,7 @@ public:
 
 	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
-	void GetDistance(int i, int j);
 
-	void ClearDistanceMap();
 
 	void Init();
 
@@ -36,11 +39,16 @@ public:
 
 
 
-	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
+	inline Tilemap * GetTilemap(){ return this->tilemap; }
+
+
+
+	inline 	std::vector<Room*>* GetRoomsPointer(){ return this->rooms; }
 
 
 private:
+
 
 
 
@@ -53,7 +61,7 @@ private:
 
 	GLuint expected_rooms;
 
-	std::vector<Room*>rooms;
+	std::vector<Room*>*rooms;
 
 
 	void LoadSprites();
@@ -63,7 +71,7 @@ private:
 	void GenerateContent();
 
 
-
+	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
 
 
