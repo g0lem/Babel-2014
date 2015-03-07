@@ -42,6 +42,7 @@
     <ClCompile Include="Combat.cpp">
       <Filter>combat</Filter>
     </ClCompile>
+    <ClCompile Include="common\dice.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="common\Database.h">
       <Filter>database</Filter>
     </ClInclude>
+    <ClInclude Include="common\dice.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_vert.txt">
