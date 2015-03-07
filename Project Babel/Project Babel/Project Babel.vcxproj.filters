@@ -38,14 +38,10 @@
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
     <ClCompile Include="common\scroller.cpp" />
-    <ClCompile Include="Combat.cpp">
-      <Filter>combat</Filter>
+    <ClCompile Include="common\dice.cpp">
+      <Filter>dice</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="common\movement.cpp" />
-=======
-    <ClCompile Include="common\dice.cpp" />
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -84,16 +80,11 @@
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
-    <ClInclude Include="common\input_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
     <ClInclude Include="common\scroller.hpp" />
-    <ClInclude Include="Combat.hpp">
-      <Filter>combat</Filter>
+    <ClInclude Include="common\dice.hpp">
+      <Filter>dice</Filter>
     </ClInclude>
-    <ClInclude Include="common\Database.h">
-      <Filter>database</Filter>
-    </ClInclude>
-    <ClInclude Include="common\dice.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\text_vert.txt">
@@ -128,11 +119,8 @@
     <Filter Include="sprite">
       <UniqueIdentifier>{87591a97-dc60-47a3-bdac-b513f426d3f1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="combat">
-      <UniqueIdentifier>{6635030b-7cb8-45ff-9656-cc0bd97a342f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="database">
-      <UniqueIdentifier>{6c6de17c-b394-4238-aadc-105fcfcd3863}</UniqueIdentifier>
+    <Filter Include="dice">
+      <UniqueIdentifier>{329cb30f-049c-463e-bac2-9d0c8ea0d857}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
