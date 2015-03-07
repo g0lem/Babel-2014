@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #ifndef METH_2D_HPP
 #define METH_2D_HPP
 
@@ -10,7 +6,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <time.h>
-#include <stdio.h>
 
 
 
@@ -21,11 +16,6 @@
 
 #ifndef TO_RADIANS(a)
 #define TO_RADIANS(a) a/180.0 * M_PI
-#endif
-
-
-#ifndef vec2_0
-#define vec2_0 glm::vec2(0.0f, 0.0f)
 #endif
 
 
@@ -79,9 +69,6 @@ inline glm::ivec2 GetCenter(glm::ivec2 point_a, glm::ivec2 point_b){ return (poi
 
 inline glm::ivec2 GetCenter(glm::ivec2 points[2]){ return GetCenter(points[0], points[1]); }
 
-
-
-inline void print_vec2(glm::vec2 t_vec){ printf("%.4f, %.4f\n", t_vec.x, t_vec.y); }
 
 
 #endif

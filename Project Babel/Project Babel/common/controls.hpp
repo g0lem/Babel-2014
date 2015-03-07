@@ -1,6 +1,3 @@
-//Checked 1
-
-
 #ifndef CONTROLS_HPP
 #define CONTROLS_HPP
 

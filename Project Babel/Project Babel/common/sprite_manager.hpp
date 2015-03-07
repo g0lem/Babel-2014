@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #ifndef SPRITE_MANAGER_HPP
 #define SPRITE_MANAGER_HPP
 

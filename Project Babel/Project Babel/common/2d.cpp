@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #include "2d.hpp"
 
 

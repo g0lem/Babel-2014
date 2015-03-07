@@ -1,7 +1,5 @@
-//Checked 1
-
-
-
+//Checked 2014
+//Need to improve Skybox
 
 #ifndef TEXTURE_HPP
 #define TEXTURE_HPP

@@ -1,13 +1,7 @@
-//Checked 1
-
-
-
-
-
 #include "player.hpp"
 
 
-void Player::Load(Map * current_tilemap)
+void Player::Load()
 {
 
 
@@ -15,7 +9,7 @@ void Player::Load(Map * current_tilemap)
 
 
 	char ** tex_str = new char*[1];
-	tex_str[0] = "player0.png";
+	tex_str[0] = "sprite.png";
 
 
 
@@ -25,19 +19,16 @@ void Player::Load(Map * current_tilemap)
 
 
 
+	this->m_move = new Move();
+
+
+
+
+	this->position = glm::vec2(64.0f, 64.0f);
 
 
 	this->scale = glm::vec2(64.0f, 64.0f);
-
-
-	this->position = glm::vec2(current_tilemap->GetRoomsPointer()[0][0]->GetInternalCenter());
-
-
-	this->target = this->position;
-
-
-	this->speed = 7.5f;
-
+	
 
 	this->rotation_angle = 0.0f;
 
@@ -47,26 +38,14 @@ void Player::Load(Map * current_tilemap)
 
 
 
-void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, Map * current_map)
+void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 
 
 
 
-	u_data->ApplyMatrix(Translation(GridPosition(position*scale + g_obj->GetScroller()->GetOffset(), scale))*Scale(scale));
-
-
-
-	
-	Move::TileMove(ctrl, target, current_map);
-
-
-	this->Update(position, target, ctrl->GetFpsPointer()->Delta(), speed);
-
-
-	Move::UpdateScroller(ctrl, g_obj, position, scale);
-
-
+	u_data->ApplyMatrix(Translation(GridPosition(position + g_obj->GetScroller()->GetOffset(), scale))*Scale(scale));
+	this->m_move->TileMove(ctrl, position, scale, g_obj);
 	this->m_sprite->Render(0);
 
 
@@ -74,29 +53,3 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-void Player::Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLfloat delta)
-{
-
-
-
-	if (position.y - target.y > speed * delta)
-		position.y -= speed * delta;
-	else if (target.y - position.y > speed * delta)
-		position.y += speed * delta;
-	else
-		position.y = target.y;
-
-
-
-	if (position.x - target.x > speed * delta)
-		position.x -= speed * delta;
-	else if (target.x - position.x > speed * delta)
-		position.x += speed * delta;
-	else
-		position.x = target.x;
-
-
-
-
-}

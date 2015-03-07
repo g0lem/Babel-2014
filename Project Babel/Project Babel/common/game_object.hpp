@@ -1,8 +1,3 @@
-//Checked 1
-
-
-
-
 #ifndef GAME_OBJECT_HPP
 #define GAME_OBJECT_HPP
 

@@ -1,7 +1,4 @@
-//Checked 1
-
-
-
+//Checked 2014
 
 #include <stdio.h>
 #include <stdlib.h>

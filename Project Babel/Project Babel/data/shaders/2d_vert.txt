@@ -11,8 +11,7 @@ uniform mat3 TransformMatrix;
 uniform mat4 ortho;
 
 
-void main()
-{
+void main(){
 
    
 

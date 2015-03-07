@@ -1,6 +1,3 @@
-//Checked 1
-
-
 #include "dice.hpp"
 
 

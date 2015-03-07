@@ -1,8 +1,3 @@
-//Checked 1
-
-
-
-
 #ifndef FONT_MANAGER_HPP
 #define FONT_MANAGER_HPP
 

@@ -1,7 +1,4 @@
-//Checked 1
-
-
-
+//Checked 2014
 
 #ifndef SHADER_HPP
 #define SHADER_HPP

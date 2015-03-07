@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #ifndef SPRITE_HPP
 #define SPRITE_HPP
 

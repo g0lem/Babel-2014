@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #ifndef SIMPLE_2D_HPP
 #define SIMPLE_2D_HPP
 

@@ -1,7 +1,3 @@
-//Checked 1
-
-
-
 #include <GL/glew.h>
 #include <glfw3.h>
 #include "common/controls.hpp"

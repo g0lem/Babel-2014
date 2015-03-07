@@ -1,5 +1,4 @@
-//Checked 1
-
+//Checked 2014
 
 
 #include <GL/glew.h>

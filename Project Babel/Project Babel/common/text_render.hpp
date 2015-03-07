@@ -1,6 +1,4 @@
-//Checked 1
-
-
+//Checked 2014
 
 #ifndef TEXT_RENDER_HPP
 #define TEXT_RENDER_HPP
