@@ -15,6 +15,10 @@
 #include "game_object.hpp"
 
 
+#define MAP_SIZE_X 30
+#define MAP_SIZE_Y 20
+
+
 
 
 class Map
@@ -39,6 +43,7 @@ public:
 
 
 
+<<<<<<< HEAD
 
 	inline Tilemap * GetTilemap(){ return this->tilemap; }
 
@@ -47,14 +52,20 @@ public:
 	inline 	std::vector<Room*>* GetRoomsPointer(){ return this->rooms; }
 
 
+=======
+>>>>>>> origin/master
 private:
 
 
 
 
 
+<<<<<<< HEAD
 
 	Tilemap *tilemap;
+=======
+	Tilemap *tilemap, *DistanceMap;
+>>>>>>> origin/master
 
 	Sprite * m_sprite;
 
@@ -72,6 +83,11 @@ private:
 
 
 	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
+
+	//////
+
+
+	
 
 
 

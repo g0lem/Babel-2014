@@ -1,6 +1,5 @@
 #ifndef _DATABASE_H
 #define _DATABASE_H
-
 #include "sqlite3.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,8 +48,8 @@ public:
 		system("pause");
 		sqlite3_close(db);
 	}
-
-	static void Load_Data(sf::RenderWindow &Window, b2World *&world)
+	/**/
+	/*static void Load_Data(sf::RenderWindow &Window, b2World *&world)
 	{
 		sqlite3 *db;
 		sqlite3_stmt *res;
@@ -166,7 +165,7 @@ public:
 		sqlite3_finalize(res);
 
 		sqlite3_close(db);
-	}
+	}*/
 
 	static void AddStaticBox(int id, int x, int y, int width, int height)
 	{
