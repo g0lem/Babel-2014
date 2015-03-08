@@ -29,6 +29,9 @@ void SpriteManager::Init()
 
 
 
+	this->combat = new Combat();
+
+
 	this->UnbindCreate();
 
 
@@ -65,6 +68,9 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 
 
 	this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
+
+
+	combat->Hit(ctrl, this->map, this->player);
 
 
 	this->UnbindRun();

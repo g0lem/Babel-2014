@@ -9,12 +9,18 @@ out vec2 UV;
 uniform vec2 half_screen_size;
 
 
-void main(){
+void main()
+{
+
+
 
 	vec2 NewPositions = (Positions - half_screen_size)/half_screen_size;
 
 	gl_Position =  vec4(NewPositions,0,1);
 	
 	UV = UVs;
+
+
+
 }
 

@@ -26,12 +26,18 @@ void Application::Init()
 
 	f_manager = new FontManager();
 
-	combat = new Combat();
+
 
 	s_manager = new SpriteManager();
 
 
+
 	g_object = new GameObject();
+
+
+
+	r_manager = new RocketManager();
+
 
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -61,7 +67,9 @@ void Application::Run()
 
 		f_manager->Render(this);
 
-		combat->Hit(this, this->s_manager->GetMap(), this->s_manager->GetPlayer());
+
+
+
 
 		glfwSwapBuffers(this->GetWindow());
 		glfwPollEvents();

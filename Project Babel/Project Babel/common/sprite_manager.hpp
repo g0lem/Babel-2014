@@ -11,6 +11,7 @@
 #include "player.hpp"
 #include "map.hpp"
 #include "game_object.hpp"
+#include "Combat.hpp"
 
 
 class SpriteManager : private Aaether2D
@@ -20,6 +21,9 @@ class SpriteManager : private Aaether2D
 	Player * player;
 
 	Map * map;
+
+
+	Combat *combat;
 
 
 

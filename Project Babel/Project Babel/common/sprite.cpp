@@ -32,6 +32,7 @@ void Sprite::Load(GLuint num_textures, char * dir, char ** textures_str)
 
 	glEnableVertexAttribArray(0);
 
+
 	glVertexAttribPointer(
 		0,
 		2,

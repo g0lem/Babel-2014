@@ -1,4 +1,4 @@
-//Checked 2014
+//1
 
 #ifndef APPLICATION
 #define APPLICATION
@@ -9,8 +9,7 @@
 #include "font_manager.hpp"
 #include "sprite_manager.hpp"
 #include "game_object.hpp"
-#include "Combat.hpp"
-
+#include "rocket_manager.hpp"
 
 
 class Application : private Controller
@@ -23,9 +22,12 @@ class Application : private Controller
 
 	SpriteManager * s_manager;
 
-	Combat *combat;
 
 	GameObject * g_object;
+
+
+
+	RocketManager * r_manager;
 
 
 

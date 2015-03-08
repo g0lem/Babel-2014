@@ -28,14 +28,16 @@ public:
 
 	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
-	void GetDistance(int i, int j);
 
+
+	void GetDistance(int i, int j);
 
 
 	void ClearDistanceMap();
 
 
 	inline Tilemap *GetDistanceMap(){ return this->DistanceMap; }
+
 
 	void Init();
 
