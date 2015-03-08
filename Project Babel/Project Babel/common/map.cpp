@@ -16,14 +16,8 @@ void Map::LoadSprites()
 	this->m_sprite = new Sprite();
 
 
-<<<<<<< HEAD
 
-
-
-	char ** tex_str = new char*[4];
-=======
 	char ** tex_str = new char*[3];
->>>>>>> origin/master
 	tex_str[0] = "floor.png";
 	tex_str[1] = "wall1.png";
 	tex_str[2] = "wall2.png";
@@ -117,12 +111,8 @@ void Map::GenerateContent()
 
 
 
-<<<<<<< HEAD
 	for (GLuint i = 1; i < rooms->size(); i++)
 		AddTunnel(rooms[0][i]->GetInternalCenter(), rooms[0][i - 1]->GetInternalCenter());
-=======
->>>>>>> origin/master
-
 
 
 
@@ -191,35 +181,3 @@ void Map::TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint 
 
 
 
-
-//////
-
-void Map::GetDistance(int i, int j)
-{
-	int in, jn, k;
-	int di[] = {0,0,-1,1};
-	int dj[] = {-1,1,0,0};
-	glm::ivec2 size;
-	size = this->tilemap->GetSize();
-	for (k = 0; k < 4; k++)
-	{
-		in = i + di[k];
-		jn = j + dj[k];
-		if (in >= 0 && jn >= 0 && in < size.y && jn < size.y && DB::GetProperty(this->tilemap->GetTiles()[in][jn],3) == 0)
-			if (DistanceMap->GetTiles()[in][jn] == 0 || DistanceMap->GetTiles()[in][jn] + 1 < DistanceMap->GetTiles()[in][jn])
-			{
-			DistanceMap->GetTiles()[in][jn] = DistanceMap->GetTiles()[in][jn] + 1;
-			Map::GetDistance(in, jn);
-			}
-	}
-}
-
-void Map::ClearDistanceMap()
-{
-	glm::ivec2 size;
-	size = this->tilemap->GetSize();
-	for (int i = 0; i < size.y; i++)
-		for (int j = 0; j < size.x; j++)
-			DistanceMap->GetTiles()[i][j] = 0;
-
-}

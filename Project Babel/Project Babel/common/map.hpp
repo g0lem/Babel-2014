@@ -43,7 +43,6 @@ public:
 
 
 
-<<<<<<< HEAD
 
 	inline Tilemap * GetTilemap(){ return this->tilemap; }
 
@@ -52,20 +51,15 @@ public:
 	inline 	std::vector<Room*>* GetRoomsPointer(){ return this->rooms; }
 
 
-=======
->>>>>>> origin/master
+
 private:
 
 
 
 
 
-<<<<<<< HEAD
-
 	Tilemap *tilemap;
-=======
-	Tilemap *tilemap, *DistanceMap;
->>>>>>> origin/master
+
 
 	Sprite * m_sprite;
 

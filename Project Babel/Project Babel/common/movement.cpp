@@ -6,7 +6,6 @@
 #include "movement.hpp"
 
 
-
 void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap)
 {
 
