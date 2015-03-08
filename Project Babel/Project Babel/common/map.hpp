@@ -15,12 +15,6 @@
 #include "game_object.hpp"
 
 
-#define MAP_SIZE_X 30
-#define MAP_SIZE_Y 20
-
-
-
-
 class Map
 {
 
@@ -34,7 +28,14 @@ public:
 
 	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
+	void GetDistance(int i, int j);
 
+
+
+	void ClearDistanceMap();
+
+
+	inline Tilemap *GetDistanceMap(){ return this->DistanceMap; }
 
 	void Init();
 
@@ -58,7 +59,7 @@ private:
 
 
 
-	Tilemap *tilemap;
+	Tilemap *tilemap, *DistanceMap;
 
 
 	Sprite * m_sprite;

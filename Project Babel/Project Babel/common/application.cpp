@@ -26,6 +26,7 @@ void Application::Init()
 
 	f_manager = new FontManager();
 
+	combat = new Combat();
 
 	s_manager = new SpriteManager();
 
@@ -60,7 +61,7 @@ void Application::Run()
 
 		f_manager->Render(this);
 
-
+		combat->Hit(this, this->s_manager->GetMap(), this->s_manager->GetPlayer());
 
 		glfwSwapBuffers(this->GetWindow());
 		glfwPollEvents();
