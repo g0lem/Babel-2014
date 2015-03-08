@@ -9,7 +9,7 @@
 #include "font_manager.hpp"
 #include "sprite_manager.hpp"
 #include "game_object.hpp"
-
+#include "Combat.hpp"
 
 
 
@@ -23,7 +23,7 @@ class Application : private Controller
 
 	SpriteManager * s_manager;
 
-
+	Combat *combat;
 
 	GameObject * g_object;
 
