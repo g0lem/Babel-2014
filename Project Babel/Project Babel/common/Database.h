@@ -1,10 +1,8 @@
 #ifndef _DATABASE_H
 #define _DATABASE_H
-
 #include "sqlite3.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 class DB
 {
@@ -50,8 +48,8 @@ public:
 		system("pause");
 		sqlite3_close(db);
 	}
-	/*
-	static void Load_Data(sf::RenderWindow &Window, b2World *&world)
+	/**/
+	/*static void Load_Data(sf::RenderWindow &Window, b2World *&world)
 	{
 		sqlite3 *db;
 		sqlite3_stmt *res;
@@ -85,7 +83,7 @@ public:
 
 		sqlite3_close(db);
 	}
-	/*static void Delete_Object(sf::RenderWindow &Window, b2World *&world)
+	static void Delete_Object(sf::RenderWindow &Window, b2World *&world)
 	{
 		sqlite3 *db;
 		sqlite3_stmt *res, *statement;
@@ -215,7 +213,7 @@ public:
 		if (sqlite3_open("Insight.db", &db))
 			sqlite3_close(db);
 
-		if (sqlite3_prepare_v2(db, "SELECT * FROM StaticObjects", 128, &res, &tail) != SQLITE_OK)
+		if (sqlite3_prepare_v2(db, "SELECT * FROM Blocks", 128, &res, &tail) != SQLITE_OK)
 			sqlite3_close(db);
 
 

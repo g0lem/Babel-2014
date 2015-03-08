@@ -31,10 +31,6 @@ public:
 
 	inline ~SpriteManager(){ this->Clean(); }
 
-	
-	Player *GetPlayer(){ return this->player; }
-
-	Map *GetMap(){ return this->map; }
 
 
 	void Init();

@@ -15,6 +15,10 @@
 #include "game_object.hpp"
 
 
+#define MAP_SIZE_X 30
+#define MAP_SIZE_Y 20
+
+
 
 
 class Map
@@ -37,16 +41,6 @@ public:
 
 	void TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag);
 
-	
-	void GetDistance(int i, int j);
-
-
-
-	void ClearDistanceMap();
-
-
-	inline Tilemap *GetDistanceMap(){ return this->DistanceMap; }
-
 
 
 
@@ -57,10 +51,6 @@ public:
 	inline 	std::vector<Room*>* GetRoomsPointer(){ return this->rooms; }
 
 
-<<<<<<< HEAD
-=======
-private:
->>>>>>> origin/master
 
 private:
 
@@ -68,12 +58,8 @@ private:
 
 
 
-<<<<<<< HEAD
 	Tilemap *tilemap;
 
-=======
-	Tilemap *tilemap, *DistanceMap;
->>>>>>> origin/master
 
 	Sprite * m_sprite;
 
@@ -91,6 +77,11 @@ private:
 
 
 	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
+
+	//////
+
+
+	
 
 
 

@@ -29,7 +29,6 @@ void Application::Init()
 
 	s_manager = new SpriteManager();
 
-    combat = new Combat();
 
 	g_object = new GameObject();
 
@@ -60,9 +59,6 @@ void Application::Run()
 
 
 		f_manager->Render(this);
-
-
-		combat->Hit(this,this->s_manager->GetMap(), this->s_manager->GetPlayer());
 
 
 

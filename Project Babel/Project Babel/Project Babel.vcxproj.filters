@@ -14,7 +14,6 @@
     <ClCompile Include="common\player.cpp" />
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="common\shader.cpp" />
     <ClCompile Include="common\sprite.cpp" />
     <ClCompile Include="common\sprite_manager.cpp" />
@@ -24,12 +23,6 @@
     <ClCompile Include="common\tile_map.cpp" />
     <ClCompile Include="common\uniform_2d.cpp" />
     <ClCompile Include="main.cpp" />
-=======
-    <ClCompile Include="common\dice.cpp" />
-    <ClCompile Include="common\Combat.cpp">
-      <Filter>combat</Filter>
-    </ClCompile>
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Combat.hpp" />
@@ -46,7 +39,6 @@
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\player.hpp" />
     <ClInclude Include="common\room.hpp" />
-<<<<<<< HEAD
     <ClInclude Include="common\scroller.hpp" />
     <ClInclude Include="common\shader.hpp" />
     <ClInclude Include="common\sprite.hpp" />
@@ -56,34 +48,6 @@
     <ClInclude Include="common\text_render.hpp" />
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\uniform_2d.hpp" />
-=======
-    <ClInclude Include="common\block.hpp" />
-    <ClInclude Include="common\tile_map.hpp" />
-    <ClInclude Include="common\font_manager.hpp" />
-    <ClInclude Include="common\game_object.hpp" />
-    <ClInclude Include="common\scroller.hpp" />
-    <ClInclude Include="common\dice.hpp" />
-    <ClInclude Include="common\Combat.hpp">
-      <Filter>combat</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Database.h">
-      <Filter>database</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="data\shaders\text_vert.txt">
-      <Filter>font</Filter>
-    </Text>
-    <Text Include="data\shaders\text_frag.txt">
-      <Filter>font</Filter>
-    </Text>
-    <Text Include="data\shaders\2d_vert.txt">
-      <Filter>sprite</Filter>
-    </Text>
-    <Text Include="data\shaders\2d_frag.txt">
-      <Filter>sprite</Filter>
-    </Text>
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt" />
