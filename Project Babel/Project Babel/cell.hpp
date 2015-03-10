@@ -1,6 +1,9 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+
+#include <math.h>
+
 class Cell
 {
 public:

@@ -25,7 +25,7 @@ void Pathfinder::FindPath(glm::vec3 currentPos, glm::vec3 targetPos)
 
 		for (int i = 0; i < pathtogoal.size(); i++)
 			delete pathtogoal[i];
-		pathtogoal.clear;
+		pathtogoal.clear();
 
 
 		//init start
@@ -96,7 +96,7 @@ void Pathfinder::PathOpened(int x, int y, float NewCost, Cell *last)
 {
 	//if (CELL_BLOCKED)
 		//return;
-	int id = y * 64 + x; //64 e marimea lumii
+	int id = y * 32 + x; //32 e marimea lumii
 	for (int i = 0; i < visitedlist.size(); i++)
 	{
 		if (id == visitedlist[i]->id)
@@ -169,6 +169,7 @@ void Pathfinder::ContinuePath()
 		PathOpened(currentCell->x, currentCell->y + 1, currentCell->G + 1, currentCell->last);
 
 		//adauga diagonale daca vor
+		
 
 		for (int i = 0; i < openlist.size(); i++)
 		{

@@ -94,3 +94,27 @@ void Move::UpdateScroller(Controller * ctrl, GameObject * g_obj, glm::vec2 posit
 
 
 }
+
+
+
+
+glm::vec2 Move::GetMapPosition(Map * current_tilemap, GameObject * g_obj, glm::vec2 position, glm::vec2 scale)
+{
+
+
+	position = glm::ivec2(GridPosition(position, scale) / scale - (g_obj->GetScroller()->GetOffset()) / scale);
+
+
+	if (position.x >= current_tilemap->GetTilemap()->GetSize().x)
+		position.x = current_tilemap->GetTilemap()->GetSize().x - 1;
+	if (position.y >= current_tilemap->GetTilemap()->GetSize().y)
+		position.y = current_tilemap->GetTilemap()->GetSize().y - 1;
+	if (position.x < 0)
+		position.x = 0;
+	if (position.y < 0)
+		position.x = 0;
+
+
+	return position;
+
+}

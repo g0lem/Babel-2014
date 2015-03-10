@@ -65,24 +65,42 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 	u_data->ApplyMatrix(Translation(GridPosition(position*scale + g_obj->GetScroller()->GetOffset(), scale))*Scale(scale));
 
 
+	{
+
+		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
+			target = Move::GetMapPosition(current_map, g_obj, ctrl->GetMousePosition(), this->scale);
 
 
-	Move::TileMove(ctrl, target, current_map);
+		Move::TileMove(ctrl, target, current_map);
 
 
-	this->Update(position, target, ctrl->GetFpsPointer()->Delta(), speed);
+		this->Update(position, target, ctrl->GetFpsPointer()->Delta(), speed);
 
 
-	Move::UpdateScroller(ctrl, g_obj, position, scale);
 
 
-	if (glm::distance(position, target) > speed*ctrl->GetFpsPointer()->Delta())
-	frames += frame_speed*ctrl->GetFpsPointer()->Delta();
+		Move::UpdateScroller(ctrl, g_obj, position, scale);
 
-	if (frames >= 8)
-		frames = 0;
+	}
 
-	this->m_sprite->Render(GLuint(frames));
+
+
+	
+	{
+
+		if (glm::distance(position, target) > speed*ctrl->GetFpsPointer()->Delta())
+			frames += frame_speed*ctrl->GetFpsPointer()->Delta();
+
+		if (frames >= 8)
+			frames = 0;
+
+
+		this->m_sprite->Render(GLuint(frames));
+
+
+	}
+	
+
 
 
 }
