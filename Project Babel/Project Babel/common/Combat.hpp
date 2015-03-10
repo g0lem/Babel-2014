@@ -14,7 +14,7 @@ public:
 	void Init();
 	void Test();
 	void Hit(Controller *ctrl, Map *map, Player *player);
-
+	
 
 private:
 	std::vector <int> Entities;

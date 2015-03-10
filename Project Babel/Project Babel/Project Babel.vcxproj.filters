@@ -41,10 +41,17 @@
     <ClCompile Include="common\shader.cpp">
       <Filter>shader</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="common\rocket_manager.cpp">
       <Filter>rocket</Filter>
     </ClCompile>
     <ClCompile Include="common\rocket_implementation.cpp" />
+=======
+    <ClCompile Include="common\rocket_manager.cpp" />
+    <ClCompile Include="pathfinding.cpp">
+      <Filter>pathfinding</Filter>
+    </ClCompile>
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -88,10 +95,20 @@
     <ClInclude Include="common\shader.hpp">
       <Filter>shader</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="common\rocket_manager.hpp">
       <Filter>rocket</Filter>
     </ClInclude>
     <ClInclude Include="common\rocket_implementation.hpp" />
+=======
+    <ClInclude Include="common\rocket_manager.hpp" />
+    <ClInclude Include="pathfinding.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -132,8 +149,13 @@
     <Filter Include="shader\texture">
       <UniqueIdentifier>{c5cac39e-54d0-4ea4-b7b6-fcb6a87434c3}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="rocket">
       <UniqueIdentifier>{b3a136a0-c2b4-4524-b52b-36add917fc30}</UniqueIdentifier>
+=======
+    <Filter Include="pathfinding">
+      <UniqueIdentifier>{476fac7f-073e-4af0-a15b-4569e425239a}</UniqueIdentifier>
+>>>>>>> origin/master
     </Filter>
   </ItemGroup>
 </Project>
