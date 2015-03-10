@@ -41,7 +41,10 @@
     <ClCompile Include="common\shader.cpp">
       <Filter>shader</Filter>
     </ClCompile>
-    <ClCompile Include="common\rocket_manager.cpp" />
+    <ClCompile Include="common\rocket_manager.cpp">
+      <Filter>rocket</Filter>
+    </ClCompile>
+    <ClCompile Include="common\rocket_implementation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -85,7 +88,10 @@
     <ClInclude Include="common\shader.hpp">
       <Filter>shader</Filter>
     </ClInclude>
-    <ClInclude Include="common\rocket_manager.hpp" />
+    <ClInclude Include="common\rocket_manager.hpp">
+      <Filter>rocket</Filter>
+    </ClInclude>
+    <ClInclude Include="common\rocket_implementation.hpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -99,6 +105,12 @@
     </Text>
     <Text Include="data\shaders\text_frag.txt">
       <Filter>font</Filter>
+    </Text>
+    <Text Include="data\shaders\rocket_frag.txt">
+      <Filter>rocket</Filter>
+    </Text>
+    <Text Include="data\shaders\rocket_vert.txt">
+      <Filter>rocket</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +131,9 @@
     </Filter>
     <Filter Include="shader\texture">
       <UniqueIdentifier>{c5cac39e-54d0-4ea4-b7b6-fcb6a87434c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rocket">
+      <UniqueIdentifier>{b3a136a0-c2b4-4524-b52b-36add917fc30}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

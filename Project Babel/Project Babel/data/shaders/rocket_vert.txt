@@ -1,0 +1,29 @@
+#version 330 core
+
+layout(location = 0) in vec2 Positions;
+layout(location = 1) in vec2 UVs;
+layout(location = 2) in vec4 Colors;
+
+out vec2 UV;
+out vec4 VertexColors;
+
+
+uniform vec2 translation;
+
+
+void main()
+{
+
+
+
+	vec2 NewPositions = Positions + translation;
+
+
+	gl_Position =  vec4(NewPositions,0,1);
+	
+	UV = UVs;
+
+    VertexColors = Colors;
+
+}
+

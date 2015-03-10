@@ -54,7 +54,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RocketDebugger.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Shell.lib;RocketDebugger.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -85,6 +85,7 @@
     <ClCompile Include="common\map.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\player.cpp" />
+    <ClCompile Include="common\rocket_implementation.cpp" />
     <ClCompile Include="common\rocket_manager.cpp" />
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
@@ -101,6 +102,8 @@
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt" />
     <Text Include="data\shaders\2d_vert.txt" />
+    <Text Include="data\shaders\rocket_frag.txt" />
+    <Text Include="data\shaders\rocket_vert.txt" />
     <Text Include="data\shaders\text_frag.txt" />
     <Text Include="data\shaders\text_vert.txt" />
   </ItemGroup>
@@ -118,6 +121,7 @@
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\player.hpp" />
+    <ClInclude Include="common\rocket_implementation.hpp" />
     <ClInclude Include="common\rocket_manager.hpp" />
     <ClInclude Include="common\room.hpp" />
     <ClInclude Include="common\scroller.hpp" />

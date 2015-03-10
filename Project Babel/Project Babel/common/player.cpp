@@ -14,17 +14,26 @@ void Player::Load(Map * current_tilemap)
 	this->m_sprite = new Sprite();
 
 
-	char ** tex_str = new char*[1];
-	tex_str[0] = "player0.png";
+	char ** tex_str = new char*[8];
+	tex_str[0] = "1.png";
+	tex_str[1] = "2.png";
+	tex_str[2] = "3.png";
+	tex_str[3] = "4.png";
+	tex_str[4] = "5.png";
+	tex_str[5] = "6.png";
+	tex_str[6] = "7.png";
+	tex_str[7] = "8.png";
 
 
 
 	this->m_sprite = new Sprite();
 
-	this->m_sprite->Load(1, "data/sprites/", tex_str);
+	this->m_sprite->Load(8, "data/sprites/", tex_str);
 
 
+	this->frames = 0;
 
+	this->frame_speed = 16.0f;
 
 
 	this->scale = glm::vec2(64.0f, 64.0f);
@@ -57,7 +66,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-	
+
 	Move::TileMove(ctrl, target, current_map);
 
 
@@ -67,7 +76,13 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 	Move::UpdateScroller(ctrl, g_obj, position, scale);
 
 
-	this->m_sprite->Render(0);
+	if (glm::distance(position, target) > speed*ctrl->GetFpsPointer()->Delta())
+	frames += frame_speed*ctrl->GetFpsPointer()->Delta();
+
+	if (frames >= 8)
+		frames = 0;
+
+	this->m_sprite->Render(GLuint(frames));
 
 
 }

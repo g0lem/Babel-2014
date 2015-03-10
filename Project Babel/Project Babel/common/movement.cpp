@@ -28,7 +28,6 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-
 	}
 
 
@@ -44,6 +43,8 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 			position.y++;
 
 
+
+
 	}
 
 
@@ -52,8 +53,13 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
+
 		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)] < 1)
 			position.x--;
+
+
+
+
 
 	}
 
@@ -70,11 +76,9 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
+
 	}
 
-
-
-	
 
 
 }
