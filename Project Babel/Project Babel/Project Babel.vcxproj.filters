@@ -42,6 +42,9 @@
       <Filter>shader</Filter>
     </ClCompile>
     <ClCompile Include="common\rocket_manager.cpp" />
+    <ClCompile Include="pathfinding.cpp">
+      <Filter>pathfinding</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\application.hpp" />
@@ -86,6 +89,12 @@
       <Filter>shader</Filter>
     </ClInclude>
     <ClInclude Include="common\rocket_manager.hpp" />
+    <ClInclude Include="pathfinding.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -119,6 +128,9 @@
     </Filter>
     <Filter Include="shader\texture">
       <UniqueIdentifier>{c5cac39e-54d0-4ea4-b7b6-fcb6a87434c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pathfinding">
+      <UniqueIdentifier>{476fac7f-073e-4af0-a15b-4569e425239a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

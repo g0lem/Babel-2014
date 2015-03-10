@@ -13,6 +13,7 @@ void Combat::Test()
 
 void Combat::Hit(Controller *ctrl, Map *map, Player *player)
 {
+	
 	/*
 	std::vector<int>::iterator i;
 

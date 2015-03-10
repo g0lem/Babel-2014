@@ -97,6 +97,7 @@
     <ClCompile Include="common\tile_map.cpp" />
     <ClCompile Include="common\uniform_2d.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pathfinding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt" />
@@ -105,6 +106,7 @@
     <Text Include="data\shaders\text_vert.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cell.hpp" />
     <ClInclude Include="common\2d.hpp" />
     <ClInclude Include="common\2d_math.hpp" />
     <ClInclude Include="common\application.hpp" />
@@ -129,6 +131,7 @@
     <ClInclude Include="common\text_render.hpp" />
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\uniform_2d.hpp" />
+    <ClInclude Include="pathfinding.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
