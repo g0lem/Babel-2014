@@ -1,6 +1,16 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+<<<<<<< HEAD:Project Babel/Project Babel/cell.hpp
+=======
+<<<<<<< HEAD:Babel/Babel/cell.hpp
+#include "common\2d_math.hpp"
+=======
+
+#include <math.h>
+>>>>>>> origin/master:Project Babel/Project Babel/cell.hpp
+
+>>>>>>> parent of b16e270... Revert "Merge remote-tracking branch 'origin/master'":Babel/Babel/cell.hpp
 class Cell
 {
 public:

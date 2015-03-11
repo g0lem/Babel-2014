@@ -45,6 +45,12 @@ class Player
 	GLfloat rotation_angle;
 
 
+	GLfloat frames;
+
+
+	GLfloat frame_speed;
+
+
 
 	void Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLfloat delta);
 
