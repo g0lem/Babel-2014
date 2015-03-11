@@ -59,12 +59,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-<<<<<<< HEAD:Babel/Babel/Babel.vcxproj
       <AdditionalDependencies>RocketDebugger.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-=======
-      <AdditionalDependencies>Shell.lib;RocketDebugger.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
->>>>>>> origin/master:Project Babel/Project Babel/Project Babel.vcxproj
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -104,7 +99,6 @@
     <ClCompile Include="common\map.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\player.cpp" />
-    <ClCompile Include="common\rocket_implementation.cpp" />
     <ClCompile Include="common\rocket_manager.cpp" />
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
@@ -119,17 +113,6 @@
     <ClCompile Include="pathfinding.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD:Babel/Babel/Babel.vcxproj
-=======
-    <Text Include="data\shaders\2d_frag.txt" />
-    <Text Include="data\shaders\2d_vert.txt" />
-    <Text Include="data\shaders\rocket_frag.txt" />
-    <Text Include="data\shaders\rocket_vert.txt" />
-    <Text Include="data\shaders\text_frag.txt" />
-    <Text Include="data\shaders\text_vert.txt" />
-  </ItemGroup>
-  <ItemGroup>
->>>>>>> origin/master:Project Babel/Project Babel/Project Babel.vcxproj
     <ClInclude Include="cell.hpp" />
     <ClInclude Include="common\2d.hpp" />
     <ClInclude Include="common\2d_math.hpp" />
@@ -144,7 +127,6 @@
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\player.hpp" />
-    <ClInclude Include="common\rocket_implementation.hpp" />
     <ClInclude Include="common\rocket_manager.hpp" />
     <ClInclude Include="common\room.hpp" />
     <ClInclude Include="common\scroller.hpp" />

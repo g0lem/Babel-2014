@@ -6,7 +6,7 @@
 #include <Rocket/Core.h>
 #include <GL/glew.h>
 #include "controls.hpp"
-#include "shader.hpp"
+
 
 
 #define POSITION_LOCATION 0
@@ -68,7 +68,7 @@ class RocketRenderManager : public Rocket::Core::RenderInterface
 	GLuint m_program;
 
 
-	GLuint offset_uniform_location, textureID;
+	GLuint offset_uniform_location;
 
 
 	Controller * ctrl;
@@ -99,13 +99,11 @@ class RocketRenderManager : public Rocket::Core::RenderInterface
 	virtual void ReleaseTexture(Rocket::Core::TextureHandle texture_handle);
 
 
-public:
+
+	inline RocketRenderManager(Controller * ctrl){ this->Init(ctrl); }
 
 
-	inline RocketRenderManager(Controller * ctrl, char * vertex_shader, char * fragment_shader){ this->Init(ctrl, vertex_shader, fragment_shader); }
-
-
-	void Init(Controller * ctrl, char * vertex_shader, char * fragment_shader);
+	void Init(Controller * ctrl);
 
 
 };
@@ -119,17 +117,14 @@ class RocketManager
 	RocketSystemManager * m_system;
 
 
-	RocketRenderManager * m_render;
-
-
 
 public:
 
 
-	inline RocketManager(Controller * ctrl, char * vertex_shader, char*fragment_shader){ this->Install(ctrl, vertex_shader, fragment_shader); }
+	inline RocketManager(){ this->Install(); }
 
 
-	void Install(Controller * ctrl, char * vertex_shader, char*fragment_shader);
+	void Install();
 
 };
 

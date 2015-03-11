@@ -22,12 +22,8 @@ public:
 
 	static void TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap);
 
-	
 	static void UpdateScroller(Controller * ctrl, GameObject * g_obj, glm::vec2 position, glm::vec2 scale);
 	
-
-	static glm::vec2 GetMapPosition(Map * current_tilemap, GameObject * g_obj, glm::vec2 position, glm::vec2 scale);
-
 
 };
 

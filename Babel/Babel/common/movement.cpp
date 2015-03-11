@@ -28,6 +28,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
+
 	}
 
 
@@ -43,8 +44,6 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 			position.y++;
 
 
-
-
 	}
 
 
@@ -53,13 +52,8 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-
 		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)] < 1)
 			position.x--;
-
-
-
-
 
 	}
 
@@ -76,9 +70,11 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-
 	}
 
+
+
+	
 
 
 }
@@ -92,29 +88,5 @@ void Move::UpdateScroller(Controller * ctrl, GameObject * g_obj, glm::vec2 posit
 
 	g_obj->GetScroller()->SetOffset(half_screen_vector - position*scale);
 
-
-}
-
-
-
-
-glm::vec2 Move::GetMapPosition(Map * current_tilemap, GameObject * g_obj, glm::vec2 position, glm::vec2 scale)
-{
-
-
-	position = glm::ivec2(GridPosition(position, scale) / scale - (g_obj->GetScroller()->GetOffset()) / scale);
-
-
-	if (position.x >= current_tilemap->GetTilemap()->GetSize().x)
-		position.x = current_tilemap->GetTilemap()->GetSize().x - 1;
-	if (position.y >= current_tilemap->GetTilemap()->GetSize().y)
-		position.y = current_tilemap->GetTilemap()->GetSize().y - 1;
-	if (position.x < 0)
-		position.x = 0;
-	if (position.y < 0)
-		position.x = 0;
-
-
-	return position;
 
 }
