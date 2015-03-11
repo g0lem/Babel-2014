@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{f0eb95bf-772e-4db0-9083-4a488a60e941}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="data">
+      <UniqueIdentifier>{965cd6d3-d0c8-40ab-86bd-b60b48188f67}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Babel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d_math.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\application.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Combat.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\controls.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\dice.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\font_manager.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\game_object.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\map.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\movement.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\player.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\rocket_manager.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\room.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\scroller.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\shader.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite_manager.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text2D.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\texture.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text_render.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tile_map.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="common\uniform_2d.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="pathfinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\2d.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\2d_math.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\application.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\block.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Combat.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\controls.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Database.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\dice.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\font_manager.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\game_object.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\map.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\movement.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\player.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\rocket_manager.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\room.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\scroller.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\shader.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite_manager.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text2D.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\texture.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text_render.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\tile_map.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\uniform_2d.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="pathfinding.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
