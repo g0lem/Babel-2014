@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+<<<<<<< HEAD
+    <ClCompile Include="common\application.cpp" />
+=======
+    <ClCompile Include="common\2d.cpp" />
+    <ClCompile Include="common\2d_math.cpp" />
+    <ClCompile Include="common\application.cpp" />
+    <ClCompile Include="common\Combat.cpp" />
+    <ClCompile Include="common\controls.cpp" />
+>>>>>>> parent of b16e270... Revert "Merge remote-tracking branch 'origin/master'"
+    <ClCompile Include="common\dice.cpp" />
+    <ClCompile Include="common\font_manager.cpp" />
+    <ClCompile Include="common\game_object.cpp" />
+    <ClCompile Include="common\map.cpp" />
+    <ClCompile Include="common\movement.cpp" />
+    <ClCompile Include="common\player.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="common\room.cpp" />
+    <ClCompile Include="common\scroller.cpp" />
+    <ClCompile Include="common\sprite_manager.cpp" />
+    <ClCompile Include="common\tile_map.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="common\Combat.cpp" />
+    <ClCompile Include="common\2d.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\uniform_2d.cpp">
+      <Filter>sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d_math.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="common\controls.cpp">
+      <Filter>controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text2D.cpp">
+      <Filter>font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text_render.cpp">
+      <Filter>font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\texture.cpp">
+      <Filter>shader\texture</Filter>
+    </ClCompile>
+    <ClCompile Include="common\shader.cpp">
+      <Filter>shader</Filter>
+    </ClCompile>
+    <ClCompile Include="common\rocket_manager.cpp" />
+    <ClCompile Include="pathfinding.cpp">
+      <Filter>pathfinding</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\application.hpp" />
+    <ClInclude Include="common\block.hpp" />
+=======
+    <ClCompile Include="common\rocket_implementation.cpp" />
+    <ClCompile Include="common\rocket_manager.cpp" />
+    <ClCompile Include="common\room.cpp" />
+    <ClCompile Include="common\scroller.cpp" />
+    <ClCompile Include="common\shader.cpp" />
+    <ClCompile Include="common\sprite.cpp" />
+    <ClCompile Include="common\sprite_manager.cpp" />
+    <ClCompile Include="common\text2D.cpp" />
+    <ClCompile Include="common\texture.cpp" />
+    <ClCompile Include="common\text_render.cpp" />
+    <ClCompile Include="common\tile_map.cpp" />
+    <ClCompile Include="common\uniform_2d.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pathfinding.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cell.hpp" />
+    <ClInclude Include="common\2d.hpp" />
+    <ClInclude Include="common\2d_math.hpp" />
+    <ClInclude Include="common\application.hpp" />
+    <ClInclude Include="common\block.hpp" />
+    <ClInclude Include="common\Combat.hpp" />
+    <ClInclude Include="common\controls.hpp" />
+>>>>>>> parent of b16e270... Revert "Merge remote-tracking branch 'origin/master'"
+    <ClInclude Include="common\Database.h" />
+    <ClInclude Include="common\dice.hpp" />
+    <ClInclude Include="common\font_manager.hpp" />
+    <ClInclude Include="common\game_object.hpp" />
+    <ClInclude Include="common\map.hpp" />
+    <ClInclude Include="common\movement.hpp" />
+    <ClInclude Include="common\player.hpp" />
+<<<<<<< HEAD
+    <ClInclude Include="common\room.hpp" />
+    <ClInclude Include="common\scroller.hpp" />
+    <ClInclude Include="common\sprite_manager.hpp" />
+    <ClInclude Include="common\tile_map.hpp" />
+    <ClInclude Include="common\Combat.hpp" />
+    <ClInclude Include="common\2d.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\uniform_2d.hpp">
+      <Filter>sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="common\2d_math.hpp">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="common\controls.hpp">
+      <Filter>controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text2D.hpp">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text_render.hpp">
+      <Filter>font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\texture.hpp">
+      <Filter>shader\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="common\shader.hpp">
+      <Filter>shader</Filter>
+    </ClInclude>
+    <ClInclude Include="common\rocket_manager.hpp" />
+    <ClInclude Include="pathfinding.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="cell.hpp">
+      <Filter>pathfinding</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\shaders\2d_frag.txt">
+      <Filter>sprite</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_vert.txt">
+      <Filter>sprite</Filter>
+    </Text>
+    <Text Include="data\shaders\text_vert.txt">
+      <Filter>font</Filter>
+    </Text>
+    <Text Include="data\shaders\text_frag.txt">
+      <Filter>font</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="sprite">
+      <UniqueIdentifier>{351a36eb-7863-47ec-9df8-5975db67a098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{ca81842d-da6a-4eb7-9d12-4caf0a136d43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="controls">
+      <UniqueIdentifier>{6afee342-cfff-4e9e-8140-efed7c4f1589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="font">
+      <UniqueIdentifier>{f91c378d-6f81-4c60-9b19-c5bdcffd9887}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{aa828902-cee7-4d4a-8ab3-1035debfb593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\texture">
+      <UniqueIdentifier>{c5cac39e-54d0-4ea4-b7b6-fcb6a87434c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pathfinding">
+      <UniqueIdentifier>{476fac7f-073e-4af0-a15b-4569e425239a}</UniqueIdentifier>
+    </Filter>
+=======
+    <ClInclude Include="common\rocket_implementation.hpp" />
+    <ClInclude Include="common\rocket_manager.hpp" />
+    <ClInclude Include="common\room.hpp" />
+    <ClInclude Include="common\scroller.hpp" />
+    <ClInclude Include="common\shader.hpp" />
+    <ClInclude Include="common\sprite.hpp" />
+    <ClInclude Include="common\sprite_manager.hpp" />
+    <ClInclude Include="common\text2D.hpp" />
+    <ClInclude Include="common\texture.hpp" />
+    <ClInclude Include="common\text_render.hpp" />
+    <ClInclude Include="common\tile_map.hpp" />
+    <ClInclude Include="common\uniform_2d.hpp" />
+    <ClInclude Include="pathfinding.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="data\shaders\2d_frag.txt" />
+    <Text Include="data\shaders\2d_vert.txt" />
+    <Text Include="data\shaders\rocket_frag.txt" />
+    <Text Include="data\shaders\rocket_vert.txt" />
+    <Text Include="data\shaders\text_frag.txt" />
+    <Text Include="data\shaders\text_vert.txt" />
+>>>>>>> parent of b16e270... Revert "Merge remote-tracking branch 'origin/master'"
+  </ItemGroup>
+</Project>
