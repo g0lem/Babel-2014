@@ -1,21 +1,24 @@
 #ifndef PATHFINDING_HPP 
 #define PATHFINDING_HPP
 
+#include "map.hpp"
 #include "cell.hpp"
+
 #include <vector>
-#include "glm\glm.hpp"
+
 
 class Pathfinder
 {
     public:
-		Pathfinder(void);
+		Pathfinder(Map *map);
 		~Pathfinder(void);
 
-		void FindPath(glm::vec3 currentPos, glm::vec3 targetPos);
-		glm::vec3 NextPathPos(glm::vec3 position, int range);
+		void FindPath(glm::vec2 currentPos, glm::vec2 targetPos);
+		glm::vec2 NextPathPos(glm::vec2 position, int range);
 		void ClearOpenList(){ openlist.clear(); }
 		void ClearVisitedList(){ visitedlist.clear(); }
-		void ClearPathtoGoal(){ pathtogoal.clear(); }
+		void ClearPathtoGoal(){ pathtogoal->clear(); }
+		std::vector <glm::vec2> *GetPath(){ return this->pathtogoal; }
 		bool StartGoalInit;
 		bool FoundGoal;
 
@@ -27,10 +30,11 @@ class Pathfinder
 
 	   Cell *StartCell;
 	   Cell *EndingCell;
+	   Map *map;
 
 	   std::vector<Cell*> openlist;
 	   std::vector<Cell*> visitedlist;
-	   std::vector<glm::vec3*> pathtogoal;
+	   std::vector<glm::vec2> *pathtogoal;
 
 };
 

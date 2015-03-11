@@ -12,7 +12,7 @@ void Player::Load(Map * current_tilemap)
 
 
 	this->m_sprite = new Sprite();
-
+	m_path = new Pathfinder(current_tilemap);
 
 	char ** tex_str = new char*[8];
 	tex_str[0] = "1.png";
@@ -68,7 +68,12 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 	{
 
 		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
-			target = Move::GetMapPosition(current_map, g_obj, ctrl->GetMousePosition(), this->scale);
+		{
+			//target = Move::GetMapPosition(current_map, g_obj, ctrl->GetMousePosition(), this->scale);
+			m_path->FindPath(position, Move::GetMapPosition(current_map, g_obj, ctrl->GetMousePosition(), this->scale));
+			for (int i = 0; i < m_path->GetPath()->size(); i++)
+				print_vec2(m_path->GetPath()[0][i]);
+		}
 
 
 		Move::TileMove(ctrl, target, current_map);

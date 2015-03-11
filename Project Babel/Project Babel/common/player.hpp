@@ -6,15 +6,14 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
-
+#include "pathfinding.hpp"
 #include "sprite.hpp"
 #include "controls.hpp"
 #include "2d_math.hpp"
-#include "uniform_2d.hpp"
 #include "movement.hpp"
 #include "game_object.hpp"
 #include "map.hpp"
-
+#include "uniform_2d.hpp"
 
 
 class Player
@@ -24,7 +23,7 @@ class Player
 
 	Sprite * m_sprite;
 
-
+	Pathfinder *m_path;
 
 
 	glm::vec2 position;

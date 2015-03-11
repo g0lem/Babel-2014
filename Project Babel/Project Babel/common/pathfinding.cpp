@@ -1,9 +1,11 @@
 #include "pathfinding.hpp"
 
-Pathfinder::Pathfinder(void)
+Pathfinder::Pathfinder(Map *map)
 {
 	StartGoalInit = false;
+	pathtogoal = new std::vector < glm::vec2 > ;
 	FoundGoal = false;
+	this->map = map;
 }
 
 Pathfinder::~Pathfinder(void)
@@ -11,7 +13,7 @@ Pathfinder::~Pathfinder(void)
 
 }
 
-void Pathfinder::FindPath(glm::vec3 currentPos, glm::vec3 targetPos)
+void Pathfinder::FindPath(glm::vec2 currentPos, glm::vec2 targetPos)
 {
 	if (!StartGoalInit)
 	{
@@ -23,9 +25,9 @@ void Pathfinder::FindPath(glm::vec3 currentPos, glm::vec3 targetPos)
 			delete visitedlist[i];
 		visitedlist.clear();
 
-		for (int i = 0; i < pathtogoal.size(); i++)
-			delete pathtogoal[i];
-		pathtogoal.clear();
+		//for (int i = 0; i < pathtogoal->size(); i++)
+			delete pathtogoal;
+		pathtogoal->clear();
 
 
 		//init start
@@ -94,8 +96,8 @@ Cell *Pathfinder::GetNextCell()
 
 void Pathfinder::PathOpened(int x, int y, float NewCost, Cell *last)
 {
-	//if (CELL_BLOCKED)
-		//return;
+	if (this->map->GetTilemap()->GetTiles()[x][y] >= SOLID_LIMIT)
+		return;
 	int id = y * 32 + x; //32 e marimea lumii
 	for (int i = 0; i < visitedlist.size(); i++)
 	{
@@ -148,7 +150,7 @@ void Pathfinder::ContinuePath()
 		
 		for (getpath = EndingCell; getpath != NULL; getpath = getpath->last)
 		{
-			pathtogoal.push_back(&glm::vec3(getpath->x, 0 , getpath->y));
+			pathtogoal->push_back(glm::vec2(getpath->x, getpath->y));
 		}
 
 		FoundGoal = true;
@@ -182,21 +184,21 @@ void Pathfinder::ContinuePath()
 	}
 }
 
-glm::vec3 Pathfinder::NextPathPos(glm::vec3 position, int range)
+glm::vec2 Pathfinder::NextPathPos(glm::vec2 position, int range)
 {
 	int index = 1;
 
-	glm::vec3 nextpos;
-	nextpos.x = pathtogoal[pathtogoal.size() - index]->x;
-	nextpos.y = pathtogoal[pathtogoal.size() - index]->y;
+	glm::vec2 nextpos;
+	nextpos.x = pathtogoal[0][pathtogoal->size() - index].x;
+	nextpos.y = pathtogoal[0][pathtogoal->size() - index].y;
     
-	glm::vec3 distance = nextpos - position;
+	glm::vec2 distance = nextpos - position;
 
-	if (index < pathtogoal.size())
+	if (index < pathtogoal->size())
 	{
 		if (distance.length() < range)
 		{
-			pathtogoal.erase(pathtogoal.end() - index);
+			pathtogoal->erase(pathtogoal->end() - index);
 		}
 	}
 	return nextpos;

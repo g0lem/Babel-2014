@@ -10,9 +10,9 @@ public:
 	float H, F, G;
 	int x, y, id;
 	float GetF(){ return G + H; }
-	Cell() : last(0){}
+	inline Cell() { this->Init(); }
 	Cell(int x, int y, Cell *_last = 0) :x(x), y(y), last(_last), id(y * 64 + y), G(0), H(0){}
-
+	void Init(void){ H = F = G = 0; x = y = id = 0; last = 0; }
 
 	float ManhattanDistance(Cell *cell)
 	{
