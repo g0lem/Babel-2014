@@ -14,4 +14,8 @@
 
 
 
+#define SOLID_LIMIT 1
+
+
+
 #endif

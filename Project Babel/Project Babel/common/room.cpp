@@ -108,13 +108,13 @@ void Room::Transform(GLuint transform_flag)
 	{
 
 
-		GLuint values[3] = { 2, 1};
+		GLuint values[4] = { 2, 1, 1, 1 };
 
 
 		for (GLuint i = 0; i < this->width; i++)
 		{
-			this->tile_map[i][0] = Dice::Get(values, 2, 3)+1;
-			this->tile_map[i][this->height - 1] = Dice::Get(values, 2, 3)+1;
+			this->tile_map[i][0] = Dice::Get(values, 4, 5)+SOLID_LIMIT;
+			this->tile_map[i][this->height - 1] = Dice::Get(values, 4, 5)+SOLID_LIMIT;
 
 		}
 
@@ -123,8 +123,8 @@ void Room::Transform(GLuint transform_flag)
 		for (GLuint j = 0; j < this->height; j++)
 		{
 
-			this->tile_map[0][j] = Dice::Get(values, 2, 3)+1;
-			this->tile_map[this->width - 1][j] = Dice::Get(values, 2, 3)+1;
+			this->tile_map[0][j] = Dice::Get(values, 4, 5)+SOLID_LIMIT;
+			this->tile_map[this->width - 1][j] = Dice::Get(values, 4, 5)+SOLID_LIMIT;
 
 		}
 

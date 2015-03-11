@@ -24,8 +24,6 @@
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\pathfinding.cpp" />
     <ClCompile Include="common\player.cpp" />
-    <ClCompile Include="common\rocket_implementation.cpp" />
-    <ClCompile Include="common\rocket_manager.cpp" />
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
     <ClCompile Include="common\shader.cpp" />
@@ -55,8 +53,6 @@
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\pathfinding.hpp" />
     <ClInclude Include="common\player.hpp" />
-    <ClInclude Include="common\rocket_implementation.hpp" />
-    <ClInclude Include="common\rocket_manager.hpp" />
     <ClInclude Include="common\room.hpp" />
     <ClInclude Include="common\scroller.hpp" />
     <ClInclude Include="common\shader.hpp" />

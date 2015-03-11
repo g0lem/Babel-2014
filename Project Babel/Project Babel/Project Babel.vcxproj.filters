@@ -53,12 +53,6 @@
     <ClCompile Include="common\player.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="common\rocket_implementation.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\rocket_manager.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
     <ClCompile Include="common\room.cpp">
       <Filter>common</Filter>
     </ClCompile>
@@ -134,12 +128,6 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="common\player.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\rocket_implementation.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\rocket_manager.hpp">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="common\room.hpp">

@@ -17,13 +17,15 @@ void Map::LoadSprites()
 
 
 
-	char ** tex_str = new char*[3];
+	char ** tex_str = new char*[5];
 	tex_str[0] = "floor.png";
-	tex_str[1] = "wall1.png";
-	tex_str[2] = "wall2.png";
+	tex_str[1] = "wall0.png";
+	tex_str[2] = "wall1.png";
+	tex_str[3] = "wall2.png";
+	tex_str[4] = "wall3.png";
 
 
-	this->m_sprite->Load(3, "data/tiles/", tex_str);
+	this->m_sprite->Load(5, "data/tiles/", tex_str);
 
 
 

@@ -23,7 +23,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y - 1)] < 1)
+		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y - 1)] < SOLID_LIMIT)
 			position.y--;
 
 
@@ -39,7 +39,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 	
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y + 1)] < 1)
+		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y + 1)] < SOLID_LIMIT)
 			position.y++;
 
 
@@ -54,7 +54,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)] < 1)
+		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)] < SOLID_LIMIT)
 			position.x--;
 
 
@@ -71,7 +71,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x + 1)][GLuint(position.y)] < 1)
+		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x + 1)][GLuint(position.y)] < SOLID_LIMIT)
 			position.x++;
 
 
