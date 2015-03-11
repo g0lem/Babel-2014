@@ -53,15 +53,18 @@ bool RocketSystemManager::LogMessage(Rocket::Core::Log::Type type, const Rocket:
 
 
 
-void RocketManager::Install()
+void RocketManager::Install(Controller * ctrl, char * vertex_shader, char*fragment_shader)
 {
 
 
 	m_system = new RocketSystemManager();
 
 
-	Rocket::Core::SetSystemInterface(m_system);
+	m_render = new RocketRenderManager(ctrl, vertex_shader, fragment_shader);
 
+
+	Rocket::Core::SetSystemInterface(m_system);
+	Rocket::Core::SetRenderInterface(m_render);
 
 
 
@@ -70,8 +73,20 @@ void RocketManager::Install()
 
 
 
-void RocketRenderManager::Init(Controller * ctrl)
+void RocketRenderManager::Init(Controller * ctrl, char * vertex_shader, char * fragment_shader)
 {
+
+
+	this->m_program = LoadShaders(vertex_shader, fragment_shader);
+
+
+	glUseProgram(this->m_program);
+
+
+	this->offset_uniform_location = glGetUniformLocation(this->m_program, "translation");
+	this->textureID = glGetUniformLocation(this->m_program, "myTextureSampler");
+
+	glUseProgram(0);
 
 
 	this->ctrl = ctrl;
@@ -110,13 +125,15 @@ void RocketRenderManager::RenderGeometry(Rocket::Core::Vertex* vertices, int num
 	};
 
 
+
+
 	glUseProgram(this->m_program);
-
-
 	glUniform2f(this->offset_uniform_location, translation.x, translation.y);
-
-
+	glUniform1i(this->textureID, 0);
 	glBindVertexArray(this->m_VAO);
+
+
+
 
 
 	glBindBuffer(GL_ARRAY_BUFFER, this->m_VBOs[POS_VBO]);
@@ -142,21 +159,27 @@ void RocketRenderManager::RenderGeometry(Rocket::Core::Vertex* vertices, int num
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * num_indices, indices, GL_STATIC_DRAW);
 
 
+
+
+
+
+	glActiveTexture(GL_TEXTURE0);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+
+
 
 
 	glDrawElements(GL_TRIANGLES, num_indices, GL_UNSIGNED_INT, indices);
 
 
 
+
+
 	glDisable(GL_BLEND);
-
-
+	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindVertexArray(0);
-
-
-
 	glUseProgram(0);
 
 }
@@ -186,3 +209,44 @@ void RocketRenderManager::SetScissorRegion(int x, int y, int width, int height)
 
 
 }
+
+
+
+bool RocketRenderManager::LoadTexture(Rocket::Core::TextureHandle& texture_handle,
+	Rocket::Core::Vector2i& texture_dimensions,
+	const Rocket::Core::String& source)
+{
+
+
+
+
+	return true;
+
+}
+
+
+bool RocketRenderManager::GenerateTexture(Rocket::Core::TextureHandle& texture_handle,
+	const Rocket::Core::byte* source,
+	const Rocket::Core::Vector2i& source_dimensions)
+{
+
+
+
+	return true;
+
+}
+
+
+void RocketRenderManager::ReleaseTexture(Rocket::Core::TextureHandle texture_handle)
+{
+
+
+
+
+}
+
+
+
+
+
+

@@ -9,7 +9,6 @@
 #include "font_manager.hpp"
 #include "sprite_manager.hpp"
 #include "game_object.hpp"
-#include "rocket_manager.hpp"
 
 
 class Application : private Controller
@@ -26,8 +25,6 @@ class Application : private Controller
 	GameObject * g_object;
 
 
-
-	RocketManager * r_manager;
 
 
 

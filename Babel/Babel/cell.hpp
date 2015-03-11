@@ -1,7 +1,12 @@
 #ifndef CELL_HPP
 #define CELL_HPP
 
+<<<<<<< HEAD:Babel/Babel/cell.hpp
 #include "common\2d_math.hpp"
+=======
+
+#include <math.h>
+>>>>>>> origin/master:Project Babel/Project Babel/cell.hpp
 
 class Cell
 {
