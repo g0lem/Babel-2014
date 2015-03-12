@@ -10,12 +10,14 @@
 #include "game_object.hpp"
 #include "map.hpp"
 #include "physical_attributes.hpp"
-
+#include "stats.hpp"
 
 
 
 class Enemy
 {
+
+	Stats * m_stats;
 
 
 	PhysicalAttributes * p_attributes;
@@ -27,6 +29,9 @@ class Enemy
 	void LoadSprites();
 
 
+	void LoadStats();
+
+
 	void LoadPhysicalAttributes();
 
 
@@ -34,6 +39,10 @@ class Enemy
 
 
 	void RenderMisc(ScreenUniformData * u_data, GameObject * g_obj);
+
+
+	void RenderHpBar(ScreenUniformData * u_data, GameObject * g_obj);
+
 
 
 public:

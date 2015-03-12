@@ -12,6 +12,8 @@
 #include "map.hpp"
 #include "game_object.hpp"
 #include "enemy_manager.hpp"
+#include "Combat.hpp"
+
 
 
 class SpriteManager : private Aaether2D

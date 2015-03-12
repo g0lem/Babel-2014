@@ -54,9 +54,11 @@
     <Filter Include="stats">
       <UniqueIdentifier>{d53a1a69-b73d-48ce-b856-24c9a6a189b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="combat">
+      <UniqueIdentifier>{9ea6ae48-4de3-4e02-a87c-472b86528778}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="common\Combat.cpp" />
     <ClCompile Include="common\pathfinding.cpp" />
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
@@ -145,6 +147,9 @@
     <ClCompile Include="common\stats.cpp">
       <Filter>stats</Filter>
     </ClCompile>
+    <ClCompile Include="common\Combat.cpp">
+      <Filter>combat</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -162,7 +167,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="common\cell.hpp" />
-    <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\pathfinding.hpp" />
     <ClInclude Include="common\2d.hpp">
@@ -251,6 +255,9 @@
     </ClInclude>
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Combat.hpp">
+      <Filter>combat</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
