@@ -11,45 +11,13 @@ void Player::Load(Map * current_tilemap)
 {
 
 
-	this->m_sprite = new Sprite();
+	this->LoadSprites();
 
 
-	char ** tex_str = new char*[8];
-	tex_str[0] = "1.png";
-	tex_str[1] = "2.png";
-	tex_str[2] = "3.png";
-	tex_str[3] = "4.png";
-	tex_str[4] = "5.png";
-	tex_str[5] = "6.png";
-	tex_str[6] = "7.png";
-	tex_str[7] = "8.png";
+	this->walk_animation = new Animation(8);
 
 
-
-	this->m_sprite = new Sprite();
-
-	this->m_sprite->Load(8, "data/sprites/", tex_str);
-
-
-	this->frames = 0;
-
-	this->frame_speed = 16.0f;
-
-
-	this->scale = glm::vec2(64.0f, 64.0f);
-
-
-	this->position = glm::vec2(current_tilemap->GetRoomsPointer()[0][0]->GetInternalCenter());
-
-
-	this->target = this->position;
-
-
-	this->speed = 7.5f;
-
-
-	this->rotation_angle = 0.0f;
-
+	this->LoadPhysicalAttributes(current_tilemap);
 
 }
 
@@ -62,43 +30,50 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-	u_data->ApplyMatrix(Translation(GridPosition(position*scale + g_obj->GetScroller()->GetOffset(), scale))*Scale(scale));
+	u_data->ApplyMatrix(Translation(GridPosition(attributes->position*attributes->scale + g_obj->GetScroller()->GetOffset(), attributes->scale))*
+		Scale(attributes->scale));
 
 
-	{
 
-		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
-			target = Move::GetMapPosition(current_map, g_obj, ctrl->GetMousePosition(), this->scale);
-
-
-		Move::TileMove(ctrl, target, current_map);
-
-
-		this->Update(position, target, ctrl->GetFpsPointer()->Delta(), speed);
+	u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
 
 
 
 
-		Move::UpdateScroller(ctrl, g_obj, position, scale);
 
-	}
-
-
-
-	
-	{
-
-		if (glm::distance(position, target) > speed*ctrl->GetFpsPointer()->Delta())
-			frames += frame_speed*ctrl->GetFpsPointer()->Delta();
-
-		if (frames >= 8)
-			frames = 0;
+		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
+			attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
 
 
-		this->m_sprite->Render(GLuint(frames));
 
 
-	}
+
+
+		Move::TileMove(ctrl, g_obj, attributes->target);
+
+
+		this->Update(attributes->position, attributes->target, ctrl->GetFpsPointer()->Delta(), attributes->speed);
+
+
+		Move::UpdateScroller(ctrl, g_obj, attributes->position, attributes->scale);
+
+
+
+
+
+
+
+		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
+			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
+
+
+
+
+
+		this->m_sprite->Render(this->walk_animation->GetIFrames());
+
+
+
 	
 
 
@@ -129,6 +104,66 @@ void Player::Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLflo
 	else
 		position.x = target.x;
 
+
+
+
+}
+
+
+
+
+void Player::LoadSprites()
+{
+
+
+	this->m_sprite = new Sprite();
+
+
+	char ** tex_str = new char*[8];
+	tex_str[0] = "1.png";
+	tex_str[1] = "2.png";
+	tex_str[2] = "3.png";
+	tex_str[3] = "4.png";
+	tex_str[4] = "5.png";
+	tex_str[5] = "6.png";
+	tex_str[6] = "7.png";
+	tex_str[7] = "8.png";
+
+
+
+	this->m_sprite = new Sprite();
+
+	this->m_sprite->Load(8, "data/sprites/player0/", tex_str);
+
+
+
+
+
+
+}
+
+
+
+void Player::LoadPhysicalAttributes(Map * current_tilemap)
+{
+
+
+	this->attributes = new PhysicalAttributes();
+
+
+	this->attributes->scale = glm::vec2(64.0f, 64.0f);
+
+
+	this->attributes->position = glm::vec2(current_tilemap->GetRoomsPointer()[0][0]->GetInternalCenter());
+
+
+	this->attributes->target = this->attributes->position;
+
+
+	this->attributes->speed = 7.5f;
+
+
+	this->attributes->rotation_angle = 0.0f;
 
 
 

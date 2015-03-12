@@ -14,6 +14,8 @@
 #include "movement.hpp"
 #include "game_object.hpp"
 #include "map.hpp"
+#include "animation.hpp"
+#include "physical_attributes.hpp"
 
 
 
@@ -25,35 +27,19 @@ class Player
 	Sprite * m_sprite;
 
 
+	PhysicalAttributes * attributes;
 
 
-	glm::vec2 position;
-
-
-	glm::vec2 target;
-
-
-
-	glm::vec2 scale;
-
-
-
-	GLfloat speed;
-
-
-
-	GLfloat rotation_angle;
-
-
-	GLfloat frames;
-
-
-	GLfloat frame_speed;
-
+	Animation * walk_animation;
 
 
 	void Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLfloat delta);
 
+
+	void LoadSprites();
+
+
+	void LoadPhysicalAttributes(Map * current_tilemap);
 
 
 public:

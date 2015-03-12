@@ -143,7 +143,7 @@ void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_o
 	
 
 
-	this->tilemap->Render(ctrl, u_data, this->m_sprite,g_obj);
+	this->tilemap->Render(ctrl, u_data, this->m_sprite,g_obj->GetScroller()->GetOffset());
 
 
 
@@ -267,35 +267,6 @@ void Map::AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b)
 }
 
 
-void Map::GetDistance(int i, int j)
-{
-	int in, jn, k;
-	int di[] = { 0, 0, -1, 1 };
-	int dj[] = { -1, 1, 0, 0 };
-	glm::ivec2 size;
-	size = this->tilemap->GetSize();
-	for (k = 0; k < 4; k++)
-	{
-		in = i + di[k];
-		jn = j + dj[k];
-		if (in >= 0 && jn >= 0 && in < size.y && jn < size.y)//add this after the db is ready for testing DB::GetProperty(this->tilemap->GetTiles()[in][jn], 3) == 0
-			if (DistanceMap->GetTiles()[in][jn] == 0 || DistanceMap->GetTiles()[i][j] + 1 < DistanceMap->GetTiles()[in][jn])
-			{
-			DistanceMap->GetTiles()[in][jn] = DistanceMap->GetTiles()[i][j] + 1;
-			Map::GetDistance(in, jn);
-			}
-	}
-}
-
-void Map::ClearDistanceMap()
-{
-	glm::ivec2 size;
-	size = this->tilemap->GetSize();
-	for (int i = 0; i < size.y; i++)
-		for (int j = 0; j < size.x; j++)
-			DistanceMap->GetTiles()[i][j] = 0;
-
-}
 
 
 

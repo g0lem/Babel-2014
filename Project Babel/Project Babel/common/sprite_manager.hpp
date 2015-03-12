@@ -11,7 +11,7 @@
 #include "player.hpp"
 #include "map.hpp"
 #include "game_object.hpp"
-#include "Combat.hpp"
+#include "enemy_manager.hpp"
 
 
 class SpriteManager : private Aaether2D
@@ -23,21 +23,23 @@ class SpriteManager : private Aaether2D
 	Map * map;
 
 
-	Combat *combat;
+	EnemyManager * m_enemies;
+
+
 
 
 
 public:
 
 
-	inline SpriteManager(){ this->Init(); }
+	inline SpriteManager(GameObject * g_obj){ this->Init(g_obj); }
 
 
 	inline ~SpriteManager(){ this->Clean(); }
 
 
 
-	void Init();
+	void Init(GameObject * g_obj);
 
 
 	void Clean();

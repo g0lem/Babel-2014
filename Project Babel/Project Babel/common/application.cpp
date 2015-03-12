@@ -24,15 +24,18 @@ void Application::Init()
 
 
 
+	g_object = new GameObject();
+
+
+
 	f_manager = new FontManager();
 
 
 
-	s_manager = new SpriteManager();
+	s_manager = new SpriteManager(g_object);
 
 
 
-	g_object = new GameObject();
 
 
 

@@ -6,7 +6,7 @@
 #include "movement.hpp"
 
 
-void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap)
+void Move::TileMove(Controller* ctrl, GameObject * g_obj, glm::vec2 &position)
 {
 
 
@@ -23,7 +23,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y - 1)] < SOLID_LIMIT)
+		if (!g_obj->GetCollisionMap()->GetTiles()[GLuint(position.x)][GLuint(position.y - 1)])
 			position.y--;
 
 
@@ -34,12 +34,12 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-	if (ctrl->GetKeyOnce(GLFW_KEY_S) && position.y < glm::vec2(current_tilemap->GetTilemap()->GetSize()).y)
+	if (ctrl->GetKeyOnce(GLFW_KEY_S) && position.y < glm::vec2(g_obj->GetCollisionMap()->GetSize()).y)
 	{
 
 
 	
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x)][GLuint(position.y + 1)] < SOLID_LIMIT)
+		if (!g_obj->GetCollisionMap()->GetTiles()[GLuint(position.x)][GLuint(position.y + 1)])
 			position.y++;
 
 
@@ -54,7 +54,7 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)] < SOLID_LIMIT)
+		if (!g_obj->GetCollisionMap()->GetTiles()[GLuint(position.x - 1)][GLuint(position.y)])
 			position.x--;
 
 
@@ -65,13 +65,13 @@ void Move::TileMove(Controller* ctrl, glm::vec2 &position, Map * current_tilemap
 
 
 
-	if (ctrl->GetKeyOnce(GLFW_KEY_D) && position.x < glm::vec2(current_tilemap->GetTilemap()->GetSize()).x)
+	if (ctrl->GetKeyOnce(GLFW_KEY_D) && position.x < glm::vec2(g_obj->GetCollisionMap()->GetSize()).x)
 	{
 
 
 
 
-		if (current_tilemap->GetTilemap()->GetTiles()[GLuint(position.x + 1)][GLuint(position.y)] < SOLID_LIMIT)
+		if (!g_obj->GetCollisionMap()->GetTiles()[GLuint(position.x + 1)][GLuint(position.y)])
 			position.x++;
 
 
@@ -98,17 +98,17 @@ void Move::UpdateScroller(Controller * ctrl, GameObject * g_obj, glm::vec2 posit
 
 
 
-glm::vec2 Move::GetMapPosition(Map * current_tilemap, GameObject * g_obj, glm::vec2 position, glm::vec2 scale)
+glm::vec2 Move::GetMapPosition(GameObject * g_obj, glm::vec2 position, glm::vec2 scale)
 {
 
 
 	position = glm::ivec2(GridPosition(position, scale) / scale - (g_obj->GetScroller()->GetOffset()) / scale);
 
 
-	if (position.x >= current_tilemap->GetTilemap()->GetSize().x)
-		position.x = current_tilemap->GetTilemap()->GetSize().x - 1;
-	if (position.y >= current_tilemap->GetTilemap()->GetSize().y)
-		position.y = current_tilemap->GetTilemap()->GetSize().y - 1;
+	if (position.x >= g_obj->GetCollisionMap()->GetSize().x)
+		position.x = g_obj->GetCollisionMap()->GetSize().x - 1;
+	if (position.y >= g_obj->GetCollisionMap()->GetSize().y)
+		position.y = g_obj->GetCollisionMap()->GetSize().y - 1;
 	if (position.x < 0)
 		position.x = 0;
 	if (position.y < 0)

@@ -13,22 +13,29 @@
   <ItemGroup>
     <ClCompile Include="common\2d.cpp" />
     <ClCompile Include="common\2d_math.cpp" />
+    <ClCompile Include="common\animation.cpp" />
     <ClCompile Include="common\application.cpp" />
+    <ClCompile Include="common\collision_map.cpp" />
     <ClCompile Include="common\Combat.cpp" />
     <ClCompile Include="common\controls.cpp" />
     <ClCompile Include="common\dice.cpp" />
     <ClCompile Include="common\enemy.cpp" />
+    <ClCompile Include="common\enemy_manager.cpp" />
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
+    <ClCompile Include="common\hp.cpp" />
     <ClCompile Include="common\map.cpp" />
+    <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\pathfinding.cpp" />
+    <ClCompile Include="common\physical_attributes.cpp" />
     <ClCompile Include="common\player.cpp" />
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
     <ClCompile Include="common\shader.cpp" />
     <ClCompile Include="common\sprite.cpp" />
     <ClCompile Include="common\sprite_manager.cpp" />
+    <ClCompile Include="common\stats.cpp" />
     <ClCompile Include="common\text2D.cpp" />
     <ClCompile Include="common\texture.cpp" />
     <ClCompile Include="common\text_render.cpp" />
@@ -37,27 +44,40 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="data\shaders\2d_frag.txt" />
+    <Text Include="data\shaders\2d_vert.txt" />
+    <Text Include="data\shaders\text_frag.txt" />
+    <Text Include="data\shaders\text_vert.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="common\2d.hpp" />
     <ClInclude Include="common\2d_math.hpp" />
+    <ClInclude Include="common\animation.hpp" />
     <ClInclude Include="common\application.hpp" />
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\cell.hpp" />
+    <ClInclude Include="common\collision_map.hpp" />
     <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\controls.hpp" />
     <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\dice.hpp" />
     <ClInclude Include="common\enemy.hpp" />
+    <ClInclude Include="common\enemy_manager.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
+    <ClInclude Include="common\hp.hpp" />
     <ClInclude Include="common\map.hpp" />
+    <ClInclude Include="common\miscellaneous.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\pathfinding.hpp" />
+    <ClInclude Include="common\physical_attributes.hpp" />
     <ClInclude Include="common\player.hpp" />
     <ClInclude Include="common\room.hpp" />
     <ClInclude Include="common\scroller.hpp" />
     <ClInclude Include="common\shader.hpp" />
     <ClInclude Include="common\sprite.hpp" />
     <ClInclude Include="common\sprite_manager.hpp" />
+    <ClInclude Include="common\stats.hpp" />
     <ClInclude Include="common\text2D.hpp" />
     <ClInclude Include="common\texture.hpp" />
     <ClInclude Include="common\text_render.hpp" />

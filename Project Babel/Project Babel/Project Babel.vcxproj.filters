@@ -9,162 +9,248 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="common">
-      <UniqueIdentifier>{9d4153b7-88b8-4742-bd76-52e00f5a9531}</UniqueIdentifier>
+    <Filter Include="framework">
+      <UniqueIdentifier>{40c4a14c-a546-4b22-88d5-1a1e05cedc9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\math">
+      <UniqueIdentifier>{d41aab6a-c1fb-4105-869f-b393f5422b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\font">
+      <UniqueIdentifier>{a497b045-c406-49e3-8b5a-b61027804758}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\shader">
+      <UniqueIdentifier>{c6e083d8-2be5-4a4a-844e-ca28c2920b7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\texture">
+      <UniqueIdentifier>{99eafe36-ccf9-4d2c-999d-69552cd815e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\sprite">
+      <UniqueIdentifier>{c82adace-1d50-4c18-94a6-d756efd6eb6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\controls">
+      <UniqueIdentifier>{9a0611fb-c8bb-4d5a-8297-03acc3b1d855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="game_object">
+      <UniqueIdentifier>{0e090884-f39e-4c58-96f1-3abbc38c2f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="managers">
+      <UniqueIdentifier>{179c06fb-f0ac-49fd-9851-495b47c81e85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="map">
+      <UniqueIdentifier>{947e0330-2733-4f0c-82d4-f8fd54786520}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="enemy">
+      <UniqueIdentifier>{d5191fad-a860-45aa-a952-0a1be70504ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="delta">
+      <UniqueIdentifier>{d3c3e3cb-9048-44ea-9291-9429db8bad09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="player">
+      <UniqueIdentifier>{a5ac39dd-217f-468e-9f3c-7c040195065c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="application">
+      <UniqueIdentifier>{f06ef320-f48d-4246-a9ed-facd44aa2f08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="stats">
+      <UniqueIdentifier>{d53a1a69-b73d-48ce-b856-24c9a6a189b0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="common\Combat.cpp" />
+    <ClCompile Include="common\pathfinding.cpp" />
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="common\2d.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\2d_math.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\application.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\Combat.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\controls.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\dice.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\enemy.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\font_manager.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\game_object.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\map.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\movement.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\player.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\room.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\scroller.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\shader.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\sprite.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\sprite_manager.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\text2D.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\texture.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\text_render.cpp">
-      <Filter>common</Filter>
-    </ClCompile>
-    <ClCompile Include="common\tile_map.cpp">
-      <Filter>common</Filter>
+      <Filter>framework\sprite</Filter>
     </ClCompile>
     <ClCompile Include="common\uniform_2d.cpp">
-      <Filter>common</Filter>
+      <Filter>framework\sprite</Filter>
     </ClCompile>
-    <ClCompile Include="common\pathfinding.cpp">
-      <Filter>common</Filter>
+    <ClCompile Include="common\sprite.cpp">
+      <Filter>framework\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="common\shader.cpp">
+      <Filter>framework\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="common\texture.cpp">
+      <Filter>framework\texture</Filter>
+    </ClCompile>
+    <ClCompile Include="common\2d_math.cpp">
+      <Filter>framework\math</Filter>
+    </ClCompile>
+    <ClCompile Include="common\controls.cpp">
+      <Filter>framework\controls</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text_render.cpp">
+      <Filter>framework\font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\text2D.cpp">
+      <Filter>framework\font</Filter>
+    </ClCompile>
+    <ClCompile Include="common\game_object.cpp">
+      <Filter>game_object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\miscellaneous.cpp">
+      <Filter>game_object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\scroller.cpp">
+      <Filter>game_object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\collision_map.cpp">
+      <Filter>game_object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\sprite_manager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="common\font_manager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
+    <ClCompile Include="common\tile_map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\room.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\map.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\enemy_manager.cpp">
+      <Filter>enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="common\enemy.cpp">
+      <Filter>enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="common\dice.cpp">
+      <Filter>framework\math</Filter>
+    </ClCompile>
+    <ClCompile Include="common\movement.cpp">
+      <Filter>delta</Filter>
+    </ClCompile>
+    <ClCompile Include="common\physical_attributes.cpp">
+      <Filter>delta</Filter>
+    </ClCompile>
+    <ClCompile Include="common\animation.cpp">
+      <Filter>delta</Filter>
+    </ClCompile>
+    <ClCompile Include="common\player.cpp">
+      <Filter>player</Filter>
+    </ClCompile>
+    <ClCompile Include="common\application.cpp">
+      <Filter>application</Filter>
+    </ClCompile>
+    <ClCompile Include="common\hp.cpp">
+      <Filter>stats</Filter>
+    </ClCompile>
+    <ClCompile Include="common\stats.cpp">
+      <Filter>stats</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="data\shaders\2d_frag.txt">
+      <Filter>framework\sprite</Filter>
+    </Text>
+    <Text Include="data\shaders\2d_vert.txt">
+      <Filter>framework\sprite</Filter>
+    </Text>
+    <Text Include="data\shaders\text_frag.txt">
+      <Filter>framework\font</Filter>
+    </Text>
+    <Text Include="data\shaders\text_vert.txt">
+      <Filter>framework\font</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="common\cell.hpp" />
+    <ClInclude Include="common\Combat.hpp" />
+    <ClInclude Include="common\Database.h" />
+    <ClInclude Include="common\pathfinding.hpp" />
     <ClInclude Include="common\2d.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\2d_math.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\application.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\block.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Combat.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\controls.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Database.h">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\dice.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\enemy.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\font_manager.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\game_object.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\map.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\movement.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\player.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\room.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\scroller.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\shader.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\sprite.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\sprite_manager.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\text2D.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\texture.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\text_render.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\tile_map.hpp">
-      <Filter>common</Filter>
+      <Filter>framework\sprite</Filter>
     </ClInclude>
     <ClInclude Include="common\uniform_2d.hpp">
-      <Filter>common</Filter>
+      <Filter>framework\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="common\pathfinding.hpp">
-      <Filter>common</Filter>
+    <ClInclude Include="common\sprite.hpp">
+      <Filter>framework\sprite</Filter>
     </ClInclude>
-    <ClInclude Include="common\cell.hpp">
-      <Filter>common</Filter>
+    <ClInclude Include="common\shader.hpp">
+      <Filter>framework\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="common\texture.hpp">
+      <Filter>framework\texture</Filter>
+    </ClInclude>
+    <ClInclude Include="common\2d_math.hpp">
+      <Filter>framework\math</Filter>
+    </ClInclude>
+    <ClInclude Include="common\controls.hpp">
+      <Filter>framework\controls</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text_render.hpp">
+      <Filter>framework\font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\text2D.hpp">
+      <Filter>framework\font</Filter>
+    </ClInclude>
+    <ClInclude Include="common\game_object.hpp">
+      <Filter>game_object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\miscellaneous.hpp">
+      <Filter>game_object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\scroller.hpp">
+      <Filter>game_object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\collision_map.hpp">
+      <Filter>game_object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sprite_manager.hpp">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\font_manager.hpp">
+      <Filter>managers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\tile_map.hpp">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\room.hpp">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\map.hpp">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\block.hpp">
+      <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\enemy_manager.hpp">
+      <Filter>enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="common\enemy.hpp">
+      <Filter>enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="common\dice.hpp">
+      <Filter>framework\math</Filter>
+    </ClInclude>
+    <ClInclude Include="common\movement.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\physical_attributes.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\animation.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\player.hpp">
+      <Filter>player</Filter>
+    </ClInclude>
+    <ClInclude Include="common\application.hpp">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="common\stats.hpp">
+      <Filter>stats</Filter>
+    </ClInclude>
+    <ClInclude Include="common\hp.hpp">
+      <Filter>stats</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

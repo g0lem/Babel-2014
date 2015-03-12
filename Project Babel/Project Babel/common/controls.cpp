@@ -60,6 +60,7 @@ GLboolean Controller::CreateWindow(GLuint window_width, GLuint window_height,
 	strcpy(Controller::title, title);
 
 
+
 	Controller::window = glfwCreateWindow(window_width, window_height,
 		title, (fullscreen == true) ? glfwGetPrimaryMonitor() : NULL, NULL);
 
@@ -86,6 +87,7 @@ GLboolean Controller::CreateWindow(GLuint window_width, GLuint window_height,
 		fprintf(stderr, "Failed to initialize GLEW\n");
 		return -1;
 	}
+
 
 
 

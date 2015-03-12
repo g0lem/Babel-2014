@@ -15,6 +15,8 @@
 #include "game_object.hpp"
 
 
+
+
 class Map
 {
 
@@ -28,15 +30,6 @@ public:
 
 	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
-
-
-	void GetDistance(int i, int j);
-
-
-	void ClearDistanceMap();
-
-
-	inline Tilemap *GetDistanceMap(){ return this->DistanceMap; }
 
 
 	void Init();
@@ -61,7 +54,7 @@ private:
 
 
 
-	Tilemap *tilemap, *DistanceMap;
+	Tilemap *tilemap;
 
 
 	Sprite * m_sprite;
@@ -79,9 +72,9 @@ private:
 	void GenerateContent();
 
 
-	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
-	//////
+
+	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
 
 	

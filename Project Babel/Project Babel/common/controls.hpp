@@ -108,9 +108,8 @@ class Controller
 	static void cursor_callback(GLFWwindow* window, GLdouble x, GLdouble y);
 
 
+
 	static void InitCallbacks();
-
-
 
 
 public:

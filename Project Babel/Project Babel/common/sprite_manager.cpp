@@ -6,7 +6,7 @@
 
 
 
-void SpriteManager::Init()
+void SpriteManager::Init(GameObject * g_obj)
 {
 
 
@@ -21,6 +21,8 @@ void SpriteManager::Init()
 	this->map->Init();
 
 
+	g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
+
 
 	this->player = new Player();
 
@@ -29,7 +31,9 @@ void SpriteManager::Init()
 
 
 
-	this->combat = new Combat();
+	this->m_enemies = new EnemyManager(10, this->map);
+
+
 
 
 	this->UnbindCreate();
@@ -70,7 +74,10 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 	this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
 
 
-	combat->Hit(ctrl, this->map, this->player);
+	this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+
+
 
 
 	this->UnbindRun();
