@@ -7,15 +7,8 @@
 #include "player.hpp"
 
 
-
-
-
-
-void Player::Load(GameObject * g_obj, Map * current_tilemap)
+void Player::Load(Map * current_tilemap)
 {
-
-
-
 
 
 	this->LoadSprites();
@@ -26,20 +19,6 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 
 	this->LoadPhysicalAttributes(current_tilemap);
 
-
-
-	this->LoadItems(g_obj);
-
-
-
-	this->target = NO_TARGET;
-
-
-
-	this->attacking = false;
-
-
-
 }
 
 
@@ -48,7 +27,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, Map * current_map)
 {
 
-
+	
 
 
 	u_data->ApplyMatrix(Translation(GridPosition(attributes->position*attributes->scale + g_obj->GetScroller()->GetOffset(), attributes->scale))*
@@ -60,22 +39,9 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
-
-
-
-		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
-			attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
-
-
-
-
-		if (ctrl->GetKeyOnce(GLFW_KEY_SPACE) && this->target > NO_TARGET)
-			this->attacking = true;
-
-
-
+	
+	
+	
 
 
 
@@ -93,12 +59,9 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
-
-
 		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
+
 
 
 
@@ -107,7 +70,17 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-	
+		m_path = new Pathfinder;
+
+
+		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
+		{
+			//attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
+			m_path->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
+			/*for (int i = 0; i < m_path->GetPath().size();i++)
+			print_vec2(m_path->GetPath()[i]);*/
+
+		}
 
 
 
@@ -197,22 +170,6 @@ void Player::LoadPhysicalAttributes(Map * current_tilemap)
 
 
 	this->attributes->rotation_angle = 0.0f;
-
-
-
-}
-
-
-
-void Player::LoadItems(GameObject * g_obj)
-{
-
-
-	this->items = new Item*[5];
-
-
-	this->items[ITEM_SLOT_WEAPON] = g_obj->GetItemList()->GetList()[0];
-
 
 
 

@@ -30,7 +30,7 @@
     <ClCompile Include="common\map.cpp" />
     <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
-    <ClCompile Include="common\pathfinding.cpp" />
+    <ClCompile Include="common\pathfinder.cpp" />
     <ClCompile Include="common\physical_attributes.cpp" />
     <ClCompile Include="common\player.cpp" />
     <ClCompile Include="common\room.cpp" />
@@ -76,7 +76,7 @@
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\miscellaneous.hpp" />
     <ClInclude Include="common\movement.hpp" />
-    <ClInclude Include="common\pathfinding.hpp" />
+    <ClInclude Include="common\pathfinder.hpp" />
     <ClInclude Include="common\physical_attributes.hpp" />
     <ClInclude Include="common\player.hpp" />
     <ClInclude Include="common\room.hpp" />
