@@ -5,6 +5,7 @@ std::vector <glm::vec2> Pathfinder::GetPath()
 {
 	std::vector <glm::vec2> path;
 	node *get=Ending;
+
 	while (get != NULL)
 	{
 		path.push_back(glm::vec2(get->x, get->y));
@@ -35,8 +36,7 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 	Beginning->H = GetDistance(Ending);
 	Beginning->F = Beginning->G + Beginning->H;
 
-	Ending->H = Beginning->H;
-	Ending->F = Ending->G + Ending->H;
+
 
 	openlist.push_back(Beginning);
 	PathFound = false;
@@ -49,12 +49,8 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 	while (PathFound == false)
 	{
 		FindNewNode(current);
-	
+		if (!PathFound)
 		current = FindBestNode();
-	}
-	if (current->x == Ending->x && current->y == Ending->y)
-	{
-		GetPath();
 	}
 
 
@@ -90,6 +86,7 @@ void Pathfinder::FindNewNode(node *currentnode)
 	if (currentnode->x == Ending->x && currentnode->y == Ending->y)
 	{
 		PathFound = true;
+		Ending->last = currentnode->last;
 		return;
 	}
 	//std::cout << "Find New Node \n";
@@ -106,7 +103,7 @@ void Pathfinder::FindNewNode(node *currentnode)
 			nextnode->last = currentnode;
 			nextnode->x = newx;
 			nextnode->y = newy;
-			std::cout << "Node found at: " << newx << " " << newy << std::endl;
+			//std::cout << "Node found at: " << newx << " " << newy << std::endl;
 			nextnode->H = GetDistance(nextnode);
 			nextnode->G = currentnode->G + 1;
 			nextnode->F = nextnode->G + nextnode->H;
@@ -132,7 +129,7 @@ Pathfinder::node *Pathfinder::FindBestNode()
 			pozition = i;
 		}
 	}
-	std::cout << "Node selected: " << best->x << " " << best->y << std::endl;
+	//std::cout << "Node selected: " << best->x << " " << best->y << std::endl;
 
 	visitedlist.push_back(best);
 	openlist.erase(openlist.begin() + pozition);
