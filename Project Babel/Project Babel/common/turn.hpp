@@ -32,6 +32,10 @@ public:
 
 
 
+	inline void Reset(){ this->turns = 0.0f; }
+
+
+
 	void Init();
 
 

@@ -12,6 +12,16 @@ class Combat
 
 
 
+	void SetPlayerTarget(Player * player, EnemyManager * enemies);
+
+
+	void PlayerAttack(GameObject * g_obj, Player * player, EnemyManager *enemies);
+
+
+	void PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map);
+
+
+
 public:
 
 
@@ -24,8 +34,7 @@ public:
 
 
 
-	void SetPlayerTarget(Player * player, EnemyManager * enemies);
-
+	void Action(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map);
 
 
 

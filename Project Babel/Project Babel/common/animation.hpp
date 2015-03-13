@@ -26,6 +26,10 @@ public:
 	inline GLuint GetIFrames(){ return GLuint(this->frames); }
 	inline GLuint GetNumFrames(){ return this->num_frames; }
 
+
+	inline GLboolean Finished(){ return this->frames >= this->num_frames; }
+
+
 	inline Animation(GLuint num_frames){ this->Init(num_frames); }
 
 

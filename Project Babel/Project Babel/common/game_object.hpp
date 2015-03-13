@@ -71,7 +71,7 @@ public:
 
 
 
-	inline TurnSystem * GetTurnSystem(){ this->t_system; }
+	inline TurnSystem * GetTurnSystem(){ return this->t_system; }
 
 
 

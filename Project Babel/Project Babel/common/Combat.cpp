@@ -17,6 +17,8 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 {
 
 
+
+
 	player->SetTarget(NO_TARGET);
 
 
@@ -42,6 +44,17 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 	}
 
 
+
+
+}
+
+
+
+void Combat::PlayerAttack(GameObject * g_obj, Player * player, EnemyManager *enemies)
+{
+
+
+
 	if (player->GetTarget() > NO_TARGET && player->GetAttackingState())
 	{
 
@@ -52,14 +65,61 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 		glm::vec2 attack_range = player->GetItems()[ITEM_SLOT_WEAPON]->attack;
 
 
-		*hp -= glm::min(*hp, Rand(attack_range.x,attack_range.y));
+		*hp -= glm::min(*hp, Rand(attack_range.x, attack_range.y));
 
 
 		player->SetAttackingState(false);
+
+
+
+		g_obj->GetTurnSystem()->ComputeAttack(player->GetItems()[ITEM_SLOT_WEAPON]->attack_speed);
+
+
 
 
 	}
 
 
 
+
 }
+
+
+
+
+void Combat::PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
+{
+
+
+	this->SetPlayerTarget(player, enemies);
+
+
+	this->PlayerAttack(g_obj, player, enemies);
+
+
+
+}
+
+
+
+
+void Combat::Action(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
+{
+
+
+	
+	this->PlayerRelated(g_obj, player, enemies, map);
+
+
+
+
+	g_obj->GetTurnSystem()->Reset();
+
+
+}
+
+
+
+
+
+

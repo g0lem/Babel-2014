@@ -1,4 +1,4 @@
-//Checked 1
+//Checked 2
 
 
 
@@ -22,6 +22,7 @@ GLuint Controller::opengl_minor_version = 0;
 GLFWwindow*Controller::window = 0;
 glm::vec2 Controller::mouse_position = glm::vec2(0.0f, 0.0f);
 GLuint Controller::mouse_buttons[] = { 0 };
+
 
 
 GLboolean Controller::CreateWindow(GLuint window_width, GLuint window_height,
