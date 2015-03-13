@@ -15,23 +15,37 @@ void SpriteManager::Init(GameObject * g_obj)
 
 
 
+
+
+
+
 	this->map = new Map();
+
 
 
 	this->map->Init();
 
 
+
 	g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
+
 
 
 	this->player = new Player();
 
 
-	this->player->Load(this->map);
+
+	this->player->Load(g_obj, this->map);
 
 
 
 	this->m_enemies = new EnemyManager(10, this->map);
+
+
+
+	this->m_combat = new Combat();
+
+
 
 
 
@@ -54,6 +68,9 @@ void SpriteManager::Clean()
 
 	delete player;
 	delete map;
+	delete m_enemies;
+	delete m_combat;
+
 
 
 }
@@ -68,6 +85,10 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
+
+
+
+
 	this->map->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 
@@ -75,6 +96,11 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 
 
 	this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+
+	this->m_combat->SetPlayerTarget(this->player, this->m_enemies);
+  
+
 
 
 

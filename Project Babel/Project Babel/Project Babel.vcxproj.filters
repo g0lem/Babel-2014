@@ -57,6 +57,12 @@
     <Filter Include="combat">
       <UniqueIdentifier>{9ea6ae48-4de3-4e02-a87c-472b86528778}</UniqueIdentifier>
     </Filter>
+    <Filter Include="turn">
+      <UniqueIdentifier>{95930a4d-cd39-495a-bce4-7b99c8c2484b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="item">
+      <UniqueIdentifier>{9cc89d96-20ec-47c3-95be-17a3f7710e78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\pathfinding.cpp" />
@@ -149,6 +155,18 @@
     </ClCompile>
     <ClCompile Include="common\Combat.cpp">
       <Filter>combat</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item_types.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item_list.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\turn.cpp">
+      <Filter>turn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +276,18 @@
     </ClInclude>
     <ClInclude Include="common\Combat.hpp">
       <Filter>combat</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item_types.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item_list.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\turn.hpp">
+      <Filter>turn</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

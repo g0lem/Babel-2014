@@ -7,8 +7,15 @@
 #include "player.hpp"
 
 
-void Player::Load(Map * current_tilemap)
+
+
+
+
+void Player::Load(GameObject * g_obj, Map * current_tilemap)
 {
+
+
+
 
 
 	this->LoadSprites();
@@ -18,6 +25,20 @@ void Player::Load(Map * current_tilemap)
 
 
 	this->LoadPhysicalAttributes(current_tilemap);
+
+
+
+	this->LoadItems(g_obj);
+
+
+
+	this->target = NO_TARGET;
+
+
+
+	this->attacking = false;
+
+
 
 }
 
@@ -41,8 +62,18 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
+
+
+
 		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
 			attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
+
+
+
+
+		if (ctrl->GetKeyOnce(GLFW_KEY_SPACE) && this->target > NO_TARGET)
+			this->attacking = true;
+
 
 
 
@@ -63,9 +94,11 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
+
+
+
 		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
-
 
 
 
@@ -164,6 +197,22 @@ void Player::LoadPhysicalAttributes(Map * current_tilemap)
 
 
 	this->attributes->rotation_angle = 0.0f;
+
+
+
+}
+
+
+
+void Player::LoadItems(GameObject * g_obj)
+{
+
+
+	this->items = new Item*[5];
+
+
+	this->items[ITEM_SLOT_WEAPON] = g_obj->GetItemList()->GetList()[0];
+
 
 
 

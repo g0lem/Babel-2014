@@ -28,6 +28,7 @@ class SpriteManager : private Aaether2D
 	EnemyManager * m_enemies;
 
 
+	Combat * m_combat;
 
 
 

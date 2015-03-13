@@ -26,6 +26,11 @@ class Enemy
 	Sprite * m_sprite;
 
 
+
+	glm::vec2 last_position;
+
+
+
 	void LoadSprites();
 
 
@@ -46,6 +51,13 @@ class Enemy
 
 
 public:
+
+
+
+	inline glm::vec2 GetLastPosition(){ return this->last_position; }
+
+
+	inline Stats*GetStats(){ return this->m_stats; }
 
 
 	inline PhysicalAttributes*GetPAttributes(){ return this->p_attributes; }
