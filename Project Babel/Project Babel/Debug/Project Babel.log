@@ -1,12 +1,21 @@
-﻿Build started 3/12/2015 5:24:17 AM.
-     1>Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+﻿Build started 3/13/2015 4:06:01 PM.
+     1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\hp.cpp
-         hp.cpp
-     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(57): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\pathfinder.cpp
+         pathfinder.cpp
+     1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(57): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.hpp(21): warning C4244: 'return' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(27): warning C4244: '=' : conversion from 'float' to 'GLint', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(28): warning C4244: '=' : conversion from 'float' to 'GLint', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(31): warning C4244: '=' : conversion from 'float' to 'GLint', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(32): warning C4244: '=' : conversion from 'float' to 'GLint', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(74): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(84): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(126): warning C4018: '<' : signed/unsigned mismatch
+     1>cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
          Debug\2d_math.obj
          Debug\animation.obj
          Debug\application.obj
@@ -22,7 +31,7 @@
          Debug\map.obj
          Debug\miscellaneous.obj
          Debug\movement.obj
-         Debug\pathfinding.obj
+         Debug\pathfinder.obj
          Debug\physical_attributes.obj
          Debug\player.obj
          Debug\room.obj
@@ -37,33 +46,9 @@
          Debug\tile_map.obj
          Debug\uniform_2d.obj
          Debug\main.obj
-     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-     1>freetype.lib(autofit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(autofit.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(bdf.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(bdf.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(cff.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(cff.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftbase.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftbase.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftdebug.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftdebug.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftgzip.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftgzip.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftinit.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftinit.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftlzw.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftlzw.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(ftsystem.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(ftsystem.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(smooth.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(smooth.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pcf.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pcf.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pfr.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pfr.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(psaux.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(psaux.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(pshinter.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(pshinter.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(psmodule.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(psmodule.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(raster.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(raster.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(sfnt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(sfnt.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(truetype.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(truetype.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type1.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type1.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type1cid.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type1cid.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(type42.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(type42.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-     1>freetype.lib(winfnt.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'freetype.lib(winfnt.obj)' or at 'C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\vc120.pdb'; linking object as if no debug info
-         Project Babel.vcxproj -> C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe
-     1>Done Building Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
+         Project Babel.vcxproj -> D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe
+     1>Done Building Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.62
+Time Elapsed 00:00:03.06

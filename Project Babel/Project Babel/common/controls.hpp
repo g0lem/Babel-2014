@@ -120,7 +120,7 @@ public:
 
 
 
-	inline GLuint GetKeyOnce(GLuint code){ GLuint result = (Controller::keys[code] == 1); Controller::keys[code]++; return result; }
+	inline GLuint GetKeyOnce(GLuint code){ GLuint result = (Controller::keys[code] == 1); if(result) Controller::keys[code]++; return result; }
 
 
 
@@ -132,7 +132,7 @@ public:
 
 
 
-	inline GLuint GetMouseButtonOnce(GLuint code){ GLuint result = (Controller::mouse_buttons[code] == 1); Controller::mouse_buttons[code]++; return result; }
+	inline GLuint GetMouseButtonOnce(GLuint code){ GLuint result = (Controller::mouse_buttons[code] == 1); if (result) Controller::mouse_buttons[code]++; return result; }
 
 
 

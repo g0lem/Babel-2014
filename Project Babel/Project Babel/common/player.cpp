@@ -27,7 +27,7 @@ void Player::Load(Map * current_tilemap)
 void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, Map * current_map)
 {
 
-
+	
 
 
 	u_data->ApplyMatrix(Translation(GridPosition(attributes->position*attributes->scale + g_obj->GetScroller()->GetOffset(), attributes->scale))*
@@ -39,12 +39,9 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
-		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
-			attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
-
-
+	
+	
+	
 
 
 
@@ -62,7 +59,6 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
 		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
 
@@ -74,7 +70,17 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-	
+		m_path = new Pathfinder;
+
+
+		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
+		{
+			//attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
+			m_path->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
+			/*for (int i = 0; i < m_path->GetPath().size();i++)
+			print_vec2(m_path->GetPath()[i]);*/
+
+		}
 
 
 

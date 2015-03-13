@@ -57,7 +57,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\Combat.cpp" />
-    <ClCompile Include="common\pathfinding.cpp" />
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -145,6 +144,7 @@
     <ClCompile Include="common\stats.cpp">
       <Filter>stats</Filter>
     </ClCompile>
+    <ClCompile Include="common\pathfinder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -164,7 +164,6 @@
     <ClInclude Include="common\cell.hpp" />
     <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\Database.h" />
-    <ClInclude Include="common\pathfinding.hpp" />
     <ClInclude Include="common\2d.hpp">
       <Filter>framework\sprite</Filter>
     </ClInclude>
@@ -252,5 +251,6 @@
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
     </ClInclude>
+    <ClInclude Include="common\pathfinder.hpp" />
   </ItemGroup>
 </Project>

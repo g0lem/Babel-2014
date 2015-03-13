@@ -16,13 +16,13 @@
 #include "map.hpp"
 #include "animation.hpp"
 #include "physical_attributes.hpp"
-
+#include "pathfinder.hpp"
 
 
 class Player
 {
 
-
+	Pathfinder *m_path;
 
 	Sprite * m_sprite;
 
