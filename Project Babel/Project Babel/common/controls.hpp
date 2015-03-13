@@ -28,6 +28,7 @@ typedef char GLchar;
 
 
 
+
 class FPS
 {
 
@@ -93,6 +94,8 @@ class Controller
 	FPS * fps;
 
 
+
+
 	static GLvoid key_callback(GLFWwindow* window, GLint key, GLint scancode, GLint action, GLint mods);
 	static GLuint keys[512];
 	static GLuint keys1[512];
@@ -113,6 +116,8 @@ class Controller
 
 
 public:
+
+
 
 
 	
@@ -169,6 +174,8 @@ public:
 		char * title,
 		GLuint opengl_major_version,
 		GLuint opengl_minor_version);
+
+
 
 
 

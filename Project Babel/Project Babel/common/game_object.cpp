@@ -20,6 +20,11 @@ void GameObject::Init()
 	this->m_misc = new Miscellaneous();
 
 
+	this->m_list = new ItemList();
+
+
+	this->t_system = new TurnSystem();
+
 }
 
 
@@ -37,5 +42,11 @@ void GameObject::Clean()
 
 	delete this->m_misc;
 
+
+	delete this->m_list;
+
+
+	delete this->t_system;
+	
 
 }

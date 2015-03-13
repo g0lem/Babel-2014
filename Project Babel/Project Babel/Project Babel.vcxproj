@@ -24,6 +24,9 @@
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
     <ClCompile Include="common\hp.cpp" />
+    <ClCompile Include="common\item.cpp" />
+    <ClCompile Include="common\item_list.cpp" />
+    <ClCompile Include="common\item_types.cpp" />
     <ClCompile Include="common\map.cpp" />
     <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
@@ -40,6 +43,7 @@
     <ClCompile Include="common\texture.cpp" />
     <ClCompile Include="common\text_render.cpp" />
     <ClCompile Include="common\tile_map.cpp" />
+    <ClCompile Include="common\turn.cpp" />
     <ClCompile Include="common\uniform_2d.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -66,6 +70,9 @@
     <ClInclude Include="common\font_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
     <ClInclude Include="common\hp.hpp" />
+    <ClInclude Include="common\item.hpp" />
+    <ClInclude Include="common\item_list.hpp" />
+    <ClInclude Include="common\item_types.hpp" />
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\miscellaneous.hpp" />
     <ClInclude Include="common\movement.hpp" />
@@ -82,6 +89,7 @@
     <ClInclude Include="common\texture.hpp" />
     <ClInclude Include="common\text_render.hpp" />
     <ClInclude Include="common\tile_map.hpp" />
+    <ClInclude Include="common\turn.hpp" />
     <ClInclude Include="common\uniform_2d.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

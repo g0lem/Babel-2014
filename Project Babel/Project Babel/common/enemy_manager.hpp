@@ -18,12 +18,18 @@ class EnemyManager
 
 
 
+	void CheckEnemiesState(GameObject * g_obj);
+
+
+	void Kill(GameObject * g_obj, GLuint enemy_id);
+
+
 
 public:
 
 
 
-	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_ocj);
+	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
 
 
@@ -33,6 +39,9 @@ public:
 
 	void Init(GLuint num, Map * map);
 
+
+
+	inline std::vector<Enemy*>*GetEnemiesPointer(){ return this->m_enemies; }
 
 
 

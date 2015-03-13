@@ -143,7 +143,9 @@ void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_o
 	
 
 
-	this->tilemap->Render(ctrl, u_data, this->m_sprite,g_obj->GetScroller()->GetOffset());
+	this->tilemap->Render(ctrl, u_data, this->m_sprite,
+		g_obj->GetScroller()->GetBeginLimit(),g_obj->GetScroller()->GetEndLimit(),
+		g_obj->GetScroller()->GetOffset());
 
 
 

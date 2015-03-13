@@ -15,6 +15,8 @@
 #include "collision_map.hpp"
 #include "scroller.hpp"
 #include "miscellaneous.hpp"
+#include "item_list.hpp"
+#include "turn.hpp"
 
 
 
@@ -32,6 +34,15 @@ class GameObject
 
 
 	Miscellaneous * m_misc;
+
+
+
+	ItemList * m_list;
+
+
+
+	TurnSystem * t_system;
+
 
 
 public:
@@ -53,6 +64,14 @@ public:
 
 
 	inline Miscellaneous * GetMisc(){ return this->m_misc; }
+
+
+
+	inline ItemList * GetItemList(){ return this->m_list; }
+
+
+
+	inline TurnSystem * GetTurnSystem(){ this->t_system; }
 
 
 
