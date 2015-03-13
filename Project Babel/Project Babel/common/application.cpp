@@ -38,9 +38,6 @@ void Application::Init()
 
 
 
-
-
-
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
 
@@ -52,10 +49,15 @@ void Application::Run()
 {
 
 
+
+
+
+
 	do{
 
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 
 
 		this->Enable();

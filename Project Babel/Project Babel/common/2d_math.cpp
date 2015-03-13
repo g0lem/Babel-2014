@@ -64,6 +64,23 @@ glm::mat3 Rotation(GLfloat alpha)
 
 
 
+GLuint compare_vec2(glm::vec2 a, glm::vec2 b)
+{
+
+
+	if (a.x >= b.x&&a.y >= b.y)
+		return V_GREATER;
+	else if (a.x < b.x && a.y < b.y)
+		return V_LESSER;
+	else
+		return V_UNDEFINED;
+
+
+}
+
+
+
+
 
 
 

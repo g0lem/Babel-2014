@@ -86,7 +86,7 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 
 
 
-
+	g_obj->GetScroller()->ComputeScreenLimits(ctrl, this->map->GetTilemap()->GetSize(), this->map->GetTilemap()->GetTileScale());
 
 
 	this->map->Render(ctrl, this->GetScreenPointer(), g_obj);

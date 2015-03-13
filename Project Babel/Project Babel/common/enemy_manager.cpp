@@ -1,3 +1,8 @@
+//Checked 2
+
+
+
+
 #include "enemy_manager.hpp"
 
 
@@ -10,7 +15,22 @@ void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObj
 
 
 	for (GLuint i = 0; i < this->m_enemies->size(); i++)
-		this->m_enemies[0][i]->Render(ctrl, u_data, g_obj);
+	{
+
+
+		if (compare_vec2(this->m_enemies[0][i]->GetPAttributes()->position, glm::vec2(g_obj->GetScroller()->GetBeginLimit())) == V_GREATER
+			&& compare_vec2(this->m_enemies[0][i]->GetPAttributes()->position, glm::vec2(g_obj->GetScroller()->GetEndLimit())) == V_LESSER)
+		{
+
+
+
+			this->m_enemies[0][i]->Render(ctrl, u_data, g_obj);
+
+
+
+		}
+
+	}
 
 
 

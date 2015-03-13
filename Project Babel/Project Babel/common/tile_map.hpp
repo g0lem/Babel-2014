@@ -38,10 +38,15 @@ public:
 	void Init();
 
 
-	void Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, glm::vec2 s_offset);
+	void Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite,
+		glm::ivec2 begin_limit, glm::ivec2 end_limit,
+		glm::vec2 offset);
 
 
 	inline glm::ivec2 GetSize(){ return this->size; }
+
+
+	inline glm::vec2 GetTileScale(){ return this->tile_scale; }
 
 
 	inline GLint**GetTiles(){ return this->tiles; }

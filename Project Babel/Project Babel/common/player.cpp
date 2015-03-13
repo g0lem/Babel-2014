@@ -65,7 +65,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && glfwGetTime() > 1.0f)
+		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
 			attributes->target = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale);
 
 

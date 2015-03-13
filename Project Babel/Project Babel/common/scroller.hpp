@@ -9,6 +9,8 @@
 
 
 #include "controls.hpp"
+#include "2d_math.hpp"
+
 
 
 
@@ -20,8 +22,12 @@ class Scroller
 	glm::vec2 offset;
 
 
+    glm::ivec2 begin_limit, end_limit;
+
+
 
 public:
+
 
 
 	inline Scroller(){ this->Init(); }
@@ -38,7 +44,7 @@ public:
 
 
 
-	void Enable(Controller * ctrl);
+	void ComputeScreenLimits(Controller * ctrl, glm::ivec2 map_size, glm::vec2 tile_scale);
 
 
 
@@ -49,6 +55,13 @@ public:
 
 	inline void SetOffset(glm::vec2 offset){ this->offset = offset; }
 
+
+
+	inline glm::ivec2 GetBeginLimit(){ return this->begin_limit; }
+
+
+
+	inline glm::ivec2 GetEndLimit(){ return this->end_limit; }
 
 
 

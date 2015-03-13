@@ -51,6 +51,7 @@ void Enemy::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g
 
 
 
+
 	this->RenderMisc(u_data, g_obj);
 
 
@@ -151,6 +152,7 @@ void Enemy::RenderMisc(ScreenUniformData * u_data, GameObject * g_obj)
 
 
 
+	if (this->m_stats->GetHp()->hp < this->m_stats->GetHp()->max_hp)
 	this->RenderHpBar(u_data, g_obj);
 
 

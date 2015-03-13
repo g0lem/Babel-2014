@@ -64,7 +64,9 @@ void Tilemap::Init()
 
 
 
-void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, glm::vec2 s_offset)
+void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, 
+	glm::ivec2 begin_limit, glm::ivec2 end_limit,
+	glm::vec2 offset)
 {
 
 
@@ -73,17 +75,7 @@ void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_s
 
 
 
-	glm::vec2 offset = -GridPosition(s_offset, this->tile_scale) / this->tile_scale;
-
-
-	glm::vec2 screen_limit = GridPosition(glm::vec2(ctrl->GetWindowWidth(), ctrl->GetWindowHeight()), this->tile_scale) / this->tile_scale + glm::vec2(1.0f, 1.0f);
-
-
-	glm::ivec2 end_limit = glm::min(glm::ivec2(offset + screen_limit), this->size);
-
-
-	glm::ivec2 begin_limit = glm::max(glm::ivec2(offset), glm::ivec2(0, 0));
-
+	
 
 
 
@@ -102,7 +94,7 @@ void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_s
 
 
 
-				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + s_offset)*Scale(tile_scale));
+				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
 				m_sprite->Render(this->tiles[i][j]);
 
 
