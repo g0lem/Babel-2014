@@ -54,6 +54,12 @@
     <Filter Include="stats">
       <UniqueIdentifier>{d53a1a69-b73d-48ce-b856-24c9a6a189b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="turn">
+      <UniqueIdentifier>{411d940f-1b3e-4f0c-80f3-544718ef63d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="item">
+      <UniqueIdentifier>{3aa9f58b-b934-4568-b9a1-fe7303d1891a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="common\Combat.cpp" />
@@ -145,6 +151,18 @@
       <Filter>stats</Filter>
     </ClCompile>
     <ClCompile Include="common\pathfinder.cpp" />
+    <ClCompile Include="common\item_list.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item_types.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\turn.cpp">
+      <Filter>turn</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -252,5 +270,17 @@
       <Filter>stats</Filter>
     </ClInclude>
     <ClInclude Include="common\pathfinder.hpp" />
+    <ClInclude Include="common\item_list.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item_types.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\turn.hpp">
+      <Filter>turn</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
