@@ -88,7 +88,7 @@ inline glm::ivec2 GetCenter(glm::ivec2 points[2]){ return GetCenter(points[0], p
 
 
 
-inline void print_vec2(glm::vec2 t_vec){ printf("%.4f, %.4f\n", t_vec.x, t_vec.y); }
+inline void print_vec2(glm::vec2 t_vec){ printf("%.2f, %.2f\n", t_vec.x, t_vec.y); }
 
 
 

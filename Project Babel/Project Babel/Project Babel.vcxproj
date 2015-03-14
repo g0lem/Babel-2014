@@ -15,6 +15,7 @@
     <ClCompile Include="common\2d_math.cpp" />
     <ClCompile Include="common\animation.cpp" />
     <ClCompile Include="common\application.cpp" />
+    <ClCompile Include="common\auto_path.cpp" />
     <ClCompile Include="common\collision_map.cpp" />
     <ClCompile Include="common\Combat.cpp" />
     <ClCompile Include="common\controls.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="common\2d_math.hpp" />
     <ClInclude Include="common\animation.hpp" />
     <ClInclude Include="common\application.hpp" />
+    <ClInclude Include="common\auto_path.hpp" />
     <ClInclude Include="common\block.hpp" />
     <ClInclude Include="common\cell.hpp" />
     <ClInclude Include="common\collision_map.hpp" />

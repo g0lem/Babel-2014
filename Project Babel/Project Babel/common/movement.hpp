@@ -16,12 +16,17 @@
 
 
 
+
 class Move
 {
 
 
+	
+
 
 public:
+
+
 
 
 	static void TileMove(Controller* ctrl, GameObject * g_obj, glm::vec2 &position);
@@ -31,6 +36,8 @@ public:
 	
 
 	static glm::vec2 GetMapPosition(GameObject * g_obj, glm::vec2 position, glm::vec2 scale);
+
+
 
 
 };

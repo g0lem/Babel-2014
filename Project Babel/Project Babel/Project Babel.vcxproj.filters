@@ -150,7 +150,6 @@
     <ClCompile Include="common\stats.cpp">
       <Filter>stats</Filter>
     </ClCompile>
-    <ClCompile Include="common\pathfinder.cpp" />
     <ClCompile Include="common\item_list.cpp">
       <Filter>item</Filter>
     </ClCompile>
@@ -162,6 +161,12 @@
     </ClCompile>
     <ClCompile Include="common\turn.cpp">
       <Filter>turn</Filter>
+    </ClCompile>
+    <ClCompile Include="common\auto_path.cpp">
+      <Filter>delta</Filter>
+    </ClCompile>
+    <ClCompile Include="common\pathfinder.cpp">
+      <Filter>delta</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -269,7 +274,6 @@
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
     </ClInclude>
-    <ClInclude Include="common\pathfinder.hpp" />
     <ClInclude Include="common\item_list.hpp">
       <Filter>item</Filter>
     </ClInclude>
@@ -281,6 +285,12 @@
     </ClInclude>
     <ClInclude Include="common\turn.hpp">
       <Filter>turn</Filter>
+    </ClInclude>
+    <ClInclude Include="common\auto_path.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pathfinder.hpp">
+      <Filter>delta</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

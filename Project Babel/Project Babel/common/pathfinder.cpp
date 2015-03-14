@@ -1,6 +1,9 @@
 #include "pathfinder.hpp"
 #include <iostream>
 
+
+
+
 std::vector <glm::vec2> Pathfinder::GetPath()
 {
 	std::vector <glm::vec2> path;
@@ -11,16 +14,31 @@ std::vector <glm::vec2> Pathfinder::GetPath()
 		path.push_back(glm::vec2(get->x, get->y));
 		get = get->last;
 	}
+
+
+	std::reverse(path.begin(), path.end());
 	return path;
 }
 
 
 
+
+
+
 void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 {
-	std::cout << "Init \n";
+
+	//std::cout << "Init \n";
 	//loading collision map
 	this->map = g_obj;
+
+     
+
+	this->PathFound = false;
+	this->ending_counter = 0;
+	this->openlist.clear();
+	this->visitedlist.clear();
+
 
 	//setting the beginning at the end
 	Ending = new node;
@@ -39,7 +57,8 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 
 
 	openlist.push_back(Beginning);
-	PathFound = false;
+
+
 	//Getting the path
 
 	node *current;
@@ -51,6 +70,10 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 		FindNewNode(current);
 		if (!PathFound)
 		current = FindBestNode();
+		if (current == NULL){
+			PathFound = false;
+			break;
+		}
 	}
 
 
@@ -132,7 +155,12 @@ Pathfinder::node *Pathfinder::FindBestNode()
 	//std::cout << "Node selected: " << best->x << " " << best->y << std::endl;
 
 	visitedlist.push_back(best);
-	openlist.erase(openlist.begin() + pozition);
+	if (openlist.size() == 1)
+		ending_counter++;
+	if (ending_counter <= 1)
+		openlist.erase(openlist.begin() + pozition);
+	else
+		return NULL;
 
 	return best;
 

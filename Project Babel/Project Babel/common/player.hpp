@@ -16,7 +16,8 @@
 #include "map.hpp"
 #include "animation.hpp"
 #include "physical_attributes.hpp"
-#include "pathfinder.hpp"
+#include "auto_path.hpp"
+
 
 
 
@@ -29,7 +30,11 @@
 class Player
 {
 
-	Pathfinder *m_path;
+
+
+	AutoPath * a_path;
+
+
 
 	Sprite * m_sprite;
 
@@ -68,6 +73,9 @@ class Player
 
 	void LoadItems(GameObject * g_obj);
 
+
+
+	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
 
 
 

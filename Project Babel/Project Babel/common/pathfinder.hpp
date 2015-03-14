@@ -6,6 +6,9 @@
 #include "collision_map.hpp"
 #include "game_object.hpp"
 
+
+
+
 class Pathfinder
 {
 private:
@@ -23,18 +26,23 @@ private:
 	std::vector < node* > openlist;
 	std::vector < node* > visitedlist;
 
-	bool PathFound=false;
+	bool PathFound;
 	void FindNewNode(node *currentnode);
 	node *FindBestNode();
+
+	int ending_counter;
 
 	
 	bool IsOpened(int x, int y);
 	bool IsVisited(int x, int y);
 
 
+
+
 public:
 std::vector <glm::vec2> GetPath();
 void Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish);
+inline bool GetPathFound(){ return this->PathFound; }
 
 };
 
