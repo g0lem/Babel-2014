@@ -24,6 +24,7 @@
     <ClCompile Include="common\enemy_manager.cpp" />
     <ClCompile Include="common\font_manager.cpp" />
     <ClCompile Include="common\game_object.cpp" />
+    <ClCompile Include="common\graph.cpp" />
     <ClCompile Include="common\hp.cpp" />
     <ClCompile Include="common\item.cpp" />
     <ClCompile Include="common\item_list.cpp" />
@@ -70,6 +71,7 @@
     <ClInclude Include="common\enemy_manager.hpp" />
     <ClInclude Include="common\font_manager.hpp" />
     <ClInclude Include="common\game_object.hpp" />
+    <ClInclude Include="common\graph.hpp" />
     <ClInclude Include="common\hp.hpp" />
     <ClInclude Include="common\item.hpp" />
     <ClInclude Include="common\item_list.hpp" />

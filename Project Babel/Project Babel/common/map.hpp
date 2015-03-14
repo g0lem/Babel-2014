@@ -13,6 +13,9 @@
 #include "room.hpp"
 #include "tile_map.hpp"
 #include "game_object.hpp"
+#include "graph.hpp"
+
+
 
 
 
@@ -39,7 +42,6 @@ public:
 
 
 
-
 	inline Tilemap * GetTilemap(){ return this->tilemap; }
 
 
@@ -52,7 +54,8 @@ private:
 
 
 
-
+	Graph * m_graph;
+    
 
 	Tilemap *tilemap;
 
@@ -62,22 +65,26 @@ private:
 
 	GLuint expected_rooms;
 
+
 	std::vector<Room*>*rooms;
 
 
 	void LoadSprites();
 
 
-
 	void GenerateContent();
-
-
 
 
 	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);
 
 
-	
+	void FirstTunnelPass();
+
+
+	void SecondTunnelPass();
+
+
+	void AddRooms(GLuint expected_rooms);
 
 
 

@@ -173,6 +173,9 @@
     <ClCompile Include="common\item_types.cpp">
       <Filter>item</Filter>
     </ClCompile>
+    <ClCompile Include="common\graph.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -297,6 +300,9 @@
     </ClInclude>
     <ClInclude Include="common\item_types.hpp">
       <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\graph.hpp">
+      <Filter>map</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

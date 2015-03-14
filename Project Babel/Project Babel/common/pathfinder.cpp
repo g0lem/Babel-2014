@@ -177,12 +177,7 @@ Pathfinder::node *Pathfinder::FindBestNode()
 	//std::cout << "Node selected: " << best->x << " " << best->y << std::endl;
 
 	visitedlist.push_back(best);
-	if (openlist.size() == 1)
-		ending_counter++;
-	if (ending_counter <= 1)
-		openlist.erase(openlist.begin() + pozition);
-	else
-		return NULL;
+	openlist.erase(openlist.begin() + pozition);
 
 	return best;
 
