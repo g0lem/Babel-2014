@@ -173,8 +173,13 @@
     <ClCompile Include="common\item_types.cpp">
       <Filter>item</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="common\graph.cpp">
       <Filter>map</Filter>
+=======
+    <ClCompile Include="common\sound_manager.cpp">
+      <Filter>managers</Filter>
+>>>>>>> origin/master
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -280,6 +285,15 @@
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="common\pathfinder.hpp" />
+    <ClInclude Include="common\item.hpp" />
+    <ClInclude Include="common\item_list.hpp" />
+    <ClInclude Include="common\item_types.hpp" />
+    <ClInclude Include="common\turn.hpp" />
+    <ClInclude Include="common\sound_manager.hpp">
+      <Filter>managers</Filter>
+=======
     <ClInclude Include="common\Combat.hpp">
       <Filter>combat</Filter>
     </ClInclude>
@@ -300,6 +314,7 @@
     </ClInclude>
     <ClInclude Include="common\item_types.hpp">
       <Filter>item</Filter>
+>>>>>>> origin/master
     </ClInclude>
     <ClInclude Include="common\graph.hpp">
       <Filter>map</Filter>
