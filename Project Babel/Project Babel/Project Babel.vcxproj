@@ -36,6 +36,7 @@
     <ClCompile Include="common\room.cpp" />
     <ClCompile Include="common\scroller.cpp" />
     <ClCompile Include="common\shader.cpp" />
+    <ClCompile Include="common\sound_manager.cpp" />
     <ClCompile Include="common\sprite.cpp" />
     <ClCompile Include="common\sprite_manager.cpp" />
     <ClCompile Include="common\stats.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="common\room.hpp" />
     <ClInclude Include="common\scroller.hpp" />
     <ClInclude Include="common\shader.hpp" />
+    <ClInclude Include="common\sound_manager.hpp" />
     <ClInclude Include="common\sprite.hpp" />
     <ClInclude Include="common\sprite_manager.hpp" />
     <ClInclude Include="common\stats.hpp" />
@@ -140,7 +142,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\..\Dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>RocketDebugger.lib;Shell.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>OpenAL32.lib;RocketDebugger.lib;Shell.lib;RocketControls.lib;RocketCore.lib;FreeImaged.lib;freetype.lib;glfw3.lib;glew32.lib;glu32.lib;opengl32.lib;SQLite.lib;gdi32.lib;winmm.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

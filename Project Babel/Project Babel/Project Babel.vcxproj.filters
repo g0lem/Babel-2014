@@ -157,6 +157,9 @@
     <ClCompile Include="common\turn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="common\sound_manager.cpp">
+      <Filter>managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -267,5 +270,8 @@
     <ClInclude Include="common\item_list.hpp" />
     <ClInclude Include="common\item_types.hpp" />
     <ClInclude Include="common\turn.hpp" />
+    <ClInclude Include="common\sound_manager.hpp">
+      <Filter>managers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
