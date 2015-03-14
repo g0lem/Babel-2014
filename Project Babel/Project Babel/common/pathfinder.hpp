@@ -38,6 +38,9 @@ private:
 
 
 
+	void Delete(node * node);
+
+
 
 public:
 std::vector <glm::vec2> GetPath();

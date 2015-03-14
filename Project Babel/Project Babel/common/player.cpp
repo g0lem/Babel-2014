@@ -14,9 +14,6 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->LoadSprites();
 
 
-	this->walk_animation = new Animation(8);
-
-
 	this->a_path = new AutoPath();
 
 
@@ -126,6 +123,10 @@ void Player::Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLflo
 
 void Player::LoadSprites()
 {
+
+
+
+	this->walk_animation = new Animation(8);
 
 
 	this->m_sprite = new Sprite();

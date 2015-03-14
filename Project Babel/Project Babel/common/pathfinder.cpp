@@ -22,6 +22,24 @@ std::vector <glm::vec2> Pathfinder::GetPath()
 
 
 
+void Pathfinder::Delete(node * node)
+{
+
+
+	if (node)
+	{
+
+
+		if (node->last)
+			Delete(node->last);
+
+
+		delete node;
+
+
+	}
+
+}
 
 
 
@@ -33,6 +51,10 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 	this->map = g_obj;
 
      
+	if (this->ending_counter <= 1)
+	this->Delete(Ending);
+
+
 
 	this->PathFound = false;
 	this->ending_counter = 0;

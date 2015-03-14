@@ -113,8 +113,41 @@ void Map::GenerateContent()
 
 
 
+
+
 	for (GLuint i = 1; i < rooms->size(); i++)
-		AddTunnel(rooms[0][i]->GetInternalCenter(), rooms[0][i - 1]->GetInternalCenter());
+	{
+
+
+		GLfloat min_distance = this->tilemap->GetSize().x*this->tilemap->GetSize().y;
+		GLuint k = 0;
+
+
+		for (GLuint j = 1; j < rooms->size(); j++)
+		{
+
+			if (i!=j)
+			if (min_distance > glm::distance(glm::vec2(rooms[0][i]->GetInternalCenter()), glm::vec2(rooms[0][j]->GetInternalCenter())))
+			{
+
+
+				min_distance = glm::distance(glm::vec2(rooms[0][i]->GetInternalCenter()), glm::vec2(rooms[0][j]->GetInternalCenter()));
+				k = j;
+
+
+			}
+
+
+
+
+		}
+
+
+
+		this->AddTunnel(rooms[0][i]->GetInternalCenter(), rooms[0][k]->GetInternalCenter());
+
+
+	}
 
 
 

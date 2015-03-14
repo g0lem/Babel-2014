@@ -98,7 +98,6 @@ class Controller
 
 	static GLvoid key_callback(GLFWwindow* window, GLint key, GLint scancode, GLint action, GLint mods);
 	static GLuint keys[512];
-	static GLuint keys1[512];
 	static GLuint fullscreen_key;
 
 
@@ -121,7 +120,7 @@ public:
 
 
 	
-	inline GLuint GetKey(GLuint code){ return Controller::keys1[code]; }
+	inline GLuint GetKey(GLuint code){ return Controller::keys[code]; }
 
 
 
