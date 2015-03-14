@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 3/13/2015 11:53:53 PM.
      1>Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -9,8 +10,20 @@
      1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\pathfinder.hpp(24): warning C4244: 'return' : conversion from 'int' to 'GLfloat', possible loss of data
      1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\player.cpp(64): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
      1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\player.cpp(81): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+=======
+﻿Build started 3/13/2015 8:38:53 AM.
+     1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\movement.cpp
+         movement.cpp
+     1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\room.hpp(58): warning C4018: '<=' : signed/unsigned mismatch
+     1>d:\github\projectbabel\project babel\project babel\common\movement.cpp(109): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\movement.cpp(111): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+>>>>>>> origin/master
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
          Debug\2d_math.obj
          Debug\animation.obj
          Debug\application.obj
@@ -46,9 +59,13 @@
          Debug\turn.obj
          Debug\uniform_2d.obj
          Debug\main.obj
-         Project Babel.vcxproj -> C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe
-     1>Done Building Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
+         Project Babel.vcxproj -> D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe
+     1>Done Building Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
 
 Build succeeded.
 
+<<<<<<< HEAD
 Time Elapsed 00:00:04.57
+=======
+Time Elapsed 00:00:00.62
+>>>>>>> origin/master
