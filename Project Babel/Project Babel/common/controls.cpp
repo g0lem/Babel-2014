@@ -9,7 +9,6 @@
 
 
 GLuint Controller::keys[] = { 0 };
-GLuint Controller::keys1[] = { 0 };
 
 
 GLuint Controller::fullscreen_key = 0;
@@ -229,15 +228,16 @@ GLvoid Controller::key_callback(GLFWwindow* window, GLint key, GLint scancode, G
 
 		if (key == i){
 
-			keys1[i] = action;
-
 
 			if (action > 0)
 				keys[i]++;
 			else if (action == GLFW_RELEASE)
 				keys[i] = 0;
 
+
 		}
+
+
 	}
 
 

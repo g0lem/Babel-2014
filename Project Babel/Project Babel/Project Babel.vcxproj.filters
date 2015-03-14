@@ -54,9 +54,17 @@
     <Filter Include="stats">
       <UniqueIdentifier>{d53a1a69-b73d-48ce-b856-24c9a6a189b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="combat">
+      <UniqueIdentifier>{30709c93-2f55-4101-9094-b6a551a554ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="turn">
+      <UniqueIdentifier>{5f22026b-fa55-46a5-80db-fbab3b8db3dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="item">
+      <UniqueIdentifier>{0b5365d3-1c1c-477f-9fb9-988953cb13b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="common\Combat.cpp" />
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -144,18 +152,26 @@
     <ClCompile Include="common\stats.cpp">
       <Filter>stats</Filter>
     </ClCompile>
-    <ClCompile Include="common\pathfinder.cpp" />
-    <ClCompile Include="common\item.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="common\Combat.cpp">
+      <Filter>combat</Filter>
     </ClCompile>
-    <ClCompile Include="common\item_list.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="common\auto_path.cpp">
+      <Filter>delta</Filter>
     </ClCompile>
-    <ClCompile Include="common\item_types.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="common\pathfinder.cpp">
+      <Filter>delta</Filter>
     </ClCompile>
     <ClCompile Include="common\turn.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>turn</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item_list.cpp">
+      <Filter>item</Filter>
+    </ClCompile>
+    <ClCompile Include="common\item_types.cpp">
+      <Filter>item</Filter>
     </ClCompile>
     <ClCompile Include="common\sound_manager.cpp">
       <Filter>managers</Filter>
@@ -176,7 +192,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\2d.hpp">
       <Filter>framework\sprite</Filter>
@@ -265,6 +280,7 @@
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="common\pathfinder.hpp" />
     <ClInclude Include="common\item.hpp" />
     <ClInclude Include="common\item_list.hpp" />
@@ -272,6 +288,28 @@
     <ClInclude Include="common\turn.hpp" />
     <ClInclude Include="common\sound_manager.hpp">
       <Filter>managers</Filter>
+=======
+    <ClInclude Include="common\Combat.hpp">
+      <Filter>combat</Filter>
+    </ClInclude>
+    <ClInclude Include="common\auto_path.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\pathfinder.hpp">
+      <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\turn.hpp">
+      <Filter>turn</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item_list.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\item_types.hpp">
+      <Filter>item</Filter>
+>>>>>>> origin/master
     </ClInclude>
   </ItemGroup>
 </Project>

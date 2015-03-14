@@ -14,7 +14,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->LoadSprites();
 
 
-	this->walk_animation = new Animation(8);
+	this->a_path = new AutoPath();
 
 
 	this->LoadPhysicalAttributes(current_tilemap);
@@ -49,7 +49,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 	
-	if (ctrl->GetKeyOnce(GLFW_KEY_SPACE) && this->target > NO_TARGET)
+	if (ctrl->GetKeyOnce(GLFW_KEY_SPACE) && this->target > NO_TARGET && a_path->Finished())
 		this->attacking = true;
 
 
@@ -61,7 +61,13 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 		this->Update(attributes->position, attributes->target, ctrl->GetFpsPointer()->Delta(), attributes->speed);
 
 
+		this->HandleAutoPath(ctrl, g_obj);
+
+
 		Move::UpdateScroller(ctrl, g_obj, attributes->position, attributes->scale);
+
+
+
 
 
 
@@ -73,26 +79,12 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
 		this->m_sprite->Render(this->walk_animation->GetIFrames());
 
 
 
-		m_path = new Pathfinder;
 
 
-
-		if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
-		{
-
-
-			m_path->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
-			for (GLuint i = 0; i < m_path->GetPath().size(); i++)
-				print_vec2(m_path->GetPath()[i]);
-
-
-		}
 
 
 }
@@ -131,6 +123,10 @@ void Player::Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLflo
 
 void Player::LoadSprites()
 {
+
+
+
+	this->walk_animation = new Animation(8);
 
 
 	this->m_sprite = new Sprite();
@@ -203,3 +199,58 @@ void Player::LoadItems(GameObject * g_obj)
 
 }
 
+
+
+void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
+{
+
+
+
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
+	{
+
+
+		a_path->GetPathfinder()->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
+
+
+		a_path->Reset();
+
+
+		if (a_path->GetPathfinder()->GetPathFound())
+		{
+
+
+			a_path->SetPath(a_path->GetPathfinder()->GetPath());
+
+
+			a_path->Advance();
+
+
+
+		}
+
+
+	}
+
+
+
+
+
+	if (a_path->IsSet() && !a_path->Finished())
+	{
+
+
+		
+		this->attributes->target = a_path->GetStep();
+		
+
+		if (glm::distance(attributes->position, attributes->target) <= attributes->speed*ctrl->GetFpsPointer()->Delta())
+			a_path->Advance();
+
+
+	}
+
+
+
+
+}
