@@ -4,20 +4,64 @@ void SoundManager::Init()
 {
 
 	m_playing.playing = false;
+
+
 	s_playing.playing = false;
+
+
+	this->soundpath = new char*[MAX_SOUNDS];
+
+	this->musicpath = new char*[MAX_MUSIC];
 
 
 	this->m_sounds = new std::vector<Sound*>;
 
+
 	this->m_music = new std::vector<Music*> ;
 
-	char** sound_path = new char*[3];
 
 
-	sound_path[0] = "./media/spooky.ogg";
-	AddSound(sound_path[0], "Spooky");
-	sound_path[1] = "./media/crow.wav";
-	AddSound(sound_path[1], "Crow");
+	loadSounds(this->soundpath);
+
+
+	loadMusic(this->musicpath);
+
+}
+
+void SoundManager::loadSounds(char** path)
+{
+
+
+	soundpath[0] = "media/sounds/charge.wav";
+	soundpath[1] = "media/sounds/horn.wav";
+	soundpath[2] = "media/sounds/welcome.wav";
+
+
+
+	AddSound(soundpath[0], "Charge");
+	AddSound(soundpath[1], "Horn");
+	AddSound(soundpath[2], "Welcome");
+
+
+}
+
+
+void SoundManager::loadMusic(char** path)
+{
+
+
+
+	musicpath[0] = "media/music/spooky.ogg";
+	musicpath[1] = "media/music/hills.ogg";
+
+
+
+
+	AddMusic(musicpath[0], "Spooky Scary Skeletons");
+	AddMusic(musicpath[1], "Green Hills");
+
+
+
 
 }
 
@@ -85,7 +129,7 @@ void SoundManager::AddMusic(char* p_music, char* name)
 	sf::Music * music = new sf::Music;
 
 
-	if (music->openFromFile(p_music))
+	if (!music->openFromFile(p_music))
 		printf("ERROR: Couldn't load music from %d \n\n", p_music);
 
 
@@ -124,15 +168,25 @@ void SoundManager::PlaySound(char* p_sound)
 	if (!s_playing.playing)
 	{
 
-		currentIndex = GetSoundIndex(p_sound);
-
-		this->m_sounds->at(currentIndex)->sound->play();
+		this->m_sounds->at(GetSoundIndex(p_sound))->sound->play();
 
 		s_playing.playing = true;
+
 	}
 	else
 	{
-		printf("%c, is currently playing\n", p_sound);
+
+		printf("%c, is currently playing, switching to %c\n", this->m_sounds->at(GetSoundIndex(s_playing.name))->name,p_sound);
+
+
+		setSoundStatus(s_playing.name, Paused);
+
+		this->m_sounds->at(GetSoundIndex(p_sound))->sound->play();
+
+
+		s_playing.name = p_sound;
+
+
 	}
 
 
@@ -145,15 +199,22 @@ void SoundManager::PlayMusic(char *p_music)
 	if (!m_playing.playing)
 	{
 
-		currentIndex = GetSoundIndex(p_music);
-
-		this->m_music->at(currentIndex)->music->play();
+		this->m_music->at(GetMusicIndex(p_music))->music->play();
 
 		m_playing.playing = true;
 	}
 	else
 	{
-		printf("%c, is currently playing\n", p_music);
+		printf("%c, is currently playing, switching to %c\n", this->m_music->at(GetMusicIndex(m_playing.name))->name, p_music);
+
+
+		setMusicStatus(m_playing.name, Paused);
+
+
+		this->m_music->at(GetMusicIndex(p_music))->music->play();
+
+		m_playing.name = p_music;
+
 	}
 
 }
@@ -238,6 +299,45 @@ int SoundManager::getMusicStatus(char* name)
 
 	return this->m_music->at(GetMusicIndex(name))->music->getStatus();
 
+
+}
+
+void SoundManager::setSoundStatus(char* name, Status status)
+{
+	switch (status)
+	{
+	case Stopped:
+		this->m_sounds->at(GetSoundIndex(name))->sound->stop();
+		break;
+	case Paused:
+		this->m_sounds->at(GetSoundIndex(name))->sound->pause();
+		break;
+	case Playing:
+		this->m_sounds->at(GetSoundIndex(name))->sound->play();
+		break;
+	default:
+		break;
+	}
+
+
+}
+
+void SoundManager::setMusicStatus(char* name, Status status)
+{
+	switch (status)
+	{
+	case Stopped:
+		this->m_music->at(GetMusicIndex(name))->music->stop();
+		break;
+	case Paused:
+		this->m_music->at(GetMusicIndex(name))->music->pause();
+		break;
+	case Playing:
+		this->m_music->at(GetMusicIndex(name))->music->play();
+		break;
+	default:
+		break;
+	}
 
 }
 

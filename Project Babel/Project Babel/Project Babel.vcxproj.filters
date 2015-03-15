@@ -194,6 +194,9 @@
     <ClCompile Include="common\one_direction.cpp">
       <Filter>delta</Filter>
     </ClCompile>
+    <ClCompile Include="media_player.cpp">
+      <Filter>framework\sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -329,6 +332,9 @@
     </ClInclude>
     <ClInclude Include="common\one_direction.hpp">
       <Filter>delta</Filter>
+    </ClInclude>
+    <ClInclude Include="media_player.hpp">
+      <Filter>framework\sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

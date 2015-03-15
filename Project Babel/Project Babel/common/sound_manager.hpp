@@ -7,6 +7,10 @@
 #include <string.h>
 #include <vector>
 
+#define MAX_SOUNDS 3
+#define MAX_MUSIC 2
+
+
 class SoundManager
 {
 
@@ -33,7 +37,7 @@ class SoundManager
 
 	enum Status{
 		Stopped,
-		Pause,
+		Paused,
 		Playing
 	};
 
@@ -42,6 +46,16 @@ class SoundManager
 	cPlay s_playing, m_playing;
 
 	int currentIndex;
+
+
+
+
+
+	char** soundpath, **musicpath;
+
+
+
+
 
 	std::vector<Sound*> *m_sounds;
 
@@ -56,6 +70,14 @@ public:
 	void Init(); 
 
 	void Clean();
+
+	// Load
+
+
+	void loadSounds(char** path);
+
+	void loadMusic(char** path);
+
 
 	// Add
 
@@ -94,6 +116,12 @@ public:
 	int getSoundStatus(char *name);
 
 	int getMusicStatus(char *name);
+
+	// setStatus
+
+	void setSoundStatus(char *name, Status status);
+
+	void setMusicStatus(char *name, Status status);
 
 	// getDuration
 

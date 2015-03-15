@@ -19,7 +19,7 @@ void Application::Init()
 
     this->CreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT,
 		false,
-		"Project Babel 0.0.7a",
+		"Project Babel 0.1.0a",
 		4, 0);
 
 
@@ -49,7 +49,9 @@ void Application::Run()
 {
 
 
+	this->sound_m->PlayMusic("Green Hills");
 
+	this->sound_m->setMusicLoop("Green Hills", true);
 
 
 
