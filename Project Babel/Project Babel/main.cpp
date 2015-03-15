@@ -8,10 +8,9 @@
 #include "common/text_render.hpp"
 #include "common/application.hpp"
 
+
 int main(int argc, char *argv[])
 {
-
-
 
 
 	Application*app = new Application();
