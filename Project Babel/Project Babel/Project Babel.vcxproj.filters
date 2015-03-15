@@ -66,6 +66,9 @@
     <Filter Include="framework\sound">
       <UniqueIdentifier>{a5c962bb-76d3-4fa8-9304-02235ab17c41}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\icon">
+      <UniqueIdentifier>{e22cde37-e376-471e-aaf2-73d0eb5f6604}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -194,7 +197,7 @@
     <ClCompile Include="common\one_direction.cpp">
       <Filter>delta</Filter>
     </ClCompile>
-    <ClCompile Include="media_player.cpp">
+    <ClCompile Include="common\media_player.cpp">
       <Filter>framework\sound</Filter>
     </ClCompile>
   </ItemGroup>
@@ -333,8 +336,21 @@
     <ClInclude Include="common\one_direction.hpp">
       <Filter>delta</Filter>
     </ClInclude>
-    <ClInclude Include="media_player.hpp">
+    <ClInclude Include="common\media_player.hpp">
       <Filter>framework\sound</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <Filter>Resource Files\icon</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glfw1.bin">
+      <Filter>Resource Files\icon</Filter>
+    </None>
   </ItemGroup>
 </Project>

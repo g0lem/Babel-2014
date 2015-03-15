@@ -7,6 +7,7 @@
 #include "common/controls.hpp"
 #include "common/text_render.hpp"
 #include "common/application.hpp"
+#include "resource.h"
 
 
 int main(int argc, char *argv[])

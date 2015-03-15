@@ -1,5 +1,11 @@
 #include "sound_manager.hpp"
 
+
+
+
+
+
+
 void SoundManager::Init()
 {
 
@@ -32,9 +38,9 @@ void SoundManager::loadSounds(char** path)
 {
 
 
-	soundpath[0] = "media/sounds/charge.wav";
-	soundpath[1] = "media/sounds/horn.wav";
-	soundpath[2] = "media/sounds/welcome.wav";
+	soundpath[0] = "data/media/sounds/charge.wav";
+	soundpath[1] = "data/media/sounds/horn.wav";
+	soundpath[2] = "data/media/sounds/welcome.wav";
 
 
 
@@ -51,8 +57,8 @@ void SoundManager::loadMusic(char** path)
 
 
 
-	musicpath[0] = "media/music/spooky.ogg";
-	musicpath[1] = "media/music/hills.ogg";
+	musicpath[0] = "data/media/music/spooky.ogg";
+	musicpath[1] = "data/media/music/hills.ogg";
 
 
 

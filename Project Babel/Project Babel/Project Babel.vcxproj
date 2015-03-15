@@ -33,6 +33,7 @@
     <ClCompile Include="common\map_helper1.cpp" />
     <ClCompile Include="common\map_helper2.cpp" />
     <ClCompile Include="common\map_helper3.cpp" />
+    <ClCompile Include="common\media_player.cpp" />
     <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\one_direction.cpp" />
@@ -53,7 +54,6 @@
     <ClCompile Include="common\turn.cpp" />
     <ClCompile Include="common\uniform_2d.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="media_player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt" />
@@ -83,6 +83,7 @@
     <ClInclude Include="common\item_list.hpp" />
     <ClInclude Include="common\item_types.hpp" />
     <ClInclude Include="common\map.hpp" />
+    <ClInclude Include="common\media_player.hpp" />
     <ClInclude Include="common\miscellaneous.hpp" />
     <ClInclude Include="common\movement.hpp" />
     <ClInclude Include="common\one_direction.hpp" />
@@ -102,7 +103,13 @@
     <ClInclude Include="common\tile_map.hpp" />
     <ClInclude Include="common\turn.hpp" />
     <ClInclude Include="common\uniform_2d.hpp" />
-    <ClInclude Include="media_player.hpp" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glfw1.bin" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9D694652-8DD0-4779-9618-E52D81E34C81}</ProjectGuid>
