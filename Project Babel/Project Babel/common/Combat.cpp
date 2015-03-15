@@ -34,6 +34,14 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 
 
 			player->SetTarget(i);
+
+
+
+			if (player->GetAttackingState())
+			player->GetDirection()->Compute(DIR_TYPE_4, player->GetPAttributes()->position,
+				enemies->GetEnemiesPointer()[0][i]->GetPAttributes()->target);
+
+
 			break;
 
 

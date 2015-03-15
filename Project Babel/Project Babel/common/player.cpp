@@ -17,6 +17,9 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->a_path = new AutoPath();
 
 
+	this->m_dir = new Direction();
+
+
 	this->LoadPhysicalAttributes(current_tilemap);
 
 
@@ -72,14 +75,12 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
 		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
 
 
 
-		this->m_sprite->Render(this->walk_animation->GetIFrames());
+		this->m_sprite[m_dir->Compute(DIR_TYPE_4, attributes->position, attributes->target)]->Render(this->walk_animation->GetIFrames());
 
 
 
@@ -129,10 +130,11 @@ void Player::LoadSprites()
 	this->walk_animation = new Animation(8);
 
 
-	this->m_sprite = new Sprite();
+
+	char ** tex_str;
 
 
-	char ** tex_str = new char*[8];
+	tex_str = new char*[8];
 	tex_str[0] = "1.png";
 	tex_str[1] = "2.png";
 	tex_str[2] = "3.png";
@@ -144,9 +146,37 @@ void Player::LoadSprites()
 
 
 
-	this->m_sprite = new Sprite();
 
-	this->m_sprite->Load(8, "data/sprites/player0/", tex_str);
+	this->m_sprite = new Sprite*[4];
+
+
+
+
+	this->m_sprite[0] = new Sprite();
+
+	this->m_sprite[0]->Load(8, "data/sprites/player0/back/", tex_str);
+
+
+
+
+	this->m_sprite[1] = new Sprite();
+
+	this->m_sprite[1]->Load(8, "data/sprites/player0/front/", tex_str);
+
+
+
+
+
+	this->m_sprite[2] = new Sprite();
+
+	this->m_sprite[2]->Load(8, "data/sprites/player0/left/", tex_str);
+
+
+
+
+	this->m_sprite[3] = new Sprite();
+
+	this->m_sprite[3]->Load(8, "data/sprites/player0/right/", tex_str);
 
 
 

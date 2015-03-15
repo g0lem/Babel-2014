@@ -17,6 +17,8 @@
 #include "animation.hpp"
 #include "physical_attributes.hpp"
 #include "auto_path.hpp"
+#include "one_direction.hpp"
+
 
 
 
@@ -31,18 +33,20 @@ class Player
 {
 
 
+	Direction * m_dir;
+
 
 	AutoPath * a_path;
 
 
 
-	Sprite * m_sprite;
+	Sprite ** m_sprite;
 
 
 	PhysicalAttributes * attributes;
 
 
-	Animation * walk_animation;
+	Animation *walk_animation;
 
 
 
@@ -107,6 +111,9 @@ public:
 
 
 	inline Item**GetItems(){ return this->items; }
+
+
+	inline Direction * GetDirection(){ return this->m_dir; }
 
 
 };
