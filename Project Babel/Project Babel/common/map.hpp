@@ -87,6 +87,9 @@ private:
 	void AddRooms(GLuint expected_rooms);
 
 
+	void AddDoors();
+
+
 
 };
 
