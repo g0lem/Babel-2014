@@ -9,7 +9,7 @@ void SoundManager::Init()
 	char** sound_path = new char*[3];
 
 
-	sound_path[0] = "./media/horn.wav";
+	sound_path[0] = "./media/spooky.ogg";
 	AddSound(sound_path[0], "Horn");
 
 }
