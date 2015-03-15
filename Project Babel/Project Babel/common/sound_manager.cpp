@@ -13,6 +13,8 @@ void SoundManager::Init()
 	sound_path[0] = "./media/spooky.ogg";
 	AddSound(sound_path[0], "Spooky");
 
+	printf("%i \n", GetSounds()->begin());
+	printf("%i \n", GetSounds()->end());
 }
 
 void SoundManager::Clean()

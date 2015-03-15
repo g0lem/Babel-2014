@@ -94,6 +94,7 @@ void Application::Terminate()
 	delete s_manager;
 	delete f_manager;
 	delete g_object;
+	
 	delete sound_m;
 
 }
