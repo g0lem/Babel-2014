@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 3/15/2015 12:57:30 PM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>Link:
@@ -7,3 +8,64 @@
 Build succeeded.
 
 Time Elapsed 00:00:00.29
+=======
+﻿Build started 3/15/2015 3:21:18 AM.
+     1>Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\player.cpp
+         player.cpp
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\room.hpp(58): warning C4018: '<=' : signed/unsigned mismatch
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\pathfinder.hpp(24): warning C4244: 'return' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\player.cpp(61): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\player.cpp(78): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib OpenAL32.lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
+         Debug\2d_math.obj
+         Debug\animation.obj
+         Debug\application.obj
+         Debug\auto_path.obj
+         Debug\collision_map.obj
+         Debug\Combat.obj
+         Debug\controls.obj
+         Debug\dice.obj
+         Debug\enemy.obj
+         Debug\enemy_manager.obj
+         Debug\font_manager.obj
+         Debug\game_object.obj
+         Debug\graph.obj
+         Debug\hp.obj
+         Debug\item.obj
+         Debug\item_list.obj
+         Debug\item_types.obj
+         Debug\map.obj
+         Debug\map_helper1.obj
+         Debug\map_helper2.obj
+         Debug\map_helper3.obj
+         Debug\miscellaneous.obj
+         Debug\movement.obj
+         Debug\pathfinder.obj
+         Debug\physical_attributes.obj
+         Debug\player.obj
+         Debug\room.obj
+         Debug\scroller.obj
+         Debug\shader.obj
+         Debug\sound_manager.obj
+         Debug\sprite.obj
+         Debug\sprite_manager.obj
+         Debug\stats.obj
+         Debug\text2D.obj
+         Debug\texture.obj
+         Debug\text_render.obj
+         Debug\tile_map.obj
+         Debug\turn.obj
+         Debug\uniform_2d.obj
+         Debug\main.obj
+         Project Babel.vcxproj -> C:\Users\Aaether\Desktop\projectBabel\Project Babel\Debug\Project Babel.exe
+     1>Done Building Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.91
+>>>>>>> origin/master

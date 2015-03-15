@@ -70,7 +70,6 @@ public:
 	inline GLuint GetHeight(){ return this->height; }
 
 
-
 	inline glm::ivec2 GetInternalCenter(){ return this->center; }
 
 
