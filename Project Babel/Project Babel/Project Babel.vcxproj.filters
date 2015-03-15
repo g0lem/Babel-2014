@@ -207,7 +207,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\2d.hpp">
       <Filter>framework\sprite</Filter>
     </ClInclude>
@@ -322,5 +321,6 @@
     <ClInclude Include="common\sound_manager.hpp">
       <Filter>sound</Filter>
     </ClInclude>
+    <ClInclude Include="common\database.hpp" />
   </ItemGroup>
 </Project>
