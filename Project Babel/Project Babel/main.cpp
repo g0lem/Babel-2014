@@ -8,9 +8,6 @@
 #include "common/text_render.hpp"
 #include "common/application.hpp"
 
-#include <SFML\System.hpp>
-#include <SFML\Audio.hpp>
-
 
 int main(int argc, char *argv[])
 {

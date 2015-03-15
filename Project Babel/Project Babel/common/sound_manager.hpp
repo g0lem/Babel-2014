@@ -4,6 +4,7 @@
 
 #include <SFML/System.hpp>
 #include <SFML/Audio.hpp>
+#include <string.h>
 #include <vector>
 
 class SoundManager
@@ -13,7 +14,6 @@ class SoundManager
 		sf::SoundBuffer *buffer;
 		sf::Sound *sound;
 
-		float volume;
 
 		char *name;
 	};
@@ -23,13 +23,25 @@ class SoundManager
 	struct Music{
 		sf::Music *music;
 
-		float volume;
-
 		char *name;
 	};
 
+	struct cPlay{
+		bool playing;
+		char *name;
+	};
 
+	enum Status{
+		Stopped,
+		Pause,
+		Playing
+	};
 
+	Status m_status;
+
+	cPlay s_playing, m_playing;
+
+	int currentIndex;
 
 	std::vector<Sound*> *m_sounds;
 
@@ -41,14 +53,122 @@ public:
 
 	inline ~SoundManager(){ this->Clean(); }
 
-	void Init();
+	void Init(); 
 
 	void Clean();
+
+	// Add
+
 
 	void AddSound(char* p_sound, char* name);
 
 
 	void AddMusic(char* p_music, char* name);
+
+
+
+	// Play
+
+
+	void PlaySound(char *p_sound);
+
+
+	void PlayMusic(char *p_music);
+
+
+	// getLoop
+
+	bool getSoundLoop(char *name);
+
+	bool getMusicLoop(char *name);
+
+
+	// setLoop
+
+	void setSoundLoop(char *name, bool value);
+
+	void setMusicLoop(char *name, bool value);
+
+	// getStatus
+
+	int getSoundStatus(char *name);
+
+	int getMusicStatus(char *name);
+
+	// getDuration
+
+	float getSoundDuration(char *name);
+
+	
+	float getMusicDuration(char *name);
+
+
+	// setPitch
+
+	void setSoundPitch(char *name, float value);
+
+	void setMusicPitch(char *name, float value);
+
+	
+	// setVolume
+
+	void setSoundVolume(char *name, float value);
+
+
+	void setMusicVolume(char *name, float value);
+
+	// getVolume
+
+	float getSoundVolume(char *name);
+
+	float getMusicVolume(char *name);
+
+
+	
+
+	// Pause
+
+	void PauseSound(char *name);
+
+
+
+	void PauseMusic(char *name);
+
+	// get PlayingOffset
+
+	float getSoundOffset(char* name);
+
+	float getMusicOffset(char* name);
+
+	// SetOffset
+
+
+
+	void SetSoundOffset(char *name, float value);
+
+
+	void SetMusicOffset(char *name, float value);
+
+	// Stop 
+
+
+
+	void StopSound(char *name);
+
+
+	void StopMusic(char *name);
+
+
+	// GetIndex
+
+
+	inline int GetSoundIndex(char *p_sound);
+
+	inline int GetMusicIndex(char *p_music);
+
+
+
+	// GetSource
 
 
 	inline std::vector<Sound*> *GetSounds(){ return this->m_sounds; }
