@@ -45,7 +45,7 @@ void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObj
 
 
 
-void EnemyManager::Init(GLuint num, Map * map)
+void EnemyManager::Init(GLuint num, Map * map, GameObject * g_obj)
 {
 
 
@@ -65,6 +65,9 @@ void EnemyManager::Init(GLuint num, Map * map)
 
 
 		this->m_enemies[0][i]->SetRandomPosition(map);
+
+
+		this->m_enemies[0][i]->Update(g_obj);
 
 
 	}

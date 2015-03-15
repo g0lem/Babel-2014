@@ -63,6 +63,9 @@
     <Filter Include="item">
       <UniqueIdentifier>{0b5365d3-1c1c-477f-9fb9-988953cb13b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sound">
+      <UniqueIdentifier>{a5c962bb-76d3-4fa8-9304-02235ab17c41}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -158,9 +161,6 @@
     <ClCompile Include="common\auto_path.cpp">
       <Filter>delta</Filter>
     </ClCompile>
-    <ClCompile Include="common\pathfinder.cpp">
-      <Filter>delta</Filter>
-    </ClCompile>
     <ClCompile Include="common\turn.cpp">
       <Filter>turn</Filter>
     </ClCompile>
@@ -173,13 +173,14 @@
     <ClCompile Include="common\item_types.cpp">
       <Filter>item</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="common\graph.cpp">
       <Filter>map</Filter>
-=======
+    </ClCompile>
+    <ClCompile Include="common\pathfinder.cpp">
+      <Filter>delta</Filter>
+    </ClCompile>
     <ClCompile Include="common\sound_manager.cpp">
-      <Filter>managers</Filter>
->>>>>>> origin/master
+      <Filter>sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -285,15 +286,6 @@
     <ClInclude Include="common\hp.hpp">
       <Filter>stats</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="common\pathfinder.hpp" />
-    <ClInclude Include="common\item.hpp" />
-    <ClInclude Include="common\item_list.hpp" />
-    <ClInclude Include="common\item_types.hpp" />
-    <ClInclude Include="common\turn.hpp" />
-    <ClInclude Include="common\sound_manager.hpp">
-      <Filter>managers</Filter>
-=======
     <ClInclude Include="common\Combat.hpp">
       <Filter>combat</Filter>
     </ClInclude>
@@ -314,10 +306,12 @@
     </ClInclude>
     <ClInclude Include="common\item_types.hpp">
       <Filter>item</Filter>
->>>>>>> origin/master
     </ClInclude>
     <ClInclude Include="common\graph.hpp">
       <Filter>map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\sound_manager.hpp">
+      <Filter>sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

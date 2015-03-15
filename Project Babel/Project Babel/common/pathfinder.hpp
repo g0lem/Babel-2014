@@ -30,7 +30,6 @@ private:
 	void FindNewNode(node *currentnode);
 	node *FindBestNode();
 
-	int ending_counter;
 
 	
 	bool IsOpened(int x, int y);
@@ -38,7 +37,7 @@ private:
 
 
 
-	void Delete(node * node);
+	void Delete();
 
 
 

@@ -56,10 +56,10 @@ GLboolean Room::Intersects(Room * other)
 {
 
 
-	return (points[0].x <= other->points[1].x &&
-		points[1].x >= other->points[0].x &&
-		points[0].y <= other->points[1].y &&
-		points[1].y >= other->points[0].y);
+	return (points[0].x < other->points[1].x-1 &&
+		points[1].x > other->points[0].x+1 &&
+		points[0].y < other->points[1].y-1 &&
+		points[1].y > other->points[0].y+1);
 		
 
 
@@ -70,7 +70,7 @@ GLboolean Room::Intersects(Room * other)
 void Room::Transform(GLuint transform_flag)
 {
 
-
+	
 	this->type = transform_flag;
 
 

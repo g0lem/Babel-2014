@@ -22,22 +22,23 @@ std::vector <glm::vec2> Pathfinder::GetPath()
 
 
 
-void Pathfinder::Delete(node * node)
+void Pathfinder::Delete()
 {
 
 
-	if (node)
-	{
 
 
-		if (node->last)
-			Delete(node->last);
+	for (int i = 0; i < openlist.size(); i++)
+		delete openlist[i];
+	openlist.clear();
+
+	for (int i = 0; i < visitedlist.size(); i++)
+		delete  visitedlist[i];
+	visitedlist.clear();
 
 
-		delete node;
 
 
-	}
 
 }
 
@@ -46,23 +47,17 @@ void Pathfinder::Delete(node * node)
 void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 {
 
-	//std::cout << "Init \n";
-	//loading collision map
+
 	this->map = g_obj;
 
      
-	if (this->ending_counter <= 1)
-	this->Delete(Ending);
 
-
-
+	this->Delete();
 	this->PathFound = false;
-	this->ending_counter = 0;
-	this->openlist.clear();
-	this->visitedlist.clear();
 
 
-	//setting the beginning at the end
+
+
 	Ending = new node;
 	Beginning = new node;
 	Ending->x = finish.x;
@@ -74,14 +69,13 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 	Beginning->last = NULL;
 	Beginning->G = 0;
 	Beginning->H = GetDistance(Ending);
-	Beginning->F = Beginning->G + Beginning->H;
+	Beginning->F = Beginning->G + Beginning->H; 
 
 
 
 	openlist.push_back(Beginning);
 
 
-	//Getting the path
 
 	node *current;
 
@@ -92,15 +86,20 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 		FindNewNode(current);
 		if (!PathFound)
 		current = FindBestNode();
-		if (current == NULL){
-			PathFound = false;
+
+
+		if (openlist.size() == 0)
+		{
+			FindNewNode(current);
+			if (openlist.size() == 0)
 			break;
 		}
+
 	}
 
 
 
-	//clear
+
 }
 
 
@@ -128,58 +127,93 @@ bool Pathfinder::IsOpened(int x, int y)
 
 void Pathfinder::FindNewNode(node *currentnode)
 {
+
+
 	if (currentnode->x == Ending->x && currentnode->y == Ending->y)
 	{
 		PathFound = true;
 		Ending->last = currentnode->last;
 		return;
 	}
-	//std::cout << "Find New Node \n";
+
+
+
 	int newx, newy;
-	int dx[8] = { -1, -1, -1, 0, 0, 1, 1, 1 };
-	int dy[8] = { 1, 0, -1, 1, -1, 1, 0, -1 };
+	int dx[8] = { -1, 1, -1, 1, -1, 0, 0, 1 };
+	int dy[8] = { 1, -1, -1, 1, 0, 1, -1, 0 };
+
+
+
 	for (int k = 0; k < 8; k++)
 	{
+
 		newx = dx[k] + currentnode->x;
 		newy = dy[k] + currentnode->y;
+
+
+
 		if (map->GetCollisionMap()->GetTiles()[newx][newy] == 0 && IsVisited(newx, newy) == false && IsOpened(newx, newy) == false)
 		{
+
+
 			node *nextnode = new node;
 			nextnode->last = currentnode;
 			nextnode->x = newx;
 			nextnode->y = newy;
-			//std::cout << "Node found at: " << newx << " " << newy << std::endl;
+
+
 			nextnode->H = GetDistance(nextnode);
-			nextnode->G = currentnode->G + 1;
+
+
+			if (k < 4)
+				nextnode->G = currentnode->G + 1.41;
+			else
+				nextnode->G = currentnode->G + 1;
+
+
 			nextnode->F = nextnode->G + nextnode->H;
 			openlist.push_back(nextnode);
+
+
 		}
 
 	}
+
+
 }
 
 
 Pathfinder::node *Pathfinder::FindBestNode()
 {
-	//std::cout << "Find Best Node \n";
+
+
 	node *best = openlist[0];
 	GLfloat minimum_F= best->F;
 	int pozition = 0;
+
+
 	for (int i = 1; i < openlist.size(); i++)
 	{
+
+
 		if (openlist[i]->F < minimum_F)
 		{
 			best = openlist[i];
 			minimum_F = openlist[i]->F;
 			pozition = i;
 		}
+
+
 	}
-	//std::cout << "Node selected: " << best->x << " " << best->y << std::endl;
+
+
 
 	visitedlist.push_back(best);
 	openlist.erase(openlist.begin() + pozition);
 
+	
 	return best;
+
 
 }
 

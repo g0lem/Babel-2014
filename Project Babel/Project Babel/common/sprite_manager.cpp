@@ -39,7 +39,7 @@ void SpriteManager::Init(GameObject * g_obj)
 
 
 
-	this->m_enemies = new EnemyManager(10, this->map);
+	this->m_enemies = new EnemyManager(10, this->map, g_obj);
 
 
 

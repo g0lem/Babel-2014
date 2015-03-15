@@ -33,11 +33,11 @@ public:
 
 
 
-	inline EnemyManager(GLuint num, Map *map){ this->Init(num, map); }
+	inline EnemyManager(GLuint num, Map *map, GameObject *g_obj){ this->Init(num, map, g_obj); }
 
 
 
-	void Init(GLuint num, Map * map);
+	void Init(GLuint num, Map * map, GameObject * g_obj);
 
 
 

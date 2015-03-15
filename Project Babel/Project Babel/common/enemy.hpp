@@ -40,9 +40,6 @@ class Enemy
 	void LoadPhysicalAttributes();
 
 
-	void Update(GameObject * g_obj);
-
-
 	void RenderMisc(ScreenUniformData * u_data, GameObject * g_obj);
 
 
@@ -72,9 +69,10 @@ public:
 	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
 
-
 	void SetRandomPosition(Map * map);
 
+
+	void Update(GameObject * g_obj);
 
 
 };
