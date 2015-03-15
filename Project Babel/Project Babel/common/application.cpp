@@ -26,7 +26,7 @@ void Application::Init()
 
 	g_object = new GameObject();
 
-
+	sound_m = new SoundManager();
 
 	f_manager = new FontManager();
 
@@ -94,6 +94,7 @@ void Application::Terminate()
 	delete s_manager;
 	delete f_manager;
 	delete g_object;
+	delete sound_m;
 
 }
 

@@ -8,6 +8,7 @@
 #include "controls.hpp"
 #include "font_manager.hpp"
 #include "sprite_manager.hpp"
+#include "sound_manager.hpp"
 #include "game_object.hpp"
 
 
@@ -24,6 +25,7 @@ class Application : private Controller
 
 	GameObject * g_object;
 
+	SoundManager * sound_m;
 
 
 
