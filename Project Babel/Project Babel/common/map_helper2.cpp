@@ -5,6 +5,9 @@ void Map::FirstTunnelPass()
 {
 
 
+	GLuint min_room_distance = 15;
+
+
 
 	for (GLuint i = 1; i < rooms->size(); i++)
 	{
@@ -18,7 +21,8 @@ void Map::FirstTunnelPass()
 		{
 
 			if (i != j && !m_graph->Connected(i, j))
-				if (min_distance > glm::distance(glm::vec2(rooms[0][i]->GetInternalCenter()), glm::vec2(rooms[0][j]->GetInternalCenter())))
+				if (min_distance > glm::distance(glm::vec2(rooms[0][i]->GetInternalCenter()), glm::vec2(rooms[0][j]->GetInternalCenter()))
+					&& min_distance > min_room_distance)
 				{
 
 
