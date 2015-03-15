@@ -13,11 +13,27 @@ class SoundManager
 		sf::SoundBuffer *buffer;
 		sf::Sound *sound;
 
+		float volume;
+
 		char *name;
 	};
 
-	std::vector<Sound*> *Sounds;
 
+
+	struct Music{
+		sf::Music *music;
+
+		float volume;
+
+		char *name;
+	};
+
+
+
+
+	std::vector<Sound*> *m_sounds;
+
+	std::vector<Music*> *m_music;
 
 public:
 
@@ -29,9 +45,18 @@ public:
 
 	void Clean();
 
-	void AddSound(char* Sound, char* name);
+	void AddSound(char* p_sound, char* name);
 
-	inline std::vector<Sound*> *GetSounds(){ return this->Sounds; }
+
+	void AddMusic(char* p_music, char* name);
+
+
+	inline std::vector<Sound*> *GetSounds(){ return this->m_sounds; }
+
+
+	inline std::vector<Music*> *GetMusic(){ return this->m_music; }
+
+
 };
 
 
