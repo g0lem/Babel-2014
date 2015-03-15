@@ -321,6 +321,8 @@
     <ClInclude Include="common\sound_manager.hpp">
       <Filter>sound</Filter>
     </ClInclude>
-    <ClInclude Include="common\database.hpp" />
+    <ClInclude Include="common\database.hpp">
+      <Filter>item</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

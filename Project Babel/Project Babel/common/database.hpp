@@ -52,7 +52,7 @@ public:
 		system("pause");
 		sqlite3_close(db);
 	}
-	/**/
+
 	/*static void Load_Data(sf::RenderWindow &Window, b2World *&world)
 	{
 		sqlite3 *db;
