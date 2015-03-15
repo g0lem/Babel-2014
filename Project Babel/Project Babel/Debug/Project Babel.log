@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿Build started 3/15/2015 6:21:19 AM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -12,8 +13,13 @@
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib "sfml-system-d.lib" "sfml-system.lib" "sfml-audio-d.lib" "sfml-audio.lib" openAL32.lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
 =======
+﻿Build started 3/15/2015 6:08:46 AM.
+     1>Project "C:\Users\Aaether\Desktop\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+>>>>>>> 6f2d0b75d93d54d7af78ef4dbe27ceef58be979d
+=======
 ﻿Build started 3/15/2015 5:46:14 PM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
+>>>>>>> origin/master
      1>ClCompile:
          D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\2d.cpp common\2d_math.cpp common\animation.cpp common\application.cpp common\auto_path.cpp common\collision_map.cpp common\Combat.cpp common\controls.cpp common\dice.cpp common\enemy.cpp common\enemy_manager.cpp common\font_manager.cpp common\game_object.cpp common\graph.cpp common\hp.cpp common\item.cpp common\item_list.cpp common\item_types.cpp common\map.cpp common\map_helper1.cpp common\map_helper2.cpp common\map_helper3.cpp common\miscellaneous.cpp common\movement.cpp common\one_direction.cpp common\pathfinder.cpp common\physical_attributes.cpp common\player.cpp common\room.cpp common\scroller.cpp common\shader.cpp common\sound_manager.cpp common\sprite.cpp common\sprite_manager.cpp common\stats.cpp common\text2D.cpp common\texture.cpp common\text_render.cpp common\tile_map.cpp common\turn.cpp common\uniform_2d.cpp main.cpp
          main.cpp
@@ -87,6 +93,11 @@
      1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(169): warning C4244: '=' : conversion from 'double' to 'GLfloat', possible loss of data
      1>d:\github\projectbabel\project babel\project babel\common\pathfinder.cpp(195): warning C4018: '<' : signed/unsigned mismatch
          one_direction.cpp
+<<<<<<< HEAD
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\2d_math.hpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\aaether\desktop\projectbabel\project babel\project babel\common\one_direction.cpp(126): warning C4715: 'Direction::Compute' : not all control paths return a value
+=======
      1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(22): warning C4067: unexpected tokens following preprocessor directive - expected a newline
      1>d:\github\projectbabel\project babel\project babel\common\2d_math.hpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
          movement.cpp
@@ -191,6 +202,7 @@
          2d.cpp
      1>d:\github\projectbabel\project babel\project babel\common\2d.cpp(54): warning C4244: 'argument' : conversion from 'GLuint' to 'const GLfloat', possible loss of data
          Generating Code...
+>>>>>>> origin/master
        Link:
          D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib "sfml-system-d.lib" "sfml-system.lib" "sfml-audio-d.lib" "sfml-audio.lib" openAL32.lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\2d.obj
 >>>>>>> origin/master
@@ -269,7 +281,11 @@
 Build succeeded.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Time Elapsed 00:00:00.55
+=======
+Time Elapsed 00:00:01.02
+>>>>>>> 6f2d0b75d93d54d7af78ef4dbe27ceef58be979d
 =======
 Time Elapsed 00:00:38.63
 >>>>>>> origin/master
