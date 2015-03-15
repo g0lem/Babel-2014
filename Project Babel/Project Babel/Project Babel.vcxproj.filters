@@ -63,7 +63,7 @@
     <Filter Include="item">
       <UniqueIdentifier>{0b5365d3-1c1c-477f-9fb9-988953cb13b7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="sound">
+    <Filter Include="framework\sound">
       <UniqueIdentifier>{a5c962bb-76d3-4fa8-9304-02235ab17c41}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -180,7 +180,7 @@
       <Filter>delta</Filter>
     </ClCompile>
     <ClCompile Include="common\sound_manager.cpp">
-      <Filter>sound</Filter>
+      <Filter>framework\sound</Filter>
     </ClCompile>
     <ClCompile Include="common\map_helper1.cpp">
       <Filter>map</Filter>
@@ -190,6 +190,9 @@
     </ClCompile>
     <ClCompile Include="common\map_helper3.cpp">
       <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\one_direction.cpp">
+      <Filter>delta</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -319,10 +322,13 @@
       <Filter>map</Filter>
     </ClInclude>
     <ClInclude Include="common\sound_manager.hpp">
-      <Filter>sound</Filter>
+      <Filter>framework\sound</Filter>
     </ClInclude>
     <ClInclude Include="common\database.hpp">
       <Filter>item</Filter>
+    </ClInclude>
+    <ClInclude Include="common\one_direction.hpp">
+      <Filter>delta</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

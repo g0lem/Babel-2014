@@ -35,6 +35,7 @@
     <ClCompile Include="common\map_helper3.cpp" />
     <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
+    <ClCompile Include="common\one_direction.cpp" />
     <ClCompile Include="common\pathfinder.cpp" />
     <ClCompile Include="common\physical_attributes.cpp" />
     <ClCompile Include="common\player.cpp" />
@@ -83,6 +84,7 @@
     <ClInclude Include="common\map.hpp" />
     <ClInclude Include="common\miscellaneous.hpp" />
     <ClInclude Include="common\movement.hpp" />
+    <ClInclude Include="common\one_direction.hpp" />
     <ClInclude Include="common\pathfinder.hpp" />
     <ClInclude Include="common\physical_attributes.hpp" />
     <ClInclude Include="common\player.hpp" />
