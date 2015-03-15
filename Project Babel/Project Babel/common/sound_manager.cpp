@@ -36,13 +36,22 @@ void SoundManager::AddSound(char* SoundPath, char *name)
 		printf("ERROR: Couldn't initialize buffer!!! at %d \n\n", SoundPath);
 
 
+
+
 	sf::Sound *sound = new sf::Sound;
 
+
+
+
 	t_sound->buffer = buffer;
+	sound->setBuffer(*t_sound->buffer);
 	t_sound->sound = sound;
 	t_sound->name = name;
 
-	t_sound->sound->play();
+
+
+
+
 
 	this->Sounds->push_back(t_sound);
 
