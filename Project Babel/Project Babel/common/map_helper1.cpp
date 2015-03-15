@@ -14,7 +14,7 @@ void Map::LoadSprites()
 
 	char ** tex_str = new char*[6];
 	tex_str[0] = "floor.png";
-	tex_str[1] = "door.jpg";
+	tex_str[1] = "door.png";
 	tex_str[2] = "wall0.png";
 	tex_str[3] = "wall1.png";
 	tex_str[4] = "wall2.png";
