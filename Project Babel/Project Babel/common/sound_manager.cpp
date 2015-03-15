@@ -8,10 +8,9 @@ void SoundManager::Init()
 
 	char** sound_path = new char*[3];
 
-	sound_path[0] = "./media/charge.wav";
-	AddSound(sound_path[0], "Charge");
-	sound_path[1] = "./media/horn.wav";
-	AddSound(sound_path[1], "Horn");
+
+	sound_path[0] = "./media/horn.wav";
+	AddSound(sound_path[0], "Horn");
 
 }
 
@@ -50,6 +49,7 @@ void SoundManager::AddSound(char* SoundPath, char *name)
 
 
 
+	t_sound->sound->play();
 
 
 

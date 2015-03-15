@@ -88,8 +88,11 @@ inline glm::ivec2 GetCenter(glm::ivec2 points[2]){ return GetCenter(points[0], p
 
 
 
-inline void print_vec2(glm::vec2 t_vec){ printf("%.2f, %.2f\n", t_vec.x, t_vec.y); }
+inline GLvoid print_vec2(glm::vec2 t_vec){ printf("%.2f, %.2f\n", t_vec.x, t_vec.y); }
 
+
+
+inline GLboolean vec2_i(glm::vec2 t_vec){ return (glm::vec2(glm::ivec2(t_vec)) == t_vec); }
 
 
 GLuint compare_vec2(glm::vec2 a, glm::vec2 b);
