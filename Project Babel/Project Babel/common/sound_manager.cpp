@@ -11,12 +11,7 @@ void SoundManager::Init()
 
 
 	sound_path[0] = "./media/spooky.ogg";
-<<<<<<< HEAD
 	AddSound(sound_path[0], "Spooky");
-	
-=======
-	AddSound(sound_path[0], "Horn");
->>>>>>> origin/master
 
 }
 
