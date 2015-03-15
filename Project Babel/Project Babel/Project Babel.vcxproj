@@ -30,6 +30,9 @@
     <ClCompile Include="common\item_list.cpp" />
     <ClCompile Include="common\item_types.cpp" />
     <ClCompile Include="common\map.cpp" />
+    <ClCompile Include="common\map_helper1.cpp" />
+    <ClCompile Include="common\map_helper2.cpp" />
+    <ClCompile Include="common\map_helper3.cpp" />
     <ClCompile Include="common\miscellaneous.cpp" />
     <ClCompile Include="common\movement.cpp" />
     <ClCompile Include="common\pathfinder.cpp" />
@@ -66,7 +69,7 @@
     <ClInclude Include="common\collision_map.hpp" />
     <ClInclude Include="common\Combat.hpp" />
     <ClInclude Include="common\controls.hpp" />
-    <ClInclude Include="common\Database.h" />
+    <ClInclude Include="common\database.hpp" />
     <ClInclude Include="common\dice.hpp" />
     <ClInclude Include="common\enemy.hpp" />
     <ClInclude Include="common\enemy_manager.hpp" />

@@ -206,7 +206,7 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT))
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && attributes->position == attributes->target)
 	{
 
 

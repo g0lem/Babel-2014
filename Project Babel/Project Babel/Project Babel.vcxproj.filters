@@ -182,6 +182,15 @@
     <ClCompile Include="common\sound_manager.cpp">
       <Filter>sound</Filter>
     </ClCompile>
+    <ClCompile Include="common\map_helper1.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\map_helper2.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\map_helper3.cpp">
+      <Filter>map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data\shaders\2d_frag.txt">
@@ -198,7 +207,6 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common\Database.h" />
     <ClInclude Include="common\2d.hpp">
       <Filter>framework\sprite</Filter>
     </ClInclude>
@@ -313,5 +321,6 @@
     <ClInclude Include="common\sound_manager.hpp">
       <Filter>sound</Filter>
     </ClInclude>
+    <ClInclude Include="common\database.hpp" />
   </ItemGroup>
 </Project>

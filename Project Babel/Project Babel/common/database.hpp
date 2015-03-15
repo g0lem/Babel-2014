@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <vector>
+#include <sstream>
+
 
 class DB
 {
@@ -204,29 +207,46 @@ public:
 		sqlite3_close(db);
 	}
 
-	static int GetProperty(int EntityID, int Property)
+	const unsigned char *GetCProperty(int EntityID, int Property, char *Table)
 	{
 		sqlite3 *db;
 		sqlite3_stmt *res;
 		const char *tail;
-		int answer;
 
-		if (sqlite3_open("Insight.db", &db))
+
+		std::ostringstream buffer;
+
+		buffer << "SELECT * FROM " << Table << " ORDER BY ID";
+
+
+		
+
+
+		if (sqlite3_open("test.db", &db))
 			sqlite3_close(db);
 
-		if (sqlite3_prepare_v2(db, "SELECT * FROM Blocks", 128, &res, &tail) != SQLITE_OK)
+		std::string temp(buffer.str());
+
+		std::vector <char> writable(temp.begin(), temp.end());
+		writable.push_back('\0');
+
+
+		if (sqlite3_prepare_v2(db, &writable[0], 128, &res, &tail) != SQLITE_OK)
 			sqlite3_close(db);
 
 
 		while (sqlite3_step(res) == SQLITE_ROW)
 		{
-			if (sqlite3_column_int(res, 1) == EntityID)
-				answer = sqlite3_column_int(res, Property);
+			if (sqlite3_column_int(res, 0) == EntityID)
+			{
+				return sqlite3_column_text(res, Property);
+			}
 		}
 		sqlite3_finalize(res);
 
 		sqlite3_close(db);
-		return answer;
+
+
 	}
 
 };
