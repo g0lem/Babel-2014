@@ -58,12 +58,14 @@ void SoundManager::loadMusic(char** path)
 
 	musicpath[0] = "data/media/music/spooky.ogg";
 	musicpath[1] = "data/media/music/hills.ogg";
+	musicpath[2] = "data/media/music/tut3.ogg";
 
 
 
 
 	AddMusic(musicpath[0], "Spooky Scary Skeletons");
 	AddMusic(musicpath[1], "Green Hills");
+	AddMusic(musicpath[2], "Tutorial 3");
 
 
 
@@ -279,12 +281,18 @@ bool SoundManager::getMusicLoop(char *name)
 void SoundManager::setSoundLoop(char *name, bool value)
 {
 
+	this->PlaySound(name);
+
+
 	this->m_sounds->at(GetSoundIndex(name))->sound->setLoop(value);
 
 }
 
 void SoundManager::setMusicLoop(char *name, bool value)
 {
+
+	this->PlayMusic(name);
+
 
 	this->m_music->at(GetMusicIndex(name))->music->setLoop(value);
 

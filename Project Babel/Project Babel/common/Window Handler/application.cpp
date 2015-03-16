@@ -45,10 +45,7 @@ void Application::Init()
 void Application::Run()
 {
 
-
-	this->sound_m->PlayMusic("Green Hills");
-
-	this->sound_m->setMusicLoop("Green Hills", true);
+	this->sound_m->setMusicLoop("Tutorial 3", true);
 
 
 

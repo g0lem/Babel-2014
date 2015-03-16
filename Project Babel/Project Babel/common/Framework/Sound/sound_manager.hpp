@@ -4,7 +4,7 @@
 
 
 #define MAX_SOUNDS 3
-#define MAX_MUSIC 2
+#define MAX_MUSIC 3
 
 
 class SoundManager
@@ -45,8 +45,6 @@ class SoundManager
 
 
 
-
-
 	char** soundpath, **musicpath;
 
 
@@ -62,6 +60,7 @@ public:
 	inline SoundManager(){ this->Init(); }
 
 	inline ~SoundManager(){ this->Clean(); }
+
 
 	void Init(); 
 
