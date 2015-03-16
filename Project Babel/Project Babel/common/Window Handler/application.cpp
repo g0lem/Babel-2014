@@ -23,6 +23,8 @@ void Application::Init()
 
 	g_object = new GameObject();
 
+	p_gon = new polygon();
+
 	sound_m = new SoundManager();
 
 	f_manager = new FontManager();
@@ -68,7 +70,7 @@ void Application::Run()
 		f_manager->Render(this);
 
 
-
+		p_gon->GeneratePolygon(0);
 
 
 		glfwSwapBuffers(this->GetWindow());

@@ -39,6 +39,7 @@
 #include "common/Framework.hpp"
 #include "common/Stats.hpp"
 #include "common/Item.hpp"
+#include "common/UI.hpp"
 #include "common/Turns.hpp"
 #include "common/Map/tile_map.hpp"
 #include "common/Game Object.hpp"

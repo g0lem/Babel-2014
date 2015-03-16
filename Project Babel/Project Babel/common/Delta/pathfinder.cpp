@@ -138,12 +138,12 @@ void Pathfinder::FindNewNode(node *currentnode)
 
 
 	int newx, newy;
-	int dx[8] = { -1, 1, -1, 1, -1, 0, 0, 1 };
-	int dy[8] = { 1, -1, -1, 1, 0, 1, -1, 0 };
+	int dx[4] = { -1, 0, 0, 1 };
+	int dy[4] = { 0, 1, -1, 0 };
 
 
 
-	for (int k = 0; k < 8; k++)
+	for (int k = 0; k < 4; k++)
 	{
 
 		newx = dx[k] + currentnode->x;

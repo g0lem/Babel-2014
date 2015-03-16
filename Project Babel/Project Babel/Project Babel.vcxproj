@@ -54,6 +54,8 @@
     <ClCompile Include="common\Stats\hp.cpp" />
     <ClCompile Include="common\Stats\stats.cpp" />
     <ClCompile Include="common\Turns\turn.cpp" />
+    <ClCompile Include="common\UI\Menu.cpp" />
+    <ClCompile Include="common\UI\polygon.cpp" />
     <ClCompile Include="common\Window Handler\application.cpp" />
     <ClCompile Include="common\Window Handler\media_player.cpp" />
     <ClCompile Include="main.cpp" />
@@ -102,6 +104,7 @@
     <ClInclude Include="common\Map\map.hpp" />
     <ClInclude Include="common\Map\room.hpp" />
     <ClInclude Include="common\Map\tile_map.hpp" />
+    <ClInclude Include="common\UI.hpp" />
     <ClInclude Include="common\Player.hpp" />
     <ClInclude Include="common\Player\player.hpp" />
     <ClInclude Include="common\Stats.hpp" />
@@ -109,6 +112,8 @@
     <ClInclude Include="common\Stats\stats.hpp" />
     <ClInclude Include="common\Turns.hpp" />
     <ClInclude Include="common\Turns\turn.hpp" />
+    <ClInclude Include="common\UI\Menu.hpp" />
+    <ClInclude Include="common\UI\polygon.hpp" />
     <ClInclude Include="common\Window Handler.hpp" />
     <ClInclude Include="common\Window Handler\application.hpp" />
     <ClInclude Include="common\Window Handler\media_player.hpp" />

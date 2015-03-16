@@ -72,6 +72,9 @@
     <Filter Include="common\Framework\Texture">
       <UniqueIdentifier>{d41cd554-cf3e-45cd-acb4-1e1771baeb48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common\UI">
+      <UniqueIdentifier>{1ceeee64-bac9-436d-9903-2a58e136abdc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -205,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="common\Framework\Texture\texture.cpp">
       <Filter>common\Framework\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\Menu.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\polygon.cpp">
+      <Filter>common\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -369,6 +378,15 @@
     </ClInclude>
     <ClInclude Include="common\Framework\Texture\texture.hpp">
       <Filter>common\Framework\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI.hpp">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\Menu.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\polygon.hpp">
+      <Filter>common\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

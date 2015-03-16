@@ -7,7 +7,6 @@
 #include "Framework/Controls/controls.hpp"
 
 
-
 #include "Framework/Font/text_render.hpp"
 #include "Framework/Font/text2D.hpp"
 #include "Framework/Font/font_manager.hpp"
@@ -26,8 +25,6 @@
 #include "Framework/Sprite/uniform_2d.hpp"
 #include "Framework/Sprite/2d.hpp"
 #include "Framework/Sprite/sprite.hpp"
-
-
 
 
 #include "Framework/Texture/texture.hpp"
