@@ -2,12 +2,8 @@
 
 
 
-#include <GL/glew.h>
-#include <glfw3.h>
-#include "common/controls.hpp"
-#include "common/text_render.hpp"
-#include "common/application.hpp"
-#include "resource.h"
+#include "common.hpp"
+
 
 
 int main(int argc, char *argv[])
@@ -16,7 +12,7 @@ int main(int argc, char *argv[])
 
 	Application*app = new Application();
 
-
+	
 
 	app->Run();
 

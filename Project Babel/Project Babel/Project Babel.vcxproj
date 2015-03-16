@@ -11,98 +11,107 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="common\2d.cpp" />
-    <ClCompile Include="common\2d_math.cpp" />
-    <ClCompile Include="common\animation.cpp" />
-    <ClCompile Include="common\application.cpp" />
-    <ClCompile Include="common\auto_path.cpp" />
-    <ClCompile Include="common\collision_map.cpp" />
-    <ClCompile Include="common\Combat.cpp" />
-    <ClCompile Include="common\controls.cpp" />
-    <ClCompile Include="common\dice.cpp" />
-    <ClCompile Include="common\enemy.cpp" />
-    <ClCompile Include="common\enemy_manager.cpp" />
-    <ClCompile Include="common\font_manager.cpp" />
-    <ClCompile Include="common\game_object.cpp" />
-    <ClCompile Include="common\graph.cpp" />
-    <ClCompile Include="common\hp.cpp" />
-    <ClCompile Include="common\item.cpp" />
-    <ClCompile Include="common\item_list.cpp" />
-    <ClCompile Include="common\item_types.cpp" />
-    <ClCompile Include="common\map.cpp" />
-    <ClCompile Include="common\map_helper1.cpp" />
-    <ClCompile Include="common\map_helper2.cpp" />
-    <ClCompile Include="common\map_helper3.cpp" />
-    <ClCompile Include="common\media_player.cpp" />
-    <ClCompile Include="common\miscellaneous.cpp" />
-    <ClCompile Include="common\movement.cpp" />
-    <ClCompile Include="common\one_direction.cpp" />
-    <ClCompile Include="common\pathfinder.cpp" />
-    <ClCompile Include="common\physical_attributes.cpp" />
-    <ClCompile Include="common\player.cpp" />
-    <ClCompile Include="common\room.cpp" />
-    <ClCompile Include="common\scroller.cpp" />
-    <ClCompile Include="common\shader.cpp" />
-    <ClCompile Include="common\sound_manager.cpp" />
-    <ClCompile Include="common\sprite.cpp" />
-    <ClCompile Include="common\sprite_manager.cpp" />
-    <ClCompile Include="common\stats.cpp" />
-    <ClCompile Include="common\text2D.cpp" />
-    <ClCompile Include="common\texture.cpp" />
-    <ClCompile Include="common\text_render.cpp" />
-    <ClCompile Include="common\tile_map.cpp" />
-    <ClCompile Include="common\turn.cpp" />
-    <ClCompile Include="common\uniform_2d.cpp" />
+    <ClCompile Include="common.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="common\AI\enemy.cpp" />
+    <ClCompile Include="common\AI\enemy_manager.cpp" />
+    <ClCompile Include="common\Combat\Combat.cpp" />
+    <ClCompile Include="common\Delta\animation.cpp" />
+    <ClCompile Include="common\Delta\auto_path.cpp" />
+    <ClCompile Include="common\Delta\movement.cpp" />
+    <ClCompile Include="common\Delta\one_direction.cpp" />
+    <ClCompile Include="common\Delta\pathfinder.cpp" />
+    <ClCompile Include="common\Delta\physical_attributes.cpp" />
+    <ClCompile Include="common\Framework\Controls\controls.cpp" />
+    <ClCompile Include="common\Framework\Font\font_manager.cpp" />
+    <ClCompile Include="common\Framework\Font\text2D.cpp" />
+    <ClCompile Include="common\Framework\Font\text_render.cpp" />
+    <ClCompile Include="common\Framework\Math\2d_math.cpp" />
+    <ClCompile Include="common\Framework\Math\dice.cpp" />
+    <ClCompile Include="common\Framework\Shader\shader.cpp" />
+    <ClCompile Include="common\Framework\Sound\sound_manager.cpp" />
+    <ClCompile Include="common\Framework\Sprite\2d.cpp" />
+    <ClCompile Include="common\Framework\Sprite\sprite.cpp" />
+    <ClCompile Include="common\Framework\Sprite\sprite_manager.cpp" />
+    <ClCompile Include="common\Framework\Sprite\uniform_2d.cpp" />
+    <ClCompile Include="common\Framework\Texture\texture.cpp" />
+    <ClCompile Include="common\Game Object\collision_map.cpp" />
+    <ClCompile Include="common\Game Object\game_object.cpp" />
+    <ClCompile Include="common\Game Object\miscellaneous.cpp" />
+    <ClCompile Include="common\Game Object\scroller.cpp" />
+    <ClCompile Include="common\Item\item.cpp" />
+    <ClCompile Include="common\Item\item_list.cpp" />
+    <ClCompile Include="common\Item\item_types.cpp" />
+    <ClCompile Include="common\Map\graph.cpp" />
+    <ClCompile Include="common\Map\map.cpp" />
+    <ClCompile Include="common\Map\map_helper1.cpp" />
+    <ClCompile Include="common\Map\map_helper2.cpp" />
+    <ClCompile Include="common\Map\map_helper3.cpp" />
+    <ClCompile Include="common\Map\room.cpp" />
+    <ClCompile Include="common\Map\tile_map.cpp" />
+    <ClCompile Include="common\Player\player.cpp" />
+    <ClCompile Include="common\Stats\hp.cpp" />
+    <ClCompile Include="common\Stats\stats.cpp" />
+    <ClCompile Include="common\Turns\turn.cpp" />
+    <ClCompile Include="common\Window Handler\application.cpp" />
+    <ClCompile Include="common\Window Handler\media_player.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="data\shaders\2d_frag.txt" />
-    <Text Include="data\shaders\2d_vert.txt" />
-    <Text Include="data\shaders\text_frag.txt" />
-    <Text Include="data\shaders\text_vert.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="common\2d.hpp" />
-    <ClInclude Include="common\2d_math.hpp" />
-    <ClInclude Include="common\animation.hpp" />
-    <ClInclude Include="common\application.hpp" />
-    <ClInclude Include="common\auto_path.hpp" />
-    <ClInclude Include="common\block.hpp" />
-    <ClInclude Include="common\collision_map.hpp" />
+    <ClInclude Include="common.hpp" />
+    <ClInclude Include="common\AI.hpp" />
+    <ClInclude Include="common\AI\enemy.hpp" />
+    <ClInclude Include="common\AI\enemy_manager.hpp" />
     <ClInclude Include="common\Combat.hpp" />
-    <ClInclude Include="common\controls.hpp" />
-    <ClInclude Include="common\database.hpp" />
-    <ClInclude Include="common\dice.hpp" />
-    <ClInclude Include="common\enemy.hpp" />
-    <ClInclude Include="common\enemy_manager.hpp" />
-    <ClInclude Include="common\font_manager.hpp" />
-    <ClInclude Include="common\game_object.hpp" />
-    <ClInclude Include="common\graph.hpp" />
-    <ClInclude Include="common\hp.hpp" />
-    <ClInclude Include="common\item.hpp" />
-    <ClInclude Include="common\item_list.hpp" />
-    <ClInclude Include="common\item_types.hpp" />
-    <ClInclude Include="common\map.hpp" />
-    <ClInclude Include="common\media_player.hpp" />
-    <ClInclude Include="common\miscellaneous.hpp" />
-    <ClInclude Include="common\movement.hpp" />
-    <ClInclude Include="common\one_direction.hpp" />
-    <ClInclude Include="common\pathfinder.hpp" />
-    <ClInclude Include="common\physical_attributes.hpp" />
-    <ClInclude Include="common\player.hpp" />
-    <ClInclude Include="common\room.hpp" />
-    <ClInclude Include="common\scroller.hpp" />
-    <ClInclude Include="common\shader.hpp" />
-    <ClInclude Include="common\sound_manager.hpp" />
-    <ClInclude Include="common\sprite.hpp" />
-    <ClInclude Include="common\sprite_manager.hpp" />
-    <ClInclude Include="common\stats.hpp" />
-    <ClInclude Include="common\text2D.hpp" />
-    <ClInclude Include="common\texture.hpp" />
-    <ClInclude Include="common\text_render.hpp" />
-    <ClInclude Include="common\tile_map.hpp" />
-    <ClInclude Include="common\turn.hpp" />
-    <ClInclude Include="common\uniform_2d.hpp" />
+    <ClInclude Include="common\Combat\Combat.hpp" />
+    <ClInclude Include="common\Delta.hpp" />
+    <ClInclude Include="common\Delta\animation.hpp" />
+    <ClInclude Include="common\Delta\auto_path.hpp" />
+    <ClInclude Include="common\Delta\movement.hpp" />
+    <ClInclude Include="common\Delta\one_direction.hpp" />
+    <ClInclude Include="common\Delta\pathfinder.hpp" />
+    <ClInclude Include="common\Delta\physical_attributes.hpp" />
+    <ClInclude Include="common\Framework.hpp" />
+    <ClInclude Include="common\Framework\Controls\controls.hpp" />
+    <ClInclude Include="common\Framework\Database\database.hpp" />
+    <ClInclude Include="common\Framework\Font\font_manager.hpp" />
+    <ClInclude Include="common\Framework\Font\text2D.hpp" />
+    <ClInclude Include="common\Framework\Font\text_render.hpp" />
+    <ClInclude Include="common\Framework\Math\2d_math.hpp" />
+    <ClInclude Include="common\Framework\Math\dice.hpp" />
+    <ClInclude Include="common\Framework\Shader\shader.hpp" />
+    <ClInclude Include="common\Framework\Sound\sound_manager.hpp" />
+    <ClInclude Include="common\Framework\Sprite\2d.hpp" />
+    <ClInclude Include="common\Framework\Sprite\sprite.hpp" />
+    <ClInclude Include="common\Framework\Sprite\sprite_manager.hpp" />
+    <ClInclude Include="common\Framework\Sprite\uniform_2d.hpp" />
+    <ClInclude Include="common\Framework\Texture\texture.hpp" />
+    <ClInclude Include="common\Game Object.hpp" />
+    <ClInclude Include="common\Game Object\collision_map.hpp" />
+    <ClInclude Include="common\Game Object\game_object.hpp" />
+    <ClInclude Include="common\Game Object\miscellaneous.hpp" />
+    <ClInclude Include="common\Game Object\scroller.hpp" />
+    <ClInclude Include="common\Item.hpp" />
+    <ClInclude Include="common\Item\item.hpp" />
+    <ClInclude Include="common\Item\item_list.hpp" />
+    <ClInclude Include="common\Item\item_types.hpp" />
+    <ClInclude Include="common\Map.hpp" />
+    <ClInclude Include="common\Map\block.hpp" />
+    <ClInclude Include="common\Map\graph.hpp" />
+    <ClInclude Include="common\Map\map.hpp" />
+    <ClInclude Include="common\Map\room.hpp" />
+    <ClInclude Include="common\Map\tile_map.hpp" />
+    <ClInclude Include="common\Player.hpp" />
+    <ClInclude Include="common\Player\player.hpp" />
+    <ClInclude Include="common\Stats.hpp" />
+    <ClInclude Include="common\Stats\hp.hpp" />
+    <ClInclude Include="common\Stats\stats.hpp" />
+    <ClInclude Include="common\Turns.hpp" />
+    <ClInclude Include="common\Turns\turn.hpp" />
+    <ClInclude Include="common\Window Handler.hpp" />
+    <ClInclude Include="common\Window Handler\application.hpp" />
+    <ClInclude Include="common\Window Handler\media_player.hpp" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -148,13 +157,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\Dependencies\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Dependencies\include;.\</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>common.hpp</PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
