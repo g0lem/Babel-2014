@@ -15,3 +15,6 @@ Project Babel/Project Babel/Debug/Project Babel.pch
 *.pch
 *.tlog
 *.idb
+*.suo
+Project Babel/Project Babel.sdf
+*.log
