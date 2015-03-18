@@ -1,13 +1,14 @@
 #pragma once
 
 
+#define ACTIVE 1
 
 
 class BackpackState
 {
 
 
-	GLboolean opened;
+	GLboolean state;
 
 
 	GLuint * button_states;
@@ -20,10 +21,10 @@ public:
 	inline GLuint * GetButtonStates(){ return this->button_states; }
 
 
-	inline GLboolean GetOpened(){ return this->opened; }
+	inline GLboolean GetState(){ return this->state; }
 
 
-	inline void SetOpended(GLboolean opened){ this->opened = opened; }
+	inline void SetState(GLboolean state){ this->state = state; }
 
 
 

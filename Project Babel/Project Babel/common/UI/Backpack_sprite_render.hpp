@@ -20,10 +20,8 @@ class BackpackSpriteRender
 
 
 	Button ** m_button;
-	
 
-
-
+	Button ** t_button;
 
 
 	glm::vec2 position;
@@ -36,6 +34,17 @@ class BackpackSpriteRender
 
 
 	glm::vec2 button_background_size;
+
+	glm::vec2 char_background_offset;
+
+	glm::vec2 char_background_size;
+
+	glm::vec2 top_background_offset;
+
+	glm::vec2 top_background_size;
+
+	glm::vec2 top_button_size;
+	glm::vec2 top_button_offset;
 
 
 	glm::vec2 button_offset;
@@ -67,7 +76,7 @@ class BackpackSpriteRender
 
 	void RenderButtons(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj);
 
-
+	void RenderTopButtons(Controller *ctrl, ScreenUniformData *u_data, GameObject * g_obj);
 
 	void Update(Controller * ctrl, GameObject * g_obj);
 

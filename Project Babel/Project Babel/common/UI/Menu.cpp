@@ -31,7 +31,7 @@ void Menu::Render(Controller *ctrl,GameObject *g_obj)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
-	if (g_obj->GetUIState()->GetBackpackState()->GetOpened())
+	if (g_obj->GetUIState()->GetBackpackState()->GetState())
 	this->backpack_sr->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 

@@ -236,12 +236,13 @@ void Player::LoadItems(GameObject * g_obj)
 void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 {
 
+	glm::vec2 iPosition = glm::vec2(1.65f, 1.f)*(ctrl->GetWindowSize() - glm::vec2(300, 400)) / 2.0f;
 
-
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && 
-		attributes->position == attributes->target && 
-		!g_obj->GetUIState()->GetOpened())
-	{
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) &&
+		attributes->position == attributes->target)
+		//&& !g_obj->GetUIState()->GetState())
+		if ((Contains(ctrl->GetMousePosition(), iPosition, glm::vec2(300, 400)) && !g_obj->GetUIState()->GetState()) || !Contains(ctrl->GetMousePosition(), iPosition, glm::vec2(300, 400)))
+		{
 
 
 		a_path->GetPathfinder()->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
@@ -264,7 +265,9 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		}
 
 
-	}
+		}
+	
+	
 
 
 

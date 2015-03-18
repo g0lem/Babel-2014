@@ -48,6 +48,12 @@ inline glm::mat3 Scale(glm::vec2 scale){ return Scale(scale.x, scale.y); }
 
 
 
+inline bool Contains(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
+	if (arg.x >= container.x&&arg.y >= container.y)
+		if (arg.x < container.x+scale.x && arg.y < container.y+scale.y)
+			return true;
+	return false;
+}
 
 
 glm::mat3 Rotation(GLfloat alpha);

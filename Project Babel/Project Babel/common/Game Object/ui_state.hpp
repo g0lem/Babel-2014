@@ -7,7 +7,7 @@ class UIState
 {
 
 
-	GLboolean opened;
+	GLboolean state;
 
 
 
@@ -24,10 +24,10 @@ public:
 	inline BackpackState*GetBackpackState(){ return this->b_state; }
 
 
-	inline GLboolean GetOpened(){ return this->opened; }
+	inline GLboolean GetState(){ return this->state; }
 
 
-	inline void SetOpender(GLboolean opened){ this->opened = opened; }
+	inline void SetOpender(GLboolean state){ this->state = state; }
 
 
 
