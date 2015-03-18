@@ -1,60 +1,31 @@
 #include <common.hpp>
 
 
-void MenuItem::Init()
-{
-	BindCreate("data/shaders/2d_vert.txt","data/shaders/2d_frag.txt");
 
-	this->num_items = 2;
-
-	this->m_items = new std::vector<Mitem*>;
-
-	char ** tex_str = new char*[num_items];
-
-	tex_str[0] = "box.png";
-	tex_str[1] = "circle.png";
-
-	for (int index = 0; index < this->num_items; index++)
-		m_items->at(index)->sprite->Load("data/UI/", tex_str[index]);
-
-
-
-	UnbindCreate();
-}
-
-
-
-void MenuItem::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
+void Button::Init(Property * m_prop)
 {
 
 
-	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight);
+	this->m_prop = m_prop;
 
-
-	for (int index = 0; index < this->num_items; index++)
-	{
-
-
-
-
-		this->m_items->at(index)->sprite->Render(0);
-
-	}
-
-	
-
-
-
-	this->UnbindRun();
 
 
 }
 
 
 
-void MenuItem::AddRect()
+void Button::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, GLuint frame, GLuint action)
 {
 
+
+	u_data->ApplyMatrix(Translation(this->m_prop->position)*Scale(this->m_prop->size));
+
+
+
+	u_data->SetAmbientLight(this->m_prop->color);
+
+
+	m_sprite->Render(0);
 
 
 }

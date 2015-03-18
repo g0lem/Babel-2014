@@ -54,9 +54,6 @@
     <Filter Include="common\Framework\Database">
       <UniqueIdentifier>{905606e2-f132-41da-a021-2102aeb46067}</UniqueIdentifier>
     </Filter>
-    <Filter Include="common\Framework\Font">
-      <UniqueIdentifier>{894e97de-a6de-4d04-8e22-853fe4a542ea}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common\Framework\Math">
       <UniqueIdentifier>{276c37dc-64bf-4464-a4f0-b9d762739a76}</UniqueIdentifier>
     </Filter>
@@ -74,6 +71,15 @@
     </Filter>
     <Filter Include="common\UI">
       <UniqueIdentifier>{1ceeee64-bac9-436d-9903-2a58e136abdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{1030a3ff-ff15-493e-81a1-9663b08aa0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\Managers">
+      <UniqueIdentifier>{a4d0b330-6060-4766-813b-c27661a10bc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\Framework\Font">
+      <UniqueIdentifier>{894e97de-a6de-4d04-8e22-853fe4a542ea}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +179,6 @@
     <ClCompile Include="common\Framework\Controls\controls.cpp">
       <Filter>common\Framework\Controls</Filter>
     </ClCompile>
-    <ClCompile Include="common\Framework\Font\font_manager.cpp">
-      <Filter>common\Framework\Font</Filter>
-    </ClCompile>
     <ClCompile Include="common\Framework\Font\text_render.cpp">
       <Filter>common\Framework\Font</Filter>
     </ClCompile>
@@ -203,9 +206,6 @@
     <ClCompile Include="common\Framework\Sprite\sprite.cpp">
       <Filter>common\Framework\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="common\Framework\Sprite\sprite_manager.cpp">
-      <Filter>common\Framework\Sprite</Filter>
-    </ClCompile>
     <ClCompile Include="common\Framework\Texture\texture.cpp">
       <Filter>common\Framework\Texture</Filter>
     </ClCompile>
@@ -215,6 +215,21 @@
     <ClCompile Include="common\UI\menu_item.cpp">
       <Filter>common\UI</Filter>
     </ClCompile>
+    <ClCompile Include="common\UI\Backpack_sprite_render.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Manager\font_manager.cpp">
+      <Filter>common\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Manager\sprite_manager.cpp">
+      <Filter>common\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\UI_handler.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Manager\game_render.cpp">
+      <Filter>common\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -222,39 +237,6 @@
     </ClInclude>
     <ClInclude Include="common.hpp">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="common\AI.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Combat.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Delta.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Framework.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Game Object.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Item.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Map.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Player.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Stats.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Turns.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Window Handler.hpp">
-      <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="common\AI\enemy.hpp">
       <Filter>common\AI</Filter>
@@ -343,9 +325,6 @@
     <ClInclude Include="common\Framework\Database\database.hpp">
       <Filter>common\Framework\Database</Filter>
     </ClInclude>
-    <ClInclude Include="common\Framework\Font\font_manager.hpp">
-      <Filter>common\Framework\Font</Filter>
-    </ClInclude>
     <ClInclude Include="common\Framework\Font\text_render.hpp">
       <Filter>common\Framework\Font</Filter>
     </ClInclude>
@@ -364,9 +343,6 @@
     <ClInclude Include="common\Framework\Sound\sound_manager.hpp">
       <Filter>common\Framework\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="common\Framework\Sprite\sprite_manager.hpp">
-      <Filter>common\Framework\Sprite</Filter>
-    </ClInclude>
     <ClInclude Include="common\Framework\Sprite\uniform_2d.hpp">
       <Filter>common\Framework\Sprite</Filter>
     </ClInclude>
@@ -379,14 +355,65 @@
     <ClInclude Include="common\Framework\Texture\texture.hpp">
       <Filter>common\Framework\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="common\UI.hpp">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="common\UI\Menu.hpp">
       <Filter>common\UI</Filter>
     </ClInclude>
     <ClInclude Include="common\UI\menu_item.hpp">
       <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Window Handler.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\AI.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Combat.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Delta.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Framework.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Game Object.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Item.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Map.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Player.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Stats.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Turns.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\Backpack_sprite_render.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\manager.hpp">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Manager\font_manager.hpp">
+      <Filter>common\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Manager\sprite_manager.hpp">
+      <Filter>common\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\UI_handler.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Manager\game_render.hpp">
+      <Filter>common\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

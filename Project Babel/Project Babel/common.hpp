@@ -39,7 +39,6 @@
 #include "common/Framework.hpp"
 #include "common/Stats.hpp"
 #include "common/Item.hpp"
-#include "common/UI.hpp"
 #include "common/Turns.hpp"
 #include "common/Map/tile_map.hpp"
 #include "common/Game Object.hpp"
@@ -48,7 +47,9 @@
 #include "common/AI.hpp"
 #include "common/Player.hpp"
 #include "common/Combat.hpp"
-#include "common/Framework/Sprite/sprite_manager.hpp"
+#include "common/Manager/sprite_manager.hpp"
+#include "common/manager.hpp"
+#include "common/UI.hpp"
 #include "common/Window Handler.hpp"
 
 

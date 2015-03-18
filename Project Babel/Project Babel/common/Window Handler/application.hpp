@@ -1,5 +1,8 @@
 //1
 
+
+
+
 #ifndef APPLICATION
 #define APPLICATION
 
@@ -11,14 +14,15 @@ class Application : private Controller
 
 
 
-	FontManager*f_manager;
-
-	SpriteManager * s_manager;
+	GameRender * g_render;
 
 
 	GameObject * g_object;
 
 	SoundManager * sound_m;
+
+
+	UIHandler * ui;
 
 
 

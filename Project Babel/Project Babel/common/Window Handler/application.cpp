@@ -3,8 +3,14 @@
 
 #include <common.hpp>
 
+
+
+
+
 #define WINDOW_WIDTH 960
 #define WINDOW_HEIGHT 640
+
+
 
 
 
@@ -21,16 +27,17 @@ void Application::Init()
 
 
 
+
+
 	g_object = new GameObject();
 
 	sound_m = new SoundManager();
 
-	f_manager = new FontManager();
 
-	s_manager = new SpriteManager(g_object);
-
+	g_render = new GameRender(g_object);
 
 
+	ui = new UIHandler();
 
 
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -43,7 +50,7 @@ void Application::Init()
 void Application::Run()
 {
 
-	this->sound_m->setMusicLoop("Tutorial 3", true);
+	//this->sound_m->setMusicLoop("Tutorial 3", true);
 
 
 
@@ -58,12 +65,12 @@ void Application::Run()
 
 
 
-		s_manager->Render(this, this->g_object);
+		g_render->Render(this, g_object);
 
 
 
-		f_manager->Render(this);
-
+		ui->Render(this, g_object);
+			
 
 
 		glfwSwapBuffers(this->GetWindow());
@@ -83,11 +90,12 @@ void Application::Terminate()
 
 
 
-	delete s_manager;
-	delete f_manager;
+	delete g_render;
 	delete g_object;
-	
 	delete sound_m;
+	delete ui;
+
+
 
 }
 

@@ -1,35 +1,49 @@
 #pragma once
 
-class MenuItem: private Aaether2D
+
+
+#define NONE 0
+#define HOVER 1
+#define PRESSED 2
+
+
+
+
+struct Property
 {
 
-	struct Property{
-		glm::vec2 position;
-		int width, height;
-		glm::vec4 color;
-	};
 
-	struct Mitem{
-		Sprite *sprite;
-		Property *property;
-	};
+	glm::vec2 position;
+	glm::vec2 size;
+	glm::vec4 color;
 
-	
-	std::vector<Mitem*> *m_items;
 
-	int num_items;
+};
+
+
+
+class Button
+{
+
+
+	Property * m_prop;
+
 
 public:
 
-	inline MenuItem(){ this->Init(); }
 
-	void Render(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj);
-
-
-	void AddRect();
-
-	void Init();
+	inline Property * GetProperties(){ return this->m_prop; }
 
 
+	inline Button(Property * m_prop){ this->Init(m_prop); }
 	
+
+	void Init(Property * m_prop);
+
+
+	void Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, GLuint frame, GLuint action);
+
+
 };
+
+
