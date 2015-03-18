@@ -212,7 +212,7 @@
     <ClCompile Include="common\UI\Menu.cpp">
       <Filter>common\UI</Filter>
     </ClCompile>
-    <ClCompile Include="common\UI\polygon.cpp">
+    <ClCompile Include="common\UI\menu_item.cpp">
       <Filter>common\UI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -385,7 +385,7 @@
     <ClInclude Include="common\UI\Menu.hpp">
       <Filter>common\UI</Filter>
     </ClInclude>
-    <ClInclude Include="common\UI\polygon.hpp">
+    <ClInclude Include="common\UI\menu_item.hpp">
       <Filter>common\UI</Filter>
     </ClInclude>
   </ItemGroup>

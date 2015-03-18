@@ -13,8 +13,6 @@ class Application : private Controller
 
 	FontManager*f_manager;
 
-	polygon * p_gon;
-
 	SpriteManager * s_manager;
 
 
