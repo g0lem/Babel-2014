@@ -59,6 +59,7 @@
     <ClCompile Include="common\UI\Menu.cpp" />
     <ClCompile Include="common\UI\menu_item.cpp" />
     <ClCompile Include="common\UI\UI_handler.cpp" />
+    <ClCompile Include="common\UI\ui_helper.cpp" />
     <ClCompile Include="common\Window Handler\application.cpp" />
     <ClCompile Include="common\Window Handler\media_player.cpp" />
     <ClCompile Include="main.cpp" />
@@ -121,6 +122,7 @@
     <ClInclude Include="common\UI\Menu.hpp" />
     <ClInclude Include="common\UI\menu_item.hpp" />
     <ClInclude Include="common\UI\UI_handler.hpp" />
+    <ClInclude Include="common\UI\ui_helper.hpp" />
     <ClInclude Include="common\Window Handler.hpp" />
     <ClInclude Include="common\Window Handler\application.hpp" />
     <ClInclude Include="common\Window Handler\media_player.hpp" />

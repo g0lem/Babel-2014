@@ -21,11 +21,20 @@ void Button::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sp
 	u_data->ApplyMatrix(Translation(this->m_prop->position)*Scale(this->m_prop->size));
 
 
+	glm::vec4 color;
+	if (action == NONE)
+		color = this->m_prop->color;
+	else if (action == HOVER)
+		color = this->m_prop->color * glm::vec4(0.87f, 0.46f, 0.05f, 1.0f);
+	else if (action == PRESSED)
+		color = this->m_prop->color * glm::vec4(1.5f, 1.5f, 1.5f, 1.0f);
 
-	u_data->SetAmbientLight(this->m_prop->color);
 
 
-	m_sprite->Render(0);
+	u_data->SetAmbientLight(color);
+
+
+	m_sprite->Render(frame);
 
 
 }

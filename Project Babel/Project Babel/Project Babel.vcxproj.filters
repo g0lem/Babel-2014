@@ -230,6 +230,9 @@
     <ClCompile Include="common\Manager\game_render.cpp">
       <Filter>common\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="common\UI\ui_helper.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -414,6 +417,9 @@
     </ClInclude>
     <ClInclude Include="common\Manager\game_render.hpp">
       <Filter>common\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\ui_helper.hpp">
+      <Filter>common\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

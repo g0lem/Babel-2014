@@ -60,7 +60,11 @@ void BackpackSpriteRender::Render(Controller * ctrl, ScreenUniformData * u_data,
 {
 
 
-	this->m_button->Render(ctrl, u_data, this->button_skins, 0, NONE);
+
+	this->m_button->Render(ctrl, u_data, this->button_skins, 0, 
+		UI_helper::GetButtonAction(ctrl, this->m_button->GetProperties()));
+
+
 
 
 }
