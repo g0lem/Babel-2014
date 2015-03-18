@@ -32,6 +32,9 @@ class GameObject
 	TurnSystem * t_system;
 
 
+	UIState * ui_state;
+
+
 
 public:
 
@@ -41,6 +44,8 @@ public:
 
 	inline ~GameObject(){ this->Clean(); }
 
+
+	inline UIState * GetUIState(){ return this->ui_state; }
 
 
 	inline Scroller * GetScroller(){ return this->m_scroller; }

@@ -11,6 +11,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 {
 
 
+
 	this->LoadSprites();
 
 
@@ -24,6 +25,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 
 
 	this->LoadItems(g_obj);
+
 
 
 }
@@ -236,7 +238,9 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && attributes->position == attributes->target)
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && 
+		attributes->position == attributes->target && 
+		!g_obj->GetUIState()->GetOpened())
 	{
 
 

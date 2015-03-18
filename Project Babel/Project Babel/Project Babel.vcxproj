@@ -34,10 +34,12 @@
     <ClCompile Include="common\Framework\Sprite\sprite.cpp" />
     <ClCompile Include="common\Framework\Sprite\uniform_2d.cpp" />
     <ClCompile Include="common\Framework\Texture\texture.cpp" />
+    <ClCompile Include="common\Game Object\backpack_state.cpp" />
     <ClCompile Include="common\Game Object\collision_map.cpp" />
     <ClCompile Include="common\Game Object\game_object.cpp" />
     <ClCompile Include="common\Game Object\miscellaneous.cpp" />
     <ClCompile Include="common\Game Object\scroller.cpp" />
+    <ClCompile Include="common\Game Object\ui_state.cpp" />
     <ClCompile Include="common\Item\item.cpp" />
     <ClCompile Include="common\Item\item_list.cpp" />
     <ClCompile Include="common\Item\item_types.cpp" />
@@ -92,10 +94,12 @@
     <ClInclude Include="common\Framework\Sprite\uniform_2d.hpp" />
     <ClInclude Include="common\Framework\Texture\texture.hpp" />
     <ClInclude Include="common\Game Object.hpp" />
+    <ClInclude Include="common\Game Object\backpack_state.hpp" />
     <ClInclude Include="common\Game Object\collision_map.hpp" />
     <ClInclude Include="common\Game Object\game_object.hpp" />
     <ClInclude Include="common\Game Object\miscellaneous.hpp" />
     <ClInclude Include="common\Game Object\scroller.hpp" />
+    <ClInclude Include="common\Game Object\ui_state.hpp" />
     <ClInclude Include="common\Item.hpp" />
     <ClInclude Include="common\Item\item.hpp" />
     <ClInclude Include="common\Item\item_list.hpp" />

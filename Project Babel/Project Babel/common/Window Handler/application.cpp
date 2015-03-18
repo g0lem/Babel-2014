@@ -22,7 +22,7 @@ void Application::Init()
 
     this->CreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT,
 		false,
-		"Project Babel 0.1.0a",
+		"Project Babel 0.1.2a",
 		4, 0);
 
 
@@ -70,6 +70,10 @@ void Application::Run()
 
 
 		ui->Render(this, g_object);
+
+
+
+		g_object->GetUIState()->Update(this);
 			
 
 
