@@ -5,3 +5,13 @@
 *.pdb
 *.ilk
 *.exe
+Project Babel/Debug/Project Babel.ilk
+Project Babel/Debug/Project Babel.exe
+*.exe
+Project Babel/Debug/Project Babel.pdb
+*.suo
+*.log
+Project Babel/Project Babel/Debug/Project Babel.pch
+*.pch
+*.tlog
+*.idb
