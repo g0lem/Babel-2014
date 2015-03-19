@@ -73,6 +73,10 @@ void ActionSpriteRender::Update(Controller *ctrl, GameObject  *g_obj)
 void ActionSpriteRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
 {
 
+
+
+
+
 	this->Update(ctrl, g_obj);
 
 	for (int i = 0; i < 2; i++)

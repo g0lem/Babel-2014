@@ -39,6 +39,7 @@
     <ClCompile Include="common\Game Object\collision_map.cpp" />
     <ClCompile Include="common\Game Object\game_object.cpp" />
     <ClCompile Include="common\Game Object\miscellaneous.cpp" />
+    <ClCompile Include="common\Game Object\panel_state.cpp" />
     <ClCompile Include="common\Game Object\scroller.cpp" />
     <ClCompile Include="common\Game Object\tab_state.cpp" />
     <ClCompile Include="common\Game Object\ui_intersect.cpp" />
@@ -63,6 +64,7 @@
     <ClCompile Include="common\UI\Action_sprite_render.cpp" />
     <ClCompile Include="common\UI\CharacterPanelRender.cpp" />
     <ClCompile Include="common\UI\menu_item.cpp" />
+    <ClCompile Include="common\UI\panel_render.cpp" />
     <ClCompile Include="common\UI\UI_handler.cpp" />
     <ClCompile Include="common\UI\ui_helper.cpp" />
     <ClCompile Include="common\UI\ui_mover.cpp" />
@@ -104,6 +106,7 @@
     <ClInclude Include="common\Game Object\collision_map.hpp" />
     <ClInclude Include="common\Game Object\game_object.hpp" />
     <ClInclude Include="common\Game Object\miscellaneous.hpp" />
+    <ClInclude Include="common\Game Object\panel_state.hpp" />
     <ClInclude Include="common\Game Object\scroller.hpp" />
     <ClInclude Include="common\Game Object\tab_state.hpp" />
     <ClInclude Include="common\Game Object\ui_intersect.hpp" />
@@ -133,6 +136,7 @@
     <ClInclude Include="common\UI\Action_sprite_render.hpp" />
     <ClInclude Include="common\UI\CharcaterPanelRender.hpp" />
     <ClInclude Include="common\UI\menu_item.hpp" />
+    <ClInclude Include="common\UI\panel_render.hpp" />
     <ClInclude Include="common\UI\UI_handler.hpp" />
     <ClInclude Include="common\UI\ui_helper.hpp" />
     <ClInclude Include="common\UI\ui_mover.hpp" />

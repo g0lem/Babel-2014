@@ -1,13 +1,8 @@
-﻿Build started 3/19/2015 10:17:42 AM.
+﻿Build started 3/19/2015 11:58:54 AM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /I.\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"common.hpp" /Fp"Debug\Project Babel.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "common\Game Object\backpack_state.cpp" "common\Game Object\character_panel_state.cpp" "common\Game Object\tab_state.cpp" "common\Game Object\ui_intersect.cpp" "common\Game Object\ui_state.cpp"
-         ui_state.cpp
-         ui_intersect.cpp
-         tab_state.cpp
-         character_panel_state.cpp
-         backpack_state.cpp
-         Generating Code...
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /I.\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"common.hpp" /Fp"Debug\Project Babel.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\UI\panel_render.cpp
+         panel_render.cpp
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib "sfml-system-d.lib" "sfml-system.lib" "sfml-audio-d.lib" "sfml-audio.lib" openAL32.lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\icon.res
          Debug\common.obj
@@ -36,6 +31,7 @@
          Debug\collision_map.obj
          Debug\game_object.obj
          Debug\miscellaneous.obj
+         Debug\panel_state.obj
          Debug\scroller.obj
          Debug\tab_state.obj
          Debug\ui_intersect.obj
@@ -60,6 +56,7 @@
          Debug\Action_sprite_render.obj
          Debug\CharacterPanelRender.obj
          Debug\menu_item.obj
+         Debug\panel_render.obj
          Debug\UI_handler.obj
          Debug\ui_helper.obj
          Debug\ui_mover.obj
@@ -101,4 +98,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.49
+Time Elapsed 00:00:02.91

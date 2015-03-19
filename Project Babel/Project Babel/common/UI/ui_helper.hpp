@@ -6,6 +6,11 @@
 #define HOVER 1
 #define PRESSED 2
 
+struct PanelProperties
+{
+	
+};
+
 
 struct BackpackProperties
 {

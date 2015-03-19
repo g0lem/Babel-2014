@@ -9,6 +9,7 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+#define BLIND_COLOR glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
 
 
 typedef char GLchar;

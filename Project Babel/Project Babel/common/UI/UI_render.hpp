@@ -12,6 +12,7 @@ class UIRender : public Aaether2D
 
 	ActionSpriteRender * action_sr;
 
+	PanelRender * panel_r;
 
 	public:
 
