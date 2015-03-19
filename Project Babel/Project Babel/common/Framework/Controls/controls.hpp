@@ -145,6 +145,10 @@ public:
 
 
 
+	inline glm::vec2 GetWindowSize(){ return glm::vec2(this->window_width, this->window_height); }
+
+
+
 	inline GLint GetWindowWidth(){ return this->window_width; }
 
 

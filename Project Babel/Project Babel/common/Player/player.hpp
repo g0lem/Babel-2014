@@ -33,7 +33,7 @@ class Player
 
 	Animation *walk_animation;
 
-
+	ActionProperties * ai;
 
 	GLboolean attacking;
 
@@ -65,6 +65,10 @@ class Player
 
 
 	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
+
+
+
+	GLboolean CheckAdvance(Controller * ctrl, GameObject * g_obj);
 
 
 

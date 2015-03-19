@@ -11,11 +11,13 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 {
 
 
+
 	this->LoadSprites();
 
 
 	this->a_path = new AutoPath();
 
+	this->ai = new ActionProperties();
 
 	this->m_dir = new Direction();
 
@@ -24,6 +26,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 
 
 	this->LoadItems(g_obj);
+
 
 
 }
@@ -231,13 +234,64 @@ void Player::LoadItems(GameObject * g_obj)
 
 
 
+GLboolean Player::CheckAdvance(Controller * ctrl, GameObject * g_obj)
+{
+
+
+	GLboolean advance = attributes->position == attributes->target;
+
+
+
+	if (advance)
+		for (GLuint i = 0; i < g_obj->GetUIState()->GetInterHandler()->GetInters()->size(); i++)
+
+		{
+
+
+		Golem * g = g_obj->GetUIState()->GetInterHandler()->GetInters()[0][i];
+
+
+		if (g->id == RECT)
+		{
+
+			advance = !Contains::Rectangle(ctrl->GetMousePosition(), g->position, g->size);
+			break;
+
+		}
+
+		if (g->id == CIRCLE)
+		{
+
+
+			advance = !Contains::Circle(ctrl->GetMousePosition(), g->position, g->size);
+			break;
+
+		}
+
+
+		}
+
+
+
+	return advance;
+
+
+}
+
+
 void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 {
 
 
 
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && attributes->position == attributes->target)
-	{
+
+
+	
+
+
+	
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && this->CheckAdvance(ctrl,g_obj))
+		{
 
 
 		a_path->GetPathfinder()->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
@@ -260,7 +314,9 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		}
 
 
-	}
+		}
+	
+	
 
 
 

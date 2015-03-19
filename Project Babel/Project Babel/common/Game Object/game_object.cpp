@@ -25,6 +25,10 @@ void GameObject::Init()
 
 	this->t_system = new TurnSystem();
 
+
+	this->ui_state = new UIState();
+
+
 }
 
 
@@ -48,5 +52,8 @@ void GameObject::Clean()
 
 	delete this->t_system;
 	
+
+	delete this->ui_state;
+
 
 }

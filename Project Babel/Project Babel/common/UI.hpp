@@ -3,6 +3,8 @@
 
 #include "UI/ui_helper.hpp"
 #include "UI/menu_item.hpp"
-#include "UI/Backpack_sprite_render.hpp"
-#include "UI/Menu.hpp"
+#include "UI/Action_sprite_render.hpp"
+#include "UI/ui_mover.hpp"
+#include "UI/CharcaterPanelRender.hpp"
+#include "UI/UI_render.hpp"
 #include "UI/UI_handler.hpp"

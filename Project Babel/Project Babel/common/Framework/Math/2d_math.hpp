@@ -30,7 +30,27 @@
 #define V_UNDEFINED 2
 
 
+class Contains{
 
+
+public:
+
+
+	static inline bool Circle(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
+		
+		glm::vec2 center(container + scale/2.f);
+				if (glm::distance(center, arg) < scale.x/2.f)
+				return true;
+		return false;
+	}
+	
+	static inline bool Rectangle(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
+		if (arg.x >= container.x&&arg.y >= container.y)
+			if (arg.x < container.x + scale.x && arg.y < container.y + scale.y)
+				return true;
+		return false;
+	}
+};
 
 glm::mat3 Translation(GLfloat x, GLfloat y);
 
@@ -41,10 +61,13 @@ inline glm::mat3 Translation(glm::vec2 t_vec){return Translation(t_vec.x, t_vec.
 glm::mat3 Scale(GLfloat x_scale, GLfloat y_scale);
 
 
+
+
 inline glm::mat3 Scale(GLfloat scale){return Scale(scale, scale); }
 
 
 inline glm::mat3 Scale(glm::vec2 scale){ return Scale(scale.x, scale.y); }
+
 
 
 
@@ -91,6 +114,10 @@ inline GLboolean vec2_i(glm::vec2 t_vec){ return (glm::vec2(glm::ivec2(t_vec)) =
 
 
 GLuint compare_vec2(glm::vec2 a, glm::vec2 b);
+
+
+
+inline GLboolean Between(glm::vec2 b, glm::vec2 a, glm::vec2 c){ return (compare_vec2(b, a) == V_GREATER) && (compare_vec2(b, c) == V_LESSER); }
 
 
 

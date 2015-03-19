@@ -25,9 +25,9 @@ void Button::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sp
 	if (action == NONE)
 		color = this->m_prop->color;
 	else if (action == HOVER)
-		color = this->m_prop->color * glm::vec4(0.87f, 0.46f, 0.05f, 1.0f);
-	else if (action == PRESSED)
 		color = this->m_prop->color * glm::vec4(1.5f, 1.5f, 1.5f, 1.0f);
+	else if (action == PRESSED)
+		color = this->m_prop->color * glm::vec4(0.7f, 0.7f, 0.7f, 1.0f);
 
 
 

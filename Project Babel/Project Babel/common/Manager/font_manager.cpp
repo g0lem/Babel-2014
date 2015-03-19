@@ -51,8 +51,8 @@ void FontManager::Render(Controller * ctrl)
 
 	this->SetColor(1.0f, 1.0f, 1.0f);
 
-	sprintf(this->text, "FPS:%.2f", ctrl->returnFps());
-	this->font->Print(this->text, 0, 600, 40);
+	sprintf(this->text, "HP:100");
+	this->font->Print(this->text, 10, 600, 40);
 
 
 	this->UnbindRun();
