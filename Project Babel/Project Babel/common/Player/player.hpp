@@ -68,6 +68,10 @@ class Player
 
 
 
+	GLboolean CheckAdvance(Controller * ctrl, GameObject * g_obj);
+
+
+
 public:
 
 

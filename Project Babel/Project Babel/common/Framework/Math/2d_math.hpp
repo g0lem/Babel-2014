@@ -34,14 +34,12 @@ class Contains{
 
 
 public:
-	static inline int Distance(glm::vec2 x, glm::vec2 y){
-		return sqrt((y.y - x.y)*(y.y - x.y) + (y.x - x.x)*(y.x - x.x));
-	}
+
 
 	static inline bool Circle(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
 		
 		glm::vec2 center(container + scale/2.f);
-				if (Distance(center, arg) < scale.x/2.f)
+				if (glm::distance(center, arg) < scale.x/2.f)
 				return true;
 		return false;
 	}
@@ -116,6 +114,10 @@ inline GLboolean vec2_i(glm::vec2 t_vec){ return (glm::vec2(glm::ivec2(t_vec)) =
 
 
 GLuint compare_vec2(glm::vec2 a, glm::vec2 b);
+
+
+
+inline GLboolean Between(glm::vec2 b, glm::vec2 a, glm::vec2 c){ return (compare_vec2(b, a) == V_GREATER) && (compare_vec2(b, c) == V_LESSER); }
 
 
 

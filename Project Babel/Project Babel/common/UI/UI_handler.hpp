@@ -7,7 +7,7 @@ class UIHandler
 {
 
 
-	Menu * m_menu;
+	UIRender * ui_render;
 
 
 

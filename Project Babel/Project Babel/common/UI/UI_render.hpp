@@ -4,19 +4,20 @@
 
 
 
-class Menu : public Aaether2D
+class UIRender : public Aaether2D
 {
 
 
-	BackpackSpriteRender * backpack_sr;
+	CharPanRender * char_panel;
 
 	ActionSpriteRender * action_sr;
+
 
 	public:
 
 
 		
-		inline Menu(char * vertex_shader, char * fragment_shader){ this->Init(vertex_shader, fragment_shader); }
+		inline UIRender(char * vertex_shader, char * fragment_shader){ this->Init(vertex_shader, fragment_shader); }
 
 
 

@@ -234,19 +234,63 @@ void Player::LoadItems(GameObject * g_obj)
 
 
 
+GLboolean Player::CheckAdvance(Controller * ctrl, GameObject * g_obj)
+{
+
+
+	GLboolean advance = attributes->position == attributes->target;
+
+
+
+	if (advance)
+		for (GLuint i = 0; i < g_obj->GetUIState()->GetInterHandler()->GetInters()->size(); i++)
+
+		{
+
+
+		Golem * g = g_obj->GetUIState()->GetInterHandler()->GetInters()[0][i];
+
+
+		if (g->id == RECT)
+		{
+
+			advance = !Contains::Rectangle(ctrl->GetMousePosition(), g->position, g->size);
+			break;
+
+		}
+
+		if (g->id == CIRCLE)
+		{
+
+
+			advance = !Contains::Circle(ctrl->GetMousePosition(), g->position, g->size);
+			break;
+
+		}
+
+
+		}
+
+
+
+	return advance;
+
+
+}
+
+
 void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 {
 
-	glm::vec2 iPosition = glm::vec2(1.65f, 1.f)*(ctrl->GetWindowSize() - glm::vec2(300, 400)) / 2.0f;
+
+
+
 
 	
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) &&
-		attributes->position == attributes->target)
-		if ((Contains::Rectangle(ctrl->GetMousePosition(), iPosition, glm::vec2(300, 400))
-			&& !g_obj->GetUIState()->GetState()) 
-			|| !Contains::Rectangle(ctrl->GetMousePosition(), iPosition, glm::vec2(300, 400)))
-			if (!Contains::Circle(ctrl->GetMousePosition(), glm::vec2(-120.f, 480.f), glm::vec2(240, 240))
-				&& !Contains::Circle(ctrl->GetMousePosition(), glm::vec2(840.f, 480.f), glm::vec2(240, 240)))
+
+
+	
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && this->CheckAdvance(ctrl,g_obj))
 		{
 
 

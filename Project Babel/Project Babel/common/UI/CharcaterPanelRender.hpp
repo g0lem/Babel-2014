@@ -6,16 +6,25 @@
 #define NUM_BUTTONS 32
 #define BUTTON_COLS 8
 #define BUTTON_ROWS 4
+#define TABS 4
 
 
 
-class BackpackSpriteRender : public BackpackProperties
+
+
+class CharPanRender : public BackpackProperties
 {
+
 
 
 	Sprite * button_skins, * item_skins, * background;
 
 	Button ** m_button, ** t_button;
+
+
+
+	UI_mover * mover;
+
 
 
 	void LoadButtons();
@@ -42,13 +51,24 @@ class BackpackSpriteRender : public BackpackProperties
 
 	void Update(Controller * ctrl, GameObject * g_obj);
 
+	
+
+
+	void AddIntersect(GameObject * g_obj);
+
+
+	void MoveObject(Controller * ctrl, GameObject * g_obj);
+
+
 
 public:
 
 
 
 
-	inline BackpackSpriteRender(){this->Init();};
+	inline CharPanRender(){this->Init();};
+
+	
 
 
 	void Render(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj);
@@ -56,6 +76,7 @@ public:
 	inline glm::vec2 GetBackgroundSize(){ return this->scale; }
 
 	inline glm::vec2 GetBackgroundOffset() { return this->position; }
+
 
 
 

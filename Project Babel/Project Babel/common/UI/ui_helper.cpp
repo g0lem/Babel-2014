@@ -6,8 +6,7 @@
 GLuint UI_helper::GetButtonAction(Controller * ctrl, Property * m_prop)
 {
 
-	if (compare_vec2(ctrl->GetMousePosition(), m_prop->position) != V_GREATER ||
-		compare_vec2(ctrl->GetMousePosition(), m_prop->position + m_prop->size) != V_LESSER)
+	if (!Between(ctrl->GetMousePosition(),m_prop->position,m_prop->position + m_prop->size))
 	return NONE;
 
 

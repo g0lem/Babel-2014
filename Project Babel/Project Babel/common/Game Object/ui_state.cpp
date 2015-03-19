@@ -3,9 +3,6 @@
 
 
 
-#define BACKPACK_KEY GLFW_KEY_C
-
-
 
 
 void UIState::Init()
@@ -13,14 +10,17 @@ void UIState::Init()
 
 
 
-	this->state = false;
+
+	this->char_panel = new CharPanState();
 
 
-	this->b_state = new BackpackState();
 
+	this->inter_handler = new UI_intersect();
 
 
 }
+
+
 
 
 
@@ -29,10 +29,38 @@ void UIState::ProcessKeys(Controller * ctrl)
 
 
 	if (ctrl->GetKeyOnce(BACKPACK_KEY))
-		this->b_state->SetState(!this->b_state->GetState());
+		this->char_panel->SetState(!this->char_panel->GetState());
 
 
 }
+
+
+
+
+
+void UIState::ManageQuits()
+{
+
+
+
+
+	if (this->GetCharPanState()->GetState() == NOT_ACTIVE)
+	{
+		if (this->GetCharPanState()->GetColID() != NOT_SET)
+		{
+
+
+			this->GetInterHandler()->GetInters()->erase(this->GetInterHandler()->GetInters()->begin() + this->GetCharPanState()->GetColID());
+			this->GetCharPanState()->SetColID(NOT_SET);
+
+
+		}
+	}
+
+
+}
+
+
 
 
 
@@ -43,7 +71,11 @@ void UIState::Update(Controller * ctrl)
 	this->ProcessKeys(ctrl);
 
 
-	this->state = this->b_state->GetState();
+	this->ManageQuits();
 
 
 }
+
+
+
+

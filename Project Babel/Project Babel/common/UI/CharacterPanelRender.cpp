@@ -2,7 +2,7 @@
 
 
 
-void BackpackSpriteRender::Init()
+void CharPanRender::Init()
 {
 
 
@@ -30,6 +30,12 @@ void BackpackSpriteRender::Init()
 	this->top_button_offset = glm::vec2(12.f, 0);
 
 
+	this->position = glm::vec2(530, 150);
+
+
+
+
+
 
 	this->LoadSprites();
 
@@ -37,12 +43,17 @@ void BackpackSpriteRender::Init()
 	this->LoadButtons();
 
 
+
+	this->mover = new UI_mover();
+
+
+
 }
 
 
 
 
-void BackpackSpriteRender::LoadBackgroundSprite()
+void CharPanRender::LoadBackgroundSprite()
 {
 
 
@@ -64,7 +75,7 @@ void BackpackSpriteRender::LoadBackgroundSprite()
 
 
 
-void BackpackSpriteRender::LoadButtonsSprite()
+void CharPanRender::LoadButtonsSprite()
 {
 
 
@@ -91,7 +102,7 @@ void BackpackSpriteRender::LoadButtonsSprite()
 
 
 
-void BackpackSpriteRender::LoadSprites()
+void CharPanRender::LoadSprites()
 {
 
 
@@ -110,7 +121,7 @@ void BackpackSpriteRender::LoadSprites()
 
 
 
-void BackpackSpriteRender::LoadButtons()
+void CharPanRender::LoadButtons()
 {
 
 
@@ -146,13 +157,11 @@ void BackpackSpriteRender::LoadButtons()
 
 
 
-void BackpackSpriteRender::Update(Controller * ctrl, GameObject * g_obj)
+void CharPanRender::Update(Controller * ctrl, GameObject * g_obj)
 {
 
 
-	this->position = (ctrl->GetWindowSize() - this->scale) / 2.0f;
 
-	this->position *= glm::vec2(1.65f, 1.f);
 
 	for (GLuint j = 0; j < BUTTON_ROWS; j++)
 	{
@@ -182,7 +191,7 @@ void BackpackSpriteRender::Update(Controller * ctrl, GameObject * g_obj)
 
 
 
-void BackpackSpriteRender::RenderBackground(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
+void CharPanRender::RenderBackground(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
 {
 
 
@@ -239,7 +248,7 @@ void BackpackSpriteRender::RenderBackground(Controller *ctrl, ScreenUniformData 
 
 
 
-void BackpackSpriteRender::RenderButtons(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
+void CharPanRender::RenderButtons(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 
 
@@ -248,44 +257,120 @@ void BackpackSpriteRender::RenderButtons(Controller * ctrl, ScreenUniformData * 
 	{
 
 
-		g_obj->GetUIState()->GetBackpackState()->GetButtonStates()[i] = UI_helper::GetButtonAction(ctrl, this->m_button[i]->GetProperties());
+		g_obj->GetUIState()->GetCharPanState()->GetBackpackState()->GetButtonStates()[i] = UI_helper::GetButtonAction(ctrl, this->m_button[i]->GetProperties());
 
 
 		this->m_button[i]->Render(ctrl, u_data, this->button_skins, 0,
-			g_obj->GetUIState()->GetBackpackState()->GetButtonStates()[i]);
+			g_obj->GetUIState()->GetCharPanState()->GetBackpackState()->GetButtonStates()[i]);
 
 
 	}
 
 
 
+
 }
 
-void BackpackSpriteRender::RenderTopButtons(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
+void CharPanRender::RenderTopButtons(Controller *ctrl, ScreenUniformData *u_data, GameObject *g_obj)
 {
 
 
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < TABS; i++)
 	{
-		g_obj->GetUIState()->GetBackpackState()->GetButtonStates()[i] = UI_helper::GetButtonAction(ctrl, this->t_button[i]->GetProperties());
+		g_obj->GetUIState()->GetCharPanState()->GetTabsState()->GetTabsState()[i] = UI_helper::GetButtonAction(ctrl, this->t_button[i]->GetProperties());
 
 
 		this->t_button[i]->Render(ctrl, u_data, this->button_skins, i + 1,
-			g_obj->GetUIState()->GetBackpackState()->GetButtonStates()[i]);
+			g_obj->GetUIState()->GetCharPanState()->GetTabsState()->GetTabsState()[i]);
 
 
 	}
+
+
+
+	
+
 }
 
 
 
-void BackpackSpriteRender::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
+void CharPanRender::AddIntersect(GameObject * g_obj)
 {
 
 
 
+	if (g_obj->GetUIState()->GetCharPanState()->GetColID() == NOT_SET)
+	{
+
+
+		Golem * g = new Golem();
+
+
+		g->id = RECT;
+		g->position = this->position;
+		g->size = this->scale;
+
+
+		g_obj->GetUIState()->GetInterHandler()->GetInters()->push_back(g);
+		g_obj->GetUIState()->GetCharPanState()->SetColID(g_obj->GetUIState()->GetInterHandler()->GetInters()->size() - 1);
+
+
+
+	}
+
+
+
+
+}
+
+
+
+
+void CharPanRender::MoveObject(Controller * ctrl, GameObject * g_obj)
+{
+
+
+
+
+	glm::vec2 new_pos = this->mover->GetTranslation(ctrl, this->position, this->scale);
+
+	if (glm::distance(new_pos, position) > 0)
+	{
+
+
+		g_obj->GetUIState()->GetInterHandler()->GetInters()->erase(g_obj->GetUIState()->GetInterHandler()->GetInters()->begin() +
+			g_obj->GetUIState()->GetCharPanState()->GetColID());
+		g_obj->GetUIState()->GetCharPanState()->SetColID(NOT_SET);
+
+		position = new_pos;
+
+	}
+
+
+
+}
+
+
+
+
+
+void CharPanRender::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
+{
+
+
+
+	this->MoveObject(ctrl, g_obj);
+
+
+
+	this->AddIntersect(g_obj);
+
+	
+
 	this->RenderBackground(ctrl, u_data, g_obj);
+
+
 
 	this->RenderTopButtons(ctrl, u_data, g_obj);
 

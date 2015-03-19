@@ -3,7 +3,7 @@
 
 
 
-void Menu::Init(char * vertex_shader, char * fragment_shader)
+void UIRender::Init(char * vertex_shader, char * fragment_shader)
 {
 
 
@@ -12,7 +12,9 @@ void Menu::Init(char * vertex_shader, char * fragment_shader)
 
 
 
-	this->backpack_sr = new BackpackSpriteRender();
+	this->char_panel = new CharPanRender();
+
+
 
 	this->action_sr = new ActionSpriteRender();
 
@@ -26,18 +28,21 @@ void Menu::Init(char * vertex_shader, char * fragment_shader)
 
 
 
-void Menu::Render(Controller *ctrl,GameObject *g_obj)
+void UIRender::Render(Controller *ctrl,GameObject *g_obj)
 {
 
 
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
-	if (g_obj->GetUIState()->GetBackpackState()->GetState())
-		this->backpack_sr->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+	if (g_obj->GetUIState()->GetCharPanState()->GetState())
+		this->char_panel->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 	
+
 	this->action_sr->Render(ctrl, this->GetScreenPointer(), g_obj);
+
 
 	this->UnbindRun();
 

@@ -209,13 +209,7 @@
     <ClCompile Include="common\Framework\Texture\texture.cpp">
       <Filter>common\Framework\Texture</Filter>
     </ClCompile>
-    <ClCompile Include="common\UI\Menu.cpp">
-      <Filter>common\UI</Filter>
-    </ClCompile>
     <ClCompile Include="common\UI\menu_item.cpp">
-      <Filter>common\UI</Filter>
-    </ClCompile>
-    <ClCompile Include="common\UI\Backpack_sprite_render.cpp">
       <Filter>common\UI</Filter>
     </ClCompile>
     <ClCompile Include="common\Manager\font_manager.cpp">
@@ -240,6 +234,24 @@
       <Filter>common\Game Object</Filter>
     </ClCompile>
     <ClCompile Include="common\UI\Action_sprite_render.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\UI_render.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\CharacterPanelRender.cpp">
+      <Filter>common\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Game Object\character_panel_state.cpp">
+      <Filter>common\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Game Object\tab_state.cpp">
+      <Filter>common\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Game Object\ui_intersect.cpp">
+      <Filter>common\Game Object</Filter>
+    </ClCompile>
+    <ClCompile Include="common\UI\ui_mover.cpp">
       <Filter>common\UI</Filter>
     </ClCompile>
   </ItemGroup>
@@ -367,9 +379,6 @@
     <ClInclude Include="common\Framework\Texture\texture.hpp">
       <Filter>common\Framework\Texture</Filter>
     </ClInclude>
-    <ClInclude Include="common\UI\Menu.hpp">
-      <Filter>common\UI</Filter>
-    </ClInclude>
     <ClInclude Include="common\UI\menu_item.hpp">
       <Filter>common\UI</Filter>
     </ClInclude>
@@ -409,9 +418,6 @@
     <ClInclude Include="common\UI.hpp">
       <Filter>headers</Filter>
     </ClInclude>
-    <ClInclude Include="common\UI\Backpack_sprite_render.hpp">
-      <Filter>common\UI</Filter>
-    </ClInclude>
     <ClInclude Include="common\manager.hpp">
       <Filter>headers</Filter>
     </ClInclude>
@@ -437,6 +443,24 @@
       <Filter>common\Game Object</Filter>
     </ClInclude>
     <ClInclude Include="common\UI\Action_sprite_render.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\UI_render.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\CharcaterPanelRender.hpp">
+      <Filter>common\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Game Object\character_panel_state.hpp">
+      <Filter>common\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Game Object\tab_state.hpp">
+      <Filter>common\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Game Object\ui_intersect.hpp">
+      <Filter>common\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\UI\ui_mover.hpp">
       <Filter>common\UI</Filter>
     </ClInclude>
   </ItemGroup>
