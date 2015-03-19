@@ -207,7 +207,7 @@ public:
 		sqlite3_close(db);
 	}
 
-	const unsigned char *GetCProperty(int EntityID, int Property, char *Table)
+	static const unsigned char *GetCProperty(int EntityID, int Property, char *Table)
 	{
 		sqlite3 *db;
 		sqlite3_stmt *res;

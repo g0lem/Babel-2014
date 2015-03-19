@@ -10,6 +10,10 @@ class Item
 
 public:
 
+	
+
+
+	GLfloat level;
 
 
 
@@ -25,7 +29,11 @@ public:
 
 
 
-	GLfloat armor;
+	GLfloat  armor;
+
+	
+	
+	GLfloat  dodge;
 
 
     
@@ -42,6 +50,20 @@ public:
 
 
 	void Init();
+
+	
+
+std::string item_name;
+
+	
+
+
+
+
+
+	Item GenerateItem(int type);
+
+
 
 
 

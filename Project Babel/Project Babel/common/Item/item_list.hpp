@@ -11,19 +11,35 @@ class ItemList
 
 
 
-	Item ** list;
+	//Item ** list;
 
-
+	std::vector <Item*> list;
 
 	void LoadItems();
+
+	struct names
+	{
+		std::string type;
+		std::vector<std::string> prefix;
+		std::vector<std::string> sufix;
+	};
+
+	std::vector<names*> *namelist;
 
 
 
 public:
 
+	std::string NameGenerator(std::string type);
 
 
-	inline Item**GetList(){ return this->list; }
+	void read_names();
+
+
+	int listed_name(std::string name);
+
+
+	inline std::vector <Item*> GetList(){ return this->list; }
 
 
 	inline ItemList(){ this->Init(); }
