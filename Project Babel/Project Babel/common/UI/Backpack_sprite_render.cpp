@@ -2,8 +2,6 @@
 
 
 
-
-
 void BackpackSpriteRender::Init()
 {
 
@@ -13,12 +11,9 @@ void BackpackSpriteRender::Init()
 
 	this->button_background_offset = glm::vec2(8.5, 224);
 
-
 	this->button_background_size = glm::vec2(283, 169);
 
-
 	this->button_offset = glm::vec2(14.5, 238.5);
-
 
 	this->button_size = glm::vec2(34, 34);
 

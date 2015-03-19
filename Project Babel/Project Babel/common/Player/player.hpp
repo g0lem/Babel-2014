@@ -33,7 +33,7 @@ class Player
 
 	Animation *walk_animation;
 
-
+	ActionProperties * ai;
 
 	GLboolean attacking;
 

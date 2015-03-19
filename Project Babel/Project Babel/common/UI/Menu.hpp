@@ -10,7 +10,7 @@ class Menu : public Aaether2D
 
 	BackpackSpriteRender * backpack_sr;
 
-
+	ActionSpriteRender * action_sr;
 
 	public:
 

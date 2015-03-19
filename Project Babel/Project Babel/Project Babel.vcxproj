@@ -57,6 +57,7 @@
     <ClCompile Include="common\Stats\hp.cpp" />
     <ClCompile Include="common\Stats\stats.cpp" />
     <ClCompile Include="common\Turns\turn.cpp" />
+    <ClCompile Include="common\UI\Action_sprite_render.cpp" />
     <ClCompile Include="common\UI\Backpack_sprite_render.cpp" />
     <ClCompile Include="common\UI\Menu.cpp" />
     <ClCompile Include="common\UI\menu_item.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="common\Stats\stats.hpp" />
     <ClInclude Include="common\Turns.hpp" />
     <ClInclude Include="common\Turns\turn.hpp" />
+    <ClInclude Include="common\UI\Action_sprite_render.hpp" />
     <ClInclude Include="common\UI\Backpack_sprite_render.hpp" />
     <ClInclude Include="common\UI\Menu.hpp" />
     <ClInclude Include="common\UI\menu_item.hpp" />

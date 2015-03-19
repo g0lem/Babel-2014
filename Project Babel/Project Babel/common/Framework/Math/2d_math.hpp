@@ -30,7 +30,29 @@
 #define V_UNDEFINED 2
 
 
+class Contains{
 
+
+public:
+	static inline int Distance(glm::vec2 x, glm::vec2 y){
+		return sqrt((y.y - x.y)*(y.y - x.y) + (y.x - x.x)*(y.x - x.x));
+	}
+
+	static inline bool Circle(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
+		
+		glm::vec2 center(container + scale/2.f);
+				if (Distance(center, arg) < scale.x/2.f)
+				return true;
+		return false;
+	}
+	
+	static inline bool Rectangle(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
+		if (arg.x >= container.x&&arg.y >= container.y)
+			if (arg.x < container.x + scale.x && arg.y < container.y + scale.y)
+				return true;
+		return false;
+	}
+};
 
 glm::mat3 Translation(GLfloat x, GLfloat y);
 
@@ -41,6 +63,8 @@ inline glm::mat3 Translation(glm::vec2 t_vec){return Translation(t_vec.x, t_vec.
 glm::mat3 Scale(GLfloat x_scale, GLfloat y_scale);
 
 
+
+
 inline glm::mat3 Scale(GLfloat scale){return Scale(scale, scale); }
 
 
@@ -48,12 +72,7 @@ inline glm::mat3 Scale(glm::vec2 scale){ return Scale(scale.x, scale.y); }
 
 
 
-inline bool Contains(glm::vec2 arg, glm::vec2 container, glm::vec2 scale){
-	if (arg.x >= container.x&&arg.y >= container.y)
-		if (arg.x < container.x+scale.x && arg.y < container.y+scale.y)
-			return true;
-	return false;
-}
+
 
 
 glm::mat3 Rotation(GLfloat alpha);

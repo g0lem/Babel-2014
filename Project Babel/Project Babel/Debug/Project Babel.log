@@ -1,10 +1,63 @@
-﻿Build started 3/18/2015 12:19:32 PM.
+﻿Build started 3/19/2015 3:56:14 AM.
      1>Project "D:\GitHub\projectBabel\Project Babel\Project Babel\Project Babel.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /I.\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"common.hpp" /Fp"Debug\Project Babel.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\Player\player.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\Dependencies\include /I.\ /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _CRT_SECURE_NO_WARNINGS /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"common.hpp" /Fp"Debug\Project Babel.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt common\AI\enemy.cpp common\AI\enemy_manager.cpp common\Combat\Combat.cpp common\Delta\animation.cpp common\Delta\auto_path.cpp common\Delta\movement.cpp common\Delta\one_direction.cpp common\Delta\pathfinder.cpp common\Delta\physical_attributes.cpp common\Framework\Controls\controls.cpp common\Framework\Font\text2D.cpp common\Framework\Font\text_render.cpp common\Framework\Math\2d_math.cpp common\Framework\Math\dice.cpp common\Framework\Shader\shader.cpp common\Framework\Sound\sound_manager.cpp common\Framework\Sprite\2d.cpp common\Framework\Sprite\sprite.cpp common\Framework\Sprite\uniform_2d.cpp common\Framework\Texture\texture.cpp "common\Game Object\backpack_state.cpp" "common\Game Object\collision_map.cpp" "common\Game Object\game_object.cpp" "common\Game Object\miscellaneous.cpp" "common\Game Object\scroller.cpp" "common\Game Object\ui_state.cpp" common\Item\item.cpp common\Item\item_list.cpp common\Item\item_types.cpp common\Manager\font_manager.cpp common\Manager\game_render.cpp common\Manager\sprite_manager.cpp common\Map\graph.cpp common\Map\map.cpp common\Map\map_helper1.cpp common\Map\map_helper2.cpp common\Map\map_helper3.cpp common\Map\room.cpp common\Map\tile_map.cpp common\Player\player.cpp common\Stats\hp.cpp common\Stats\stats.cpp common\Turns\turn.cpp common\UI\Action_sprite_render.cpp common\UI\Backpack_sprite_render.cpp common\UI\Menu.cpp common\UI\UI_handler.cpp common\UI\menu_item.cpp common\UI\ui_helper.cpp "common\Window Handler\application.cpp" "common\Window Handler\media_player.cpp" main.cpp
          player.cpp
-     1>d:\github\projectbabel\project babel\project babel\common\player\player.cpp(66): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
-     1>d:\github\projectbabel\project babel\project babel\common\player\player.cpp(81): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\player\player.cpp(67): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+     1>d:\github\projectbabel\project babel\project babel\common\player\player.cpp(82): warning C4244: 'argument' : conversion from 'GLdouble' to 'GLfloat', possible loss of data
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         main.cpp
+         media_player.cpp
+         application.cpp
+         ui_helper.cpp
+         menu_item.cpp
+         UI_handler.cpp
+         Menu.cpp
+         Backpack_sprite_render.cpp
+         Action_sprite_render.cpp
+         turn.cpp
+         stats.cpp
+         hp.cpp
+         tile_map.cpp
+         room.cpp
+         map_helper3.cpp
+         map_helper2.cpp
+         map_helper1.cpp
+         map.cpp
+         graph.cpp
+         sprite_manager.cpp
+         game_render.cpp
+         font_manager.cpp
+         item_types.cpp
+         item_list.cpp
+         item.cpp
+         ui_state.cpp
+         scroller.cpp
+         miscellaneous.cpp
+         game_object.cpp
+         collision_map.cpp
+         backpack_state.cpp
+         texture.cpp
+         uniform_2d.cpp
+         sprite.cpp
+         2d.cpp
+         sound_manager.cpp
+         shader.cpp
+         dice.cpp
+         2d_math.cpp
+         text_render.cpp
+         text2D.cpp
+         controls.cpp
+         physical_attributes.cpp
+         pathfinder.cpp
+         one_direction.cpp
+         movement.cpp
+         auto_path.cpp
+         animation.cpp
+         Combat.cpp
+         enemy_manager.cpp
+         enemy.cpp
        Link:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\Dependencies\lib "sfml-system-d.lib" "sfml-system.lib" "sfml-audio-d.lib" "sfml-audio.lib" openAL32.lib RocketDebugger.lib Shell.lib RocketControls.lib RocketCore.lib FreeImaged.lib freetype.lib glfw3.lib glew32.lib glu32.lib opengl32.lib SQLite.lib gdi32.lib winmm.lib user32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\GitHub\projectBabel\Project Babel\Debug\Project Babel.lib" /MACHINE:X86 Debug\icon.res
          Debug\common.obj
@@ -51,6 +104,7 @@
          Debug\hp.obj
          Debug\stats.obj
          Debug\turn.obj
+         Debug\Action_sprite_render.obj
          Debug\Backpack_sprite_render.obj
          Debug\Menu.obj
          Debug\menu_item.obj
@@ -64,4 +118,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.30
+Time Elapsed 00:00:00.28
