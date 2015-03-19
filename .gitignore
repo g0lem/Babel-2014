@@ -1,12 +1,3 @@
 *.obj
-*.obj
-*.obj
 *.log
-*.pdb
-*.ilk
-*.exe
-*.exe
-Project Babel/Debug/Project Babel.pdb
-*.sdf
-*.suo
-*.obj
+*.tlog
