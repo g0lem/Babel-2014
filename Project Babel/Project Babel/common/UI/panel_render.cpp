@@ -31,10 +31,14 @@ void PanelRender::LoadButtonsSprite()
 
 	char **tex_str = new char*[6];
 
-	tex_str[0] = "portrait.png";
-	tex_str[1] = "level.png";
+	tex_str[PANEL_PORTRAIT] = "portrait.png";
+	tex_str[PANEL_LEVEL] = "level.png";
+	tex_str[PANEL_HP] = "health.png";
+	tex_str[PANEL_ENERGY] = "energy.png";
+	tex_str[PANEL_STAIRS] = "stairs.png";
+	tex_str[PANEL_ONE] = "floor_1.png";
 
-	this->button_skins->Load(2, "data/UI/Action/", tex_str);
+	this->button_skins->Load(6, "data/UI/CPanel/", tex_str);
 }
 
 
@@ -46,5 +50,37 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 
 	u_data->ApplyMatrix(Translation(this->portrait_position)*Scale(this->portrait_size));
 
-	//this->button_skins->Render(0);
+	this->button_skins->Render(PANEL_PORTRAIT);
+
+
+
+	u_data->ApplyMatrix(Translation(this->level_position)*Scale(this->level_size));
+
+	this->button_skins->Render(PANEL_LEVEL);
+
+
+
+
+	u_data->ApplyMatrix(Translation(this->health_position)*Scale(this->health_size));
+
+	this->button_skins->Render(PANEL_HP);
+
+
+
+	u_data->ApplyMatrix(Translation(this->energy_position)*Scale(this->energy_size));
+
+	this->button_skins->Render(PANEL_ENERGY);
+
+
+	u_data->ApplyMatrix(Translation(this->stairs_position)*Scale(this->stairs_size));
+
+	this->button_skins->Render(PANEL_STAIRS);
+
+
+	u_data->ApplyMatrix(Translation(this->floor_1_position)*Scale(this->floor_1_size));
+
+	this->button_skins->Render(PANEL_ONE);
+
+
+    
 }

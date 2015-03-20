@@ -49,10 +49,6 @@ void FontManager::Render(Controller * ctrl)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
-	this->SetColor(1.0f, 1.0f, 1.0f);
-
-	sprintf(this->text, "HP:100");
-	this->font->Print(this->text, 10, 600, 40);
 
 
 	this->UnbindRun();
