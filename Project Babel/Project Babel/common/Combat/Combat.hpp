@@ -24,13 +24,12 @@ class Combat
 
 
 
-
+	void UpdateTurns(GameObject * g_obj, EnemyManager * enemies);
 	void SetEnemyTarget(Player * player, EnemyManager * enemies);
 	void AquireEnemyTarget(Player * player, EnemyManager * enemies);
 	void EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enemies);
-	void EnemyMovement(GameObject * g_obj, EnemyManager * enemies);
 	void EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map);
-
+	
 
 
 

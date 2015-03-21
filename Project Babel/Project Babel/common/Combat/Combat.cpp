@@ -105,6 +105,20 @@ void Combat::PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * e
 
 
 
+
+void Combat::UpdateTurns(GameObject * g_obj, EnemyManager * enemies)
+{
+
+
+	for (GLuint i = 0; i < enemies->GetEnemiesPointer()->size(); i++)
+		if (enemies->GetEnemiesPointer()[0][i]->GetTargetPosition() != vec2_0)
+			g_obj->GetTurnSystem()->Update(enemies->GetEnemiesPointer()[0][i]->GetTurnSystem());
+
+}
+
+
+
+
 void Combat::SetEnemyTarget(Player * player, EnemyManager * enemies)
 {
 
@@ -175,19 +189,17 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 		{
 
 
-			GLfloat turn_th = g_obj->GetTurnSystem()->GetTurns();
-
-
-			while (turn_th >= current_enemy->GetStats()->base_attack_speed)
+			while (current_enemy->GetTurnSystem()->GetTurns() >= current_enemy->GetStats()->base_attack_speed)
 			{
 
 
 				player->GetStats()->GetHp()->Damage(current_enemy->GetStats()->base_attack);
 
-				turn_th -= current_enemy->GetStats()->base_attack_speed;
+				current_enemy->GetTurnSystem()->Add(-current_enemy->GetStats()->base_attack_speed);
 
 			}
 
+
 		}
 
 
@@ -200,37 +212,6 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 
 
 
-void Combat::EnemyMovement(GameObject * g_obj, EnemyManager * enemies)
-{
-
-
-
-	for (GLuint i = 0; i < enemies->GetEnemiesPointer()->size(); i++)
-	{
-
-
-
-		Enemy * current_enemy = enemies->GetEnemiesPointer()[0][i];
-
-		printf("%.2f\n", g_obj->GetTurnSystem()->GetTurns());
-
-
-		if (g_obj->GetTurnSystem()->GetTurns() > current_enemy->GetStats()->base_movement_speed && current_enemy->GetMovingState() == COULD_MOVE)
-		{
-
-			
-			current_enemy->SetMovingState(SHOULD_MOVE);
-
-
-		}
-
-
-
-	}
-
-
-
-}
 
 
 
@@ -238,10 +219,11 @@ void Combat::EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * en
 {
 
 
+
+	this->UpdateTurns(g_obj, enemies);
 	this->SetEnemyTarget(player, enemies);
 	this->AquireEnemyTarget(player, enemies);
 	this->EnemyAttack(g_obj, player, enemies);
-	this->EnemyMovement(g_obj, enemies);
 
 
 
@@ -260,6 +242,9 @@ void Combat::Action(GameObject * g_obj, Player * player, EnemyManager * enemies,
 
 	this->EnemyRelated(g_obj, player, enemies, map);
 
+
+
+	g_obj->GetTurnSystem()->Advance();
 
 
 }

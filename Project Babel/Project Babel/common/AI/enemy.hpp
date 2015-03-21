@@ -4,11 +4,6 @@
 
 
 
-#define COULD_MOVE 0
-#define SHOULD_MOVE 1
-
-
-
 
 class Enemy
 {
@@ -23,9 +18,9 @@ class Enemy
 	glm::vec2 last_position;
 	glm::vec2 target_position;
 	GLint target;
-	GLuint moving_state;
 
 
+	TurnSystem * turn_system;
 
 
 	void LoadSprites(EnemyData * data);
@@ -53,12 +48,10 @@ public:
 	inline void SetTargetPosition(glm::vec2 target_position){ this->target_position = target_position; }
 
 
-	inline GLuint GetMovingState(){ return this->moving_state; }
-	inline void SetMovingState(GLuint moving_state){ this->moving_state = moving_state; }
-
 
 	inline Stats*GetStats(){ return this->m_stats; }
 	inline PhysicalAttributes*GetPAttributes(){ return this->p_attributes; }
+	inline TurnSystem * GetTurnSystem(){ return this->turn_system; }
 
 
 	inline Enemy(EnemyData * data){ this->Init(data); }

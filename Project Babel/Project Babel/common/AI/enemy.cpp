@@ -7,7 +7,9 @@ void Enemy::Init(EnemyData * data)
 
 
 	this->a_path = new AutoPath();
-	this->p_attributes = new PhysicalAttributes();
+	this->turn_system = new TurnSystem();
+
+
 	this->LoadPhysicalAttributes();
 	this->LoadStats(data);
 	this->LoadSprites(data);
@@ -16,7 +18,6 @@ void Enemy::Init(EnemyData * data)
 	this->last_position = vec2_0;
 	this->target_position = vec2_0;
 	this->target = NO_TARGET;
-	this->moving_state = COULD_MOVE;
 
 
 
@@ -100,6 +101,7 @@ void Enemy::LoadPhysicalAttributes()
 {
 
 
+	this->p_attributes = new PhysicalAttributes();
 	this->p_attributes->position = this->p_attributes->target = vec2_0;
 	this->p_attributes->scale = glm::vec2(64.0f, 64.0f);
 	this->p_attributes->speed = 7.5f;
@@ -202,8 +204,15 @@ void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 {
 
 
-	if (this->p_attributes->position == this->p_attributes->target && this->target_position != vec2_0 && this->moving_state == SHOULD_MOVE)
+
+	if (this->p_attributes->position == this->p_attributes->target && 
+		this->target_position != vec2_0 && 
+		this->turn_system->GetTurns() >= this->m_stats->base_movement_speed)
 	{
+
+	
+
+		printf("%.2f\n", this->turn_system->GetTurns());
 
 
 		a_path->GetPathfinder()->Init(g_obj, this->p_attributes->position, this->target_position);
@@ -231,7 +240,7 @@ void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 
-	if (a_path->IsSet() && !a_path->FinishedWithoutLast())
+	if (a_path->IsSet() && !a_path->FinishedWithoutLast() && this->turn_system->GetTurns() >= this->m_stats->base_movement_speed)
 	{
 
 
@@ -242,9 +251,8 @@ void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		if (glm::distance(p_attributes->position, p_attributes->target) <= p_attributes->speed*ctrl->GetFpsPointer()->Delta())
 		{
 			a_path->Advance();
-			g_obj->GetTurnSystem()->Advance();
+			this->turn_system->Add(-this->m_stats->base_movement_speed);
 		}
-
 	}
 
 

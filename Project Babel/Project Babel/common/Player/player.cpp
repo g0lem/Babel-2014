@@ -264,8 +264,8 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		{
 			a_path->Advance();
 			g_obj->GetTurnSystem()->ComputeMovement(1.0f);
-
 		}
+
 
 
 	}
