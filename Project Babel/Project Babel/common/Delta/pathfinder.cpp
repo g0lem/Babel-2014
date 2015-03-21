@@ -49,7 +49,7 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 
 	this->map = g_obj;
 
-     
+	searchstart = false;
 
 	this->Delete();
 	this->PathFound = false;
@@ -80,14 +80,20 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 
 	current = FindBestNode();
 
-	while (PathFound == false)
+	while (PathFound == false && neighbours(current) == true)
 	{
+		if (openlist.size() != 0)
 		FindNewNode(current);
+		if (searchstart == false)
+		{
+			FindNewNode(current);
+			searchstart = true;
+		}
 		if (!PathFound)
 		current = FindBestNode();
 
 
-		if (openlist.size() == 0)
+		if (openlist.size()==0)
 		{
 			FindNewNode(current);
 			if (openlist.size() == 0)
@@ -101,6 +107,30 @@ void Pathfinder::Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish)
 
 }
 
+bool Pathfinder::neighbours(node *currentnode)
+{
+
+	int newx, newy;
+	int dx[4] = { -1, 0, 0, 1 };
+	int dy[4] = { 0, 1, -1, 0 };
+
+
+
+	for (int k = 0; k < 4; k++)
+	{
+
+		newx = dx[k] + currentnode->x;
+		newy = dy[k] + currentnode->y;
+
+		if (map->GetCollisionMap()->GetTiles()[newx][newy] == 0)
+			return true;
+
+
+	}
+	return false;
+}
+
+
 
 
 bool Pathfinder::IsVisited(int x, int y)
@@ -111,6 +141,7 @@ bool Pathfinder::IsVisited(int x, int y)
 			return true;
 	}
 	return false;
+
 }
 
 bool Pathfinder::IsOpened(int x, int y)

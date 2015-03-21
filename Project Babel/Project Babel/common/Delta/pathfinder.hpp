@@ -26,12 +26,12 @@ private:
 	void FindNewNode(node *currentnode);
 	node *FindBestNode();
 
-
+	bool neighbours(node *currentnode);
 	
 	bool IsOpened(int x, int y);
 	bool IsVisited(int x, int y);
 
-
+	bool searchstart;
 
 	void Delete();
 
