@@ -9,7 +9,15 @@ class Stats
 	Hp * m_hp;
 
 
+
 public:
+
+
+
+	glm::vec2 base_attack;
+	GLfloat base_attack_speed;
+	GLfloat base_movement_speed;
+	GLfloat base_armor;
 
 
 
@@ -22,6 +30,8 @@ public:
 
 	void Init();
 
+
+	void Copy(Stats * other);
 
 
 };

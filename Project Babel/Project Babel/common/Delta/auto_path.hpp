@@ -58,6 +58,9 @@ public:
 	inline GLboolean Finished(){ return this->current_step >= this->path_length; }
 
 
+	inline GLboolean FinishedWithoutLast(){ return this->current_step >= this->path_length - 1; }
+
+
 
 	inline GLboolean IsSet(){ return this->path_length > 0; }
 

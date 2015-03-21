@@ -24,6 +24,10 @@ public:
 	void Init();
 
 
+
+	void Update(GLfloat delta);
+
+
 };
 
 

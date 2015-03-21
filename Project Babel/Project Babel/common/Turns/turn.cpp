@@ -22,3 +22,14 @@ void TurnSystem::ComputeAttack(GLfloat attack_speed)
 
 
 }
+
+
+
+void TurnSystem::ComputeMovement(GLfloat movement_speed)
+{
+
+
+	this->turns += 1.0f / movement_speed;
+
+
+}

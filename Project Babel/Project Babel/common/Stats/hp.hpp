@@ -23,6 +23,8 @@ public:
 	inline void Buff(GLuint hp){ this->hp += hp; this->max_hp += hp; }
 
 
+	inline void Damage(glm::vec2 attack){ this->hp -= glm::min(this->hp, Rand(attack.x, attack.y)); }
+
 };
 
 

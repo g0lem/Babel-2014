@@ -44,7 +44,7 @@ void UIRender::Render(Controller *ctrl,GameObject *g_obj)
 
 	
 
-	this->action_sr->Render(ctrl, this->GetScreenPointer(), g_obj);
+	//this->action_sr->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 
 	this->panel_r->Render(ctrl, this->GetScreenPointer(), g_obj);

@@ -50,8 +50,6 @@ void EnemyManager::Init(GLuint num, Map * map, GameObject * g_obj)
 
 
 	this->m_enemies = new std::vector<Enemy*>();
-
-
 	this->m_enemies->resize(num);
 
 
@@ -60,13 +58,9 @@ void EnemyManager::Init(GLuint num, Map * map, GameObject * g_obj)
 	{
 
 
-		this->m_enemies[0][i] = new Enemy();
-
-
+		this->m_enemies[0][i] = new Enemy(g_obj->GetEnemyLoader()->GetData()[0][0]);
 		this->m_enemies[0][i]->SetRandomPosition(map);
-
-
-		this->m_enemies[0][i]->Update(g_obj);
+		this->m_enemies[0][i]->Update(g_obj, 0);
 
 
 	}
@@ -106,11 +100,7 @@ void EnemyManager::Kill(GameObject * g_obj, GLuint enemy_id)
 
 
 	glm::vec2 last_position = this->m_enemies[0][enemy_id]->GetLastPosition();
-
-
 	g_obj->GetCollisionMap()->GetTiles()[GLuint(last_position.x)][GLuint(last_position.y)] = 0;
-
-
 	this->m_enemies->erase(this->m_enemies->begin() + enemy_id);
 
 

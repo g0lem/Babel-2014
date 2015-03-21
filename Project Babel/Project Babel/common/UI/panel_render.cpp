@@ -14,10 +14,10 @@ void PanelRender::Init()
 	portrait_position = glm::vec2(0, 0);
 	portrait_size = glm::vec2(158, 158);
 
-	stairs_position = glm::vec2(164, 89);
+	stairs_position = glm::vec2(164, 46);
 	stairs_size = glm::vec2(31, 29);
 
-	floor_1_position = glm::vec2(207, 90);
+	floor_1_position = glm::vec2(207, 47);
 	floor_1_size = glm::vec2(9, 22);
 
 	LoadButtonsSprite();
@@ -61,15 +61,21 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 
 
 
-	u_data->ApplyMatrix(Translation(this->health_position)*Scale(this->health_size));
 
+
+	glm::vec2 hp_factor = glm::vec2(GLfloat(g_obj->GetPanelState()->hp) / GLfloat(g_obj->GetPanelState()->max_hp), 1.0f);
+	u_data->ApplyMatrix(Translation(this->health_position)*Scale(this->health_size*hp_factor));
 	this->button_skins->Render(PANEL_HP);
 
 
 
+
+
+	/*
 	u_data->ApplyMatrix(Translation(this->energy_position)*Scale(this->energy_size));
 
 	this->button_skins->Render(PANEL_ENERGY);
+	*/
 
 
 	u_data->ApplyMatrix(Translation(this->stairs_position)*Scale(this->stairs_size));

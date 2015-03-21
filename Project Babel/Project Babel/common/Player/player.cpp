@@ -13,19 +13,18 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 
 
 	this->LoadSprites();
-
-
-	this->a_path = new AutoPath();
-
-	this->ai = new ActionProperties();
-
-	this->m_dir = new Direction();
-
-
 	this->LoadPhysicalAttributes(current_tilemap);
 
 
+	this->a_path = new AutoPath();
+	this->m_dir = new Direction();
+	this->m_stats = new Stats();
+
+
+
+
 	this->LoadItems(g_obj);
+	this->LoadStats();
 
 
 
@@ -62,17 +61,9 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 		Move::TileMove(ctrl, g_obj, attributes->target);
-
-
-		this->Update(attributes->position, attributes->target, ctrl->GetFpsPointer()->Delta(), attributes->speed);
-
-
+		this->attributes->Update(ctrl->GetFpsPointer()->Delta());
 		this->HandleAutoPath(ctrl, g_obj);
-
-
 		Move::UpdateScroller(ctrl, g_obj, attributes->position, attributes->scale);
-
-
 
 
 
@@ -88,39 +79,11 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-
-
-
-}
-
-
-
-
-void Player::Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLfloat delta)
-{
-
-
-
-	if (position.y - target.y > speed * delta)
-		position.y -= speed * delta;
-	else if (target.y - position.y > speed * delta)
-		position.y += speed * delta;
-	else
-		position.y = target.y;
-
-
-
-	if (position.x - target.x > speed * delta)
-		position.x -= speed * delta;
-	else if (target.x - position.x > speed * delta)
-		position.x += speed * delta;
-	else
-		position.x = target.x;
-
-
+		this->UpdateUI(g_obj);
 
 
 }
+
 
 
 
@@ -151,34 +114,13 @@ void Player::LoadSprites()
 
 
 	this->m_sprite = new Sprite*[4];
-
-
-
-
 	this->m_sprite[0] = new Sprite();
-
 	this->m_sprite[0]->Load(8, "data/sprites/player0/back/", tex_str);
-
-
-
-
 	this->m_sprite[1] = new Sprite();
-
 	this->m_sprite[1]->Load(8, "data/sprites/player0/front/", tex_str);
-
-
-
-
-
 	this->m_sprite[2] = new Sprite();
-
 	this->m_sprite[2]->Load(8, "data/sprites/player0/left/", tex_str);
-
-
-
-
 	this->m_sprite[3] = new Sprite();
-
 	this->m_sprite[3]->Load(8, "data/sprites/player0/right/", tex_str);
 
 
@@ -195,22 +137,11 @@ void Player::LoadPhysicalAttributes(Map * current_tilemap)
 
 
 	this->attributes = new PhysicalAttributes();
-
-
 	this->attributes->scale = glm::vec2(64.0f, 64.0f);
-
-
 	this->attributes->position = glm::vec2(current_tilemap->GetRoomsPointer()[0][0]->GetInternalCenter());
-
-
 	this->attributes->target = this->attributes->position;
-
-
 	this->attributes->speed = 7.5f;
-
-
 	this->attributes->rotation_angle = 0.0f;
-
 
 
 }
@@ -225,7 +156,6 @@ void Player::LoadItems(GameObject * g_obj)
 
 
 	this->items = new Item*[5];
-
 	this->items[ITEM_SLOT_WEAPON] = g_obj->GetItemList()->GetList()[0];
 
 
@@ -331,7 +261,11 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		
 
 		if (glm::distance(attributes->position, attributes->target) <= attributes->speed*ctrl->GetFpsPointer()->Delta())
+		{
 			a_path->Advance();
+			g_obj->GetTurnSystem()->ComputeMovement(1.0f);
+
+		}
 
 
 	}
@@ -340,3 +274,32 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 }
+
+
+
+void Player::LoadStats()
+{
+
+
+
+	this->m_stats->GetHp()->Buff(20);
+
+
+}
+
+
+
+
+void Player::UpdateUI(GameObject * g_obj)
+{
+
+
+	g_obj->GetPanelState()->hp = this->m_stats->GetHp()->hp;
+	g_obj->GetPanelState()->max_hp = this->m_stats->GetHp()->max_hp;
+
+}
+
+
+
+
+

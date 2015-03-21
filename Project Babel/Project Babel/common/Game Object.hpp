@@ -3,6 +3,7 @@
 
 
 
+#include "Game Object/enemy_loader.hpp"
 #include "Game Object/miscellaneous.hpp"
 #include "Game Object/scroller.hpp"
 #include "Game Object/collision_map.hpp"

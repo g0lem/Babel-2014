@@ -1,23 +1,24 @@
 #include <common.hpp>
 
 
-void Enemy::Init()
+void Enemy::Init(EnemyData * data)
 {
 
 
+
+	this->a_path = new AutoPath();
 	this->p_attributes = new PhysicalAttributes();
-
-
-	this->m_stats = new Stats();
-
-
 	this->LoadPhysicalAttributes();
+	this->LoadStats(data);
+	this->LoadSprites(data);
 
 
-	this->LoadStats();
+	this->last_position = vec2_0;
+	this->target_position = vec2_0;
+	this->target = NO_TARGET;
+	this->moving_state = COULD_MOVE;
 
 
-	this->LoadSprites();
 
 
 }
@@ -36,22 +37,14 @@ void Enemy::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g
 		Scale(p_attributes->scale));
 
 
-
 	u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
 
 
+	
 
-
-	this->Update(g_obj);
-
-
-
-
-	this->m_sprite->Render(0);
-
-
-
-
+	this->Update(g_obj, ctrl->GetFpsPointer()->Delta());
+	this->HandleAutoPath(ctrl, g_obj);
+	this->m_sprites[0]->Render(0);
 	this->RenderMisc(u_data, g_obj);
 
 
@@ -60,21 +53,12 @@ void Enemy::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g
 
 
 
-void Enemy::LoadSprites()
+void Enemy::LoadSprites(EnemyData * data)
 {
 
 
 
-	this->m_sprite = new Sprite();
-
-
-	char ** tex_str = new char*[1];
-	tex_str[0] = "1.png";
-
-
-
-	this->m_sprite->Load(1, "data/sprites/mob0/", tex_str);
-
+	this->m_sprites = data->m_sprites;
 
 
 
@@ -117,28 +101,21 @@ void Enemy::LoadPhysicalAttributes()
 
 
 	this->p_attributes->position = this->p_attributes->target = vec2_0;
-
-
 	this->p_attributes->scale = glm::vec2(64.0f, 64.0f);
-
-
 	this->p_attributes->speed = 7.5f;
-
-
 	this->p_attributes->rotation_angle - 0.0f;
-
-
 
 
 }
 
 
 
-void Enemy::Update(GameObject * g_obj)
+void Enemy::Update(GameObject * g_obj, GLfloat delta)
 {
 
 
-
+	g_obj->GetCollisionMap()->GetTiles()[GLuint(this->p_attributes->position.x)][GLuint(this->p_attributes->position.y)] = 0;
+	this->p_attributes->Update(delta);
 	g_obj->GetCollisionMap()->GetTiles()[GLuint(this->p_attributes->position.x)][GLuint(this->p_attributes->position.y)] = 1;
 
 
@@ -205,13 +182,79 @@ void Enemy::RenderHpBar(ScreenUniformData * u_data, GameObject * g_obj)
 
 
 
-void Enemy::LoadStats()
+void Enemy::LoadStats(EnemyData * data)
 {
 
 
-
-	this->m_stats->GetHp()->Buff(8);
+	this->m_stats = new Stats();
+	this->m_stats->Copy(data->m_stats);
 
     
 
 }
+
+
+
+
+
+
+void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
+{
+
+
+	if (this->p_attributes->position == this->p_attributes->target && this->target_position != vec2_0 && this->moving_state == SHOULD_MOVE)
+	{
+
+
+		a_path->GetPathfinder()->Init(g_obj, this->p_attributes->position, this->target_position);
+
+
+		a_path->Reset();
+
+
+
+		if (a_path->GetPathfinder()->GetPathFound())
+		{
+
+
+			a_path->SetPath(a_path->GetPathfinder()->GetPath());
+
+
+			a_path->Advance();
+
+
+
+		}
+
+
+	}
+
+
+
+	if (a_path->IsSet() && !a_path->FinishedWithoutLast())
+	{
+
+
+
+		this->p_attributes->target = a_path->GetStep();
+
+
+		if (glm::distance(p_attributes->position, p_attributes->target) <= p_attributes->speed*ctrl->GetFpsPointer()->Delta())
+		{
+			a_path->Advance();
+			g_obj->GetTurnSystem()->Advance();
+		}
+
+	}
+
+
+
+
+}
+
+
+
+
+
+
+

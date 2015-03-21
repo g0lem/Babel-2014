@@ -19,27 +19,24 @@ class Player
 
 
 	Direction * m_dir;
-
-
 	AutoPath * a_path;
-
-
-
 	Sprite ** m_sprite;
+	Animation *walk_animation;
+
+
 
 
 	PhysicalAttributes * attributes;
 
 
-	Animation *walk_animation;
 
-	ActionProperties * ai;
 
+	Stats * m_stats;
 	GLboolean attacking;
-
-
-
 	GLint target;
+
+
+
 
 
 
@@ -49,27 +46,19 @@ class Player
 
 
 
+	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
+	GLboolean CheckAdvance(Controller * ctrl, GameObject * g_obj);
 
-
-	void Update(glm::vec2 & position, glm::vec2 target, GLfloat speed, GLfloat delta);
 
 
 	void LoadSprites();
-
-
 	void LoadPhysicalAttributes(Map * current_tilemap);
-
-
+	void LoadStats();
 	void LoadItems(GameObject * g_obj);
 
 
 
-	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
-
-
-
-	GLboolean CheckAdvance(Controller * ctrl, GameObject * g_obj);
-
+	void UpdateUI(GameObject * g_obj);
 
 
 public:
@@ -79,29 +68,14 @@ public:
 
 
 	void Load(GameObject * g_obj, Map * current_tilemap);
-
-
 	void Render(Controller * ctrl, ScreenUniformData *u_data, GameObject * g_obj, Map * current_map);
-
-
 	inline GLboolean GetAttackingState(){ return this->attacking; }
-
-
 	inline void SetAttackingState(GLboolean attacking){ this->attacking = attacking; }
-
-
 	inline GLint GetTarget(){ return this->target; }
-
-
 	inline void SetTarget(GLint target){ this->target = target; }
-
-
 	inline PhysicalAttributes*GetPAttributes(){ return this->attributes; }
-
-
+	inline Stats * GetStats(){ return this->m_stats; }
 	inline Item**GetItems(){ return this->items; }
-
-
 	inline Direction * GetDirection(){ return this->m_dir; }
 
 

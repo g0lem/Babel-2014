@@ -37,6 +37,7 @@
     <ClCompile Include="common\Game Object\backpack_state.cpp" />
     <ClCompile Include="common\Game Object\character_panel_state.cpp" />
     <ClCompile Include="common\Game Object\collision_map.cpp" />
+    <ClCompile Include="common\Game Object\enemy_loader.cpp" />
     <ClCompile Include="common\Game Object\game_object.cpp" />
     <ClCompile Include="common\Game Object\miscellaneous.cpp" />
     <ClCompile Include="common\Game Object\panel_state.cpp" />
@@ -104,6 +105,7 @@
     <ClInclude Include="common\Game Object\backpack_state.hpp" />
     <ClInclude Include="common\Game Object\character_panel_state.hpp" />
     <ClInclude Include="common\Game Object\collision_map.hpp" />
+    <ClInclude Include="common\Game Object\enemy_loader.hpp" />
     <ClInclude Include="common\Game Object\game_object.hpp" />
     <ClInclude Include="common\Game Object\miscellaneous.hpp" />
     <ClInclude Include="common\Game Object\panel_state.hpp" />
