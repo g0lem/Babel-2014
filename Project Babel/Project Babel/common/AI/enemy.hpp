@@ -12,7 +12,10 @@ class Enemy
 	Stats * m_stats;
 	PhysicalAttributes * p_attributes;
     Sprite ** m_sprites;
+	Animation ** animations;
 	AutoPath * a_path;
+	Direction * m_dir;
+
 
 
 	glm::vec2 last_position;
@@ -52,6 +55,9 @@ public:
 	inline Stats*GetStats(){ return this->m_stats; }
 	inline PhysicalAttributes*GetPAttributes(){ return this->p_attributes; }
 	inline TurnSystem * GetTurnSystem(){ return this->turn_system; }
+	inline AutoPath*GetAutoPath(){ return this->a_path; }
+	inline Direction * GetDirection(){ return this->m_dir; }
+
 
 
 	inline Enemy(EnemyData * data){ this->Init(data); }

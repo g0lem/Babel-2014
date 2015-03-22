@@ -106,15 +106,6 @@ void Combat::PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * e
 
 
 
-void Combat::UpdateTurns(GameObject * g_obj, EnemyManager * enemies)
-{
-
-
-	for (GLuint i = 0; i < enemies->GetEnemiesPointer()->size(); i++)
-		if (enemies->GetEnemiesPointer()[0][i]->GetTargetPosition() != vec2_0)
-			g_obj->GetTurnSystem()->Update(enemies->GetEnemiesPointer()[0][i]->GetTurnSystem());
-
-}
 
 
 
@@ -193,8 +184,8 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 			{
 
 
+				current_enemy->GetDirection()->Compute(DIR_TYPE_4, current_enemy->GetPAttributes()->position, current_enemy->GetTargetPosition());
 				player->GetStats()->GetHp()->Damage(current_enemy->GetStats()->base_attack);
-
 				current_enemy->GetTurnSystem()->Add(-current_enemy->GetStats()->base_attack_speed);
 
 			}
@@ -213,6 +204,18 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 
 
 
+void Combat::UpdateTurns(GameObject * g_obj, EnemyManager * enemies)
+{
+
+
+	for (GLuint i = 0; i < enemies->GetEnemiesPointer()->size(); i++)
+		if (enemies->GetEnemiesPointer()[0][i]->GetTargetPosition() != vec2_0)
+			g_obj->GetTurnSystem()->Update(enemies->GetEnemiesPointer()[0][i]->GetTurnSystem());
+
+}
+
+
+
 
 
 void Combat::EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
@@ -220,11 +223,10 @@ void Combat::EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * en
 
 
 
-	this->UpdateTurns(g_obj, enemies);
 	this->SetEnemyTarget(player, enemies);
 	this->AquireEnemyTarget(player, enemies);
 	this->EnemyAttack(g_obj, player, enemies);
-
+	this->UpdateTurns(g_obj, enemies);
 
 
 }

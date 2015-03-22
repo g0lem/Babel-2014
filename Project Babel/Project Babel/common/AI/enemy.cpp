@@ -8,6 +8,7 @@ void Enemy::Init(EnemyData * data)
 
 	this->a_path = new AutoPath();
 	this->turn_system = new TurnSystem();
+	this->m_dir = new Direction();
 
 
 	this->LoadPhysicalAttributes();
@@ -41,11 +42,19 @@ void Enemy::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g
 	u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
 
 
+
+	GLuint dir = m_dir->Compute(DIR_TYPE_4, p_attributes->position, p_attributes->target);
+
+
+
+	if (glm::distance(p_attributes->position, p_attributes->target) > p_attributes->speed*ctrl->GetFpsPointer()->Delta())
+		this->animations[dir]->Update(16.0f, ctrl->GetFpsPointer()->Delta());
+
 	
 
 	this->Update(g_obj, ctrl->GetFpsPointer()->Delta());
 	this->HandleAutoPath(ctrl, g_obj);
-	this->m_sprites[0]->Render(0);
+	this->m_sprites[dir]->Render(this->animations[dir]->GetIFrames());
 	this->RenderMisc(u_data, g_obj);
 
 
@@ -60,6 +69,9 @@ void Enemy::LoadSprites(EnemyData * data)
 
 
 	this->m_sprites = data->m_sprites;
+	this->animations = new Animation*[data->num_dirs];
+	for (GLuint i = 0; i < data->num_dirs; i++)
+		this->animations[i] = new Animation(data->num_frames[i]);
 
 
 
@@ -212,7 +224,6 @@ void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 	
 
-		printf("%.2f\n", this->turn_system->GetTurns());
 
 
 		a_path->GetPathfinder()->Init(g_obj, this->p_attributes->position, this->target_position);
