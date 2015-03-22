@@ -182,7 +182,20 @@ void Pathfinder::FindNewNode(node *currentnode)
 
 
 
-		if (map->GetCollisionMap()->GetTiles()[newx][newy] == 0 && IsVisited(newx, newy) == false && IsOpened(newx, newy) == false)
+		GLboolean ok = map->GetCollisionMap()->GetTiles()[newx][newy] == 0 && IsVisited(newx, newy) == false && IsOpened(newx, newy) == false;
+		if (ok)
+		{
+			for (GLuint i = 0; i < map->GetCollisionMap()->GetList().size(); i++)
+				if (glm::ivec2(newx, newy) == map->GetCollisionMap()->GetList()[i])
+				{
+				ok = false;
+				break;
+				}
+			
+		}
+
+
+		if (ok)
 		{
 
 

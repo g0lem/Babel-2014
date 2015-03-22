@@ -101,9 +101,6 @@
     <ClCompile Include="common\Delta\animation.cpp">
       <Filter>common\Delta</Filter>
     </ClCompile>
-    <ClCompile Include="common\Delta\auto_path.cpp">
-      <Filter>common\Delta</Filter>
-    </ClCompile>
     <ClCompile Include="common\Delta\movement.cpp">
       <Filter>common\Delta</Filter>
     </ClCompile>
@@ -263,6 +260,9 @@
     <ClCompile Include="common\Game Object\enemy_loader.cpp">
       <Filter>common\Game Object</Filter>
     </ClCompile>
+    <ClCompile Include="common\Delta\auto_path.cpp">
+      <Filter>common\Delta</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -281,9 +281,6 @@
       <Filter>common\Combat</Filter>
     </ClInclude>
     <ClInclude Include="common\Delta\animation.hpp">
-      <Filter>common\Delta</Filter>
-    </ClInclude>
-    <ClInclude Include="common\Delta\auto_path.hpp">
       <Filter>common\Delta</Filter>
     </ClInclude>
     <ClInclude Include="common\Delta\movement.hpp">
@@ -479,6 +476,9 @@
       <Filter>common\UI</Filter>
     </ClInclude>
     <ClInclude Include="common\Game Object\enemy_loader.hpp">
+      <Filter>common\Game Object</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Delta\auto_path.hpp">
       <Filter>common\Game Object</Filter>
     </ClInclude>
   </ItemGroup>

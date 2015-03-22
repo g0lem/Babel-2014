@@ -2,6 +2,9 @@
 
 
 
+
+
+
 void Combat::Init()
 {
 
@@ -106,7 +109,35 @@ void Combat::PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * e
 
 
 
+void Combat::SortThingsOut(Player * player, EnemyManager * enemies)
+{
 
+
+	std::vector<Enemy*>*m_enemies = enemies->GetEnemiesPointer();
+
+
+
+	for (GLuint i = 0; i < m_enemies->size(); i++)
+	{
+
+
+		for (GLuint j = 0; j < m_enemies->size(); j++)
+		{
+
+
+			if (glm::distance(m_enemies[0][i]->GetPAttributes()->position, player->GetPAttributes()->position) <
+				glm::distance(m_enemies[0][j]->GetPAttributes()->position, player->GetPAttributes()->position))
+				std::swap(m_enemies[0][i], m_enemies[0][j]);
+
+		}
+
+
+	}
+
+
+
+
+}
 
 
 
@@ -203,6 +234,89 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 
 
 
+void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, EnemyManager * enemies)
+{
+
+
+
+
+
+	GLuint k = 0;
+
+
+
+	for (GLuint i = 0; i < enemies->GetEnemiesPointer()->size(); i++)
+	{
+
+
+		Enemy * enemy = enemies->GetEnemiesPointer()[0][i];
+		PhysicalAttributes * attr = enemy->GetPAttributes();
+		TurnSystem * turns = enemy->GetTurnSystem();
+		AutoPath * a_path = enemy->GetAutoPath();
+		Stats * stats = enemy->GetStats();
+
+
+
+		if (k >= i)
+
+
+		{
+
+			if (attr->position == attr->target &&
+				enemy->GetTargetPosition() != vec2_0 &&
+				turns->GetTurns() >= stats->base_movement_speed)
+			{
+
+
+
+
+
+				a_path->GetPathfinder()->Init(g_obj, attr->position, enemy->GetTargetPosition());
+
+
+				a_path->Reset();
+
+
+
+				if (a_path->GetPathfinder()->GetPathFound())
+				{
+
+
+					a_path->SetPath(a_path->GetPathfinder()->GetPath());
+					a_path->Advance();
+
+
+				}
+
+
+			}
+
+
+
+			if (a_path->IsSet() && !a_path->FinishedWithoutLast() && turns->GetTurns() >= stats->base_movement_speed)
+			{
+
+
+
+				attr->target = a_path->GetStep();
+
+
+				if (glm::distance(attr->position, attr->target) <= attr->speed*ctrl->GetFpsPointer()->Delta())
+				{
+					k++;
+					a_path->Advance();
+					turns->Add(-stats->base_movement_speed);
+				}
+			}
+
+		}
+
+	}
+
+
+}
+
+
 
 void Combat::UpdateTurns(GameObject * g_obj, EnemyManager * enemies)
 {
@@ -218,14 +332,17 @@ void Combat::UpdateTurns(GameObject * g_obj, EnemyManager * enemies)
 
 
 
-void Combat::EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
+void Combat::EnemyRelated(Controller * ctrl, GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
 {
 
 
 
+
+	this->SortThingsOut(player, enemies);
 	this->SetEnemyTarget(player, enemies);
 	this->AquireEnemyTarget(player, enemies);
 	this->EnemyAttack(g_obj, player, enemies);
+	this->EnemyMovement(ctrl, g_obj, enemies);
 	this->UpdateTurns(g_obj, enemies);
 
 
@@ -234,15 +351,13 @@ void Combat::EnemyRelated(GameObject * g_obj, Player * player, EnemyManager * en
 
 
 
-void Combat::Action(GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
+void Combat::Action(Controller * ctrl,GameObject * g_obj, Player * player, EnemyManager * enemies, Map * map)
 {
 
 
 	
 	this->PlayerRelated(g_obj, player, enemies, map);
-
-
-	this->EnemyRelated(g_obj, player, enemies, map);
+	this->EnemyRelated(ctrl,g_obj, player, enemies, map);
 
 
 

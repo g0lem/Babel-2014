@@ -22,7 +22,7 @@
 #include <glfw3.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <algorithm>
 
 #include <string.h>
 #include <assert.h>

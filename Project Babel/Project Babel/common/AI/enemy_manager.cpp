@@ -11,6 +11,7 @@ void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObj
 
 
 
+	g_obj->GetCollisionMap()->ResetList();
 
 
 	for (GLuint i = 0; i < this->m_enemies->size(); i++)
@@ -51,6 +52,7 @@ void EnemyManager::Init(GLuint num, Map * map, GameObject * g_obj)
 
 	this->m_enemies = new std::vector<Enemy*>();
 	this->m_enemies->resize(num);
+
 
 
 

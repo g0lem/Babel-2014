@@ -128,10 +128,9 @@ void Enemy::Update(GameObject * g_obj, GLfloat delta)
 {
 
 
-	g_obj->GetCollisionMap()->GetTiles()[GLuint(this->p_attributes->position.x)][GLuint(this->p_attributes->position.y)] = 0;
-	this->p_attributes->Update(delta);
-	g_obj->GetCollisionMap()->GetTiles()[GLuint(this->p_attributes->position.x)][GLuint(this->p_attributes->position.y)] = 1;
 
+	this->p_attributes->Update(delta);
+	g_obj->GetCollisionMap()->AddToList(glm::ivec2(this->p_attributes->target));
 
 
 }
@@ -217,54 +216,6 @@ void Enemy::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 
-	if (this->p_attributes->position == this->p_attributes->target && 
-		this->target_position != vec2_0 && 
-		this->turn_system->GetTurns() >= this->m_stats->base_movement_speed)
-	{
-
-	
-
-
-
-		a_path->GetPathfinder()->Init(g_obj, this->p_attributes->position, this->target_position);
-
-
-		a_path->Reset();
-
-
-
-		if (a_path->GetPathfinder()->GetPathFound())
-		{
-
-
-			a_path->SetPath(a_path->GetPathfinder()->GetPath());
-
-
-			a_path->Advance();
-
-
-
-		}
-
-
-	}
-
-
-
-	if (a_path->IsSet() && !a_path->FinishedWithoutLast() && this->turn_system->GetTurns() >= this->m_stats->base_movement_speed)
-	{
-
-
-
-		this->p_attributes->target = a_path->GetStep();
-
-
-		if (glm::distance(p_attributes->position, p_attributes->target) <= p_attributes->speed*ctrl->GetFpsPointer()->Delta())
-		{
-			a_path->Advance();
-			this->turn_system->Add(-this->m_stats->base_movement_speed);
-		}
-	}
 
 
 

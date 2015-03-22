@@ -49,6 +49,8 @@ void FontManager::Render(Controller * ctrl)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
+   
+	//printf("%.2f\n", ctrl->returnFps());
 
 
 	this->UnbindRun();
