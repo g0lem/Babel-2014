@@ -74,7 +74,7 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 
 	u_data->ApplyMatrix(Translation(this->health_border_position)*Scale(this->health_border_size));
 
-	this->buttons_skins->Render(PANEL_HP_BORDER);
+	this->button_skins->Render(PANEL_HP_BORDER);
 
 
 	/*

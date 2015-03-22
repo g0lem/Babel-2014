@@ -27,10 +27,6 @@ class Player
 
 
 	PhysicalAttributes * attributes;
-
-
-
-
 	Stats * m_stats;
 	GLboolean attacking;
 	GLint target;
@@ -39,7 +35,7 @@ class Player
 
 
 
-
+	glm::vec2 last_wanted_position;
 	Item **items;
 
 
@@ -59,6 +55,7 @@ class Player
 
 
 	void UpdateUI(GameObject * g_obj);
+	GLboolean HasMovedATile(Controller * ctrl);
 
 
 public:

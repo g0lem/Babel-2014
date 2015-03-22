@@ -479,7 +479,7 @@
       <Filter>common\Game Object</Filter>
     </ClInclude>
     <ClInclude Include="common\Delta\auto_path.hpp">
-      <Filter>common\Game Object</Filter>
+      <Filter>common\Delta</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

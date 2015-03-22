@@ -5,10 +5,10 @@
 #define PANEL_PORTRAIT 0
 #define PANEL_LEVEL 1
 #define PANEL_HP 2
-#define PANEL_HP_BORDER 2.5
-#define PANEL_ENERGY 3
-#define PANEL_STAIRS 4
-#define PANEL_ONE 5
+#define PANEL_HP_BORDER 3
+#define PANEL_ENERGY 4
+#define PANEL_STAIRS 5
+#define PANEL_ONE 6
 
 
 

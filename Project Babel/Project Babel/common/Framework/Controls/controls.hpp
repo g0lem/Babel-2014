@@ -106,7 +106,7 @@ class Controller
 
 
 	static void cursor_callback(GLFWwindow* window, GLdouble x, GLdouble y);
-
+	static void resize_callback(GLFWwindow* window, GLint width, GLint height);
 
 
 	static void InitCallbacks();

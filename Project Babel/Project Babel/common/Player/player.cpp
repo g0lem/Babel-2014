@@ -21,6 +21,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->m_stats = new Stats();
 
 
+	this->last_wanted_position = glm::vec2(0, 0);
 
 
 	this->LoadItems(g_obj);
@@ -60,6 +61,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
+	if (attributes->target == attributes->position)
 		Move::TileMove(ctrl, g_obj, attributes->target);
 		this->attributes->Update(ctrl->GetFpsPointer()->Delta());
 		this->HandleAutoPath(ctrl, g_obj);
@@ -69,8 +71,14 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-		if (glm::distance(attributes->position, attributes->target) > attributes->speed*ctrl->GetFpsPointer()->Delta())
+		if (HasMovedATile(ctrl))
+			g_obj->GetTurnSystem()->ComputeMovement(this->m_stats->base_movement_speed);
+		else
+			if (attributes->target != attributes->position)
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
+
+
+		
 
 
 
@@ -168,7 +176,7 @@ GLboolean Player::CheckAdvance(Controller * ctrl, GameObject * g_obj)
 {
 
 
-	GLboolean advance = attributes->position == attributes->target;
+	GLboolean advance = true;
 
 
 
@@ -220,31 +228,14 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 	
-	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && this->CheckAdvance(ctrl,g_obj))
-		{
+	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && this->CheckAdvance(ctrl, g_obj))
+	{
+
+		this->last_wanted_position = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), attributes->scale);
+		a_path->Start(g_obj, attributes->position, last_wanted_position);
 
 
-		a_path->GetPathfinder()->Init(g_obj, this->attributes->position, Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), this->attributes->scale));
-
-
-		a_path->Reset();
-
-
-		if (a_path->GetPathfinder()->GetPathFound())
-		{
-
-
-			a_path->SetPath(a_path->GetPathfinder()->GetPath());
-
-
-			a_path->Advance();
-
-
-
-		}
-
-
-		}
+	}
 	
 	
 
@@ -263,7 +254,7 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		if (glm::distance(attributes->position, attributes->target) <= attributes->speed*ctrl->GetFpsPointer()->Delta())
 		{
 			a_path->Advance();
-			g_obj->GetTurnSystem()->ComputeMovement(1.0f);
+			a_path->Start(g_obj, attributes->target, last_wanted_position);
 		}
 
 
@@ -283,6 +274,7 @@ void Player::LoadStats()
 
 
 	this->m_stats->GetHp()->Buff(20);
+	this->m_stats->base_movement_speed = 1.0f;
 
 
 }
@@ -296,10 +288,21 @@ void Player::UpdateUI(GameObject * g_obj)
 
 	g_obj->GetPanelState()->hp = this->m_stats->GetHp()->hp;
 	g_obj->GetPanelState()->max_hp = this->m_stats->GetHp()->max_hp;
+	
+
 
 }
 
 
 
+GLboolean Player::HasMovedATile(Controller * ctrl)
+{
+
+
+	GLfloat distance = glm::distance(attributes->position, attributes->target);
+	return distance <= attributes->speed*ctrl->GetFpsPointer()->Delta() && distance > 0;
+
+
+}
 
 

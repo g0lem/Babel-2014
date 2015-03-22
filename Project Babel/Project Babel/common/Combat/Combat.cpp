@@ -179,8 +179,8 @@ void Combat::AquireEnemyTarget(Player * player, EnemyManager * enemies)
 		Enemy * current_enemy = enemies->GetEnemiesPointer()[0][i];
 
 
-		if (glm::distance(player->GetPAttributes()->position, current_enemy->GetPAttributes()->position))
-			current_enemy->SetTargetPosition(player->GetPAttributes()->position);
+		if (glm::distance(player->GetPAttributes()->position, current_enemy->GetPAttributes()->position) < MIN_AQUIRE_DISTANCE)
+			current_enemy->SetTargetPosition(player->GetPAttributes()->target);
 		else
 			current_enemy->SetTargetPosition(vec2_0);
 
@@ -234,7 +234,7 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 
 
 
-void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, EnemyManager * enemies)
+void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, Player * player, EnemyManager * enemies)
 {
 
 
@@ -287,6 +287,9 @@ void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, EnemyManager *
 
 
 				}
+				else
+					turns->Reset();
+
 
 
 			}
@@ -305,7 +308,7 @@ void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, EnemyManager *
 				{
 					k++;
 					a_path->Advance();
-					turns->Add(-stats->base_movement_speed);
+					turns->ComputeMovement(-stats->base_movement_speed);
 				}
 			}
 
@@ -337,13 +340,12 @@ void Combat::EnemyRelated(Controller * ctrl, GameObject * g_obj, Player * player
 
 
 
-
+	this->UpdateTurns(g_obj, enemies);
 	this->SortThingsOut(player, enemies);
 	this->SetEnemyTarget(player, enemies);
 	this->AquireEnemyTarget(player, enemies);
 	this->EnemyAttack(g_obj, player, enemies);
-	this->EnemyMovement(ctrl, g_obj, enemies);
-	this->UpdateTurns(g_obj, enemies);
+	this->EnemyMovement(ctrl, g_obj, player, enemies);
 
 
 }

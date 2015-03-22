@@ -136,10 +136,9 @@ void Controller::InitCallbacks()
 
 
 	glfwSetKeyCallback(Controller::window, Controller::key_callback);
-
 	glfwSetMouseButtonCallback(Controller::window, Controller::mouse_callback);
-
 	glfwSetCursorPosCallback(Controller::window, Controller::cursor_callback);
+	glfwSetWindowSizeCallback(Controller::window, Controller::resize_callback);
 
 
 }
@@ -283,6 +282,16 @@ void Controller::cursor_callback(GLFWwindow* window, GLdouble x, GLdouble y)
 	Controller::mouse_position = glm::vec2(x, y);
 
 
+
+}
+
+
+void Controller::resize_callback(GLFWwindow* window, GLint width, GLint height)
+{
+
+	glViewport(0, 0, width, height);
+	Controller::window_width = width;
+	Controller::window_height = height;
 
 }
 
