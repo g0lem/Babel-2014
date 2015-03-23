@@ -5,6 +5,7 @@
 #define PANEL_PORTRAIT 0
 #define PANEL_LEVEL 1
 #define PANEL_HP 2
+#define PANEL_HP_BORDER 2.5
 #define PANEL_ENERGY 3
 #define PANEL_STAIRS 4
 #define PANEL_ONE 5
@@ -23,6 +24,9 @@ class PanelRender
 
 	glm::vec2 health_position = glm::vec2(154, 0);
 	glm::vec2 health_size = glm::vec2(308, 43);
+
+	glm::vec2 health_border_position = glm::vec2(154, 0);
+	glm::vec2 health_border_size = glm::vec2(308, 43);
 
 	glm::vec2 level_position = glm::vec2(120, 120);
 	glm::vec2 level_size = glm::vec2(38, 38);

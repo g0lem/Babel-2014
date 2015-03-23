@@ -8,6 +8,9 @@ void PanelRender::Init()
 	health_position = glm::vec2(154, 0);
 	health_size = glm::vec2(308, 43);
 
+	health_border_position = glm::vec2(154, 0);
+	health_border_size = glm::vec2(308, 43);
+
 	level_position = glm::vec2(120, 120);
 	level_size = glm::vec2(38, 38);
 
@@ -29,16 +32,17 @@ void PanelRender::LoadButtonsSprite()
 {
 	this->button_skins = new Sprite();
 
-	char **tex_str = new char*[6];
+	char **tex_str = new char*[7];
 
 	tex_str[PANEL_PORTRAIT] = "portrait.png";
 	tex_str[PANEL_LEVEL] = "level.png";
 	tex_str[PANEL_HP] = "health.png";
+	tex_str[PANEL_HP_BORDER] = "health_border.png";
 	tex_str[PANEL_ENERGY] = "energy.png";
 	tex_str[PANEL_STAIRS] = "stairs.png";
 	tex_str[PANEL_ONE] = "floor_1.png";
 
-	this->button_skins->Load(6, "data/UI/CPanel/", tex_str);
+	this->button_skins->Load(7, "data/UI/CPanel/", tex_str);
 }
 
 
@@ -68,7 +72,9 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 	this->button_skins->Render(PANEL_HP);
 
 
+	u_data->ApplyMatrix(Translation(this->health_border_position)*Scale(this->health_border_size));
 
+	this->buttons_skins->Render(PANEL_HP_BORDER);
 
 
 	/*
