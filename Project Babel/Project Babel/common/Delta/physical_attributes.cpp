@@ -43,3 +43,16 @@ void PhysicalAttributes::Update(GLfloat delta)
 }
 
 
+
+GLboolean PhysicalAttributes::HasMovedATile(GLfloat delta)
+{
+
+
+	GLfloat distance = glm::distance(position, target);
+	return distance < speed*delta && distance > 0;
+
+
+}
+
+
+

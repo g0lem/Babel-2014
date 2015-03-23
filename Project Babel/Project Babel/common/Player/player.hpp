@@ -14,6 +14,32 @@
 
 
 
+
+
+class EnemiesNear
+{
+
+
+	GLint counter;
+
+
+public:
+
+
+	inline EnemiesNear(){ this->Init(); }
+	inline void Init(){ this->counter = 0; }
+	inline void Add(){ this->counter++; }
+	inline void Remove(){ this->counter--; }
+	inline GLboolean HasFriends(){ return this->counter > 0; }
+
+
+
+};
+
+
+
+
+
 class Player
 {
 
@@ -37,6 +63,7 @@ class Player
 
 	glm::vec2 last_wanted_position;
 	Item **items;
+	EnemiesNear * e_near;
 
 
 
@@ -55,11 +82,9 @@ class Player
 
 
 	void UpdateUI(GameObject * g_obj);
-	GLboolean HasMovedATile(Controller * ctrl);
 
 
 public:
-
 
 
 
@@ -70,6 +95,7 @@ public:
 	inline void SetAttackingState(GLboolean attacking){ this->attacking = attacking; }
 	inline GLint GetTarget(){ return this->target; }
 	inline void SetTarget(GLint target){ this->target = target; }
+	inline EnemiesNear * GetEnemiesNear(){ return this->e_near; }
 	inline PhysicalAttributes*GetPAttributes(){ return this->attributes; }
 	inline Stats * GetStats(){ return this->m_stats; }
 	inline Item**GetItems(){ return this->items; }

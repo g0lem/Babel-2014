@@ -19,6 +19,7 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->a_path = new AutoPath();
 	this->m_dir = new Direction();
 	this->m_stats = new Stats();
+	this->e_near = new EnemiesNear();
 
 
 	this->last_wanted_position = glm::vec2(0, 0);
@@ -61,7 +62,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-	if (attributes->target == attributes->position)
+	if (attributes->HasReachedTarget())
 		Move::TileMove(ctrl, g_obj, attributes->target);
 		this->attributes->Update(ctrl->GetFpsPointer()->Delta());
 		this->HandleAutoPath(ctrl, g_obj);
@@ -71,10 +72,10 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 
-		if (HasMovedATile(ctrl))
+		if (attributes->HasMovedATile(ctrl->GetFpsPointer()->Delta()))
 			g_obj->GetTurnSystem()->ComputeMovement(this->m_stats->base_movement_speed);
 		else
-			if (attributes->target != attributes->position)
+			if (!attributes->HasReachedTarget())
 			this->walk_animation->Update(16.0f, ctrl->GetFpsPointer()->Delta());
 
 
@@ -83,10 +84,6 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 
 		this->m_sprite[m_dir->Compute(DIR_TYPE_4, attributes->position, attributes->target)]->Render(this->walk_animation->GetIFrames());
-
-
-
-
 		this->UpdateUI(g_obj);
 
 
@@ -251,7 +248,7 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 		this->attributes->target = a_path->GetStep();
 		
 
-		if (glm::distance(attributes->position, attributes->target) <= attributes->speed*ctrl->GetFpsPointer()->Delta())
+		if (attributes->HasMovedATile(ctrl->GetFpsPointer()->Delta()) || attributes->HasReachedTarget())
 		{
 			a_path->Advance();
 			a_path->Start(g_obj, attributes->target, last_wanted_position);
@@ -294,15 +291,5 @@ void Player::UpdateUI(GameObject * g_obj)
 }
 
 
-
-GLboolean Player::HasMovedATile(Controller * ctrl)
-{
-
-
-	GLfloat distance = glm::distance(attributes->position, attributes->target);
-	return distance <= attributes->speed*ctrl->GetFpsPointer()->Delta() && distance > 0;
-
-
-}
 
 

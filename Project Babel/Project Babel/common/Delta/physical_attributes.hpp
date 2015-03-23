@@ -19,13 +19,13 @@ public:
 
 
 	inline PhysicalAttributes(){ this->Init(); }
-
-
 	void Init();
 
 
 
 	void Update(GLfloat delta);
+	GLboolean HasMovedATile(GLfloat delta);
+	inline GLboolean HasReachedTarget(){ return position == target; }
 
 
 };

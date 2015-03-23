@@ -4,7 +4,6 @@
 
 
 
-
 void Combat::Init()
 {
 
@@ -35,7 +34,7 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 		{
 
 
-
+			if (player->GetTarget() == NO_TARGET)
 			player->SetTarget(i);
 
 
@@ -73,11 +72,7 @@ void Combat::PlayerAttack(GameObject * g_obj, Player * player, EnemyManager *ene
 
 
 		enemies->GetEnemiesPointer()[0][player->GetTarget()]->GetStats()->GetHp()->Damage(player->GetItems()[ITEM_SLOT_WEAPON]->attack);
-  
-       
 		player->SetAttackingState(false);
-
-
 		g_obj->GetTurnSystem()->ComputeAttack(player->GetItems()[ITEM_SLOT_WEAPON]->attack_speed);
 
 
@@ -98,8 +93,6 @@ void Combat::PlayerRelated(GameObject * g_obj, Player * player, EnemyManager * e
 
 
 	this->SetPlayerTarget(player, enemies);
-
-
 	this->PlayerAttack(g_obj, player, enemies);
 
 
@@ -128,6 +121,7 @@ void Combat::SortThingsOut(Player * player, EnemyManager * enemies)
 			if (glm::distance(m_enemies[0][i]->GetPAttributes()->position, player->GetPAttributes()->position) <
 				glm::distance(m_enemies[0][j]->GetPAttributes()->position, player->GetPAttributes()->position))
 				std::swap(m_enemies[0][i], m_enemies[0][j]);
+
 
 		}
 
@@ -179,10 +173,18 @@ void Combat::AquireEnemyTarget(Player * player, EnemyManager * enemies)
 		Enemy * current_enemy = enemies->GetEnemiesPointer()[0][i];
 
 
+
 		if (glm::distance(player->GetPAttributes()->position, current_enemy->GetPAttributes()->position) < MIN_AQUIRE_DISTANCE)
+		{
 			current_enemy->SetTargetPosition(player->GetPAttributes()->target);
+			player->GetEnemiesNear()->Add();
+		}
 		else
+		{
 			current_enemy->SetTargetPosition(vec2_0);
+			player->GetEnemiesNear()->Remove();
+		}
+
 
 
 
@@ -211,13 +213,13 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 		{
 
 
-			while (current_enemy->GetTurnSystem()->GetTurns() >= current_enemy->GetStats()->base_attack_speed)
+			while (current_enemy->GetTurnSystem()->GetTurns() >= 1.0f/current_enemy->GetStats()->base_attack_speed)
 			{
 
 
 				current_enemy->GetDirection()->Compute(DIR_TYPE_4, current_enemy->GetPAttributes()->position, current_enemy->GetTargetPosition());
 				player->GetStats()->GetHp()->Damage(current_enemy->GetStats()->base_attack);
-				current_enemy->GetTurnSystem()->Add(-current_enemy->GetStats()->base_attack_speed);
+				current_enemy->GetTurnSystem()->ComputeAttack(-current_enemy->GetStats()->base_attack_speed);
 
 			}
 
@@ -234,14 +236,16 @@ void Combat::EnemyAttack(GameObject * g_obj, Player * player, EnemyManager *enem
 
 
 
+
+
 void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, Player * player, EnemyManager * enemies)
 {
 
 
 
 
-
-	GLuint k = 0;
+	if (player->GetPAttributes()->HasMovedATile(ctrl->GetFpsPointer()->Delta()))
+		enemies->GetEnemiesPointer()[0][0]->GetTurnLogic()->Advance();
 
 
 
@@ -257,23 +261,19 @@ void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, Player * playe
 
 
 
-		if (k >= i)
 
-
+		if (!enemy->GetTurnLogic()->IsUseless())
 		{
 
 			if (attr->position == attr->target &&
 				enemy->GetTargetPosition() != vec2_0 &&
-				turns->GetTurns() >= stats->base_movement_speed)
+				turns->GetTurns() >= 1.0f / stats->base_movement_speed)
 			{
 
 
 
 
-
 				a_path->GetPathfinder()->Init(g_obj, attr->position, enemy->GetTargetPosition());
-
-
 				a_path->Reset();
 
 
@@ -288,32 +288,39 @@ void Combat::EnemyMovement(Controller * ctrl, GameObject * g_obj, Player * playe
 
 				}
 				else
+				{
+					enemy->GetTurnLogic()->Reset();
 					turns->Reset();
 
-
+				}
 
 			}
 
 
 
-			if (a_path->IsSet() && !a_path->FinishedWithoutLast() && turns->GetTurns() >= stats->base_movement_speed)
+			if (a_path->IsSet() && !a_path->FinishedWithoutLast() && turns->GetTurns() >= 1.0f / stats->base_movement_speed)
 			{
 
 
 
 				attr->target = a_path->GetStep();
+				g_obj->GetCollisionMap()->AddToList(glm::ivec2(attr->target));
 
+	
 
-				if (glm::distance(attr->position, attr->target) <= attr->speed*ctrl->GetFpsPointer()->Delta())
+				if (attr->HasMovedATile(ctrl->GetFpsPointer()->Delta()))
 				{
-					k++;
-					a_path->Advance();
+			
 					turns->ComputeMovement(-stats->base_movement_speed);
+					enemy->GetTurnLogic()->Advance();
 				}
+
+
+
 			}
 
-		}
 
+		}
 	}
 
 

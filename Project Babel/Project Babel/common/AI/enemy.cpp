@@ -19,7 +19,7 @@ void Enemy::Init(EnemyData * data)
 	this->last_position = vec2_0;
 	this->target_position = vec2_0;
 	this->target = NO_TARGET;
-
+	this->t_logic = new TurnLogic();
 
 
 

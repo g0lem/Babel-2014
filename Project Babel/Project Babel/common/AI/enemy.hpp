@@ -5,6 +5,29 @@
 
 
 
+class TurnLogic
+{
+
+
+	GLint counter;
+
+
+public:
+
+
+	inline TurnLogic(){ this->Init(); }
+	inline void Init(){ this->counter = 0; }
+	inline GLboolean IsUseless(){ return this->counter == 0; }
+	inline void Advance(){ this->counter++; }
+	inline void Reset(){ this->counter = 0; }
+
+
+
+};
+
+
+
+
 class Enemy
 {
 
@@ -18,12 +41,12 @@ class Enemy
 
 
 
+	TurnLogic * t_logic;
 	glm::vec2 last_position;
 	glm::vec2 target_position;
 	GLint target;
-
-
 	TurnSystem * turn_system;
+
 
 
 	void LoadSprites(EnemyData * data);
@@ -33,8 +56,6 @@ class Enemy
 
 	void RenderMisc(ScreenUniformData * u_data, GameObject * g_obj);
 	void RenderHpBar(ScreenUniformData * u_data, GameObject * g_obj);
-
-
 	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
 
 
@@ -49,6 +70,7 @@ public:
 	inline glm::vec2 GetLastPosition(){ return this->last_position; }
 	inline glm::vec2 GetTargetPosition(){ return this->target_position; }
 	inline void SetTargetPosition(glm::vec2 target_position){ this->target_position = target_position; }
+	inline TurnLogic *GetTurnLogic(){ return this->t_logic; }
 
 
 
