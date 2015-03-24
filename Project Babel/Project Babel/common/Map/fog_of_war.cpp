@@ -8,7 +8,7 @@
 
 char *fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 {
-	int SIZE = g_obj->GetCollisionMap()->GetSize().x;
+	int SIZE = g_obj->GetCollisionMap()->GetSize().y;
 
 	char *s_map; 
 
