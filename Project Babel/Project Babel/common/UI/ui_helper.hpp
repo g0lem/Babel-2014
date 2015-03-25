@@ -26,6 +26,9 @@ struct BackpackProperties
 	glm::vec2 top_button_offset;
 	glm::vec2 button_offset;
 	glm::vec2 button_size;
+
+	glm::vec2 tooltip_size;
+	glm::vec2 tooltip_offset;
 };
 
 class ActionProperties

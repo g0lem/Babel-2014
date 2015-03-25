@@ -29,12 +29,11 @@ void CharPanRender::Init()
 
 	this->top_button_offset = glm::vec2(12.f, 0);
 
-
 	this->position = glm::vec2(530, 150);
 
+	this->tooltip_size = glm::vec2(70, 65);
 
-
-
+	this->tooltip_offset = vec2_0;
 
 
 	this->LoadSprites();
@@ -58,18 +57,19 @@ void CharPanRender::LoadBackgroundSprite()
 
 
 	this->background = new Sprite();
-
+	this->tooltip = new Sprite();
 
 	char ** tex_str = new char*[3];
-
+	char ** tex_str_tt = new char*[1];
 
 	tex_str[0] = "background.png";
 	tex_str[1] = "button_background.png";
 	tex_str[2] = "top_panel.png";
 
+	tex_str_tt[0] = "button_background.png";
 
 	this->background->Load(3, "data/UI/Backpack/", tex_str);
-
+	this->tooltip->Load(1, "data/UI/Backpack/", tex_str_tt);
 
 }
 
@@ -259,9 +259,26 @@ void CharPanRender::RenderButtons(Controller * ctrl, ScreenUniformData * u_data,
 
 		g_obj->GetUIState()->GetCharPanState()->GetBackpackState()->GetButtonStates()[i] = UI_helper::GetButtonAction(ctrl, this->m_button[i]->GetProperties());
 
+		
 
 		this->m_button[i]->Render(ctrl, u_data, this->button_skins, 0,
 			g_obj->GetUIState()->GetCharPanState()->GetBackpackState()->GetButtonStates()[i]);
+
+		
+	}
+
+	// Tooltip
+
+	for (int i = 0; i < NUM_BUTTONS; i++)
+	{
+
+		if (g_obj->GetUIState()->GetCharPanState()->GetBackpackState()->GetButtonStates()[i] == HOVER)
+		{
+			this->tooltip_offset = ctrl->GetMousePosition();
+			u_data->ApplyMatrix(Translation(this->tooltip_offset)*Scale(this->tooltip_size));
+			this->tooltip->Render(0);
+		}
+
 
 
 	}
@@ -279,6 +296,8 @@ void CharPanRender::RenderTopButtons(Controller *ctrl, ScreenUniformData *u_data
 	for (int i = 0; i < TABS; i++)
 	{
 		g_obj->GetUIState()->GetCharPanState()->GetTabsState()->GetTabsState()[i] = UI_helper::GetButtonAction(ctrl, this->t_button[i]->GetProperties());
+
+
 
 
 		this->t_button[i]->Render(ctrl, u_data, this->button_skins, i + 1,

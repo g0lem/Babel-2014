@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
@@ -72,22 +68,29 @@
     <Filter Include="common\UI">
       <UniqueIdentifier>{1ceeee64-bac9-436d-9903-2a58e136abdc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="headers">
-      <UniqueIdentifier>{1030a3ff-ff15-493e-81a1-9663b08aa0d0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common\Managers">
       <UniqueIdentifier>{a4d0b330-6060-4766-813b-c27661a10bc6}</UniqueIdentifier>
     </Filter>
     <Filter Include="common\Framework\Font">
       <UniqueIdentifier>{894e97de-a6de-4d04-8e22-853fe4a542ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Precompiled Headers">
+      <UniqueIdentifier>{1030a3ff-ff15-493e-81a1-9663b08aa0d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="&quot;Da&quot; Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="common\Events">
+      <UniqueIdentifier>{7037b39c-3d20-44de-817d-be7a77306ab3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>"Da" Source</Filter>
     </ClCompile>
     <ClCompile Include="common.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>"Da" Source</Filter>
     </ClCompile>
     <ClCompile Include="common\AI\enemy.cpp">
       <Filter>common\AI</Filter>
@@ -263,13 +266,16 @@
     <ClCompile Include="common\Delta\auto_path.cpp">
       <Filter>common\Delta</Filter>
     </ClCompile>
+    <ClCompile Include="common\Events\event_handler.cpp">
+      <Filter>common\Events</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="common.hpp">
-      <Filter>Source Files</Filter>
+      <Filter>"Da" Source</Filter>
     </ClInclude>
     <ClInclude Include="common\AI\enemy.hpp">
       <Filter>common\AI</Filter>
@@ -374,43 +380,43 @@
       <Filter>common\Framework\Texture</Filter>
     </ClInclude>
     <ClInclude Include="common\Window Handler.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\AI.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Combat.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Delta.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Framework.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Game Object.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Item.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Map.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Player.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Stats.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Turns.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\UI.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\manager.hpp">
-      <Filter>headers</Filter>
+      <Filter>Precompiled Headers</Filter>
     </ClInclude>
     <ClInclude Include="common\Manager\font_manager.hpp">
       <Filter>common\Managers</Filter>
@@ -480,6 +486,12 @@
     </ClInclude>
     <ClInclude Include="common\Delta\auto_path.hpp">
       <Filter>common\Delta</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Events.hpp">
+      <Filter>Precompiled Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Events\event_handler.hpp">
+      <Filter>common\Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

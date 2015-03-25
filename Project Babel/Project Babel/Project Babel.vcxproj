@@ -23,6 +23,7 @@
     <ClCompile Include="common\Delta\one_direction.cpp" />
     <ClCompile Include="common\Delta\pathfinder.cpp" />
     <ClCompile Include="common\Delta\physical_attributes.cpp" />
+    <ClCompile Include="common\Events\event_handler.cpp" />
     <ClCompile Include="common\Framework\Controls\controls.cpp" />
     <ClCompile Include="common\Framework\Font\text2D.cpp" />
     <ClCompile Include="common\Framework\Font\text_render.cpp" />
@@ -88,6 +89,8 @@
     <ClInclude Include="common\Delta\one_direction.hpp" />
     <ClInclude Include="common\Delta\pathfinder.hpp" />
     <ClInclude Include="common\Delta\physical_attributes.hpp" />
+    <ClInclude Include="common\Events.hpp" />
+    <ClInclude Include="common\Events\event_handler.hpp" />
     <ClInclude Include="common\Framework.hpp" />
     <ClInclude Include="common\Framework\Controls\controls.hpp" />
     <ClInclude Include="common\Framework\Database\database.hpp" />

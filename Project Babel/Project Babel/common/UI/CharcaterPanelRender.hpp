@@ -17,7 +17,7 @@ class CharPanRender : public BackpackProperties
 
 
 
-	Sprite * button_skins, * item_skins, * background;
+	Sprite * button_skins, *item_skins, *background, *tooltip;
 
 	Button ** m_button, ** t_button;
 
