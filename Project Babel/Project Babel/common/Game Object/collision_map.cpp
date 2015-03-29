@@ -41,7 +41,7 @@ void CollisionMap::CreateOutOfMap(Tilemap * map)
 		{
 
 
-			this->tiles[i][j] = (map->GetTiles()[i][j] >= SOLID_LIMIT);
+			this->tiles[i][j] = (map->GetTiles()[i][j] >= SOLID_LIMIT || map->GetTiles()[i][j]==DOOR_BLOCK);
 
 
 		}

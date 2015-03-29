@@ -46,9 +46,9 @@
 #include "common/Delta.hpp"
 #include "common/AI.hpp"
 #include "common/UI.hpp"
+#include "common/Events.hpp"
 #include "common/Player.hpp"
 #include "common/Combat.hpp"
-#include "common/Events.hpp"
 #include "common/manager.hpp"
 
 #include "common/Window Handler.hpp"

@@ -4,7 +4,7 @@
 void Enemy::Init(EnemyData * data)
 {
 
-
+	
 
 	this->a_path = new AutoPath();
 	this->turn_system = new TurnSystem();
@@ -12,6 +12,7 @@ void Enemy::Init(EnemyData * data)
 
 
 	this->LoadPhysicalAttributes();
+	
 	this->LoadStats(data);
 	this->LoadSprites(data);
 
@@ -29,35 +30,38 @@ void Enemy::Init(EnemyData * data)
 
 void Enemy::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
-
-
-	this->last_position = this->p_attributes->position;
-
-
-
-	u_data->ApplyMatrix(Translation(p_attributes->position * p_attributes->scale + g_obj->GetScroller()->GetOffset())*
-		Scale(p_attributes->scale));
-
-
-	u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
+	if (g_obj->GetEnemyLoader()->GetData()->size() > 0)
+	{
+		this->last_position = this->p_attributes->position;
 
 
 
-	GLuint dir = m_dir->Compute(DIR_TYPE_4, p_attributes->position, p_attributes->target);
+		u_data->ApplyMatrix(Translation(p_attributes->position * p_attributes->scale + g_obj->GetScroller()->GetOffset())*
+			Scale(p_attributes->scale));
+
+
+		u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
 
 
 
-	if (glm::distance(p_attributes->position, p_attributes->target) > p_attributes->speed*ctrl->GetFpsPointer()->Delta())
-		this->animations[dir]->Update(16.0f, ctrl->GetFpsPointer()->Delta());
-
-	
-
-	this->Update(g_obj, ctrl->GetFpsPointer()->Delta());
-	this->HandleAutoPath(ctrl, g_obj);
-	this->m_sprites[dir]->Render(this->animations[dir]->GetIFrames());
-	this->RenderMisc(u_data, g_obj);
+		GLuint dir = m_dir->Compute(DIR_TYPE_4, p_attributes->position, p_attributes->target);
 
 
+
+		if (glm::distance(p_attributes->position, p_attributes->target) > p_attributes->speed*ctrl->GetFpsPointer()->Delta())
+			this->animations[dir]->Update(16.0f, ctrl->GetFpsPointer()->Delta());
+
+
+
+		this->Update(g_obj, ctrl->GetFpsPointer()->Delta());
+
+
+		this->HandleAutoPath(ctrl, g_obj);
+
+		this->m_sprites[dir]->Render(this->animations[dir]->GetIFrames());
+		this->RenderMisc(u_data, g_obj);
+
+	}
 }
 
 

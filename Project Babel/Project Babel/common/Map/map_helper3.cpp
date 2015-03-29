@@ -317,13 +317,42 @@ void Map::AddDoors()
 	}
 
 
-
+	this->AddTablets();
+	this->AddPotions();
 
 }
 
 
+void Map::AddTablets()
+{
+	srand(time(NULL));
+	int x, y;
+	int tablets_added=0;
+	while (tablets_added < 1)
+	{
+		x = rand() % (tilemap->GetSize().x);
+		y = rand() % (tilemap->GetSize().y);
+		if (this->tilemap->GetTiles()[x][y] == 0)
+		{
+			tilemap->GetTiles()[x][y] = TABLET;
+			tablets_added++;
+		}
+	}
+}
 
-
-
-
+void Map::AddPotions()
+{
+	int x, y;
+	int potions_added=0, potions = rand()%2+1;
+	while (potions_added <= potions)
+	{
+		x = rand() % (tilemap->GetSize().x);
+		y = rand() % (tilemap->GetSize().y);
+		if (this->tilemap->GetTiles()[x][y] == 0)
+		{
+			tilemap->GetTiles()[x][y] = HEALTH_POTION;
+			potions_added++;
+		}
+	}
+}
 

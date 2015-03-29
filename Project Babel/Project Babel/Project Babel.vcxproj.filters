@@ -269,6 +269,9 @@
     <ClCompile Include="common\Events\event_handler.cpp">
       <Filter>common\Events</Filter>
     </ClCompile>
+    <ClCompile Include="common\Map\fog_of_war.cpp">
+      <Filter>common\Map</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -492,6 +495,9 @@
     </ClInclude>
     <ClInclude Include="common\Events\event_handler.hpp">
       <Filter>common\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Map\fog_of_war.hpp">
+      <Filter>common\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

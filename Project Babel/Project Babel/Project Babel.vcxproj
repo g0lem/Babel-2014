@@ -52,6 +52,7 @@
     <ClCompile Include="common\Manager\font_manager.cpp" />
     <ClCompile Include="common\Manager\game_render.cpp" />
     <ClCompile Include="common\Manager\sprite_manager.cpp" />
+    <ClCompile Include="common\Map\fog_of_war.cpp" />
     <ClCompile Include="common\Map\graph.cpp" />
     <ClCompile Include="common\Map\map.cpp" />
     <ClCompile Include="common\Map\map_helper1.cpp" />
@@ -126,6 +127,7 @@
     <ClInclude Include="common\Manager\sprite_manager.hpp" />
     <ClInclude Include="common\Map.hpp" />
     <ClInclude Include="common\Map\block.hpp" />
+    <ClInclude Include="common\Map\fog_of_war.hpp" />
     <ClInclude Include="common\Map\graph.hpp" />
     <ClInclude Include="common\Map\map.hpp" />
     <ClInclude Include="common\Map\room.hpp" />

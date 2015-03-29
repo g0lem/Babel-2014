@@ -20,7 +20,8 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->m_dir = new Direction();
 	this->m_stats = new Stats();
 	this->e_near = new EnemiesNear();
-
+	this->h_event = new EventHandler();
+	h_event->Init(current_tilemap);
 
 	this->last_wanted_position = glm::vec2(0, 0);
 
@@ -65,7 +66,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 	if (attributes->HasReachedTarget())
 		Move::TileMove(ctrl, g_obj, attributes->target);
 		this->attributes->Update(ctrl->GetFpsPointer()->Delta());
-		this->HandleAutoPath(ctrl, g_obj);
+		this->HandleAutoPath(ctrl, g_obj, current_map);
 		Move::UpdateScroller(ctrl, g_obj, attributes->position, attributes->scale);
 
 
@@ -214,15 +215,16 @@ GLboolean Player::CheckAdvance(Controller * ctrl, GameObject * g_obj)
 }
 
 
-void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
+void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj, Map *current_map)
 {
 
 
 
-
-
+	if (ctrl->GetKeyOnce(GLFW_KEY_E))
+	{
+		h_event->TriggerEvent(attributes->position, current_map, g_obj, this->GetStats());
+	}
 	
-
 
 	
 	if (ctrl->GetMouseButtonOnce(GLFW_MOUSE_BUTTON_LEFT) && this->CheckAdvance(ctrl, g_obj))
@@ -230,8 +232,9 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 		this->last_wanted_position = Move::GetMapPosition(g_obj, ctrl->GetMousePosition(), attributes->scale);
 		a_path->Start(g_obj, attributes->position, last_wanted_position);
-
-
+	
+		//if (current_map->GetTilemap()->GetTiles[attributes->position.x][attributes->position.y] == TABLET_ID)
+		//h_event->DisplayTablet(TABLET_ID);
 	}
 	
 	
@@ -257,8 +260,8 @@ void Player::HandleAutoPath(Controller * ctrl, GameObject * g_obj)
 
 
 	}
-
-
+	if (a_path->Finished())
+		a_path->GetPathfinder()->Delete();
 
 
 }

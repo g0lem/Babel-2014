@@ -33,7 +33,7 @@ private:
 
 	bool searchstart;
 
-	void Delete();
+
 
 
 
@@ -41,7 +41,7 @@ public:
 std::vector <glm::vec2> GetPath();
 void Init(GameObject *g_obj, glm::vec2 start, glm::vec2 finish);
 inline bool GetPathFound(){ return this->PathFound; }
-
+	void Delete();
 };
 
 

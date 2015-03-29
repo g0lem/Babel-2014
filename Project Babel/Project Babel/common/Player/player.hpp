@@ -48,7 +48,7 @@ class Player
 	AutoPath * a_path;
 	Sprite ** m_sprite;
 	Animation *walk_animation;
-
+	EventHandler *h_event;
 
 
 
@@ -65,11 +65,10 @@ class Player
 	Item **items;
 	EnemiesNear * e_near;
 
+	
 
 
-
-
-	void HandleAutoPath(Controller * ctrl, GameObject * g_obj);
+	void HandleAutoPath(Controller * ctrl, GameObject * g_obj, Map *current_map);
 	GLboolean CheckAdvance(Controller * ctrl, GameObject * g_obj);
 
 
