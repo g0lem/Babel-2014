@@ -52,8 +52,6 @@ void Application::Run()
 
 	this->sound_m->setMusicLoop("Green Hills", true);
 
-
-
 	do{
 
 

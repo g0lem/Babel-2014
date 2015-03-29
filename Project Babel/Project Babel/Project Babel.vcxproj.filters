@@ -84,6 +84,12 @@
     <Filter Include="common\Events">
       <UniqueIdentifier>{7037b39c-3d20-44de-817d-be7a77306ab3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="common\Effects">
+      <UniqueIdentifier>{b39098ab-ea07-4212-b96f-e4fd62aacac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common\SplashScreen">
+      <UniqueIdentifier>{868f8282-6d16-4547-9099-a9103b1741dc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -271,6 +277,12 @@
     </ClCompile>
     <ClCompile Include="common\Map\fog_of_war.cpp">
       <Filter>common\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="common\Effects\effects_handler.cpp">
+      <Filter>common\Effects</Filter>
+    </ClCompile>
+    <ClCompile Include="common\splash_screen.cpp">
+      <Filter>common\SplashScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -498,6 +510,15 @@
     </ClInclude>
     <ClInclude Include="common\Map\fog_of_war.hpp">
       <Filter>common\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Effects.hpp">
+      <Filter>Precompiled Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Effects\effects_handler.hpp">
+      <Filter>common\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="common\splash_screen.hpp">
+      <Filter>common\SplashScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

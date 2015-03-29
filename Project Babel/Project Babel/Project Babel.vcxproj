@@ -23,6 +23,7 @@
     <ClCompile Include="common\Delta\one_direction.cpp" />
     <ClCompile Include="common\Delta\pathfinder.cpp" />
     <ClCompile Include="common\Delta\physical_attributes.cpp" />
+    <ClCompile Include="common\Effects\effects_handler.cpp" />
     <ClCompile Include="common\Events\event_handler.cpp" />
     <ClCompile Include="common\Framework\Controls\controls.cpp" />
     <ClCompile Include="common\Framework\Font\text2D.cpp" />
@@ -61,6 +62,7 @@
     <ClCompile Include="common\Map\room.cpp" />
     <ClCompile Include="common\Map\tile_map.cpp" />
     <ClCompile Include="common\Player\player.cpp" />
+    <ClCompile Include="common\splash_screen.cpp" />
     <ClCompile Include="common\Stats\hp.cpp" />
     <ClCompile Include="common\Stats\stats.cpp" />
     <ClCompile Include="common\Turns\turn.cpp" />
@@ -90,6 +92,8 @@
     <ClInclude Include="common\Delta\one_direction.hpp" />
     <ClInclude Include="common\Delta\pathfinder.hpp" />
     <ClInclude Include="common\Delta\physical_attributes.hpp" />
+    <ClInclude Include="common\Effects.hpp" />
+    <ClInclude Include="common\Effects\effects_handler.hpp" />
     <ClInclude Include="common\Events.hpp" />
     <ClInclude Include="common\Events\event_handler.hpp" />
     <ClInclude Include="common\Framework.hpp" />
@@ -132,6 +136,7 @@
     <ClInclude Include="common\Map\map.hpp" />
     <ClInclude Include="common\Map\room.hpp" />
     <ClInclude Include="common\Map\tile_map.hpp" />
+    <ClInclude Include="common\splash_screen.hpp" />
     <ClInclude Include="common\UI.hpp" />
     <ClInclude Include="common\Player.hpp" />
     <ClInclude Include="common\Player\player.hpp" />

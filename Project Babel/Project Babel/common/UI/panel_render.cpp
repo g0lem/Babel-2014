@@ -52,11 +52,12 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 {
 	u_data->SetAmbientLight(glm::vec4(1.f, 1.f, 1.f, 1.f));
 
+
+
 	u_data->ApplyMatrix(Translation(this->portrait_position)*Scale(this->portrait_size));
 
 	this->button_skins->Render(PANEL_PORTRAIT);
-
-
+	
 
 	u_data->ApplyMatrix(Translation(this->level_position)*Scale(this->level_size));
 
@@ -74,16 +75,14 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 
 	u_data->ApplyMatrix(Translation(this->health_border_position)*Scale(this->health_border_size));
 
+
 	this->button_skins->Render(PANEL_HP_BORDER);
 
-
-	/*
+	u_data->SetAmbientLight(glm::vec4(1.f, 1.f, 1.f, 1.f));
+	
 	u_data->ApplyMatrix(Translation(this->energy_position)*Scale(this->energy_size));
 
-	this->button_skins->Render(PANEL_ENERGY);
-	*/
-
-
+	
 	u_data->ApplyMatrix(Translation(this->stairs_position)*Scale(this->stairs_size));
 
 	this->button_skins->Render(PANEL_STAIRS);

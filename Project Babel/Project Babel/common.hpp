@@ -40,13 +40,17 @@
 #include "common/Stats.hpp"
 #include "common/Item.hpp"
 #include "common/Turns.hpp"
+#include "common/Effects.hpp"
 #include "common/Map/tile_map.hpp"
 #include "common/Game Object.hpp"
+
 #include "common/Map.hpp"
 #include "common/Delta.hpp"
+
 #include "common/AI.hpp"
 #include "common/UI.hpp"
 #include "common/Events.hpp"
+
 #include "common/Player.hpp"
 #include "common/Combat.hpp"
 #include "common/manager.hpp"

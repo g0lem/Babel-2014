@@ -48,6 +48,9 @@ class PanelRender
 
 	void Update(Controller *ctrl, GameObject * g_obj);
 
+	float eAlpha = 1.0f;
+
+	bool turn;
 
 public:
 
