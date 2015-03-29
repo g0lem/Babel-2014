@@ -21,7 +21,9 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->m_stats = new Stats();
 	this->e_near = new EnemiesNear();
 	this->h_event = new EventHandler();
+	this->fog = new fog_of_war();
 	h_event->Init(current_tilemap);
+	fog->Init(g_obj);
 
 	this->last_wanted_position = glm::vec2(0, 0);
 
@@ -86,7 +88,7 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 
 		this->m_sprite[m_dir->Compute(DIR_TYPE_4, attributes->position, attributes->target)]->Render(this->walk_animation->GetIFrames());
 		this->UpdateUI(g_obj);
-
+		this->fog->Render(u_data, ctrl, g_obj, this->GetPAttributes()->position);
 
 }
 
