@@ -17,7 +17,6 @@ class SpriteManager : private Aaether2D
 	Map * map;
 
 
-
 	EnemyManager * m_enemies;
 
 

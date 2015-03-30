@@ -7,16 +7,15 @@
 
 
 
-void Map::Init(GameObject *g_obj)
+void Map::Init()
 {
 
 
 	this->LoadSprites();
 
-	
 
-	this->GenerateContent(g_obj);
 
+	this->GenerateContent();
 
 
 
@@ -26,7 +25,7 @@ void Map::Init(GameObject *g_obj)
 
 
 
-void Map::GenerateContent(GameObject *g_obj)
+void Map::GenerateContent()
 {
 
 
@@ -49,12 +48,6 @@ void Map::GenerateContent(GameObject *g_obj)
 
 	this->AddDoors();
 
-	g_obj->GetCollisionMap()->CreateOutOfMap(this->GetTilemap());
-
-	this->fog = new fog_of_war();
-	fog->Init(g_obj);
-	
-
 
 }
 
@@ -66,13 +59,11 @@ void Map::GenerateContent(GameObject *g_obj)
 void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 	
-	//this->fog->Render(ctrl, u_data, glm::vec2((g_obj->GetScroller()->GetBeginLimit() + g_obj->GetScroller()->GetEndLimit())/2), g_obj);
+
 
 	this->tilemap->Render(ctrl, u_data, this->m_sprite,
 		g_obj->GetScroller()->GetBeginLimit(),g_obj->GetScroller()->GetEndLimit(),
-		g_obj->GetScroller()->GetOffset(), fog->GetFOW(g_obj, glm::ivec2((g_obj->GetScroller()->GetBeginLimit()+g_obj->GetScroller()->GetEndLimit())/2 - 1)));
-
-
+		g_obj->GetScroller()->GetOffset());
 
 
 

@@ -23,7 +23,7 @@ public:
 
 
 
-	void Init(GameObject *g_obj);
+	void Init();
 
 
 	void TransformAndApplyRoomToTileMap(Room * room, Tilemap * tilemap, GLuint transform_flag);
@@ -50,8 +50,6 @@ private:
 
 	Sprite * m_sprite;
 
-	fog_of_war *fog;
-
 
 	GLuint expected_rooms;
 
@@ -62,7 +60,7 @@ private:
 	void LoadSprites();
 
 
-	void GenerateContent(GameObject *g_obj);
+	void GenerateContent();
 
 
 	void AddTunnel(glm::ivec2 point_a, glm::ivec2 point_b);

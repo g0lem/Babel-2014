@@ -49,7 +49,8 @@ class Player
 	Sprite ** m_sprite;
 	Animation *walk_animation;
 	EventHandler *h_event;
-	
+	fog_of_war *fog;
+
 
 	PhysicalAttributes * attributes;
 	Stats * m_stats;
