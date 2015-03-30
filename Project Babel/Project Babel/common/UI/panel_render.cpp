@@ -2,26 +2,17 @@
 
 void PanelRender::Init()
 {
-	energy_position = glm::vec2(154, 40);
-	energy_size = glm::vec2(208, 43);
+	wireframe_position = vec2_0;
+	wireframe_size = glm::vec2(960, 64);
 
-	health_position = glm::vec2(154, 0);
-	health_size = glm::vec2(308, 43);
+	menu_position = glm::vec2(459, 11);
+	menu_size = glm::vec2(42, 42);
 
-	health_border_position = glm::vec2(154, 0);
-	health_border_size = glm::vec2(308, 43);
+	xp_bar_position = glm::vec2(128, 41);
+	xp_bar_size = glm::vec2(319, 20);
 
-	level_position = glm::vec2(120, 120);
-	level_size = glm::vec2(38, 38);
-
-	portrait_position = glm::vec2(0, 0);
-	portrait_size = glm::vec2(158, 158);
-
-	stairs_position = glm::vec2(164, 46);
-	stairs_size = glm::vec2(31, 29);
-
-	floor_1_position = glm::vec2(207, 47);
-	floor_1_size = glm::vec2(9, 22);
+	hp_bar_position = glm::vec2(514, 41);
+	hp_bar_size = glm::vec2(314, 20);
 
 	LoadButtonsSprite();
 
@@ -32,17 +23,24 @@ void PanelRender::LoadButtonsSprite()
 {
 	this->button_skins = new Sprite();
 
-	char **tex_str = new char*[7];
+	char **tex_str = new char*[4];
 
-	tex_str[PANEL_PORTRAIT] = "portrait.png";
-	tex_str[PANEL_LEVEL] = "level.png";
-	tex_str[PANEL_HP] = "health.png";
-	tex_str[PANEL_HP_BORDER] = "health_border.png";
-	tex_str[PANEL_ENERGY] = "energy.png";
-	tex_str[PANEL_STAIRS] = "stairs.png";
-	tex_str[PANEL_ONE] = "floor_1.png";
+	tex_str[MENUBUTTON] = "menu_button.png";
+	tex_str[WIREFRAME] = "wireframe.png";
+	tex_str[HEALTHBAR] = "healthbar.png";
+	tex_str[XPBAR] = "xpbar.png";
 
-	this->button_skins->Load(7, "data/UI/CPanel/", tex_str);
+
+	this->button_skins->Load(4, "data/UI/CPanel/", tex_str); 
+
+	this->a_button = new Button*[1];
+
+	Property * m_prop = new Property();
+	m_prop->size = this->menu_size;
+	m_prop->color = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
+	m_prop->position = this->menu_position;
+
+	a_button[0] = new Button(m_prop);
 }
 
 
@@ -53,45 +51,46 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 	u_data->SetAmbientLight(glm::vec4(1.f, 1.f, 1.f, 1.f));
 
 
+	g_obj->GetUIState()->GetPanelState()->SetState(UI_helper::GetButtonAction(ctrl, this->a_button[0]->GetProperties()));
 
-	u_data->ApplyMatrix(Translation(this->portrait_position)*Scale(this->portrait_size));
-
-	this->button_skins->Render(PANEL_PORTRAIT);
+	this->a_button[0]->Render(ctrl, u_data, this->button_skins, 0, g_obj->GetUIState()->GetPanelState()->GetState());
 	
 
-	u_data->ApplyMatrix(Translation(this->level_position)*Scale(this->level_size));
 
-	this->button_skins->Render(PANEL_LEVEL);
-
-
-
-
-
-
-	glm::vec2 hp_factor = glm::vec2(GLfloat(g_obj->GetPanelState()->hp) / GLfloat(g_obj->GetPanelState()->max_hp), 1.0f);
-	u_data->ApplyMatrix(Translation(this->health_position)*Scale(this->health_size*hp_factor));
-	this->button_skins->Render(PANEL_HP);
-
-
-	u_data->ApplyMatrix(Translation(this->health_border_position)*Scale(this->health_border_size));
+		if (g_obj->GetUIState()->GetPanelState()->GetState() == 2)
+		{
+			if (pressed == false){
+				g_obj->GetUIState()->GetCharPanState()->SetState(ACTIVE);
+				pressed = true;
+			}
+			else
+			{
+				g_obj->GetUIState()->GetCharPanState()->SetState(NOT_ACTIVE);
+				pressed = false;
+			}
+		}
 
 
-	this->button_skins->Render(PANEL_HP_BORDER);
 
 	u_data->SetAmbientLight(glm::vec4(1.f, 1.f, 1.f, 1.f));
+
+	u_data->ApplyMatrix(Translation(this->wireframe_position)*Scale(this->wireframe_size));
+
+	this->button_skins->Render(WIREFRAME);
+
+
 	
-	u_data->ApplyMatrix(Translation(this->energy_position)*Scale(this->energy_size));
+	glm::vec2 hp_factor = glm::vec2(GLfloat(g_obj->GetPanelState()->hp) / GLfloat(g_obj->GetPanelState()->max_hp), 1.0f);
+	u_data->ApplyMatrix(Translation(this->hp_bar_position)*Scale(this->hp_bar_size*hp_factor));
+	this->button_skins->Render(HEALTHBAR);
+
+
+	u_data->ApplyMatrix(Translation(this->xp_bar_position)*Scale(this->xp_bar_size));
+
+
+	this->button_skins->Render(XPBAR);
+
+
 
 	
-	u_data->ApplyMatrix(Translation(this->stairs_position)*Scale(this->stairs_size));
-
-	this->button_skins->Render(PANEL_STAIRS);
-
-
-	u_data->ApplyMatrix(Translation(this->floor_1_position)*Scale(this->floor_1_size));
-
-	this->button_skins->Render(PANEL_ONE);
-
-
-    
 }
