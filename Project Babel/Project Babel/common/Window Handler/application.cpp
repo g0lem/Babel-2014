@@ -33,7 +33,6 @@ void Application::Init()
 
 	sound_m = new SoundManager();
 
-
 	g_render = new GameRender(g_object);
 
 
@@ -49,6 +48,7 @@ void Application::Init()
 
 void Application::Run()
 {
+	
 
 	this->sound_m->setMusicLoop("Green Hills", true);
 
@@ -61,19 +61,17 @@ void Application::Run()
 
 		this->Enable();
 
-
-
+		
 		g_render->Render(this, g_object);
 
-
-
-		ui->Render(this, g_object);
+		if (g_render->GetDrawCode() == true)
+			ui->Render(this, g_object);
 
 
 
 		g_object->GetUIState()->Update(this);
 			
-
+		
 
 		glfwSwapBuffers(this->GetWindow());
 		glfwPollEvents();

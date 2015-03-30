@@ -38,8 +38,6 @@ public:
 
 	inline void SetAmbientLight(glm::vec4 ambient){ glUniform4f(this->AmbientLight, ambient.x, ambient.y, ambient.z, ambient.w); }
 
-	inline int GetAmbientLight(){ return AmbientLight; }
-
 	inline void SetAmbientLight(glm::vec3 ambient){ this->SetAmbientLight(glm::vec4(ambient, 1.0f)); }
 
 

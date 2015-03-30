@@ -2,18 +2,34 @@
 
 
 
-class SplashScreen
+class SplashScreen: public Aaether2D
 {
-	Sprite *m_sprite;
+	
 
 public:
+	Sprite *m_screen;
+	glm::vec2 position;
+	glm::vec2 scale;
+
+	struct splash
+	{
+		float alpha;
+		bool turn;
+		int type;
 
 
-	inline SplashScreen(){ this->Init(); }
+	};
 
+	std::vector<splash*> *m_screens;
+
+	bool finished = false;
 	void Init();
 
 	void Load();
+
+	void Render(Controller *ctrl, ScreenUniformData *u_data);
+
+	bool Update();
 
 	
 };

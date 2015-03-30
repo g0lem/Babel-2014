@@ -24,7 +24,9 @@ void SpriteManager::Init(GameObject * g_obj)
 
 	this->map->Init();
 
+	this->s_screen = new SplashScreen();
 
+	this->s_screen->Init();
 
 	g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
 
@@ -43,10 +45,6 @@ void SpriteManager::Init(GameObject * g_obj)
 
 
 	this->m_combat = new Combat();
-
-
-
-
 
 
 	this->UnbindCreate();
@@ -77,6 +75,7 @@ void SpriteManager::Clean()
 
 
 
+
 void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 {
 
@@ -84,25 +83,31 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
-
-	g_obj->GetScroller()->ComputeScreenLimits(ctrl, this->map->GetTilemap()->GetSize(), this->map->GetTilemap()->GetTileScale());
-
-
-	this->map->Render(ctrl, this->GetScreenPointer(), g_obj);
-
-
-	this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
-
-
-	this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj);
-
-
-	this->m_combat->Action(ctrl, g_obj, this->player, this->m_enemies, this->map);
-  
+	if (this->s_screen->Update() == false)
+	{
+		this->s_screen->Render(ctrl, this->GetScreenPointer());
 
 
 
+	}
+	else
+	{
+		g_obj->GetScroller()->ComputeScreenLimits(ctrl, this->map->GetTilemap()->GetSize(), this->map->GetTilemap()->GetTileScale());
 
+
+		this->map->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+
+		this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
+
+
+		this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+
+		this->m_combat->Action(ctrl, g_obj, this->player, this->m_enemies, this->map);
+
+		this->s_screen->Render(ctrl, this->GetScreenPointer());
+	}
 
 
 	this->UnbindRun();
