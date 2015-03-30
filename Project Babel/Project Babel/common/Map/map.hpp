@@ -19,7 +19,7 @@ public:
 
 
 
-	void Render(Controller*ctrl, ScreenUniformData * u_data, GameObject * g_obj);
+	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, glm::vec2 position);
 
 
 

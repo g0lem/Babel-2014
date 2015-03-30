@@ -1,7 +1,7 @@
 #include "common.hpp"
 
 
-#define RANGE 8
+#define RANGE 7
 #define LIT 0.0f
 #define SEMILIT 0.2f
 #define UNSEEN 0.5f
@@ -42,7 +42,7 @@ void fog_of_war::Advance(GameObject *g_obj)
 {
 	for (int i = 0; i < g_obj->GetCollisionMap()->GetSize().x; i++)
 		for (int j = 0; j < g_obj->GetCollisionMap()->GetSize().y; j++)
-			if (s_map[i][j] == LIT)
+			if (s_map[i][j] == LIT || s_map[i][j] == SEMILIT)
 				s_map[i][j] = UNSEEN;
 }
 
@@ -162,15 +162,24 @@ float **fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 			
 
 	for (int i = position.x - 1; i > position.x - RANGE; i--)
-		for (int j = position.y + 1; j < position.y - RANGE; j++)
+		for (int j = position.y + 1; j < position.y + RANGE; j++)
 		{
 
-		if (i >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j<g_obj->GetCollisionMap()->GetSize().y)
-		    if (s_map[i + 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i + 1][j - 1] == LIT)
-		    {
-			s_map[i][j] = LIT;
-		    }
-
+		
+		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
+		{
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && g_obj->GetCollisionMap()->GetTiles()[i + 1][j] == false && g_obj->GetCollisionMap()->GetTiles()[i][j - 1] == false && g_obj->GetCollisionMap()->GetTiles()[i + 1][j - 1] == false)
+				if (s_map[i + 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i + 1][j - 1] == LIT)
+				{			
+				s_map[i][j] = LIT;
+				}
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == true)
+				if (s_map[i + 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i + 1][j - 1] == LIT)
+				{				
+				s_map[i][j] = LIT;
+				}
+		}
+		
 		}
 
 
@@ -180,28 +189,51 @@ float **fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 		for (int j = position.y - 1; j > position.y - RANGE; j--)
 		{
 		
-		if (i >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j<g_obj->GetCollisionMap()->GetSize().y)
-			if ( s_map[i + 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i + 1][j + 1] == LIT)
+		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
+		{
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && g_obj->GetCollisionMap()->GetTiles()[i + 1][j] == false && g_obj->GetCollisionMap()->GetTiles()[i][j + 1] == false && g_obj->GetCollisionMap()->GetTiles()[i + 1][j + 1] == false)
+			if (s_map[i + 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i + 1][j + 1] == LIT)
 			{
-			s_map[i][j] = LIT;
+				s_map[i][j] = LIT;
 			}
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == true)
+				if (s_map[i + 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i + 1][j + 1] == LIT)
+				{
+				s_map[i][j] = LIT;
+				}
 
+		
+			
+		}
 		}
 
 	//Cadranul 3\\
 					
-
-
+	
 	for (int i = position.x + 1; i < position.x + RANGE; i++)
 		for (int j = position.y - 1; j > position.y - RANGE; j--)
 		{
-		if (i >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j<g_obj->GetCollisionMap()->GetSize().y)
-			if (s_map[i - 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i - 1][j + 1] == LIT)
+
+		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
+		{
+		
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j] == false && g_obj->GetCollisionMap()->GetTiles()[i][j + 1] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j + 1] == false)
+		    if(s_map[i - 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i - 1][j + 1] == LIT)
 			{
-			s_map[i][j] = LIT;
+				
+				s_map[i][j] = LIT;
 			}
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == true)
+				if (s_map[i - 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i - 1][j + 1] == LIT)
+				{
+				s_map[i][j] = LIT;
+				}
 
 		}
+		}
+
+
+
 
 
 	//Cadranul 4\\
@@ -209,11 +241,22 @@ float **fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 	for (int i = position.x + 1; i < position.x + RANGE; i++)
 		for (int j = position.y + 1; j < position.y + RANGE; j++)
 		{
-		if (i >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j<g_obj->GetCollisionMap()->GetSize().y)
-			if (s_map[i - 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i - 1][j - 1] == LIT)
+		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
+		{
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j] == false && g_obj->GetCollisionMap()->GetTiles()[i][j - 1] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j - 1] == false)
+			if(s_map[i - 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i - 1][j - 1] == LIT)
 			{
-			s_map[i][j] = LIT;
+				s_map[i][j] = LIT;
 			}
+			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == true)
+				if (s_map[i - 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i - 1][j - 1] == LIT)
+				{
+				s_map[i][j] = LIT;
+				}
+
+			
+
+		}
 		}
 
 	

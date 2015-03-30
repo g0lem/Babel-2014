@@ -87,23 +87,12 @@ void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_s
 		for (int i = begin_limit.x; i < end_limit.x; i++)
 		{
 
-			if (this->tiles[i][j] == NO_BLOCK || fog[i][j] == 0.9f)
+
+			if (this->tiles[i][j] != NO_BLOCK && fog[i][j] == 0.0f)
 			{
 
 
-				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f, 0.1f));
-				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
-				m_sprite->Render(this->tiles[i][j]);
-
-
-
-			}
-
-			if (this->tiles[i][j] != NO_BLOCK && fog[i][j]==0.0f)
-			{
-
-
-				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f,0.9f));
+				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f,1.0f));
 				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
 				m_sprite->Render(this->tiles[i][j]);
 
