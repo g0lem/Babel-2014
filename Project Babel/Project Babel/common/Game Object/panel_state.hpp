@@ -12,7 +12,7 @@ public:
 
 
 
-	GLint hp, max_hp;
+	GLint hp, max_hp, xp, max_xp;
 
 
 	inline panel_state(){ this->Init(); }

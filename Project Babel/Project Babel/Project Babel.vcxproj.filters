@@ -284,6 +284,9 @@
     <ClCompile Include="common\splash_screen.cpp">
       <Filter>common\SplashScreen</Filter>
     </ClCompile>
+    <ClCompile Include="common\stats\xp.cpp">
+      <Filter>common\Stats</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -519,6 +522,9 @@
     </ClInclude>
     <ClInclude Include="common\splash_screen.hpp">
       <Filter>common\SplashScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="common\stats\xp.hpp">
+      <Filter>common\Stats</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ class Stats
 
 	Hp * m_hp;
 
-
+	Xp * m_xp;
 
 public:
 
@@ -23,6 +23,7 @@ public:
 
 	inline  Hp * GetHp(){ return this->m_hp; }
 
+	inline Xp *GetXp() { return this->m_xp; }
 
 	inline Stats(){ this->Init(); }
 

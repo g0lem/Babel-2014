@@ -65,6 +65,7 @@
     <ClCompile Include="common\splash_screen.cpp" />
     <ClCompile Include="common\Stats\hp.cpp" />
     <ClCompile Include="common\Stats\stats.cpp" />
+    <ClCompile Include="common\stats\xp.cpp" />
     <ClCompile Include="common\Turns\turn.cpp" />
     <ClCompile Include="common\UI\Action_sprite_render.cpp" />
     <ClCompile Include="common\UI\CharacterPanelRender.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="common\Map\room.hpp" />
     <ClInclude Include="common\Map\tile_map.hpp" />
     <ClInclude Include="common\splash_screen.hpp" />
+    <ClInclude Include="common\stats\xp.hpp" />
     <ClInclude Include="common\UI.hpp" />
     <ClInclude Include="common\Player.hpp" />
     <ClInclude Include="common\Player\player.hpp" />

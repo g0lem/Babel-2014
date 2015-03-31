@@ -42,6 +42,8 @@ class PanelRender
 
 	bool pressed = false;
 
+	sf::Clock *t_clock;
+
 public:
 
 	inline PanelRender() { this->Init(); }

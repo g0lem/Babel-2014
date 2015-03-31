@@ -14,6 +14,8 @@ void PanelRender::Init()
 	hp_bar_position = glm::vec2(514, 41);
 	hp_bar_size = glm::vec2(314, 20);
 
+	t_clock = new sf::Clock();
+
 	LoadButtonsSprite();
 
 
@@ -56,7 +58,7 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 	this->a_button[0]->Render(ctrl, u_data, this->button_skins, 0, g_obj->GetUIState()->GetPanelState()->GetState());
 	
 
-
+	if (t_clock->getElapsedTime().asSeconds() > 0.2f)
 		if (g_obj->GetUIState()->GetPanelState()->GetState() == 2)
 		{
 			if (pressed == false){
@@ -68,6 +70,8 @@ void PanelRender::Render(Controller *ctrl, ScreenUniformData *u_data, GameObject
 				g_obj->GetUIState()->GetCharPanState()->SetState(NOT_ACTIVE);
 				pressed = false;
 			}
+
+			t_clock->restart();
 		}
 
 

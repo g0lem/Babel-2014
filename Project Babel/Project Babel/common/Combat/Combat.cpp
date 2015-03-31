@@ -40,8 +40,11 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 
 
 			if (player->GetAttackingState())
-			player->GetDirection()->Compute(DIR_TYPE_4, player->GetPAttributes()->position,
-				enemies->GetEnemiesPointer()[0][i]->GetPAttributes()->target);
+			{
+				player->GetDirection()->Compute(DIR_TYPE_4, player->GetPAttributes()->position,
+					enemies->GetEnemiesPointer()[0][i]->GetPAttributes()->target);
+
+			}
 
 
 			break;
@@ -58,7 +61,7 @@ void Combat::SetPlayerTarget(Player * player, EnemyManager * enemies)
 
 }
 
-
+  
 
 void Combat::PlayerAttack(GameObject * g_obj, Player * player, EnemyManager *enemies)
 {

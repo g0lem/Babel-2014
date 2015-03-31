@@ -48,7 +48,6 @@ void EnemyLoader::Init()
 	temp->m_sprites[3] = new Sprite();
 	temp->m_sprites[3]->Load(temp->num_frames[3], "data/sprites/mob0/right/", tex_str);
 
-
 	temp->m_stats = new Stats();
 	temp->m_stats->base_attack = glm::vec2(0.0f, 1.0f);
 	temp->m_stats->base_attack_speed = 1.0f;

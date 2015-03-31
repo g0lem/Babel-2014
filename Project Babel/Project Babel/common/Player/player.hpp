@@ -57,7 +57,7 @@ class Player
 	GLboolean attacking;
 	GLint target;
 
-
+	sf::Clock *t_clock;
 
 
 
