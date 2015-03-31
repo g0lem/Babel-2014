@@ -34,6 +34,7 @@ public:
 	void Init(GameObject * g_obj);
 
 
+	bool GetDrawCode(){ return this->s_manager->s_screen->Update(); }
 
 	void Render(Controller * ctrl, GameObject * g_obj);
 

@@ -16,10 +16,10 @@ class EnemyManager
 
 
 
-	void CheckEnemiesState(GameObject * g_obj, Map *map);
+	void CheckEnemiesState(GameObject * g_obj);
 
 
-	void Kill(GameObject * g_obj, GLuint enemy_id, Map *map);
+	void Kill(GameObject * g_obj, GLuint enemy_id);
 
 
 
@@ -27,7 +27,7 @@ public:
 
 
 
-	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, Map *map);
+	void Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj);
 
 
 

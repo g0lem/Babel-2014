@@ -6,7 +6,7 @@
 
 
 
-void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj, Map *map)
+void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_obj)
 {
 
 
@@ -34,7 +34,7 @@ void EnemyManager::Render(Controller * ctrl, ScreenUniformData * u_data, GameObj
 
 
 
-	this->CheckEnemiesState(g_obj, map);
+	this->CheckEnemiesState(g_obj);
 
 
 
@@ -69,7 +69,7 @@ void EnemyManager::Init(GLuint num, Map * map, GameObject * g_obj)
 
 
 
-void EnemyManager::CheckEnemiesState(GameObject * g_obj, Map * map)
+void EnemyManager::CheckEnemiesState(GameObject * g_obj)
 {
 
 
@@ -81,7 +81,7 @@ void EnemyManager::CheckEnemiesState(GameObject * g_obj, Map * map)
 		{
 
 
-			this->Kill(g_obj, i, map);
+			this->Kill(g_obj, i);
 
 
 		}
@@ -95,18 +95,13 @@ void EnemyManager::CheckEnemiesState(GameObject * g_obj, Map * map)
 
 
 
-void EnemyManager::Kill(GameObject * g_obj, GLuint enemy_id, Map *map)
+void EnemyManager::Kill(GameObject * g_obj, GLuint enemy_id)
 {
 
 
 	glm::vec2 last_position = this->m_enemies[0][enemy_id]->GetLastPosition();
 	g_obj->GetCollisionMap()->GetTiles()[GLuint(last_position.x)][GLuint(last_position.y)] = 0;
-	if (this->m_enemies->size() > 1)
-		this->m_enemies->erase(this->m_enemies->begin() + enemy_id);
-	else
-	{
-		this->m_enemies->at(enemy_id)->GetStats()->GetHp()->Buff(8);
-		this->m_enemies->at(enemy_id)->SetRandomPosition(map);
-	}
+	this->m_enemies->erase(this->m_enemies->begin() + enemy_id);
+
 
 }

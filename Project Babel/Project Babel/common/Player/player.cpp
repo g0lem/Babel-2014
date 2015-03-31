@@ -21,15 +21,10 @@ void Player::Load(GameObject * g_obj, Map * current_tilemap)
 	this->m_stats = new Stats();
 	this->e_near = new EnemiesNear();
 	this->h_event = new EventHandler();
-	
+	this->fog = new fog_of_war();
 	h_event->Init(current_tilemap);
-<<<<<<< HEAD
 	fog->Init(g_obj);
 	this->t_clock = new sf::Clock();
-=======
-	
-
->>>>>>> 4092e1ea95a77826c3641cee1837d2f7d6f84683
 	this->last_wanted_position = glm::vec2(0, 0);
 
 
@@ -100,11 +95,8 @@ void Player::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * 
 				this->m_sprite[4]->Render(m_dir->Compute(DIR_TYPE_4, attributes->position, attributes->target));
 		}
 		this->UpdateUI(g_obj);
-		
+		this->fog->Render(u_data, ctrl, g_obj, this->GetPAttributes()->position);
 
-		
-
-		
 }
 
 

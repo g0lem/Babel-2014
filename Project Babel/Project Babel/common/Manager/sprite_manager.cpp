@@ -19,15 +19,23 @@ void SpriteManager::Init(GameObject * g_obj)
 
 
 	this->map = new Map();
-	
 
 
-	this->map->Init(g_obj);
 
+<<<<<<< HEAD
 	
 g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
  
 	
+=======
+	this->map->Init();
+
+	this->s_screen = new SplashScreen();
+
+	this->s_screen->Init();
+
+	g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
+>>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 
 
@@ -44,10 +52,6 @@ g_obj->GetCollisionMap()->CreateOutOfMap(this->map->GetTilemap());
 
 
 	this->m_combat = new Combat();
-
-
-
-
 
 
 	this->UnbindCreate();
@@ -78,6 +82,7 @@ void SpriteManager::Clean()
 
 
 
+
 void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 {
 
@@ -85,24 +90,36 @@ void SpriteManager::Render(Controller * ctrl, GameObject * g_obj)
 	this->BindRun(ctrl->GetWindowWidth(), ctrl->GetWindowHeight());
 
 
+	if (this->s_screen->Update() == false)
+	{
+		this->s_screen->Render(ctrl, this->GetScreenPointer());
 
-	g_obj->GetScroller()->ComputeScreenLimits(ctrl, this->map->GetTilemap()->GetSize(), this->map->GetTilemap()->GetTileScale());
 
-
+<<<<<<< HEAD
 	this->map->Render(ctrl, this->GetScreenPointer(), g_obj, player->GetPAttributes()->position);
+=======
+		if (ctrl->GetKey(GLFW_KEY_ENTER) == 1)
+			this->s_screen->m_screens->at(0)->alpha = 0;
+	}
+	else
+	{
+		g_obj->GetScroller()->ComputeScreenLimits(ctrl, this->map->GetTilemap()->GetSize(), this->map->GetTilemap()->GetTileScale());
+>>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 
-
-	this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
-
-
-	this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
+		this->map->Render(ctrl, this->GetScreenPointer(), g_obj);
 
 
-	this->m_combat->Action(ctrl, g_obj, this->player, this->m_enemies, this->map);
-  
+		this->player->Render(ctrl, this->GetScreenPointer(), g_obj, this->map);
 
 
+		this->m_enemies->Render(ctrl, this->GetScreenPointer(), g_obj);
+
+
+		this->m_combat->Action(ctrl, g_obj, this->player, this->m_enemies, this->map);
+
+		this->s_screen->Render(ctrl, this->GetScreenPointer());
+	}
 
 
 	this->UnbindRun();

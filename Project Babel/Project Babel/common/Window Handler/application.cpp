@@ -22,7 +22,7 @@ void Application::Init()
 
     this->CreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT,
 		false,
-		"Project Babel 0.1.2a",
+		"Project Babel 0.1.5a",
 		4, 0);
 
 
@@ -32,7 +32,6 @@ void Application::Init()
 	g_object = new GameObject();
 
 	sound_m = new SoundManager();
-
 
 	g_render = new GameRender(g_object);
 
@@ -49,6 +48,7 @@ void Application::Init()
 
 void Application::Run()
 {
+	
 
 	this->sound_m->setMusicLoop("Green Hills", true);
 
@@ -61,19 +61,17 @@ void Application::Run()
 
 		this->Enable();
 
-
-
+		
 		g_render->Render(this, g_object);
 
-
-
-		ui->Render(this, g_object);
+		if (g_render->GetDrawCode() == true)
+			ui->Render(this, g_object);
 
 
 
 		g_object->GetUIState()->Update(this);
 			
-
+		
 
 		glfwSwapBuffers(this->GetWindow());
 		glfwPollEvents();
