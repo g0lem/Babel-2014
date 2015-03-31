@@ -5,7 +5,7 @@
 class panel_state
 {
 
-	int state;
+
 
 
 public:
@@ -21,10 +21,6 @@ public:
 
 	void Init();
 
-
-	inline int GetState(){ return this->state; }
-
-	inline void SetState(int state){ this->state = state; }
 
 
 };

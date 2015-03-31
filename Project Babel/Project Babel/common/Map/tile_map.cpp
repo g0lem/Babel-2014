@@ -66,12 +66,12 @@ void Tilemap::Init()
 
 void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_sprite, 
 	glm::ivec2 begin_limit, glm::ivec2 end_limit,
-	glm::vec2 offset)
+	glm::vec2 offset, float **fog)
 {
 
 
 
-	u_data->SetAmbientLight(glm::vec3(1.0f, 1.0f, 1.0f));
+	
 
 
 
@@ -87,19 +87,37 @@ void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_s
 		for (int i = begin_limit.x; i < end_limit.x; i++)
 		{
 
-
-
-			if (this->tiles[i][j] != NO_BLOCK)
+			if (this->tiles[i][j] == NO_BLOCK || fog[i][j] == 0.9f)
 			{
 
 
-
+				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f, 0.1f));
 				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
 				m_sprite->Render(this->tiles[i][j]);
 
 
 
 			}
+
+			if (this->tiles[i][j] != NO_BLOCK && fog[i][j]==0.0f)
+			{
+
+
+				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f,0.9f));
+				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
+				m_sprite->Render(this->tiles[i][j]);
+
+
+
+			}
+			
+			if (this->tiles[i][j] != NO_BLOCK && fog[i][j] == 0.5f)
+			{
+				u_data->SetAmbientLight(glm::vec4(1.0f, 1.0f, 1.0f, 0.5f));
+				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
+				m_sprite->Render(this->tiles[i][j]);
+			}
+
 
 
 

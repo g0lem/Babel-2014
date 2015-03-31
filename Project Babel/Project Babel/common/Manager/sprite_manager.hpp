@@ -17,17 +17,17 @@ class SpriteManager : private Aaether2D
 	Map * map;
 
 
+
 	EnemyManager * m_enemies;
 
 
 	Combat * m_combat;
 
 
-	bool finished = false;
 
 public:
-	bool canDraw = false;
-	SplashScreen * s_screen;
+
+
 	inline SpriteManager(GameObject * g_obj){ this->Init(g_obj); }
 
 

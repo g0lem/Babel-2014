@@ -53,7 +53,6 @@
 
 #include "common/Player.hpp"
 #include "common/Combat.hpp"
-#include "common/splash_screen.hpp"
 #include "common/manager.hpp"
 
 #include "common/Window Handler.hpp"

@@ -13,6 +13,10 @@ void GameRender::Init(GameObject * g_obj)
 	this->f_manager = new FontManager();
 
 
+	
+	
+
+
 }
 
 
@@ -26,6 +30,9 @@ void GameRender::Render(Controller * ctrl, GameObject * g_obj)
 
 
 	this->f_manager->Render(ctrl);
+
+
+	
 
 
 }

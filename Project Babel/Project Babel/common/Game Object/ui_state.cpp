@@ -17,7 +17,7 @@ void UIState::Init()
 
 	this->inter_handler = new UI_intersect();
 
-	this->p_state = new panel_state();
+
 }
 
 

@@ -19,7 +19,6 @@ class UIState
 
 	CharPanState * char_panel;
 
-	panel_state *p_state;
 
 	UI_intersect * inter_handler;
 
@@ -41,7 +40,7 @@ public:
 
 	inline UIState(){ this->Init(); }
 
-	inline panel_state *GetPanelState(){ return this->p_state; }
+
 
 	void Init();
 

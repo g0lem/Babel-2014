@@ -16,7 +16,6 @@ class Application : private Controller
 
 	GameRender * g_render;
 
-	SplashScreen *s_screen;
 
 	GameObject * g_object;
 
@@ -25,11 +24,11 @@ class Application : private Controller
 
 	UIHandler * ui;
 
-	
+
 
 public:
 
-	
+
 
 
 	inline Application() { this->Init(); }
