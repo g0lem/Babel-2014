@@ -63,13 +63,12 @@ void Map::Render(Controller * ctrl, ScreenUniformData * u_data, GameObject * g_o
 
 	this->tilemap->Render(ctrl, u_data, this->m_sprite,
 		g_obj->GetScroller()->GetBeginLimit(),g_obj->GetScroller()->GetEndLimit(),
-<<<<<<< HEAD
+
 		g_obj->GetScroller()->GetOffset(), fog->GetFOW(g_obj,glm::ivec2(position)));
 
 
-=======
+
 		g_obj->GetScroller()->GetOffset());
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 
 

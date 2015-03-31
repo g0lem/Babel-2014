@@ -12,7 +12,6 @@
 #define LIT 0
 #define UNSEEN 1
 #define DARK 2
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 void fog_of_war::Init(GameObject *g_obj)
 {
@@ -129,7 +128,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 	for (int i = position.x - 1; i > position.x - RANGE; i--)
 		for (int j = position.y + 1; j < position.y + RANGE; j++)
 		{
-<<<<<<< HEAD
+
 
 		
 		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
@@ -146,7 +145,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 				}
 		}
 		
-=======
+
 		if (i >= 0 && j >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j<g_obj->GetCollisionMap()->GetSize().y)
 		if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && s_map[i+1][j] == LIT && s_map[i][j-1] == LIT && s_map[i+1][j-1] == LIT)
 		{
@@ -154,7 +153,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 		}
 
 
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
+
 		}
 
 
@@ -163,7 +162,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 	for (int i = position.x - 1; i > position.x - RANGE; i--)
 		for (int j = position.y - 1; j > position.y - RANGE; j--)
 		{
-<<<<<<< HEAD
+
 		
 		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
 		{
@@ -177,13 +176,12 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 				{
 				s_map[i][j] = LIT;
 				}
-=======
+
 		if (i >= 0 && j >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j<g_obj->GetCollisionMap()->GetSize().y)
 		if (g_obj->GetCollisionMap()->GetTiles()[i][j] != 1 && s_map[i + 1][j] == LIT && s_map[i][j + 1] == LIT && s_map[i + 1][j + 1] == LIT)
 		{
 			s_map[i][j] = LIT;
 		}
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 		
 			
@@ -212,7 +210,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 				{
 				s_map[i][j] = LIT;
 				}
-=======
+
 				
 	
 
@@ -224,7 +222,6 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 		{
 			s_map[i][j] = LIT;
 		}
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 
 		}
 		}
@@ -238,7 +235,7 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 	for (int i = position.x + 1; i < position.x + RANGE; i++)
 		for (int j = position.y + 1; j < position.y + RANGE; j++)
 		{
-<<<<<<< HEAD
+
 		if (i >= 0 && i < g_obj->GetCollisionMap()->GetSize().x && j >= 0 && j < g_obj->GetCollisionMap()->GetSize().y)
 		{
 			if (g_obj->GetCollisionMap()->GetTiles()[i][j] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j] == false && g_obj->GetCollisionMap()->GetTiles()[i][j - 1] == false && g_obj->GetCollisionMap()->GetTiles()[i - 1][j - 1] == false)
@@ -254,12 +251,11 @@ void fog_of_war::GetFOW(GameObject *g_obj, glm::ivec2 position)
 
 			
 
-=======
-		if (i >= 0 && j >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j<g_obj->GetCollisionMap()->GetSize().y)
+
+	if (i >= 0 && j >= 0 && i<g_obj->GetCollisionMap()->GetSize().x && j<g_obj->GetCollisionMap()->GetSize().y)
 		if (g_obj->GetCollisionMap()->GetTiles()[i][j] != 1 && s_map[i - 1][j] == LIT && s_map[i][j - 1] == LIT && s_map[i - 1][j - 1] == LIT)
 		{
 			s_map[i][j] = LIT;
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
 		}
 		}
 

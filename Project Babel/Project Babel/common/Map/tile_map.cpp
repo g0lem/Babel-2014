@@ -101,7 +101,7 @@ void Tilemap::Render(Controller * ctrl, ScreenUniformData * u_data, Sprite * m_s
 
 
 
->>>>>>> parent of 8baece7... Merge branch 'master' of https://github.com/projectPJA/projectBabel
+
 				u_data->ApplyMatrix(Translation(glm::vec2(i, j)*tile_scale + offset)*Scale(tile_scale));
 				m_sprite->Render(this->tiles[i][j]);
 
